@@ -1,0 +1,76 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section{Manifolds without Conjugate Points}\label{ch10:s7}
+
+Most of the results of the next two sections are based on a paper by A. Preissmann and some informal notes by W. B. Housing, Jr.
+
+Throughout this section, let $M$ be a complete connected Hausdorff Riemannian $n$-manifold. If $m\in M$ and there exists no point of $M$ that is conjugate to $m$, then $m$ is called a \defemph{pole}\index{pole}.
+
+
+
+\begin{theorem} \label{thm:ch10.7.1}
+If $m\in M$ is a pole, then $\exp_m:\ts Mm\functionMaps M$ is a covering map. Thus the simply connected covering of $M$ is diffeo to $\bR^n$, and if $M$ is simply connected, then $M$ is diffeo to $\bR^n$.
+\end{theorem}
+
+\begin{proof}
+Letting $E=\exp_m$, we know $E$ is onto since $M$ is complete, and $E$ is a local diffeo since $m$ has no conjugate points. The metric tensor $G$ of $M$ induces a Euclidean metric on $\ts Mm$ whose distance function we denote by $d$. On the other hand, by requiring $E$ to be an isometry, we define a metric tensor $G_1$ on $\ts Mm$ whose distance function we denote by $d_1$. The rays in $\ts Mm$, emanating from the origin, are $G_1$-geodesics since $E$ is connexion preserving. We now show these rays are minimizing $G_1$-geodesics from the origin.
+
+Take any $X\in\ts Mm$, and let $\gamma$ be a $\CInfty$ curve from 0 to $X$ with $\gamma(t)\in\xoverline B(0,\norm X)$ for all $t$ ($B$ is the Euclidean ball). Assume $\gamma$ is parameterized so $\norm{\gamma(t)}=t$, thus $\gamma$ is defined on $[0,\norm X]$. Let $T$ be the tangent to $\gamma$, then $T_t=R_t+V_t$ where $R$ is the unit (outward) radial vector field on $\ts Mm$ (and $R_0=T_0$), and $V_t$ is orthogonal to $R_t$ at each point. Computing the $G_1$-length of $T$,
+\[\norm T_1 = \norm{E_*(R+V)} \ge \norm{E_*(R)} = 1\]
+by the perpendicular lemma. Hence
+\[\norm\gamma_1 = \int_0^{\norm X}\norm T_1\dd t \ge \norm X\]
+which implies $d_1(0,X)=\norm X$, since the ray from 0 to $X$ has $G_1$-length equal to $\norm X$. Thus $\xoverline B_1(0,b)=\xoverline B(0,b)$ for all $b\ge0$, and since the latter is compact, so is the former. By the complete theorem (\ref{thm:ch10.5.1}), $\ts Mm$ is complete with respect to the $G_1$-metric. By theorem \ref{thm:ch10.6.1}, the map $E:\ts Mm\functionMaps M$ is a covering map.
+\end{proof}
+
+
+
+\begin{corollary} \label{cor:ch10.7.2}
+If $M$ has non-positive Riemannian curvature, then all points are poles and $\bR^n$ is a simply connected covering space of $M$.
+\end{corollary}
+
+
+
+We now define the \defemph{universal covering manifold}\index{universal covering manifold} $\xoverline M$, based at a point $m\in M$, in a standard way. Let $\xoverline M$ be the set of equivalence classes of $C^0$-homotopic $C^0$-curves $f$ defined on a finite interval such that $f(0)=m$ (see Hocking-Young, p. 188). Let $[f]$ denote the equivalence class of a curve $f$, and let $\pi:\xoverline{M}\functionMaps M$ denote the covering map where $\pi([f])$ is the endpoint of $f$. Define a $\CInfty$ structure on $\xoverline M$ by demanding $\pi$ to be a $\CInfty$ map, and if $M$ is Riemannian, define a Riemannian metric on $\xoverline M$ such that $\pi$ is an isometry. We use repeated the fact that a $C^0$-curve $f$ in $M$ has a unique lifting $\xoverline f$ in $\xoverline M$ such that $\pi\circ\xoverline f=f$ once one has prescribed $\xoverline f(0)$. Let $f\sim h$ denote the fact that $f$ is homotopic to $h$ under a fixed end-point homotopy, and let $\xoverline m$ be the constant path at $m$.
+
+
+
+\begin{theorem} \label{thm:ch10.7.3}
+Let $f$ be a finite curve in $M$ and let
+\[b = \inf\brc{\norm h: h \text{ is a broken $\CInfty$ curve and }h\sim f}\]
+Then there exists a geodesic $g$ such that $g\sim f$ and $\norm g=b$. Thus in every homotopy class of curves (with fixed end-points), there is a geodesic whose length is the absolute minimum for the lengths of all broken $\CInfty$ curves in the homotopy class.
+\end{theorem}
+
+\begin{proof}
+Let $\xoverline M$ be the universal covering manifold based at $m=f(0)$. Since $M$ is complete, $\xoverline M$ is complete, and hence there exists a geodesic $\xoverline g$ from $[\xoverline m]$ to $[f]$ which gives the distance in $\xoverline M$ between these two points. Then $g=\pi\circ\xoverline g$ is a geodesic in $M$ since $\pi$ is an isometry, and $g\sim f$ since $\xoverline M$ is simply connected. If $h$ is a broken $\CInfty$ curve with $h\sim f$, then lift $h$ to a curve $\xoverline h$ starting at $[\xoverline m]$ and obtain a broken $\CInfty$ curve $\xoverline h$ from $[\xoverline m]$ to $[f]$. Since $\xoverline g$ gives the distance, $\norm{\xoverline h}\ge\norm{\xoverline g}=\norm g$, thus $\norm g=b$.
+\end{proof}
+
+
+
+\begin{theorem} \label{thm:ch10.7.4}
+Let $m\in M$ be a pole and let $g_1,g_2$ be geodesics emanating from $m$ that intersect later. If $g_1\sim g_2$, then $g_1=g_2$ (when both parameterized by arc length).
+\end{theorem}
+
+\begin{proof}
+Let $\xoverline M$ be the universal covering manifold based at $m$ with $\pi$ an isometry. Define $\xoverline\exp:\ts Mm\functionMaps\xoverline M$ by
+\[\xoverline\exp(X) = \brc{\exp_mtX: 0\le t\le 1}\]
+Then $\pi\circ\xoverline\exp=\exp_m$ and $\xoverline\exp$ is $\CInfty$, since localy $\xoverline\exp=\pi\inv\circ\exp_m$. Moreover, $\xoverline\exp$ is an isometry, for $m$ is a pole. Since $\ts Mm$ is simply connected, $\xoverline\exp$ is a diffeo by theorem \ref{thm:ch10.6.1}. If $g_1(t)=\exp tX_i$ where $g_1(1)=g_2(1)$, and $g_1\sim g_2$, then $[g_1]=[g_2]$. Since $\xoverline\exp$ is a diffeo, this implies $X_1=X_2$, which implies $g_1=g_2$.
+\end{proof}
+
+
+
+We remark that one can always define the $\CInfty$ map $\xoverline\exp:\ts Mm\functionMaps\xoverline M$ (base point $m$) with $\pi\circ\xoverline\exp=\exp_m$. The map $\xoverline\exp$ will be onto if $M$ is complete, but it will not in general be locally one-to-one.
+
+
+
+\begin{corollary} \label{cor:ch10.7.5}
+If $m\in M$ is a pole and $M$ is simply connected, then for any point $p\in M$ there is a unique geodesic through $m$ and $p$.
+\end{corollary}
+
+
+
+\begin{corollary} \label{cor:ch10.7.6}
+If $M$ is simply connected and has only non-positive Riemannian curvature, then there is a unique geodesic through any two points of $M$.
+\end{corollary}
+
+\end{document}

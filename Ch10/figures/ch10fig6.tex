@@ -1,0 +1,55 @@
+\documentclass[../../main]{subfiles}
+\begin{document}
+
+\begin{figure}[h!]
+\[
+\begin{tikzpicture}
+%uses the hobby tikz library
+    \begin{scope}
+    \coordinate (O) at (0,2);
+    \coordinate (X3) at (2.5,3);
+    \coordinate (X2) at (-0.5,0);
+    
+    \draw (O)--(X3) node[midway,anchor=south] {$\overline g_2$};
+    \draw (O)--(X2) node[midway,anchor=east] {$\overline g_3$};
+    \path[draw,use Hobby shortcut]
+        (X2) .. ($(X2)+(0.5,0.5)$) .. ($(X2)+(1.5,0.5)$) .. ($(X2)+(2,1)$) .. ($(X3)+(-0.5,-1)$) .. ($(X3)+(-0.05,-0.75)$) .. (X3);
+    \draw (2,1.5) node {$\overline g_1$};
+    
+    \filldraw (O) circle (1pt) node[anchor=south east] {$0$};
+    \filldraw (X3) circle (1pt) node[anchor=south west] {$X_3$};
+    \filldraw (X2) circle (1pt) node[anchor=north west] {$X_2$};
+    \end{scope}
+    
+    \begin{scope}[shift={(6,0.5)}]
+    \coordinate (P1) at (0,2);
+    \coordinate (P2) at (0,0);
+    \coordinate (P3) at (3,2.25);
+    
+    \filldraw (P1) circle (1pt) node[anchor=east] {$m=p_1$};
+    \filldraw (P2) circle (1pt) node[anchor=north west] {$p_2$};
+    \filldraw (P3) circle (1pt) node[anchor=west] {$p_3$};
+    
+    \draw (P1) 
+          to[bend left] 
+          node[midway, anchor=south] {$g_2$}
+          (P3);
+    \draw (P3)
+          to[bend left] 
+          node[midway, anchor=north west] {$g_1$}
+          (P2);
+    \draw (P2)
+          to[bend left] 
+          node[midway, anchor=east] {$g_3$}
+          (P1);
+    \end{scope}
+    
+    \draw (1,-1) node {In $\tangentspace{M}{m}$:};
+    \draw (7.25,-1) node {In $M$:};
+\end{tikzpicture}
+\]
+\caption{Geodesic Triangle}
+\label{fig:ch10fig6}
+\end{figure}
+
+\end{document}

@@ -1,0 +1,45 @@
+\documentclass[../../main]{subfiles}
+\begin{document}
+
+\begin{figure}[h!]
+\[
+\begin{tikzpicture}
+%uses the intersections tikz library
+    \filldraw (0,0) circle (1pt) node[anchor=north] {$g(0)$};
+    \filldraw (8,1) circle (1pt) node[anchor=west] {$g(b)$};
+    
+    \draw[name path=geod]
+        (0,0) 
+        to[bend left=15] 
+        coordinate[pos=0.125](E1)
+        coordinate[pos=0.375](E2)
+        coordinate[pos=0.975](E3)
+        (8,1);
+    
+    \draw[name path=C1]
+        (1.75,1.25) arc(190:200:8cm) node[at start, anchor=west] {$C_1$};
+    \draw[name path=C2]
+        (3.5,1.75) arc(185:195:8cm) node[at start, anchor=west] {$C_2$};
+    \draw[name path=Ci]
+        (5.5,2.25) arc(170:190:6cm) node[at start, anchor=west] {$C_i$};
+    \draw[name path=Ck]
+        (7.25,1.75) arc(160:190:3cm) node[at start, anchor=west] {$C_k$};
+        
+    \foreach \i in {1,2,i,k}
+    {
+        \filldraw[name intersections={of=geod and C\i}]
+            (intersection-1) circle (1pt) 
+            node[anchor=north west] {$m_\i$};
+    }
+    
+    \foreach \i/\j in {1/15,2/10,3/-10}
+    {
+        \draw[rotate=\j] (E\i) ellipse (1.75cm and 1.15cm);
+    }
+\end{tikzpicture}
+\]
+\caption{Cross Manifolds}
+\label{fig:ch10fig5}
+\end{figure}
+
+\end{document}

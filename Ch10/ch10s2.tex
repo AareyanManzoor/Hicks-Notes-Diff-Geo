@@ -1,0 +1,223 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section{First and Second Variation Formulae}\label{ch10:s2}
+
+Throughout this section let $M$ be a $\CInfty$ Riemannian $n$-manifold which is Hausdorff, and let $\connection$ be the Riemannian connexion. For an alternate approach to the material of this section see \cite{ambrose1960the}.
+
+
+
+\begin{theorem} \label{thm:ch10.2.1}
+    Let $f$ be a one-parameter family of geodesics in $M$ which are parameterized by arc length. Then $\ip{W}{T}$ is constant along each geodesic.
+\end{theorem}
+
+\begin{proof}
+    The function $\ip{T}{T} = 1$ on the domain of $f$; hence, $0=W'\ip{T}{T} = 2\ip{\connection_W T}{T}$ by proposition~\ref{prop:ch10.1.3}. Thus \[T\ip{W}{T} = \ip{\connection_T W}{T} + \ip{W}{\connection_T T} = \ip{\connection_W T}{T} = 0,\] since $\connection_T T = 0$.
+\end{proof}
+
+
+
+\begin{corollary}[``perpendicular lemma''] \label{cor:ch10.2.2}
+    Let $X$ be a unit vector in $\tangentspace{M}{m}$. Let $A$ be in $\tangentspace{M}{m}$ with $\ip{A}{X} = 0$ and let $A'$ be the associated constant vector field on $\tangentspace{M}{m}$. Then $(\exp_m)_\ast A'$ is perpendicular to the geodesic $g_X$ at all points where $g_X$ is defined.
+\end{corollary}
+
+\begin{proof}
+    We may assume $A$ is a unit vector and then define \[f(t, w) = \exp_m t[(\cos w)X + (\sin w)A]\] for $t$ in the domain of $g_X$ and $w$ in an interval about zero. Then $f$ is a one-parameter family of geodesics which are parameterized by arc length. Applying Theorem \ref{thm:ch10.2.1}, we have $\ip{W}{T}$ constant along each geodesic. In this case \[W = (\exp_m)_\ast t[-(\sin w)X + (\cos w)A]\] and $w = 0$ along $g_X$; hence, \[\ip{(\exp_m)_\ast t A}{T} = t\ip{(\exp_m)_\ast A}{T} = \text{ constant along }g_X.\] This vanishes at $t=0$, so $\ip{(\exp_m)_\ast A}{T}=0$ along $g_X.$
+\end{proof}
+
+
+
+Let $f$ be a one-parameter family of curves with domain $Q$ and assume $Q$ contains the set $(t, 0)$ for $0 \leq t \leq b$. Let $f_w(t) = f(t, w)$ for $(t, w) \InText Q$, and let $L(w)$ be the length of the curve $f_w$ on $[0,b]$, i.e., $L(w)$ = $\int_0^b \sqrt{\ip{T}{T}} \dd{t}$. We define the \defemph{first and second variations of $L$ in the direction $f$}\index{first variation formulae}\index{second variation formula} to be the numbers $L'(0)$ and $L''(0)$, respectively, where $L' = \dd{L}/\dd{w}$. Actually, we should call $L'(0)$ the ``first derivative of $L$ in the direction of the variation $f$ evaluated at $f_0$ on $[0,b]$,'' and a similar statement should be made for the ``second variation.'' Henceforth we refer to $f_0$ as the \defemph{base curve.}
+
+
+
+\begin{theorem} \label{thm:ch10.2.3}
+    In terms of the notation just developed,
+    \[ L'(0) = \ip{W}{T}\Big|_{(0,0)}^{(b,0)} - \int_0^b \ip{W}{\connection_T T}_{w=0} \dd{t} \]
+    when $f_0$ is parameterized by arc length. Thus if $f_0$ is a geodesic, then
+    \[ L'(0) = \ip{W}{T}\Big|_{(0,0)}^{(b,0)}\text{.} \]
+\end{theorem}
+
+\begin{proof}
+    We compute,
+    \[ L'(w) = \int_0^b \frac{\partial}{\partial w} \sqrt{\ip{T}{T}} \dd{t} = \int_0^b \ip{T}{T}^{-1/2} \ip{\connection_W T}{T} \dd{t}\text{.} \]
+    When $w = 0$, $\ip{T}{T} = 1$ and
+    \[ \ip{\connection_W T}{T} = \ip{\connection_T W}{T} = \dv{}{t}\ip{W}{T} - \ip{W}{\connection_T T} \]
+    which we integrate to obtain the above formula.
+\end{proof}
+
+
+
+Notice that theorem~\ref{thm:ch10.2.3} shows $L'(0)$ only depends on the vector field $W$ along the base curve $f_0$ and we may use the general formula of theorem~\ref{thm:ch10.2.3} to define the \defemph{first variation of $L$ in the direction of the field $W$} where $W$ is any $\CInfty$ field on the base curve. For each such $\CInfty$ field $W$ on a base curve $\sigma$ we can define a one-parameter family $f$ such that $W = f_\ast\Big(\pdv{}{w}\Big)$ by letting $f(t,w) = \exp_{\sigma(t)}(wW_{\sigma(t)})$.
+
+A curve $\sigma$ between points $p$ and $q$ in $M$ is called an \defemph{extremal to the fixed end-point problem}\index{extremal} if $L'(0) = 0$ for every one-parameter family of curves $f$ such that $f_0 = \sigma$ on $[0,b]$ and $f(0,w) = p$, while $f(b, w) = q$ for $w$ near $0$.
+
+
+
+\begin{theorem} \label{thm:ch10.2.4}
+    A curve $\sigma$ between points $p$ and $q \InText M$ is an extremal iff it is a geodesic.
+\end{theorem}
+
+\begin{proof}
+    If $\sigma$ is a geodesic and the end-points are fixed so $W = 0$ at $p$ and $q$, then $L'(0) = 0$ by theorem~\ref{thm:ch10.2.3}.
+
+    Conversely, if $L'(0) = 0$ and $W = 0$ at $p$ and $q$, then $\int_0^b \ip{W}{\connection_T T} \dd{t} = 0$ for all $W$ belonging to admissible (fixed end-point) one-parameter variations $f$ of $\sigma$. If at some point $m$ on $\sigma$ between $p$ and $q$ we suppose $\tangentspace{(\connection_T T)}{m} \ne 0$, then let $W = h\connection_T T$ where $h$ is a $\CInfty$ ``bump'' function such that $h(m) = 1$, $h \geq 0$, and $h = 0$ outside a neighborhood of $m$ on which $\connection_T T$ doesn't vanish. By the remarks after theorem~\ref{thm:ch10.2.3}, there is a one-parameter family $f$ belonging to $W$. In this case $\ip{W}{\connection_T T} = h\ip{\connection_T T}{\connection_T T} \geq 0$ is a non-negative function which is non-zero on a neighborhood of $t'$ where $\sigma(t') = m$, hence $\int_0^b \ip{W}{\connection_T T} \dd{t} > 0$, which is a contradiction. Thus $\connection_T T = 0$, and $\sigma$ is a geodesic.
+\end{proof}
+
+
+
+\begin{theorem} \label{thm:ch10.2.5}
+    For a point $m \InText M$, let $r > 0$ be chosen so $\exp_m$ maps the set $\hat{B} = \{X \in \tangentspace{M}{m} : \norm{X} < r\}$ diffeomorphically onto its image $B$. Then $B$ is the metric ball $B(m, r) = \{p \in M : d(m, p) < r\}$. Furthermore, if $X \InText \hat{B}$ and $p = \exp_m X$ then $d(m, p) = \norm{X}$, and the geodesic $g_X(t) = \exp_m tX$, defined on $[0,1]$, realizes the absolute minimum possible curve-length from $m$ to $p$.
+\end{theorem}
+
+\begin{proof}
+    If $T$ is the tangent to $g_X$, then $\ip{T}{T}$ is constant on $g_X$ so $\norm{g_X}_0^1 = \norm{X}$. We must show any other broken $\CInfty$ curve $\sigma$ from $m$ to $p$ has a length which is greater than or equal to $\norm{X}$, and the theorem will follow.
+
+    First suppose $\sigma$ is defined on $[0,b]$ and $\sigma(t)$ is in $B$ for all $t$ in $[0,b]$. Furthermore, suppose $\sigma$ never returns to $m$ after $t = 0$, or we could obviously obtain a shorter curve from $m$ to $p$. Let:
+    \begin{itemize}
+        \item $\exp = \exp_m$,
+        \item $\exp\inv$ be the inverse map of $\exp|_{\hat{B}}$,
+        \item $f(t) = \norm{\exp\inv\sigma(t)}$ for $t$ in $[0,b]$, which defines a broken $\CInfty$ function $f$,
+        \item $\xoverline{\sigma}(t) = \exp\inv\sigma(t)$,
+        \item $\xoverline{\gamma}(t) = f(t)\dfrac{X}{\norm{X}}$,
+        \item and $\gamma(t) = \exp\xoverline{\gamma}(t)$.
+    \end{itemize}
+    Thus $\gamma$ is a reparameterization of $g_X$ which has the same ``radial velocity'' as $\sigma$. Decompose the tangent to $\xoverline{\sigma}$ into a radial component $A$ and a vector $V$ which is orthogonal to $A$, thus $T_{\xoverline{\sigma}} = A + V$ on $[0,b]$, (actually, $A(t) = f'(t)\xoverline{\sigma}(t)/f(t)$ for $t > 0$). Using the \hyperref[cor:ch10.2.2]{perpendicular lemma} proved above, we know $\exp_\ast A$ is perpendicular to $\exp_\ast V$, so \[\norm{T_\sigma} = \norm{\exp_\ast A + \exp_\ast V} \geq \norm{\exp_\ast A} = \norm{T_\gamma}.\] Hence, $\norm{\sigma}_0^b \geq \norm{\gamma}_0^b$. Since $\gamma$ is a reparameterization of $g_X$, we have $\norm{\gamma}_0^b \geq \norm{g_X}_0^1 = \norm{X}$, where the inequality is strict if $f$ is not an increasing function. Thus, $\norm{\sigma}_0^b \geq \norm{X}$.
+
+    If $\sigma(t)$ is not in $B$ for all $t$, then $\norm{\sigma} > r > \norm{X}$ by the above paragraph. Hence, $\norm{X} = d(m, p)$ for $X \InText \hat(B)$, and the geodesic $g_X$ realizes this minimum.
+\end{proof}
+
+
+
+\begin{theorem} \label{thm:ch10.2.6}
+    Let $f$ be a one-parameter family of curves such that the base curve is a geodesic $g$ parameterized by arc length on the interval $[0,b]$. Then $L''(0)$ is equal to
+    \[ \ip{\connection_W W}{T}\Big|_{(0,0)}^{(b,0)} + \int_0^b \big[\ip{R(W, T)W}{T} + \ip{\connection_T W}{\connection_T W} - (T\ip{W}{T})^2\big] \dd{t}\text{.} \]
+    If $\ip{W}{T}$ is constant along $f$, then
+    \[ L''(0) = \ip{\connection_W W}{T}\Big|_{(0,0)}^{(b,0)} + \int_0^b \big[\ip{R(W, T)W}{T} + \ip{\connection_T W}{\connection_T W}\big] \dd{t}\text{.} \]
+    If $W$ is a Jacobi field and $\ip{W}{T}$ is constant along $g$, then
+    \[ L''(0) = W\ip{T}{W}\Big|_{(0,0)}^{(b,0)}\text{.} \]
+\end{theorem}
+
+\begin{proof}
+    First compute \[\pdv{}{w}\sqrt{\ip{T}{T}} = \ip{T}{T}^{-1/2}\ip{\connection_W T}{T}.\] Then
+    \[
+        \frac{\partial^2}{\partial w^2}\sqrt{\ip{T}{T}} = -\ip{T}{T}^{-3/2}\ip{\connection_W T}{T}^2 
+        + \ip{T}{T}^{-1/2}(\ip{\connection_W \connection_W T}{T}  + \ip{\connection_W T}{\connection_W T}).
+    \]%
+    Evaluating on $w = 0$, we use $\ip{T}{T} = 1$, $\connection_T T = 0$, and $\connection_T W = \connection_W T$, to obtain 
+    \begin{align*}
+        \frac{\partial^2}{\partial w^2} \sqrt{\ip{T}{T}} &= \ip{\connection_W \connection_T}{T} + \ip{\connection_T W}{\connection_T W} - \ip{\connection_T W}{T}^2 \\
+        &= \ip{R(W, T)W+\connection_T\connection_WW}{T} + \ip{\connection_T W}{\connection_T W} - (T\ip{W}{T})^2 \\
+        &= T\ip{\connection_W W}{T} + \ip{R(W, T)W}{T} + \ip{\connection_T W}{\connection_T W} - (T\ip{W}{T})^2\text{,}
+    \end{align*}%
+    which gives the first formula for $L''(0)$ by integrating.
+
+    If $\ip{W}{T}$ is constant along $g$, then $T\ip{W}{T} = 0$ which gives the second formula.
+
+    If $W$ is Jacobi, then
+    \begin{align*}
+        \ip{R(W, T)W}{T} &= \ip{R(T, W)W}{W} = \ip{\connection_T^2 W}{W} \\
+        &= T\ip{\connection_T W}{W} - \ip{\connection_T W}{\connection_T W}\text{.}
+    \end{align*}%
+    Hence, $L''(0) = \Big[\ip{\connection_W W}{T} + \ip{\connection_W T }{W}\Big]_{(0,0)}^{(b,0)} = W\ip{W}{T}\Big|_{(0,0)}^{(b,0)}$.
+\end{proof}
+
+
+
+Notice that the first term is the only term in the above formulae that depends on something more than the vector field $W$ along $g$.
+
+
+
+\begin{corollary} \label{cor:ch10.2.7}
+    If $W$ vanishes at the end-points of $g$, then the second variation of $L$ depends only on the field $W$ along $g$. For any vector field $W$ along $g$, let $f_W(t, w) = \exp_{g(t)}wW$ be the \defemph{natural} one-parameter family associated with $W$, and then $\connection_W W = 0$, since the $w$-varying curves are geodesics. Letting $L''_W(0)$ denote the second variation of $L$ in the direction $f_W$, then
+    \[ L''_W(0) = \int_0^b \big[\ip{R(W, T)W}{T} + \ip{\connection_T W}{\connection_T W} - (T\ip{W}{T}^2)\big] \dd{t}\text{.} \]
+\end{corollary}
+
+
+
+We next prove two lemmas which are used to prove that geodesics are not minimizing-distance curves past a first conjugate point, and later, to prove conjugate points are isolated along a geodesic in the Riemannian case.
+
+
+
+\begin{lemma}[Lagrange identity]\index{Lagrange identity} \label{lem:ch10.2.8}
+    If $X$ and $Y$ are Jacobi fields along a geodesic $g$ with tangent field $T$, then $\ip{\connection_T X}{Y} - \ip{X}{\connection_T Y}$ is constant along $g$.
+\end{lemma}
+
+\begin{proof}
+    We compute
+    \begin{align*}
+        T(\ip{\connection_T X}{Y} - \ip{X}{\connection_T Y}) &= \ip{\connection_T^2 X}{Y} - \ip{X}{\connection_T^2 Y} \\
+        &= \ip{R(T, X)W}{Y} - \ip{R(T, Y)}{X} = 0
+    \end{align*}%
+    by the symmetry of the Riemann-Christoffel curvature tensor.
+\end{proof}
+
+
+
+\begin{lemma} \label{lem:ch10.2.9}
+    Let $W$ be a continuous piecewise $\CInfty$ field along the geodesic $g$ which is parameterized on $[0,b]$, and let $W(0) = 0$. If there is no point $g(t)$ that is conjugate to $g(0)$ for $t \InText [0,b]$, then
+    % The inequality just barely does not fit a single line :/
+    \[ \int_0^b \big[\ip{R(W,T)W}{T} + \ip{\connection_T W}{\connection_T W}\big] \dd{t} \]
+    is greater than
+    \[ \int_0^b \big[\ip{R(Z, T)Z}{T} + \ip{\connection_T Z}{\connection_T Z}\big] \dd{t}\text{,} \]
+    unless $W = Z$, where $Z$ is the unique Jacobi field along $g$ such that $Z(0) = 0$ and $Z(b) = W(b)$.
+\end{lemma}
+
+\begin{proof}
+    The field $Z$ is well-defined by theorem~\ref{thm:ch10.1.10}. Let $Z_1$, \dots, $Z_n$ be a base of $\tangentspace{M}{g(b)}$, and extend these vectors by theorem~\ref{thm:ch10.1.10} to be Jacobi fields along $g$ that vanish at $g(0)$. Since there is no point $g(t)$ conjugate to $g(0)$, the fields $Z_1$, \dots, $Z_n$ are a base of $\tangentspace{M}{g(t)}$ for all $t$ in $(0,b]$. Using theorem~\ref{thm:ch10.1.7}, write each $Z_i = tA_i$ where $A_i$, \dots $A_n$ are $\CInfty$ fields that are independent on $[0,b]$. Setting $W = \sum_{i=1}^n g_i A_i$, we define continuous piecewise $\CInfty$ functions $g_i$ on $[0, b]$. Since $g_i(0) = 0$ we may write $g_i = tf_i$ and thus define continuous piecewise $\CInfty$ functions $f_i$ on $[0,b]$ such that $W = \displaystyle\sum f_i Z_i$. Then $Z = \displaystyle\sum f_i(b) Z_i$.
+
+    Let $\connection_T W = A + B$ where $A = \sum (T{f_i}) Z_i$ and $B = \sum f_i \connection_T Z_i$. Then $\ip{\connection_T W}{\connection_T W} = \ip{A}{A} + 2\ip{A}{B} + \ip{B}{B}$, and
+    \begin{align*}
+        \ip{R(T, W)T}{W} &= \sum f_i \ip{R(T, Z_i)T}{W} = \sum f_i \ip{\connection_T^2 Z_i}{W} \\
+        &= \sum f_i \big[ T{\ip{\connection_T Z_i}{W}} - \ip{\connection_T Z_i}{\connection_T W} \big] \\
+        &= T{\ip{B}{W}} - \sum ((T{f_i}) \ip{\connection_T Z_i}{W}) - \ip{B}{A} - \ip{B}{B}\text{.}
+    \end{align*}%
+    Hence, $\ip{R(T, W)T}{W} + \ip{\connection_T W}{\connection_T W}$ is equal to
+    \[ T{\ip{B}{W}} + \ip{A}{A} + \ip{A}{B} - \sum ((T{f_i}) \ip{\connection_T Z_i}{W})\text{.} \]
+    But
+    \[ \ip{A}{B} - \sum (T{f_i}) \ip{\connection_T Z_i}{W} = \sum (T{f_i}) f_j \big[ \ip{Z_i}{\connection_T Z_j} - \ip{\connection_T Z_i}{Z_j} \big] = 0 \]
+    by the \hyperref[lem:ch10.2.8]{Lagrange identity}, since $Z_k(0) = 0$ for all $k$. Thus
+    \[ \int_0^b \big[ \ip{R(W, T)W}{T} + \ip{\connection_T W}{\connection_T W} \big] \dd{t} = \ip{B_b}{ W_b} + \int_0^b \ip{A}{A} \dd{t} \]
+    since $W$ is continuous and $W_0 = 0$. Furthermore,
+    \begin{align*}
+        \ip{B_b}{W_b} &= \ip{\sum f_i(b)(\connection_T Z_i)_b}{W_b} \\
+        &= \ip{(\connection_T Z)_b}{Z_b} \\
+        &= \int_0^b \big[ \ip{R(Z, T)Z}{T} + \ip{\connection_T Z}{\connection_T Z} \big] \dd{t}.
+    \end{align*}%
+    Since $\int_0^b \ip{A}{A} \dd{t} \geq 0$, the inequality in the conclusion follows unless $A = 0$, which implies $f_i$ are constant so $W = Z$.
+\end{proof}
+
+
+
+%rokabe: wrote it so i can ref it in 10s6
+\begin{theorem} \label{thm:ch10.2.10}
+    The arc length on a geodesic $g$ does not equal the distance in $M$ beyond the first conjugate point; i.e., if $g(b)$ is the first point of $g$ that is conjugate to $g(0)$, and $g$ is parameterized by arc length, then the distance $d(g(0),g(a))<a$ for $a>b$.
+\end{theorem}
+
+\begin{proof}
+    Let $Z$ be a non-trivial Jacobi field along $g$ which vanishes at $0$ and $b$. Then $\ip{Z}{T} = 0$ by theorem~\ref{thm:ch10.2.1} and $L''_Z(0) = 0$ by theorem~\ref{thm:ch10.2.6} where $L'$ is computed from the natural one-parameter family of curves associated with $Z$. By theorem~\ref{thm:ch10.2.5} we obtain $r > 0$, so that the neighborhood $B(g(b), r)$ is the diffeomorphic image of the $r$-ball about zero in $\tangentspace{M}{g(b)}$. Choose numbers $a$ and $c$ such that $0 < c < b < a$ and $g(t)$ is in $B(g(b), r)$ for all $t$ in $[c, a]$. Thus the interval $[c, a]$ has no pair of points that are conjugate to each other on $g$. Let $Y$ be the unique Jacobi field along $g$ with $Y(c) = Z(c)$ and $Y(a) = 0$. Let $X$ be the field on $[0, a]$ such that $X(t) = Z(t)$ for $t \InText [0, c]$ and $X(t) = Y(t)$ for $t \InText [c, a]$. Let $W$ be the field on $[0, a]$ such that $W(t) = Z(t)$ for $t \InText [0, b]$ and $W(t) = 0$ for $t \InText [b, a]$ (see Fig.~\ref{fig:ch10fig2}).
+
+    Then \[L''_W|_0^a = L''_Z|_0^b + L''_W|_b^a = 0\text{ while } L''_X|_0^a = L''_W|_0^c + L''_Y|_c^a.\] By lemma~\ref{lem:ch10.2.9}, we have $L_W''|_c^a > L''_Y|_c^a$, which implies $L_X''|_0^a < L_W''|_0^a = 0$. Hence there are broken $\CInfty$ curves in the natural one-parameter family associated with $X$ whose length from $g(0)$ to $g(a)$ is less than $a$.
+\end{proof}
+
+
+
+Actually, the arc length on a geodesic may cease to measure distance in $M$ long before a conjugate point is reached (think of a right circular cylinder). The conjugate point is where the geodesic ceases to be a minimum-length curve among \emph{nearby} curves.
+
+\subfile{./figures/ch10fig2} %fig 10.2 goes after thm 10.2.10
+
+
+
+\begin{theorem} \label{thm:ch10.2.11}
+    The conjugate points of a fixed point on a geodesic occur at isolated values of the parameter.
+\end{theorem}
+
+\begin{proof}
+    Let $g(b)$ be any point conjugate to $g(0)$ along the geodesic $g$ (notice it is possible that $g(b) = g(0)$). Let $A_1$, \dots, $A_r$ be a base for the kernel of $(\exp_{g(0)})_\ast$ at $bT_0$ in $\tangentspace{M}{g(0)}$, where $T_t$ is the tangent to $g$ at $g(t)$, and we assume $\ip{T}{T} = 1$. Choose $A_{r+1}$, \dots, $A_n$ so $A_1$, \dots, $A_n$ are independent and let $Z_i(t) = (\exp_{g(0)})_\ast tA_i$. Then the fields $Z_i$, \dots, $Z_n$ are Jacobi fields along $g$ that vanish at $0$ and are independent for all values of $t$ except $0$ and conjugate values. We show there exists an $\epsilon > 0$ such that $Z_1$, \dots, $Z_n$ are independent for $0 < \norm{t- b} < \epsilon$. This is done by showing $\connection_T Z_1$, \dots, $\connection_T Z_r$, $Z_{r+1}$, \dots, $Z_n$ are independent at $b$ and then $Z_1/(t-b)$, \dots, $Z_r/(t-b)$, $Z_{r+1}$, \dots, $Z_n$ are independent for $0 < \norm{t - b} < \epsilon$.
+
+    Since $A_{r+1}$, \dots, $A_n$ are independent at $bT_0$, we know $Z_{r+1}$, \dots, $Z_n$ are independent at $b$. For $i \leq r$, $(\connection_T Z_i)_b \ne 0$, since $(Z_i)_b = 0$ and $Z_i$ is non-trivial. If \[\sum_{i=1}^r c_i (\connection_T Z_i)_b = 0,\text{ let } W = \sum_1^r c_i Z_i.\] Then $W$ is a Jacobi field with $W_b = 0$ and $(\connection_T W)_b = 0$; hence $W = 0$. For small $a > 0$, we know $Z_1$, \dots, $Z_r$ are independent, and $\sum_1^r c_i (Z_i)_a = 0$ implies $c_i = 0$ for all $i$. Thus $\connection_T Z_1$, \dots, $\connection_T Z_r$ are independent at $b$. We now show for $i \leq r$ and $j > r$, $\connection_t Z_i$ is orthogonal to $Z_j$ at $b$. By the \hyperref[lem:ch10.2.8]{Lagrange identity} $\ip{\connection_T Z_i}{Z_j} - \ip{Z_i}{\connection_T Z_j}$ is constant along $g$. Since $Z_i$ and $Z_j$ vanish at $0$, and $Z_i$ vanishes at $b$, we have $\ip{\connection_T Z_i}{Z_j} = 0$ at $b$. Thus $\connection_T Z_1$, \dots, $\connection_T Z_r$, $Z_{r+1}$, \dots, $Z_n$ are independent at $b$ and hence in some neighborhood of $b$. Since $Z_i(t)/(t-b) \to (\connection_T Z_i)_b$ as $t \to b$, the conclusion follows.
+\end{proof}
+
+
+
+\end{document}

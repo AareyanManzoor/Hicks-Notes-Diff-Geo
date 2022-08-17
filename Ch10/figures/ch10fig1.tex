@@ -1,0 +1,93 @@
+\documentclass[../../main]{subfiles}
+\begin{document}
+
+\begin{figure}[h!]
+\[
+\begin{tikzpicture}
+%uses the calc tikz library
+    \begin{scope}    
+    %vectors A and X
+    \draw[very thick, ->] (0,0)--($0.5*(1,2)$) node[pos=0.75, anchor=east] {$A$};
+    \draw[very thick, ->] (0,0)--(1.5,0) node[anchor=north] {$X$};
+    \filldraw (0,0) circle (1pt) node[anchor=north] {$O$};
+    
+    %horizontal
+    \draw[] (1.5,0)--(4,0);
+    
+    %last arrow
+    \draw[very thick, ->]
+        (3,0)--(4,2)
+        coordinate[pos=0.33](R1) coordinate[pos=0.66](R2)
+        node[pos=0.5,anchor=west] {$tA'$};
+    
+    %back lines
+    \draw[dotted]
+        (0,0)--(4,2) 
+        coordinate[pos=0.33](P1) coordinate[pos=0.66](P2)
+        node[anchor=south] {$t(X+wA)$};
+    \draw[dotted] (0,0)--(R1);
+    \draw[dotted] (0,0)--(R2);
+    
+    %the other two arrows
+    \draw[very thick, ->] (1,0)--(P1);
+    \draw[very thick, ->] (2,0)--(P2);
+    \end{scope}
+    
+    \begin{scope}[shift={(8,0.5)}]
+    %point m
+    \draw[very thick, ->] (0,0)--(1.5,0) node[anchor=west] {$X$};
+    \filldraw (0,0) circle (1pt) node[anchor=north] {$m$};
+    
+    %main geodesic
+    \draw[] (0,0) 
+        to[out=0, in=155]
+        coordinate[pos=0.25](P1)
+        coordinate[pos=0.5](P2)
+        coordinate[pos=0.75](P3)
+            (4,-1);
+        
+    %main "perpendicular"
+    \coordinate (Q3) at ($(P3)+(1.5,0.75)$);
+    \draw[dotted] (P3) 
+        to[bend left] 
+        coordinate[pos=0.33](Q1)
+        coordinate[pos=0.66](Q2)
+        (Q3);
+    
+    %main "parallel"
+    \draw[dotted] (0,0) 
+        to[bend left] 
+        coordinate[pos=0.4](R1)
+        coordinate[pos=0.7](R2)
+        (Q3);
+    
+    %"perpendiculars"
+    \draw[dotted] (P1) to[bend left=10] (R1);
+    \draw[dotted] (P2) to[bend left=20] (R2);
+    
+    %"parallels"
+    \draw[dotted] (0,0) to[bend left=20] (Q1);
+    \draw[dotted] (0,0) to[bend left=25] (Q2);
+    
+    %Jacobi field
+    \draw[very thick, ->] (P1) -- ($(P1)+0.5*(1,2)$);
+    \draw[very thick, ->] (P2) -- ($(P2)+0.75*(1,2)$);
+    \draw[very thick, ->] (P3) -- ($(P3)+(1,2)$)
+        node[anchor=south] {$W$};
+    \end{scope}
+    
+    \draw[dashed, ->] 
+        (5,1) 
+        to[bend left] 
+        node[midway, anchor=north]{$\exp_m$}
+        (7.5,1);
+    
+    \draw (2,-1) node {In $\tangentspace{M}{m}$:};
+    \draw (10,-1) node {In $M$:};
+\end{tikzpicture}
+\]
+\caption{Jacobi Field}
+\label{fig:ch10fig1}
+\end{figure}
+
+\end{document}

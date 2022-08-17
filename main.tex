@@ -1,0 +1,51 @@
+\documentclass[twoside]{book}
+\usepackage[utf8]{inputenc}
+\usepackage{makeidx}
+\usepackage[totoc]{idxlayout} % package for including index page in the table of content
+\makeindex
+\input{preamble}
+\input{operators[preamble]}
+
+%\input{dyslexic-font} %for dyslexic font, run with luatex, otherwise comment out
+
+\title{Notes on Differential Geometry}
+\author{Hicks}
+\date{July 2022}
+
+\begin{document}
+
+%\maketitle
+\subfile{cover/frontcover}
+\subfile{cover/seriespage}
+\subfile{cover/titlepage}
+\subfile{cover/copyrightpage}
+
+\pagestyle{plain}
+
+\subfile{Intro/EditorPreface}
+\subfile{Intro/Preface}
+
+\newpage
+\tableofcontents
+
+\pagestyle{fancy}
+
+\subfile{Ch01/Ch01}
+\subfile{Ch02/Ch02}
+\subfile{Ch03/Ch03}
+\subfile{Ch04/Ch04}
+\subfile{Ch05/Ch05}
+\subfile{Ch06/Ch06}
+\subfile{Ch07/Ch07}
+\subfile{Ch08/Ch08}
+\subfile{Ch09/Ch09}
+\subfile{Ch10/Ch10}
+
+\pagestyle{plain}
+
+\printbibliography[heading=bibintoc, title={Bibliography}]
+\printindex
+
+\subfile{cover/backcover}
+
+\end{document}

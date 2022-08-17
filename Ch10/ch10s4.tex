@@ -1,0 +1,182 @@
+%READY FOR PROOFREAD
+
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section{The Morse Index Theorem}\label{ch10:s4}
+
+Our approach to this section is based on the notes of Bott. For further material see \cite{milnor1969morse}, \cite{ambrose1961the} and \cite{morse1934calculus}. Let $M$ be a $\CInfty$ manifold and let $f$ be a real-valued $\CInfty$ function defined on a neighborhood of a point $m\in M$. The point $m$ is a \emph{critical point} of $f$ if $(f_*)_m$ is the zero linear transformation on $\ts Mm$. If $m$ is a critical point of $f$, we define a symmetric bilinear function $H:\ts Mm\times\ts Mm\functionMaps\bR$ by
+\[H(X_m,Y_m) = X_m(Yf)\]
+where $Y$ is any $\CInfty$ vector field about $m$ whose value at $m$ is $Y_m$. It is a simple exercise to show $H(X_m,Y_m)$ is independent of the field $Y$ and is symmetric and bilinear (see problem 95). The function $H$ is called the \defemph{Hessian of $f$ at $m$}\index{Hessian}. The \defemph{index}\index{index (function)} of $H$ is defined to be the dimension of a maximal subspace $V$ of $\ts Mm$ on which $H$ is negative definite (and $V$ is maximal if it is not properly contained in a subspace $V'$ on which $H$ is negative definite). The \emph{null space} of $H$ is the subspace
+\[V = \brc{X\in\ts Mm: H(X,Y)=0 \text{ for all } Y\in\ts Mm}\]
+The \emph{nullity} of $H$ is the dimension of its null space. We denote the index of $H$ and the nullity of $H$ by $I(f_m)$ and $N(f_m)$, respectively, and call them the \emph{index of $f$ at $m$} and the \emph{nullity of $f$ at $m$}, respectively. The \emph{positivity} $P(f_m)$ is the integer such that $P(f_m)+I(f_m)+N(f_m)$ is the dimension of $\ts Mm$. The index of $H$ intuitively gives the number of dimensions of directions in $\ts Mm$ in which $f$ is decreasing.
+
+Next we need the definition of the conjugate degree of points along a geodesic. Let $g$ be a geodesic in a manifold with connexion. The \emph{conjugate degree of the point $g(t)$}\index{conjugate degree} (with respect to $g(0)$) is the dimension of the kernel of $(\exp_{g(0)})_*$ at $tT_0$, where $T_0$ is the unit tangent to $g$ at $g(0)$ and $g$ is parameterized by arc length. Thus the conjugate degree of the point $g(t)$ is the maximum number of linearly independent Jacobi fields along $g$ that vanish at 0 and $t$.
+
+The Morse Index Theorem relates the concepts just defined. Roughly it says, for a particular geodesic segment in a Riemannian manifold $M$, the distance function can be used to define a $\CInfty$ function $L$ on a manifold $C$, and then the index of $L$ at a particular critical point is equal to the sum of the degrees of conjugate points along the geodesic segment.
+
+For the rest of the section let $M$ be a $\CInfty$ Riemannian Hausdorff $n$-manifold. If $m\in M$, then a \emph{local geodesic manifold} of $M$ at $m$ is a submanifold $C$ defined as follows. Let $B$ be an open ball about the origin (zero) in $\ts Mm$ which $\exp_m$ maps diffeomorphically into $M$, and let $V$ be any subspace of $\ts Mm$. Then the submanifold
+\[C = \brc{\exp_mX: X\in B\wedge V}\]
+is a \emph{local geodesic submanifold}\index{geodesic submanifold} of $M$. Note $C$ contains geodesic segments of geodesics emanating from $m$ whose tangent vectors lie in $V$ (see Fig. \ref{fig:ch10fig4}).
+
+
+
+\begin{lemma} \label{lem:ch10.4.1}
+Let:
+\begin{itemize}
+    \item $A$ be a convex neighborhood of $M$.
+    \item $p_1,p_2\in A$.
+    \item $g$ be the unique geodesic from $p_1$ to $p_2$ which lies in $A$ and is parameterized by arc length.
+    \item $T$ be the tangent field to $g$.
+    \item $C_1$ and $C_2$ be disjoint local geodesic hypersurfaces of $A$ through $p_1$ and $p_2$, respectively, that are orthogonal to $T$.
+    \item $C=C_1\times C_2$ (see Fig. \ref{fig:ch10fig4}).
+    \item $d(m_1,m_2)$ be the distance from $m_1$ to $m_2$ whenever $(m_1,m_2)\in C$; thus $d\in\CInfty(C,R)$ (problem \ref{pro:96}).
+    \item $W=(W_1,W_2)$ and $U=(U_1,U_2)$ be vectors tangent to $C$ at $(p_1,p_2)$, where $W_i,U_i\in\ts{M}{p_i}$ for $i=1,2$, and let $U$ also denote the unique Jacobi field along $g$ determined by $U_1,U_2$.
+\end{itemize}
+Then $p=(p_1,p_2)$ is a critical point\index{critical point} of $d$ on $C$ and
+\[\secondForm_p(U,W) = U_p(Wd) = \sbr{\ip{W}{\D_TU} - \secondForm_T(U,W)}_{p_1}^{p_2}\]
+where $\secondForm_T$ at $p_i$ is the second fundamental form of $C_i$ with respect to the normal in the direction of $T$.
+\end{lemma}
+
+\subfile{./figures/ch10fig4} %fig 10.4
+
+\begin{proof}
+A \defemph{two-parameter family of geodesics}\index{two parameter family of curves} is a $\CInfty$ function $f$ mapping an open set $Q\subset\bR^3$ into $M$ such that the curves
+\[f_{(u_0,w_0)}(t) = f(t,u_0,w_0)\]
+obtained from $f$ by fixing the coordinates in the last two slots, are geodesics. Let $f$ be such a map and suppose $(t,0,0)\in Q$ for $0\le t\le b$. Call the geodesic $g=f_{(0,0)}$ the base geodesic and assume $g$ is parameterized by arc length. Let
+\[T = f_*\Big(\pdv{}t\Big),
+\quad U = f_*\Big(\pdv{}u\Big),
+\quad W = f_*\Big(\pdv{}w\Big)\]
+then $T,U,W$ are Jacobi fields along the geodesics of $f$, while
+\[\D_TW = \D_WT,
+\quad \D_TU = \D_UT,
+\quad \D_UW = \D_WU\]
+by section \ref{ch10:s1}. We assume further that $\ip TU$ and $\ip TW$ are constant on $g$; hence $\ip{\D_TU}{T}=0$ and $\ip{\D_TW}{T}=0$ on $g$. For $(u,w)$ near $(0,0)$, let
+\[L(u,w) = \int_0^b\sqrt{\ip TT}\dd t.\]
+Notice $\ip TT$ is a function on $Q$ which depends only on $u,w$ since the $t$-curves are geodesics. Differentiating with respect to $w$,
+\[L_w = \pdv Lw
+= \int_0^b\ip TT^{-1/2}\ip{\D_WT}{T}\dd t\]
+and
+\[(L_w)_{(0,0)} = \int_0^b\ip{\D_TW}{T}\dd t = 0\]
+since $\ip TT=1$ on $g$. Differentiating with respect to $u$,
+\[L_{wu} =\int_0^b\big[-\ip TT^{-3/2}\ip{\D_UT}{T}\ip{\D_WT}{T}
++\ip TT^{-1/2}\br{\ip{\D_U\D_WT}{T}+\ip{\D_WT}{\D_UT}}\big]\dd t\]
+Evaluating on $g$,
+\begin{align*}
+    (L_{wu})_{(0,0)}
+    &= \int_0^b\sbr{\ip{\D_U\D_TW}{T}+\ip{\D_TW}{\D_TU}}\dd t \\
+    &= \int_0^b\sbr{\ip{R(U,T)W+\D_T\D_UW}{T} + T\ip{W}{\D_TU} - \ip{W}{\D_T^2U}}\dd t
+\end{align*}
+But, since $U$ is Jacobi,
+\[\ip{R(U,T)W}{T} - \ip{W}{\D_T^2U} = \ip{R(U,T)W}{T} - \ip{W}{R(T,U)T} = 0\]
+hence
+\begin{align*}
+    (L_{wu})_{(0,0)}
+    &= \int_0^b\sbr{\ip{\D_T\D_UW}{T} + T\ip{W}{\D_TU}}\dd t \\
+    &=\int_0^b\sbr{T\ip{\D_UW}{T} + T\ip{W}{\D_TU}}\dd t \\
+    &= \ip{\D_UW}{T} + \ip{W}{\D_TU}\bigg|_{(0,0,0)}^{(b,0,0)}
+\end{align*}
+
+We apply the above analysis to prove the lemma. Let
+\[f_{(u,w)}(t) = f(t,u,w)\]
+be the unique geodesic in $A$ from
+\[\exp_{p_1}(uU_1+wW_1) = \gamma_1(u,w)\]
+to
+\[\exp_{p_2}(uU_2+wW_2) = \gamma_2(u,w)\]
+which is parameterized on $[0,b]$. Then $f$ is a two-parameter family of geodesics satisfying the above requirements. Furthermore,
+\[d(\gamma_1(u,w),\gamma_2(u,w)) = L(u,w)\]
+hence
+\[H_p(U,W) = \ip{\D_{U_i}W_i}{T} + \ip{W_i}{\D_TU_i}\bigg|_{i=1}^{i=2}\]
+But letting $\D'$ be the induced Riemannian connexion on $C_i$, by the Gauss equation we get
+\[\D_{U_i}W_i = \D'_{U_i}W_i - \secondForm_T(U_i,W_i)T\]
+hence
+\[\secondForm_p(U,W) = \sbr{\ip{W}{\D_TU} - \secondForm_T(U,W)}_{p_1}^{p_2}\]
+\end{proof}
+
+
+
+\begin{theorem} \label{thm:ch10.4.2}
+(Morse Index Theorem). Let $g$ be a geodesic in $M$ which is parameterized by arc length on the interval $[0,b]$. Let $r>0$ be chosen such that the balls $B(g(t),2r)$ are convex neighborhoods of $g(t)$ for $0\le t\le b$. Let $\xoverline m=(m_1,\ldots,m_k)$ be a sequence of points on $g$ such that $m_i=g(t_i)$,\newline $~0<t_i<t_{i+1}<b$, and
+\begin{equation}\tag{10}\label{eqn:ch10.4.1}
+0 < d(m_i,m_{i+1}) < r
+\end{equation}
+for $0\le i\le k$ where $m_0=g(0)$ and $m_{k+1}=g(b)$. Let $C_i$ be a local geodesic submanifold which is orthogonal to $g$ at $m_i$ and contained in $B(m_i,r)$ for \newline $1\le i\le k$, and let $C=C_1\times\ldots\times C_k$. Define $L:C\functionMaps\bR$ by
+\[L(\bar p) = \sum_{i=0}^k d(p_i,p_{i+1})\]
+where $\bar p=(p_1,\ldots,p_k)\in C,~p_p=g(0)$, and $p_{k+1}=g(b)$ (see Fig. \ref{fig:ch10fig5}).
+
+Then $L$ is $\CInfty$ on $C$, $\xoverline m$ is a critical point of $L$, the nullity of $L$ at $\xoverline m$ equals the conjugate degree of $g(b)$ (with respect to $g(0)$), and
+\[I(L_{\xoverline m}) = \sum_{0\le t\le b}\deg g(t)\]
+\end{theorem}
+
+\subfile{./figures/ch10fig5} %fig 10.5
+
+Before proving the theorem, we make some remarks. The fact that $N(L_{\xoverline m})$ is the conjugate degree of $g(b)$ is often called the Nullity Theorem. The Index Theorem shows $I(L_{\xoverline m})$ and $N(L_{\xoverline m})$ are independent of the position of the points $m_i$ and the number of points $k$ as long as condition (\ref{eqn:ch10.4.1}) is satisfied.
+
+\begin{proof}
+Define $L_i:C\functionMaps\bR$ by
+\[L_i(\bar p) = d(p_i,p_{i+1})\]
+for $0\le i\le k$. Then $L$ is $\CInfty$ since  $L=\sum L_i$ and each $L_i$ is $\CInfty$. By the lemma, the point $\xoverline m$ is a critical point of each $L_i$ and hence is a critical point of $L$.
+
+To compute the nullity of $L$ at $\xoverline m$, let $U,W\in\ts{C}{\xoverline m}$ where \[U=(U_1,\ldots,U_k),
+\quad W=(W_1,\ldots,W_k),
+\quad U_i,W_i\in\ts{M}{m_i}\]
+Let $U_0=W_0$ and $U_{k+1}=W_{k+1}$ be the zero vectors at $g(0)$ and $g(b)$, respectively. By the lemma,
+\begin{align*}
+    U_{\xoverline m}(WL) &= \sum_{i=0}^k U_{\xoverline m}(WL_i) \\
+    &= \sum_{i=1}^k\sbr{\ip{W_{i+1}}{\D_TU_{i+1}^-} - \secondForm_T(U_{i+1},W_{i+1}) - \ip{W_i}{\D_TU_i^+} + \secondForm_T(U_i,W_i)} \\
+    &=\sum_{i=1}^k\ip{W_i}{\D_TU_i^- - \D_TU_i^+}
+\end{align*}
+where $U_i^-$ is the Jacobi field on $[t_{i-1},t_i]$ agreeing with $U$ at the end points, and $U_i^+=U_{i+1}^-$. If $U$ is in the null space of $H_L$ at $\xoverline m$, then $U_{\xoverline m}(WL)=0$ for all $W$; hence $\D_TU_i^-=\D_TU_i^+$ for all $i$, which implies $U$ is a Jacobi field along $g$ that vanishes at 0 and $b$. This proves the nullity theorem.
+
+We now work on the index of $L$ at $\xoverline m$. Let us refer to a point $(\xoverline m,b)\in M^k\times\bR$ which satisfies the conditions stated in the third sentence of the theorem as an admissible partition. Let $N=k(n-1)$, and for each admissible partition $(y,t)$ let $C_y$ be the product of $k$ local geodesic submanifolds crossing $g$ at the points of $y$, let $L_{(y,t)}:C_y\functionMaps\bR$ be the function corresponding to $L$ in the theorem, and let $F_y$ map $\bR^N$ into the tangent space to $C_y$ at $y$ by
+\[F_y(a_1,\ldots,a_N) = \bigg(\sum_{i=1}^{n-1}a_ie_i(y_1),\sum_{j=1}^{n-1}a_{n-1+j}e_j(y_2),\ldots\bigg)\]
+where $e_1,\ldots,e_{n-1},T$ is an orthonormal parallel base field along $g$. Then let $H_{(y,t)},I_{(y,t)},P_{(y,t)}$, and $N_{(y,t)}$ denote the Hessian, index, positivity, and nullity, respectively, of $H_{L_{(y,t)}}\circ F_y$. Thus $H_{(y,t)}$ is a symmetric bilinear form on $\bR^N$ which is continuous in $y$ and $t$.
+
+For each admissible partition $(y_0,t_0)$ there is a neighborhood (in $M^k\times\bR$) such that
+\begin{equation} \tag{11}\label{eqn:ch10.4.2}
+I_{(y,t)} \ge I_{(y_0,t_0)},
+\quad P_{(y,t)} \ge P_{(y_0,t_0)}
+\end{equation}
+for $(y,t)$ in this neighborhood. This follows since $I_({y_0,t_0)}$ is the dimension of a subspace $V\subset\bR^N$ such that $H_{(y_0,t_0)}(W,W)<0$ for all non-zero $W\in V$, and by continuity the inequality must hold on a neighborhood of $(y_0,t_0)$. A similar argument handles the positivity case.
+
+Fix $y$ such that $(y,b_1)$ and $(y,b_2)$ are admissible partitions with $b_1\le b_2$. We show
+\begin{equation} \tag{12}\label{eqn:ch10.4.3}
+I_{(y,b_1)} \le I_{(y,b_2)},
+\quad P_{(y,b_1)} \ge P_{(y,b_2)}
+\end{equation}
+For $x$ in the cross manifold $C_y$, let
+\[A(x) = L_{(y,b_2)}(x),
+\quad B(x) = L_{(y,b_1)}(x) + d(g(b_1),g(b_2))\]
+Then $A(x)\le B(x)$ by the triangle inequality and $A(y)=B(y)$. On a curve $\gamma(w)$ with tangent $W$ that is tangent to $C_y$ at $y=\gamma(0)$,
+\[A\circ\gamma(w) = A(y) + H_{(y,b_2)}(W,W)\frac{w^2}{2} + \ldots\]
+while
+\[B\circ\gamma(w) = B(y) + H_{(y,b_1)}(W,W)\frac{w^2}{2} + \ldots\]
+Thus $H_{(y,b_2)}(W,W)\le H_{(y,b_1)}(W,W)$ for all $W$, and if $H_{(y,b_1)}$ is negative definite on a subspace $V$ then so is $H_{(y,b_2)}$, which implies $I_{(y,b_1)}\le I_{(y,b_2)}$, and similarly, $P_{(y,b_1)}\ge P_{(y,b_2)}$.
+
+If $g(t)$ is not a conjugate point of $g(0)$, then $H_{(y,t)}$ is non-singular on a neighborhood of $(y,t)$ since the conjugate points are isolated, hence
+\begin{equation}\tag{13} \label{eqn:ch10.4.4}
+I_{(y,t)} \text{ and } P_{(y,t)}
+\text{ are constant on a neighborhood of } (y,t).
+\end{equation}
+
+We now use the properties (\ref{eqn:ch10.4.2}), (\ref{eqn:ch10.4.3}), and (\ref{eqn:ch10.4.4}) to compute $I(L_y)$. Let $a_1,\ldots,a_s$ be the points on $[0,b)$ that are conjugate to 0. If $0<t<a_1$ we know
+\[P_{(y,t)} = N,
+\quad I_{(y,t)} = N_{(y,t)} = 0\]
+by theorem \ref{thm:ch10.2.5} and property (\ref{eqn:ch10.4.4}). At $t=a_1$,
+\[N_{(y,a_1)} = \deg g(a_1),
+\quad I_{(y,a_1)} = 0\]
+by (\ref{eqn:ch10.4.2}) since $I{(y,t)}=0$ for $t<a_1$, hence
+\[P_{(y,a_1)} = N - \deg g(a_1)\]
+If $a_1<t<a_2$ and $t$ is near $a_1$, then $P_{(y,t)}\ge P_{(y,a_1)}$ by (\ref{eqn:ch10.4.2}) and $P_{(y,t)}\le P_{(y,a_1)}$ by (\ref{eqn:ch10.4.3}), hence
+\[P_{(y,t)} = N - \deg g(a_1),
+\quad N_{(y,t)} = 0,
+\quad I_{(y,t)} = \deg g(a_1)\]
+The situation then remains unchanged for $a_1<t<a_2$ by (\ref{eqn:ch10.4.4}). For $t=a_2$, we repeat the above reasoning to compute
+\[N_{(y,a_2)} = \deg g(a_2),
+\quad I_{(y,a_2)} = \deg g(a_1),
+\quad P_{(y,a_2)} = N - \sum_{0\le t\le a_2}\deg g(t)\]
+Continuing the argument, we obtain
+\[I(L_y) = I_{(y,b)} = \sum_{0\le t\le b}\deg g(t)\]
+\end{proof}
+
+\end{document}

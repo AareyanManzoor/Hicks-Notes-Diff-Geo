@@ -1,0 +1,91 @@
+Each person will claim sections to do and type it up. Please read in details the style guide before starting any latex (the style guide will be up by 17 july 2022). 
+
+Pick upto one chapter(so you can pick 1 section or more until you finish the entire ch) at a time and then after you have finished it, then you can pick a new section. For now we will add the deadline of 24th july 2022, pick as many as you want to in this time frame. (each section is very small so they wont take too long). Also please make sure your section is error free, overleaf compiles despite red errors sometimes, please make sure to fix these.
+
+if there are citations, add it as you go along. So if its already in references.bib, do \cite{description} but otherwise add it to the bib and then cite it.
+
+The entire book has been scanned using mathpix and the code is in Reference folder. Feel free to find your section and use the scanned code. Do note that sometimes it will incorrectly think a line of text is an image, and also note that if you paste the code into your section folder it might not be able to find the image.
+
+Book is in discord and also https://www.wisdom.weizmann.ac.il/~yakov/scanlib/hicks.pdf
+
+ch01:
+s1- anamono; done mod figures. proofread (whoever)
+s2- Manan; finished mod figures and some concerns about conventions
+s3- Whoever
+s4- Manan; finished but not reviewed
+s5- Whoever
+s6- twiceshy
+
+ch02:
+s1- johnDS %done
+s2- Manan; finished mod proofreading
+s3- zxcvly; done mod figures
+s4- johnds %done
+s5- anamono; done mod proofreading and figures
+s6- anamono; done mod proofreading and figures
+
+
+ch03:
+s1-johnDS %done mod proofreading, i wont do more texing probs, feel free to take the rest of the chapter.
+%done mod proofreading next 4 
+s2-George
+s3-George 
+s4-George
+s5-George
+
+ch04- anamono; done mod proofreading
+
+ch05:
+s1-xdres
+s2-xdres
+s3-JohnDS %done
+s4-JohnDS %done
+s5-JohnDS %done
+exercises (in ch05p) - Whoever
+
+ch06: ready for proofread
+s1-rokabe
+s2-rokabe
+s3-rokabe
+s4-rokabe
+s5-rokabe
+s6-rokabe
+s7-rokabe
+s8-rokabe
+
+ch07: %done, missing figure and a few things I was unsure about. Will hang back for a day or two so I don't hog
+s1-George
+s2-George
+s3-George
+s4-George
+s5-George
+s6-George
+
+ch08:
+&idk how to do figures, can someone else do that? sorry for delay i will finish by tomorrow evening!
+%figures done --deri
+%ready for proof reading --invictus
+s1-Invictus
+s2-Invictus
+s3-sw3aterCS
+s4-Whoever
+s5-Whoever
+
+ch09:
+s1- johnds
+s2- johnds
+s3- anamono; done mod proofreading
+s4- wordslinger; proofreading needed
+s5- sw3aterCS
+s6- wordslinger; done! mod proofreading
+
+ch10:
+s1-derivada.schwarziana  %done; feel free to take the rest. will work on figures
+s2-sw3aterCS
+s3-rokabe
+s4-rokabe
+s5-rokabe
+s6-rokabe
+s7-rokabe
+s8-rokabe
+rokabe: s3-8 ready for proofread

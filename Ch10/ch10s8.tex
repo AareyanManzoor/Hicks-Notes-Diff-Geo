@@ -1,0 +1,79 @@
+%READY FOR PROOFREAD
+
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section{Manifolds with Non-Positive Curvature}\label{ch10:s8}
+
+We add to the standard hypothesis of the last section the assumption that $K(P)\le0$ for all plane sections $P$ of $M$.
+
+
+
+\begin{lemma} \label{lem:ch10.8.1}
+Let $f$ be a finite curve in $M$ parameterized by arc length, and let $m\in M$. Let $\bar f$ be any lifting of $f$ to the covering space $\ts Mm$ (see theorem \ref{thm:ch10.7.1}). Then $\norm f\ge\norm{\bar f}$, the Euclidean length of $\bar f$ in $\ts Mm$. If $K<0$, then $\norm f>\norm{\bar f}$ unless $\bar f$ is a segment of a ray emanating from zero in $\ts Mm$.
+\end{lemma}
+
+\begin{proof}
+By theorem \ref{thm:ch10.3.2}, if $T$ is a vector tangent to $\ts Mm$, then \newline $\norm{(\exp_m)_*T}\ge\norm T$. If $K<0$, then $\norm{(\exp_m)_*T}>\norm T$ unless $T$ is a radial vector tangent to a ray through zero.
+\end{proof}
+
+
+
+\begin{theorem} \label{thm:ch10.8.2}
+Let $p_1,p_2,p_3\in M$ be distinct points joined by geodesics $g_1,g_2,g_3$ where $g_1$ joins $p_2$ and $p_3$, etc., (see Fig. \ref{fig:ch10fig6}). Assume the three points are not on one geodesic and the broken loop formed by the three curves is homotopic to zero. Let $\theta_i$ be the unique angle at $p_i$ made by the intersecting geodesics with $0<\theta_i<\pi$. Then
+\[\norm{g_1}^2 \ge \norm{g_2}^2 + \norm{g_3}^2 - \norm{g_2}\norm{g_3}\cos\theta_1,
+\quad \theta_1+\theta_2+\theta_3\le\pi\]
+If $K<0$ on $M$, these inequalities are strict.
+\end{theorem}
+
+\begin{proof}
+Let $m=p_1$ and let $\bar g_2,\bar g_3$ be the rays through zero in $\ts Mm$ such that $\exp_m\circ\bar g_i=g_i$ for $i=2,3$. Let $X_2,X_3$ be the endpoints of $\bar g_3,\bar g_2$ respectively. Since the loop formed by $g_2,g_1,g_3$ is homotopic to zero, we can lift $g_1$ to a curve $\bar g_1$ joining $X_2,X_3$. By the preceding lemma,
+\[\norm{g_1} \ge \norm{\bar g_1} \ge d(X_2,X_3)\]
+where $d$ is the Euclidean distance in $\ts Mm$. By the law of cosines in $\ts Mm$,
+\[d(X_2,X_3)^2 = \norm{g_2}^2 + \norm{g_3}^2 - \norm{g_2}\norm{g_3}\cos\theta_1\]
+which proves the first inequality.
+
+For the second inequality, we construct a triangle in $\bR^2$ whose sides have lengths $a_i=\norm{g_i}$ and label the angles at the appropriate corners by $\phi_i$. Then
+\[(a_1)^2 = (a_2)^2 + (a_3)^2 - a_2a_3\cos\phi_1\]
+hence $\cos\theta_1\ge\cos\phi_1$ and $\theta_1\le\phi_1$. Similarly, $\theta_i\le\phi_i$ for $i=2,3$, thus
+\[\theta_1+\theta_2+\theta_3 \le \phi_1+\phi_2+\phi_3 = \pi\]
+If $K<0$, then $\norm{g_1}>\norm{\bar g_1}$ and the strict inequalities then follow.
+\end{proof}
+
+
+
+\begin{corollary} \label{cor:ch10.8.3}
+The sum of the interior angles ($0\le\theta_i<\pi$) of a geodesic quadrilateral which is homotopic to zero is less than or equal to $2\pi$. If $K<0$, then the sum is less than $2\pi$.
+\subfile{./figures/ch10fig6} %fig 10.6
+\end{corollary}
+
+
+
+\begin{corollary} \label{cor:ch10.8.4}
+Let $m\in M$, and let $g$ be a geodesic that does not pass through $m$. Then there cannot be two distinct geodesics $g_1,g_2$ from $m$ to $g$ which intersect $g$ orthogonally such that the geodesic triangle formed is homotopic to zero.
+\end{corollary}
+
+\begin{proof}
+The sum of the interior angles of the geodesic triangle would be greater than $\pi$.
+\end{proof}
+
+
+
+\begin{corollary}\label{cor:ch10.8.5}
+Let $M$ be simply connected, $m\in M$, and $g$ a geodesic that does not pass through $m$. Then there is a unique geodesic $f$ from $m$ to $g$ which is orthogonal go $g$ and $\norm f\le d(m,g(t))$ for all $t$.
+\end{corollary}
+
+\begin{proof}
+Let $f_t$ be the unique geodesic from $m$ to $g(t)$, let
+\[L(t)=\norm{f_t}=d(m,g(t))\]
+and let $g_t$ be $g$ restricted to the interval $[0,t]$ or $[t,0]$, as the case may be. Let $\theta$ be the angle between $f_0$ and $g_t$ for $t>0$. We show that $L(t)\to\infty$ as $t\to\pm\infty$. For $t>0$,
+\[L^2(t) = \norm{f_t}^2 \ge \norm{f_0}^2 + \norm{g_t}^2 - \norm{f_0}\norm{g_t}\cos\theta
+= \norm{f_0}^2 + \norm{g_t}(\norm{g_t}-\norm{f_0}\cos\theta)\]
+As $t\to\infty$, we have $\norm{g_t}\to\infty$, hence $L(t)\to\infty$. Similarly, $L(t)\to\infty$ as $t\to-\infty$.
+
+By theorem \ref{thm:ch10.2.3}, a point $t'$ is a critical point of $L$ iff $f_{t'}$ is orthogonal fo $g$. By corollary \ref{cor:ch10.8.4} there can be at most one critical point of $L$, and that must be an absolute minimum by the first paragraph.
+\end{proof}
+
+For further results, see Preissman \cite{Preissmann1943quelques} and Helgason \cite{helgason2012differential}.
+
+\end{document}

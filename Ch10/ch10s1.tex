@@ -1,0 +1,237 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section{Jacobi Fields and Conjugate Points}\label{ch10:s1}
+
+In order to study the minimizing properties of geodesics, we study one and two parameter families of curves and the vector fields which they induce. Our main tools are developed in the following three propositions.
+
+Let $Q$ and $M$ be $C^\infty$ manifolds, and let $f$ be a $C^\infty$ map of $Q$ into $M$. A \emph{$\tangentbundle{M}$-valued vector field on $Q$ associated with $f$}, or a \emph{$\tangentbundle{M}_f$ field on $Q$}, is a $C^\infty$ function $A$ from $Q$ into $\tangentbundle{M}$, the tangent bundle to $M$, such that $A(p)$ lies in $\tangentspace{M}{f(p)}$ for all $p$ in $Q$. The field $A$ is a \emph{tangent $\tangentbundle{M}_f$ field on $Q$} if $A=f_\ast A'$ for some $C^\infty$ field $A'$ on $Q$.
+
+For the remainder of this section, let $Q$, $M$ and $f$ be as just described, and let $\connection$ denote a connexion on $M$.
+
+If $A$ and $Z$ are $\tangentbundle{M}_f$ fields on $Q$ and $A=f_\ast A'$ is tangent, then we can define $\connection_A Z$ to be a $\tangentbundle{M}_f$ field on $Q$. This is possible, since for a particular $p$ in $Q$ the field $Z$ gives a well-defined $C^\infty$ field along a curve through $f(p)$ with tangent $A_p$. More explicitly, let $y_1,\, \hdots,\, y_n$ be a coordinate system on $M$ about $f(p)$ and let $Y_i=\pdv{}{y_i}$. Let $U$ be an open set about $p$ such that $f(U)$ is contained in the domain of the $y_i$. Then $Z=\displaystyle\sum_1^n z_i Y_i$ defines real valued $C^\infty$ functions $z_i$ on $U$ and
+    \begin{equation}\tag{1} \label{eqn:ch10.1.1}
+    \connection_A Z = \sum_{i=1}^n [(A'z_i)Y_i + z_i(\connection_A Y_i)]
+    \end{equation}
+on $U$. Letting equation \eqref{eqn:ch10.1.1} define $\connection_A Z$ on $U$, we leave it to the reader to show this definition is independent of the coordinate system. Notice that $\connection_A Z$ is \emph{not} necessarily a tangent $\tangentbundle{M}_f$ field even when both $A$ and $Z$ are tangent.
+
+If $A$ and $B$ are tangent $\tangentbundle{M}_f$ fields on $Q$, then we define the tangent $\tangentbundle{M}_f$ field $[A,B]$ by $[A,B](p)=f_\ast([A',B']_p)$ where $A=f_\ast A'$, $B=f_\ast B'$ and $p$ in $Q$.
+
+
+
+\begin{proposition} \label{prop:ch10.1.1}
+Let $A$, $B$, $X$, $Z$ be $\tangentbundle{M}_f$ fields on $Q$, let $A$ and $B$ be tangent, and let $g$ be a real-valued $C^\infty$ function on $Q$. Then the following equations are valid:
+    \begin{gather}
+    \connection_{(gA)} X = g(\connection_A X),
+    \label{eqn:ch10.1.2}\tag{2} \\
+    \connection_A(gX) = (A'g)X + g(\connection_A X),
+    \label{eqn:ch10.1.3}\tag{3} \\
+    \connection_{(A+B)} X = \connection_A X + \connection_B X,
+    \label{eqn:ch10.1.4}\tag{4}\\
+    \connection_A(X+Z) = \connection_A X + \connection_A Z.\tag{5}
+    \label{eqn:ch10.1.5}
+    \end{gather}
+\end{proposition}
+
+\begin{proof}
+All four equations follow in a straightforward way from the definition \eqref{eqn:ch10.1.1} and the standard properties for $\connection$.
+\end{proof}
+
+Observe now for $\tangentbundle{M}_f$ fields $X$ and $Z$ we can define the $\tangentbundle{M}_f$ field $\Tor(X,Z)$ by $[\Tor(X,Z)](p)=\Tor(X_p,Z_p)$ since $\Tor$ is a tensor; moreover, the linear transformation-valued tensor $[R(X,Z)](p)=R(X_p,Z_p)$ is defined by $p\in Q$.
+
+
+
+\begin{proposition} \label{prop:ch10.1.2}
+With the hypothesis of Proposition \eqref{prop:ch10.1.1}, the following equations are valid:
+    \begin{gather}
+    \Tor(A,B) = \connection_A B - \connection_B A - [A,B],
+    \label{eqn:ch10.1.6}\tag{6} \\
+    R(A,B)X = \connection_A \connection_B X - \connection_B \connection_A X - \connection_{[A,B]}X.
+    \label{eqn:ch10.1.7}\tag{7}
+    \end{gather}
+\end{proposition}
+
+\begin{proof}
+Using the notation developed above for equation \eqref{eqn:ch10.1.1}, let $A=\displaystyle\sum_1^n a_iY_i$ and $B=\displaystyle\sum_1^n b_jY_j$. Then on $U$,
+\[
+\Tor(A,B)
+=
+\sum_{i,j} a_ib_j \Tor(Y_i,Y_j)
+=
+\sum_{i,j} a_ib_j (\connection_{Y_i} Y_j - \connection_{Y_j} Y_i),
+\]
+but
+\[
+[A,B]
+=
+\sum_j (A' b_j) Y_j - \sum_i (B' a_i) Y_i
+\]
+and
+\[
+\connection_A B - \connection_B A
+=
+\sum_j (A' b_j) Y_j
+    + \sum_{i,j} b_j a_i \connection_{Y_i} Y_j
+    - \sum_i (B' a_i) Y_i
+    - \sum_{i,j} a_i b_j \connection_{Y_j} Y_i;
+\]
+hence, equation \eqref{eqn:ch10.1.6} follows.
+
+A similar computation gives \eqref{eqn:ch10.1.7}.
+\end{proof}
+
+
+
+\begin{proposition} \label{prop:ch10.1.3}
+If $M$ is a Riemannian manifold and $\connection$ is the Riemannian connexion, then with the hypothesis of Proposition \eqref{prop:ch10.1.1}, the following equations are valid:
+    \begin{gather}
+    A' \ip{X}{Z} = \ip{\connection_A X}{Z}+\ip{X}{\connection_A Z},
+    \label{eqn:ch10.1.8}\tag{8} \\
+    \Tor(X,Z)=0.
+    \label{eqn:ch10.1.9}\tag{9}
+    \end{gather}
+\end{proposition}
+
+\begin{proof}
+Since $\Tor=0$ in this case, equation \eqref{eqn:ch10.1.9} is trivial.
+
+To verify \eqref{eqn:ch10.1.8}, let $Y_1,\, \hdots,\, Y_n$ be an orthonormal base field with no loss of generality. Letting $X=\displaystyle\sum_1^n x_i Y_i$ and $Z=\displaystyle\sum_1^n z_j Y_j$, we have
+\[
+A'\ip{X}{Z}
+=
+A'\left( \sum_1^n x_iz_i \right)
+=
+\sum_1^n [(A'x_i)z_i+x_i(A'z_i)],
+\]
+while
+\[
+\ip{\connection_A X}{Z}+\ip{X}{\connection_A Z}
+=
+\sum_i (A' x_i) z_i
+    + \sum_{i,j} x_iz_j \ip{\connection_A Y_i}{Y_j}
+    + \sum_j x_j(A'z_j)
+    + \sum_{i,j} x_iz_j \ip{Y_i}{\connection_A Y_j}.
+\]
+But $\ip{\connection_A Y_i}{Y_j}+\ip{Y_i}{\connection_A Y_j}=A\ip{Y_i}{Y_j}=0$; hence \eqref{eqn:ch10.1.8} follows.
+\end{proof}
+
+
+
+We specialize and let $Q$ be an open set in $\bR^2$. For convenience, let $t$ and $w$ be the first and second coordinate functions, respectively, on $\bR^2$; then \[T=f_\ast\Big(\pdv{}{t}\Big)\text{ and } W=f_\ast\Big(\pdv{}{t}\Big)\] are tangent $\tangentbundle{M}_f$ fields on $Q$. Moreover, assume the $t$-varying curves obtained from $f$ by holding $w$ constant are geodesics with respect to a connexion $\connection$ on $M$; thus $\connection_T T \equiv 0$ on $Q$. When $f$ and $Q$ satisfy the conditions of the above three sentences, we call $f$ a \defemph{one-parameter family of geodesics}. When we only assume $Q$ is an open subset of $\bR^2$, we call $f$ a \defemph{one-parameter family of curves}\index{one parameter family of curves}.
+
+
+
+\begin{theorem} \label{thm:ch10.1.4}
+If $f$ is a one-parameter family of geodesics on $Q$ and $\connection$ is torsion free, then $\connection_T^2 W = R(T,W)T$ on $Q$.
+\end{theorem}
+
+\begin{proof}
+Since $[T,W]=0$ and $\Tor=0$, we have $\connection_T W = \connection_W T$. Hence
+\[
+\connection_T^2 W 
+= 
+\connection_T(\connection_T W)
+=
+\connection_T(\connection_W T)
+=
+\connection_W(\connection_T T) + R(T,W)T
+=
+R(T,W)T
+\]
+by \eqref{eqn:ch10.1.6} and \eqref{eqn:ch10.1.7} and the fact that $\connection_T T = 0$.
+\end{proof}
+
+
+
+Let $T$ be the tangent field along a geodesic for a torsion-free connexion $\connection$ on $M$. Then a $C^\infty$ field $Z$ along the geodesic is a \defemph{Jacobi field}\index{Jacobi field} if $\connection_T^2 Z = R(T,Z)T$. Notice the set of Jacobi fields along a geodesic is a vector space over the real field from the linearity of the defining condition.
+
+
+
+\begin{theorem} \label{thm:ch10.1.5}
+A Jacobi field $Z$ along a geodesic is uniquely determined by its value and the value of $\connection_T Z$ at one point on the geodesic.
+\end{theorem}
+
+\begin{proof}
+Let $e_1,\, \hdots,\, e_n = T$ be a parallel base along the geodesic so \newline$Z(t)=\displaystyle \sum_{i=1}^n z_i(t) e_i$ where $t$ is the parameter on the geodesic and $z_i$ are $C^\infty$ real-valued functions. Then \[\connection_T Z = \sum_i z_i' e_i\text{ and }\connection_T^2 Z = \sum_i z_i'' e_i.\] Letting $R(e_i,e_j)e_r=\displaystyle\sum_{k=1}^n R_{ijrk}e_k$, we have \[R(T,Z)T=R(e_n,\sum z_je_j)e_n=\sum_{j,k}z_j R_{njnk} e_k.\] Hence $Z$ is a Jacobi field iff $z_k''=\displaystyle\sum_{j=1}^n z_j R_{njnk}$ for all $k$. The conclusion of the theorem now follows from the uniqueness theorem for solutions of second-order differential equations.
+\end{proof}
+
+
+
+\begin{corollary} \label{cor:ch10.1.6}
+The vector space of Jacobi fields along a geodesic has finite dimension equal to $2n$. The subspace of Jacobi fields along a geodesic that vanish at a fixed point has dimension $n$.
+\end{corollary}
+
+
+
+The two theorems above indicate two ways of obtaining Jacobi fields, e.g., use Theorem \ref{thm:ch10.1.5} and existence theory from differential equations or use Theorem \ref{thm:ch10.1.4} by finding a one-parameter family of geodesics. We now illustrate the latter procedure.
+
+We first fix some notation. For any vector $A$ in the tangent space $\tangentspace{M}{m}$ we let $A'$ be the naturally associated ``constant'' vector field on $\tangentspace{M}{m}$. We use the notation of section \ref{ch09:s3}, for a point $X$ in $\tangentspace{M}{m}$, $A'_X=\eta_X(A)$; or if $e_1,\, \hdots,\, e_n$ is a base of $\tangentspace{M}{m}$ and $w_1,\, \hdots,\, w_n$ its dual base with $A=\displaystyle\sum_1^n a_ie_i$, then $A'=\displaystyle\sum_1^n a_i\Big(\pdv{}{w_i}\Big)$.
+
+
+
+\begin{theorem} \label{thm:ch10.1.7}
+Let $X$ and $A$ be any vectors in $\tangentspace{M}{m}$. Let
+\[
+Q
+=
+\{ (t,w)\in\bR^2:~ 
+   \text{$\exp_m$ is defined on $t(X+wA)$} \},
+\]
+which is an open set in $\bR^2$. Let $f: Q\functionMaps M$ be defined by $f(t,w)=\exp_m t(X+wA)$. Then $f$ is a one-parameter family of geodesics and $(\exp_m)_\ast(tA')$ is a Jacobi field along each geodesic.
+\end{theorem}
+
+\begin{proof}
+That $f$ is a one-parameter family of geodesics follows from the definition of the exponential map, i.e., $\exp_m$ maps rays in $\tangentspace{M}{m}$ into geodesics emanating from $m$. Then $W=(\exp_m)_\ast(tA')$ is a Jacobi field by Theorem \ref{thm:ch10.1.4} (see Fig. \ref{fig:ch10fig1}).
+\end{proof}
+
+
+
+\subfile{./figures/ch10fig1} %fig 10.1
+
+A point $X$ in $\tangentspace{M}{m}$ is a \emph{conjugate point}\index{conjugate point} if $\exp_m$ is singular at $X$. The point $(m,X)$ in $\tangentbundle{M}$ is called a \emph{conjugate point} if $X$ is a conjugate point in $\tangentspace{M}{m}$. A point $m$ in $M$ is \emph{conjugate to a point $p$ in $M$ along a geodesic $g$} if there is a conjugate point $X$ in $\tangentspace{M}{m}$ such that $\exp_m X=p$ and $g$ is a reparametrization of the geodesic $g_X(t)=\exp_m tX$.
+
+Notice there is always a neighborhood of zero in $\tangentspace{M}{m}$ that is free of conjugate points since $(\exp_m)_\ast$ is non-singular at zero (\ref{cor:ch9.3.2}). For a trivial (and too special) example of conjugate points, let $M$ be the unit sphere about the origin in $\bR^3$. Then the south pole is conjugate to the north pole along any geodesic (great circle); moreover, the north pole is conjugate to itself along any geodesic. To see this let $p$ be the north pole, then $\exp_p$ is completely singular on circles about zero in $\tangentspace{M}{m}$ which have radius $k\pi$ for integral $k$.
+
+
+
+\begin{theorem} \label{thm:ch10.1.8}
+A point $X$ in $\tangentspace{M}{m}$ is a conjugate point iff there is a non-trivial Jacobi field along $g_X$ that vanishes at $m$ and $\exp_m X$.
+\end{theorem}
+
+\begin{proof}
+If $\exp_m$ is singular at $X$ let $A'\neq 0$ be a vector such that $(\exp_m)_\ast A'=0$. Then, letting $A'$ denote the associated constant vector field on $\tangentspace{M}{m}$, the field $(\exp_m)_\ast tA'$ is a non-trivial Jacobi field along $g_X$ that vanishes at $m(t=0)$ and $\exp_m X (t=1)$.
+
+Conversely, let $Z$ be a non-trivial Jacobi field along $g_X$ with $Z(0)=Z(1)=0$. Let $A=\connection_X Z$ in $\tangentspace{M}{m}$ and let $A'$ be the associated constant field on $\tangentspace{M}{m}$. Let $Z'=(\exp_m)_\ast(tA')$. Then
+\[
+\connection_X Z'
+=
+\connection_X [ t(\exp_m)_\ast A' ]
+=
+(\exp_m)_\ast A' + t \connection_X [(\exp_m)_\ast A'],
+\]
+and at $t=0$, $\connection_X Z'=A$ since at zero $(\exp_m)_\ast A'_0=A$. Thus by uniqueness (Theorem \ref{thm:ch10.1.5}) $Z=Z'$, and hence $Z'(1)=(\exp_m)_\ast A'_X = 0$. Since $Z$ is non-trivial $A'\neq 0$ and thus $\exp_m$ is singular at $X$.
+\end{proof}
+
+
+
+\begin{corollary} \label{cor:ch10.1.9}
+A point $m$ is conjugate to a point $p$ along a geodesic $g$ iff $p$ is conjugate to $m$ along $g$.
+\end{corollary}
+
+
+
+\begin{theorem} \label{thm:ch10.1.10}
+Let $g$ be a geodesic whose parameter domain includes $[b,c]$ and suppose $g(b)$ is not conjugate to $g(c)$ along $g$. Then there is a unique Jacobi field $Z$ along $g$ with prescribed values at $g(b)$ and $g(c)$.
+\end{theorem}
+
+\begin{proof}
+Suppose $Z(b)$ and $Z(c)$ are given. By hypothesis, the map $\exp_{g(b)}$ is non-singular at the point $X$ in $\tangentspace{M}{g(b)}$ where $\exp_{g(b)}X=g(c)$, i.e.,
+\[
+g(t)=\exp_{g(b)}\left( \frac{t-b}{c-b} \right)X;
+\]
+hence there is a unique vector $A'$ such that $(\exp_{g(b)})_\ast A' = Z(c)$. Let \newline $Z_1=(\exp_{g(b)})_\ast (tA')$ along $\exp_{g(b)}tX$ (which is along $g$). Similarly, we get a unique vector $B'$ tangent to $\tangentspace{M}{g(c)}$ such that $(\exp_{g(c)})_\ast B' = Z(b)$. Let $Z_2=(\exp_{g(c)})_\ast (tB')$ along $\exp_{g(c)}tY$ where $\exp_{g(c)}Y = g(b)$. Then $Z=Z_1+Z_2$ is a Jacobi field along $g$ with the required values at $g(b)$ and $g(c)$. Furthermore $Z$ is unique, for if $W$ were another such field, then $Z-W$ would be a Jacobi field that vanishes at $g(b)$ and $g(c)$ and hence must be trivial, so $Z=W$.
+\end{proof}
+
+
+
+\end{document}

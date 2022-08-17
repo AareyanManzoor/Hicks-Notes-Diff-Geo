@@ -1,0 +1,82 @@
+%READY FOR PROOFREAD
+
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section{Manifolds with Constant Riemannian Curvature}\label{ch10:s6}
+
+\begin{theorem} \label{thm:ch10.6.1}
+Let $M$ and $M'$ be connected Riemannian manifolds with $M$ complete. Let $f:M\functionMaps M'$ be an isometry. Then $f$ is an onto covering map and $M'$ is complete.
+\end{theorem}
+
+\begin{proof}
+To show $f$ is onto, we show $f(M)$ is open (which is trivial since $f$ is a local diffeo) and closed. Take $m'\in\bar{f(M))}$, let $B'$ be a convex neighborhood of $m'$, let $p'=f(p)$ be in $B'$, and let $g'$ be the unique geodesic in $B'$ from $p'$ to $m'$ with $g'(0)=p'$ and $g'(1)=m'$. Let $g$ be the unique geodesic in $M$ with $g(0)=p$ and $f_*T_g(0)=T_{g'}(0)$. Since $f$ is an isometry, $f\circ g$ is a geodesic in $M'$, and by uniqueness, $f\circ g=g'$. Since $M$ is complete, $g(1)=m$ is defined; hence $f(m)=m'$ and $f$ is onto. We have also shown $M'$ is complete.
+
+It is trivial that $f$ evenly covers, since $f$ preserves locally convex neighborhoods; thus for $m'$ we choose a convex neighborhood $B'$, and $f\inv(B')$ is a union of disjoint convex neighborhoods, each of which $f$ maps diffeomorphically onto $B'$.
+\end{proof}
+
+
+
+\begin{theorem} \label{thm:ch10.6.2}
+Let $M$ be a connected, simply connected, complete Riemannian manifold with constant Riemannian curvature $K$. Then $M$ is isometric to Euclidean space, spherical space, or hyperbolic space, when $K=0,~K>0$, or $K<0$, respectively.
+\end{theorem}
+
+\begin{proof}
+Let $g$ be a geodesic in $M$ parameterized by arc length with $g(0)=m$. Let $e$ be a parallel unit field along $g$, which is orthogonal to $T$, the unit tangent to $g$. Let $Z(t)=a(t)e(t)$ be a $\CInfty$ field along $g$. Then
+\[\D_TZ=a'e,
+\quad \D_T^2Z=a''e\]
+Thus $Z$ is a Jacobi field if $\D_T^2Z=R(T,Z)T$ or
+\[\ip{\D_T^2Z}{Z} = \ip{R(T,Z)T}{Z}
+= -K\ip ZZ
+\quad \text{i.e.}
+\quad a''a = -Ka^2\]
+or $a''+Ka=0$. This differential equation has solutions uniquely determined by $a(0)$ and $a'(0)$. If $a(0)=0$, then $Z(t)=(\exp_m)_*tA'$ where $A'$ is the constant field on $\ts Mm$ with $A'=a'(0)e$. This equality follows from the fact that the right side is a Jacobi field and a Jacobi field is determined by $Z$ and $\D_TZ$ at one point. Hence
+\[\ip ZZ = t^2\ip{\exp_*A'(t)}{\exp_*A'(t)}
+= a^2(t)\]
+
+When $K=0$, then $a''=0$ and $a=ct$ where $c=a'(0)$. Thus
+\[\ip{\exp_*A'(t)}{\exp_*A'(t)} = c^2
+= \ip{A'(t)}{A'(t)}\]
+and $\exp_m$ is an isometry from $\ts Mm$ onto $M$. Apply the previous theorem to obtain that $\exp_m$ is a covering map. Since $M$ is simply connected, $\exp_m$ is a diffeo, hence $M$ is isometric to $\ts Mm$, and $\ts Mm$ is trivially isometric to Euclidean space.
+
+When $K<0$, let $M'$ be hyperbolic space for $K<0$ (section \ref{ch06:s7}). We know $\exp_0:\ts{M'}{0}\functionMaps M'$ is a diffeo so let
+\[E=(\exp_0)\inv\]
+Choose an orthonormal base $e_1,\ldots,e_n$ of $\ts{M'}{0}$ and an orthonormal base $e_1,\ldots,e_n$ of $\ts Mm$, where $m\in M$ is arbitrary. Define $F:\ts{M'}{0}\functionMaps\ts Mm$ by
+\[F(e_i')=e_i\]
+Define $f:M'\functionMaps M$ by
+\[f=\exp_m\circ F\circ E\]
+Then $f_*Z'(t)=Z(t)$ along corresponding geodesics in $M'$ and $M$, and
+\[\ip{f_*Z'}{f_*Z'} = a^2(t)
+= \ip{Z'}{Z'}\]
+Thus $f_*$ is an isometry. Now the apply previous to obtain that $f$ is a diffeo.
+
+When $K>0$, then $Z=(\sin\sqrt Kt)e$ is a Jacobi field along any geodesic emanating from $m$ (a fixed point in $M$). Thus every ray in $\ts Mm$ has a conjugate point at $\frac{\pi}{\sqrt K}$ units from the origin and $(\exp_m)_*$ has an $(n-1)$-dimensional kernel at these points. Let
+\[C = \Big\{X\in\ts Mm: \norm X=\frac{\pi}{\sqrt K}\Big\}\]
+Then $\exp_m|_C$ is completely singular and hence is a constant map since $C$ is connected. From the nature of the Jacobi equations in the first paragraph, there are no conjugate points in
+\[B = \Big\{X\in\ts Mm: \norm X<\frac{\pi}{\sqrt K}\Big\}\]
+Now let $M'$ be spherical space of curvature $K$ and let $p\in M'$. We know $\exp_p$ is a diffeo on the set $B'$ (corresponding to $B$) in $\ts{M'}{p}$. Define $E$ and $F$ as in the above paragraph ($E$ defined on $B(p,\dfrac{\pi}{\sqrt K})$, the open ball), and let
+\[f=\exp_m\circ F\circ E\]
+on $B(p,\frac{\pi}{\sqrt K})$ while $f(-p)=\exp_m(C)$. As in the above paragraph, $f$ is an isometry on $B(p,\frac{\pi}{\sqrt K})$. Note what should be $f_*$ at $-p$ is well-defined via the tangent to incoming geodesics. Thus we may define a map $g:B(-p,\pi/\sqrt{K})\functionMaps M$ with
+\[g(-p)=f(-p)\]
+and $g_*$ at $-p$ determined by $f_*$. Then $f=g$ on their common domain, and $g$ is $\CInfty$ and metric preserving at $-p$. Hence $f$ is an isometry of $M'$ onto $M$, and by the previous theorem, $f$ is a diffeo.
+\end{proof}
+
+
+
+\begin{corollary} \label{cor:ch10.6.3}
+Let $M$ and $M'$ be Riemannian manifolds, let $b=\brc{e_1,\ldots,e_n}$ be an orthonormal base at $m\in M$, and similarly, let $b'$ be such a base at $m'\in M'$. Define $F:\ts Mm\functionMaps\ts{M'}{m'}$ by
+\[F(e_i)=e_i'\]
+The map $F$ induces a correspondence between geodesics emanating from $m$ and $m'$, respectively, and also a correspondence between plane sections $P$ and $P'$ along these geodesics, via parallel translation of corresponding plane sections at $m$ and $m'$. Thus for a geodesic $g$ in $M$ with $g(0)=m$, let $g'$ be the geodesic in $M'$ with $g'(0)=m'$ and $T_{g'}(0)=F(T_g(0))$; and for a plane section $P$ in $\ts Mm$, let $P(t)$ be the parallel translate of $P$ along $g$ to $g(t)$, let $P'=F(P)$, and $P'(t)$ be the parallel translate of $P'$ along $g'$. Supose $K'(P'(t))=K(P(t))$ for all geodesics and plane sections (emanating from $m$ and $m'$). Then there are neighborhoods $B$ and $B'$ of $m$ and $m'$, respectively, and a map $f:B\functionMaps B'$ which is an isometry (and a diffeo). Thus $M$ and $M'$ are locally isometric at $m$ and $m'$.
+\end{corollary}
+
+\begin{proof} 
+Choose an $r>0$ such that $\exp_m$ is a diffeo from $B(0,r)$ in $\ts Mm$ onto $B=B(m,r)$ in $M$ and $\exp_{m'}$ is also a diffeo from $B'(0,r)$ in $\ts{M'}{m'}$ onto $B'=B'(m',r)$ in $M'$. Let
+\[f=\exp_m\circ F\circ(\exp_{m'})\inv\]
+on $B'$, so $f$ is a diffeo. By the method of proof in the preceding theorem, $f$ is an isometry.
+\end{proof}
+
+
+
+If, in the above corollary, we add the hypothesis that $M$ and $M'$ are complete, connected, and simply connected, then it is an open question whether $M$ is isometric to $M'$. When the Riemannian curvature is preserved for corresponding plane sections on once-broken geodesics, then Ambrose \cite{ambrose1956parallel} has proven $M$ is isometric to $M'$.
+
+\end{document}

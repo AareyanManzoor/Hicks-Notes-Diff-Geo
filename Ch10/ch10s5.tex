@@ -1,0 +1,159 @@
+%READY FOR PROOFREAD
+
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section{Completeness}\label{ch10:s5}
+
+The theorem that follows gives useful criteria for a Riemannian manifold to be complete. The analytic case was first studied by Hopf-Rinow. The approach we give essentially follows de Rham \cite{derham1952sur}.
+
+
+
+\begin{theorem} \label{thm:ch10.5.1}\index{complete}
+If $M$ is a connected Hausdorff Riemannian manifold, then statements (a) through (d) below are equivalent, and any one of them implies (e).
+\begin{enumerate}[label=(\alph*)]
+
+\item The exponential map is everywhere defined on $\tb M$.
+
+\item $M$ is complete with respect to its Riemannian metric.
+
+\item Bounded closed sets in $M$ are compact.
+
+\item The closed balls $\bar B(m,r)$ are compact for one $m\in M$ and all $r>0$.
+
+\item Any two points in $M$ can be joined by a geodesic segment whose length equals the distance between the two points.
+
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+The implications (d) $\implies$ (c) $\implies$ (b) $\implies$ (a) are all simple. We show (a) implies (d) and (e). Fix $m\in M$ and let
+\[B_r = B(m,r),
+\quad S_r = \bar B(m,r)\]
+\[E_r = \brc{p\in S_r: \text{ there is a geodesic segment $\gamma$ from $m$ to $p$ with $\norm\gamma=d(m,p)$}}\]
+We show $E_r$ is compact and $E_r=S_r$ for all $r$, which proves (d) and (e).
+
+
+\begin{lemma} \label{lem:ch10.5.1a}
+The set $E_r$ is compact for all $r$.
+\end{lemma}
+
+\begin{proof}
+Fix $r$ and let $(m_k)$ be a sequence of points in $E_r$. By (a) there exist points $X_k\in\ts Mm$ such that $\exp_mX_k=m_k$ for all $k$. This follows since a geodesic can always be written as a composite map which is the exponential of a ray in a tangent space. Then $\norm{X_k}<r$ for all $k$, hence $(X_k)$ is a sequence of points in the compact set $\bar B(0,r)$ in the Euclidean space $\ts Mm$. Thus we obtain a subsequence (which we reindex if necessary) $(X_k)$ that converges to $X\in\ts Mm$ with $\norm X\le r$. The corresponding subsequence $(m_k)$ converges to $\exp_mX$, which lies in $E_r$ since $\exp_m$ is $\CInfty$.
+\end{proof}
+
+
+\begin{lemma} \label{lem:ch10.5.1b}
+If $E_r=S_r$ for a fixed $r$ and $d(m,p)>r$ then there is a point $\bar m$ such that $d(m,\bar m)=r$ and $d(m,p)=r+d(\bar m,p)$.
+\end{lemma}
+
+\begin{proof}
+For each integer $k>0$, let $\gamma_k$ be a broken $\CInfty$ curve from $m$ to $p$ with $\norm{\gamma_k}<d(m,p)+\frac1k$. Let $m_k$ be the last point on each $\gamma_k$ that lies in $S_r$, so $d(m,m_k)=r$. Since $S_r$ is compact, the sequence $(m_k)$ has a limit point $\bar m$ and $d(m,\bar m)=r$. But
+\[d(m_k,p) \le \norm{\gamma_k}_{m_k}^p
+= \norm{\gamma_k}_m^p - \norm{\gamma_k}_m^{m_k}
+\le \norm{\gamma_k} - r
+< d(m,p) + \frac1k - r\]
+Hence $d(\bar m,p)\le d(m,p)-r$, and the triangle inequality proves the opposite inequality.
+\end{proof}
+
+
+\begin{lemma} \label{lem:ch10.5.1c}
+For $r\ge0,~E_r=S_r$.
+\end{lemma}
+
+\begin{proof}
+The proof uses a continuous induction argument on $r$. By definition, $E_r\subset S_r$ for all $r$. For $r=0,~E_0=S_0$. If $E_r=S_r$, then trivially $E_{r'}=S_{r'}$ for all $r'<r$. Conversely, if $E_{r'}=S_{r'}$ for all $r'<r$, then $E_r=S_r$. This follows by taking any point $p\in S_r$ and then choosing $(p_k)\to p$ such that each $p_k$ is in some $S_{r'}$ for $r'<r$. Hence $p_k\in E_{r'}\subset E_r$, and $E_r$ is compact, which implies the limit $p$ is in $E_r$.
+
+Finally, if $E_r=S_r$, then there exists $\ep>0$ such that $E_{r+\ep}=S_{r+\ep}$. Since $S_r$ is compact, we obtain a number $2\ep>0$ such that, for all $p\in S_r$, the map $\exp_p$ is a diffeo from $\brc{X\in\ts Mp: \norm X<2\ep}$ onto $B(p,2\ep)$. Take $p\in S_{r+\ep}$. By lemma \ref{lem:ch10.5.1b}, there is a point $\bar m$ with $d(m,\bar m)=r$ and 
+\[d(\bar m,p) = d(m,p) - d(m,\bar m)
+\le r+\ep-r \le \ep\]
+Hence there is a geodesic segment $\gamma_1$ from $m$ to $\bar m$ with $\norm{\gamma_1}=r$, and a geodesic segment $\gamma_2$ from $\bar m$ to $p$ with $\norm{\gamma_2}=d(\bar m,p)$. Joining $\gamma_1$ and $\gamma_2$ gives a broken $\CInfty$ curve $\gamma$ from $m$ to $p$ with $\norm\gamma=d(m,p)$. Parameterizing $\gamma$ by arc length, there can be no breaks in $\gamma$, so $\gamma$ is a geodesic. Thus $p\in E_{r+\ep}$.
+\end{proof}
+
+\end{proof}
+
+
+
+We can now prove a classical theorem which illustrates how assumptions about the Riemannian curvature can affect the topology of a manifold.
+
+
+
+\begin{theorem}[of Bonnet] \label{thm:ch10.5.2}
+If $M$ is a complete connected Riemannian manifold with Riemannian curvature greater than or equal to some $K>0$, then $M$ is compact and its diameter is less than or equal to $\frac\pi{\sqrt K}$.
+\end{theorem}
+
+\begin{proof}
+We show on every geodesic $g$ there is a conjugate point of $g(0)$ on $\sbr{0,\frac\pi{\sqrt K}}$. If $m\in M$, then by completeness, every point $p\in M$ can be joined to $m$ by a geodesic segment whose length is $d(p,m)$. By Theorem \ref{thm:ch10.2.10}, this geodesic has no conjugate point of $m$ before $p$, hence $d(m,p)\le\dfrac\pi{\sqrt K}$.
+
+Let $g$ be a geodesic with unit tangent $T$, $g(0)=m$, and let $e$ be a unit parallel field along $g$ which is orthogonal to $T$. Let $W_t=(\sin\sqrt Kt)e_t$. Then $W$ is orthogonal to $T$, $W$ vanishes at 0 and $\dfrac\pi{\sqrt K}$, and
+\begin{align*}
+\D_TW &= (\sqrt K\cos\sqrt Kt)e_t \\
+L_W''(0) &= \int_0^{\pi/\sqrt K}\sbr{\ip{R(W,T)W}{T}+\ip{\D_TW}{\D_TW}}\dd t \\
+&= \int_0^{\pi/\sqrt K}\sbr{-K(t)\sin^2\sqrt Kt+K\cos^2\sqrt Kt}\dd t \\
+&\le K\int_0^{\pi/\sqrt K}\sbr{\cos^2\sqrt Kt-\sin^2\sqrt Kt}\dd t \\
+&=0
+\end{align*}
+where $K(t)=\ip{R(e,t)T}{e}$. If the interval $\Big[0,\dfrac\pi{\sqrt K}\Big]$ was free of conjugate points, then by lemma \ref{lem:ch10.2.9},
+\[L_W''(0) > L_Z''(0) = 0\]
+where $Z=0$ is the unique Jacobi field along $g$, which coincides with $W$ at 0 and $\dfrac\pi{\sqrt K}$. This contradiction proves the theorem.
+\end{proof}
+
+
+
+The following theorem, due to K. Nomizu and H. Ozeki, settles the question of the existence of complete Riemannian metrics on a paracompact (or Riemannian) manifold. A Riemannian metric is bounded if the manifold is bounded with respect to the induced metric function.
+
+
+
+\begin{theorem} \label{thm:ch10.5.3}
+Let $M$ be a connected Hausdorff $\CInfty$ manifold. If $G$ is any Riemannian metric on $M$, then there exist Riemannian metrics $G_1$ and $G_2$, both conformal to $G$, with $G_1$ complete and $G_2$ bounded.
+\end{theorem}
+
+\begin{proof}
+Since there is more than one Riemannian metric involved, write $G_i(X,Y)$ rather than $\ip XY_i$ for the metric tensor applied to a pair of vectors, $d_i$ for the metric, and $B_i(m,r)$ for the corresponding $r$-ball neighborhoods.
+
+Using the metric $G$, for each $p\in M$, let
+\[r(p) = \sup\brc{r: \bar B(p,r) \text{ is compact}}\]
+If $r(p)=\infty$ for some $p$, then $G$ is complete by theorem \ref{thm:ch10.5.1}. Suppose $r(p)<\infty$ for all $p$, and we construct $G_1$.
+
+Notice $\norm{r(p)-r(m)}\le d(p,m)$ for all $p$ and $m$, for if $r(p)>r(m)+d(p,m)$, one could increase $r(m)$; hence $r(p)\le r(m)+d(p,m)$ for all $p$ and $m$, and the inequality follows. This proves $r$ is continuous.
+
+Since $M$ is paracompact, it is easy to show there exists $f\in\CInfty(M,\bR)$ with $f(p)>\dfrac{1}{r(p)}$ for all $p$. Let 
+\[G_1(X,Y) = f^2(m)G(X,Y)\]
+for $X,Y\in\ts Mm$, which defines a $\CInfty$ Riemannian metric $G_1$ on $M$.
+
+That $G_1$ is complete will follow by showing $B(p,\tfrac13)\subset B(p,\tfrac{r(p)}{2})$ and hence $\bar B_1(p,\tfrac16)$ is compact. This implies every Cauchy sequence in the $G_1$ metric must converge. To show this, take $p\in M$ and take $m$ such that $d(p,m)\ge\frac{r(p)}{2}$. Let $\gamma$ ba a broken $\CInfty$ curve from $p$ to $m$, which is parameterized by $G$-arc length, i.e., if $T$ is the tangent to $\gamma$, then $G(T,T)=1$ and $\gamma$ is defined on $[0,L]$ where $L$ is the $G$-length of $\gamma$, so $L\ge\frac{r(p)}{2}$. Letting $L_1$ be the $G_1$-length of $\gamma$,
+\[L_1 = \int_0^L\sqrt{G_1(T,T)}\dd t
+= \int_0^L(f\circ\gamma)\dd t
+= f(\bar p)L
+> \frac{L}{r(\bar p)}\]
+where $\bar p$ is on $\gamma$ between $p$ and $m$. But
+\[\norm{r(\bar p)-r(p)}\le d(p,\bar p)\le L\]
+hence
+\[r(\bar p)\le r(p)+L,
+\quad L'>\frac{L}{r(p+L)}>\frac{L}{3L}=\frac13\]
+Hence $d_1(p,m)\ge\frac13$, so $B_1(p,\tfrac13)\subset B(p,\tfrac{r(p)}{2})$.
+
+For the second part of the theorem we may assume $G=G_1$ is complete. Fix a point $m\in M$ and let $f\in\CInfty(M,\bR)$ such that $f(p)>d(m,p)$ for all $p$. Let
+\[G_2=e^{-2f}G\]
+and we show $G_2$ is bounded. Take $p\in M$ and let $\gamma$ be a geodesic from $m$ to $p$ with tangent $T$ such that $G(T,T)=1$, $\gamma$ is defined on $[0,L]$, and $L=d(m,p)$. Then
+\[f\circ\gamma(t)>d(m,\gamma(t))=t\]
+for all $t$. Letting $L_2$ be the $G_2$-length of $\gamma$,
+\[L_2 = \int_0^L\sqrt{G_2(T,T)}\dd t 
+= \int_0^Le^{-f}\dd t
+< \int_0^Le^{-t}\dd t
+<\int_0^\infty e^{-t}\dd t
+= 1\]
+Hene $d_2(m,p)<1$ for all $m$ and $p$.
+\end{proof}
+
+
+
+\begin{corollary} \label{cor:ch10.5.4}
+Every Riemannian metric on a manifold is complete iff the manifold is compact.
+\end{corollary}
+
+
+
+For further work on completeness, see the papers of J. A. Wolf and P. A. Griffiths.
+
+\end{document}

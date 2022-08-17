@@ -1,0 +1,60 @@
+\documentclass[../../main]{subfiles}
+\begin{document}
+
+\begin{figure}[h!]
+\[
+\begin{tikzpicture}
+%uses the calc, intersections tikz library
+    %geodesic endpoints
+    \coordinate (G0) at (0,0);
+    \coordinate (Ga) at (8,1);
+    
+    %geodesic
+    \draw
+        (G0) 
+        to[bend left=7.5]
+        coordinate[pos=0.2](G1)
+        coordinate[pos=0.6](Gc)
+        coordinate[pos=0.65](Gc1)
+        coordinate[pos=0.75](Gb)
+        coordinate[pos=0.8](Gb1)
+        (Ga);
+    \foreach \i/\j in
+        { (G0)/0,(Gc)/c,(Gb)/b,(Ga)/a }
+    {
+        \filldraw \i circle (1pt)
+            node[anchor=north] {$g(\j)$};
+    }
+    
+    %the Jacobi field Z
+    \draw[name path=Z] (G0) to[bend left=45] (Gb);
+        %auxiliary lines
+        \draw[name path=fromG1, transparent]
+            (G1) to[] ++(102:1);
+        \draw[name path=fromGc, transparent]
+            (Gc) to[] ++(98:1);
+        \draw[name path=fromGc1, transparent]
+            (Gc1) to[] ++(97:1);
+        \draw[name path=fromGb1, transparent]
+            (Gb1) to[] ++(95:1);
+    \draw[name intersections={of=Z and fromG1}, very thick, ->]
+        (G1) 
+        -- node[midway, anchor=west]{$Z$} 
+        (intersection-1);
+    \draw[name intersections={of=Z and fromGc}, very thick, ->]
+        (Gc) -- (intersection-1);
+    \draw[name intersections={of=Z and fromGc1}, very thick, ->]
+        (Gc1) -- (intersection-1);
+    
+    %the Jacobi field Y
+    \draw[name path=Y, name intersections={of=Z and fromGc1}]
+        (intersection-1) to[bend left] (Ga);
+    \draw[name intersections={of=Y and fromGb1}, very thick, ->]
+        (Gb1) -- (intersection-1);
+\end{tikzpicture}
+\]
+\caption{Fields Along a Geodesic}
+\label{fig:ch10fig2}
+\end{figure}
+
+\end{document}
