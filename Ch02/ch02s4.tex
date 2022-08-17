@@ -1,0 +1,44 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+%Claimed by Samsyet%
+\section{The Gauss Curvature and Codazzi-Mainardi Equations}\label{ch02:s4}
+Let $M,N,L,D$ and $\covariant$ be as is in the previous two sections. Our current goal is the ``theorema egregium'' of Gauss. This will show that the ``curvature'' is independent of the embedding, and motivate the definition of Riemannian curvature and curvature of a general connection.
+Let $X,Y$ and $Z$ be $\CInfty$ fields on an open set $A \in M$. Notice that
+\[\covariant_{X}(\covariant_{Y}Z)-\covariant_{Y}(\covariant_{X}Z)-\covariant_{[X,Y]}Z=\]
+\[(XYz_1,\dots,XYz_n)-(YXz_1,\dots,YXz_n)-([X,Y]z_1,\dots,[X,Y]z_n)\]
+where $Z=(z_1,\dots,z_n)$ and $z_i$ are $\CInfty$ real valued functions on $A$. This fact will later verify that the ``curvature of $\mathbb{R}^n$ is zero.'' By applying the Gauss equation and decomposing the above expression into tangent and normal parts, one obtains the Gauss curvature \ref{eqn:ch02.9}\index{Gauss curvature equation} and the Codazzi-Mainardi equations\index{Codazzi-Mainardi equations} \ref{eqn:ch02.10}, respectively.
+Thus,  
+\begin{align*}
+0 &=\covariant_{X}(\connection_{Y} Z-\ip{L Y}{Z}N)-\covariant_{Y}(\connection_{X} Z-\ip{LX}{Z}N)-\covariant_{[X, Y]} Z\\
+&=\connection_{X} \connection_{Y} Z-\ip{L X}{\connection_{Y} Z}N-X(\ip{LY}{Z}) N-\ip{L Y}{Z}L(X)\\
+&-\connection_{Y} \connection_{X} Z+\ip{L Y}{\connection_{X} Z}N+Y(\ip{L X}{Z}) N+\ip{L X}{ Z}L(Y)\\
+&-\connection_{[X, Y]} Z+\ip{ L([X, Y])}{ Z}N .
+\end{align*}
+Equating tangent and normal parts to zero gives
+\begin{equation}\tag{9}\label{eqn:ch02.9}
+    \connection_{X} \connection_{Y} Z-\connection_{Y} \connection_{X} Z-\connection_{[X, Y]} Z=\ip{LY}{Z}L(X)-\ip{LX}{Z}L(Y)
+\end{equation}
+and
+\[
+\ip{\connection_XL(Y)-\connection_YL(X)-L([X,Y])}{Z} = 0
+\]
+for all $Z$, so
+\begin{equation}\tag{10}\label{eqn:ch02.10}
+\connection_{X} L(Y)-\connection_{Y} L(X)-L([X, Y])=0
+\end{equation}
+Define 
+\[R(X, Y) Z=\connection_{X} \connection_{Y} Z-\connection_{Y} \connection_{X} Z-\connection_{[X, Y]} Z,\]
+and notice \ref{eqn:ch02.9} implies $R(X, Y) Z$ does not depend on the field nature of $X, Y$, and $Z$. Thus $R(X, Y) Z$ is a vector at $p$ in $A$ which depends only on $X_p, Y_{p}$ and $Z_{p}$ since these vectors are all that is needed to compute the left side of \ref{eqn:ch02.9}. Thus $R(X_{p}, Y_{p})$ define a linear transformation on $\tangentspace{M}{p}$ called the curvature of $X_{p}$ and $Y_{p}$. The justification of this definition is the following theorem, Gauss' ``theorema egregium.''
+
+\begin{theorem} \label{thm:ch2.4.1}
+ Let $n=3$ and let $X$ and $Y$ be an orthonormal base of $\tangentspace{M}{p}$ Then the total curvature $K(p)=\det L_{p}=\ip{R(X, Y) Y}{X}$
+\end{theorem}
+
+\begin{proof}
+Using the Gauss curvature equation \ref{eqn:ch02.9},
+\[\ip{R(X, Y) Y}{ X}=\ip{ L Y}{Y}\ip{L {X}}{X}-\ip{L X}{Y} \ip{L {Y}}{ X} =\det L = K(p) . \]
+\end{proof}
+
+The above theorem is significant because the term $\ip{R(X, Y) Y}{X}$ depends only on the metric $\ip{-}{-}$ and the connexion $\connection$, and it is completely independent of the normal $N$ or the map $L$. Thus the total curvature $K(p)=\ip{R(X, Y) Y}{X}$ is an ``intrinsic'' invariant that is independent of the ``imbedding'' (i.e., of $N$ and $L$ ). The theorem is generalized in Chapter \ref{ch06}.
+\end{document}

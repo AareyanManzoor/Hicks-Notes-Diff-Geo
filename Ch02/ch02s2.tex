@@ -1,0 +1,98 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+%Claimed by Manan
+
+\section{The Sphere Map and the Weingarten Map}\label{ch02:s2}
+
+An $(n-1)$-submanifold of an $n$-manifold is called a \emph{hypersurface}\index{hypersurface}. Throughout this section let $M$ be a hypersurface of $\bR^n$, let $\covariant$ be the natural connexion on $\bR^n$, and assume $N$ is a unit normal vector field that is $\CInfty$ on $M$. Thus $\ip{N_p}{N_p}=1$ and $\ip{N_p}{X}=0$ for all $p$ in $M$ and $X$ in $\tangentspace{M}{p}$. Such an $N$ always exists locally.
+
+For any $p$ in $M$ and any vector $X$ in $\tangentspace{M}{p}$, define the linear map \newline $L\colon \tangentspace{M}{p}\functionMaps \tangentspace{M}{p}$ by 
+\begin{equation}\tag{7} \label{enu:ch02.2.7}
+    L(X)=\covariant_X N.
+\end{equation}
+
+The vector $L(X)$ lies in $\tangentspace{M}{p}$, since $0=X\ip{N}{N}=2\ip{L(X)}{N}$ by property \ref{enu:ch02.1.6} for $\covariant$. The map $L$ is linear by properties \ref{enu:ch02.1.2} and \ref{enu:ch02.1.3}. The map $L$ is called the \emph{Weingarten map}\index{Weingarten map}, and in the case of $\bR^n$, it has a geometric interpretation as the Jacobian of the sphere map (Gauss map) which we now explain.
+
+Let $N=(a_1,\dots,a_n)$, so the $a_i$ are real valued $\CInfty$ functions on $M$ and $\sum_i(a_i)^2=1$. Then the map $\eta\colon M\functionMaps S^{n-1}$ defined by $\eta(p)=(a_1(p),\dots,a_n(p))$ in $\bR^n$, is a $\CInfty$ map of $M$ into the unit $(n-1)$-sphere $S^{n-1}$, and $\eta$ is called the \emph{sphere map}\index{sphere map} (or \emph{Gauss map})\index{Gauss map}. If $X \in \tangentspace{M}{p}$ and $\sigma(t)$ is a curve fitting $X$ (so $\sigma(0)=p$ and $T_{\sigma}(0)=X$), then $\eta\circ\sigma(t)=(a_1\circ\sigma(t),\dots,a_n\circ\sigma(t))$ and
+\begin{align*}
+    \eta_*(X)&=T_{\eta \circ \sigma }(0) = \Big(\dv{(a_1\circ\sigma)}{t}(0),\dots,\dv{(a_n\circ\sigma)}{t}(0)\Big)\\
+    &=(Xa_1,\dots,Xa_n)=\covariant_XN=L(X).
+\end{align*}
+
+The map $L$ is $\CInfty$ on $M$ in the sense that if $X$ is $\CInfty$ on the subset $A$ of $M$ then $L(X)=(Xa_1,\dots,Xa_n)$ is also $\CInfty$ on $A$ since each $a_1$ is $\CInfty$ on $M$.
+
+\begin{figure}[ht]
+    \centering
+    \incfig{the-weingarten-map-(derivative-of-normal)}
+    \caption{The Weingarten Map (derivative of normal)}
+    \label{fig:the-weingarten-map-(derivative-of-normal)}
+\end{figure}
+
+Our next objective is to show $L$ is \emph{self-adjoint}\index{self-adjoint (symmetric) map} or \emph{symmetric}, i.e., if $X,Y$ are in $\tangentspace{M}{p}$ then $\ip{L(X)}{Y}=\ip{X}{L(Y)}$.
+
+To do this, let $Z$ be a $\CInfty$ field defined on a special coordinate neighbourhood $U$ of $p$ and let $\xoverline{U}$ be the associated coordinate neighbourhood of $p$ in $\bR^n$ with coordinate functions $\xoverline{x}_1,\dots,\xoverline{x}_n$. Then $Z=\displaystyle \sum_{i=1}^{n-1}g_i\Big(\pdv{}{ x_i}\Big)$, where $g_i$ are $\CInfty$ real valued functions on $U$. We want to extend $Z$ to a $\CInfty$ field $\xoverline{Z}$ on $\xoverline{U}$, i.e., we want $\xoverline{Z}$ so that $\xoverline{Z}_p=Z_p$ for $p$ in $U$. Let us assume the coordinate map $\xoverline{\phi}$ maps $\xoverline{U}$ onto a ball, $B$, about the origin in $\bR^n$, i.e., $\xoverline{x}_i(p)=0=u_i\circ\xoverline{\phi}(p)$ for all $i$. Then if $(t_1,\dots,t_n)$ is in $B$, let $\pi\colon (t_1,\dots,t_n)\functionMaps(t_1,\dots,t_{n-1},0)$. This map $\pi$ (which is $\CInfty$) induces a $\CInfty$ map $\sigma\colon\xoverline{U}\functionMaps U$ by $\sigma=\xoverline{\phi}^{-1}\circ\pi\circ\xoverline{\phi}$. Letting $\xoverline{Z}=\displaystyle\sum_{i=1}^{n-1}(g_i\circ\sigma)\Big(\pdv{}{\xoverline{x}_i}\Big)$, the field $\xoverline{Z}$ is a $\CInfty$ extension of $\xoverline{Z}$ to $\xoverline{U}$.
+
+Actually the above process allows us to extend an $\bR^n$-field $Z$ that is $\CInfty$ on $U$ to a $\CInfty$ field $\xoverline{Z}$ on $\xoverline{U}$.
+
+Having the existence of such extensions we prove a proposition.
+
+\begin{proposition} \label{prop:ch2.2.1}
+Let $\xoverline{U}$ and $U$ be special neighborhoods of $p$ as above and let $\xoverline{Z}$ and $Z$ be $\CInfty$ fields on $\xoverline{U}$ and $U$, respectively. Then $\xoverline{Z}$ is an extension of $Z$ (i.e., $\xoverline{Z}_p=i_*(Z_p)$ for $p$ in $U$) iff $(\xoverline{Z}f)\vert_U=Z(f\vert_U)$ for all $f$ in $\CInfty(\xoverline{U},\bR)$. If $\xoverline{X}$ and $\xoverline{Y}$ are $\CInfty$ extensions to $\xoverline{U}$ of $\CInfty$ fields $X$ and $Y$ on $U$, then $[\xoverline{X},\xoverline{Y}]$ is a $\CInfty$ extension of $[X,Y]$.
+\end{proposition}
+\begin{proof}
+If $\xoverline{Z}_p=i_*(Z_p)$ for $p$ in $U$, where $i\colon M\functionMaps\bR^n$ is the inclusion, then for $f$ in $\CInfty(\xoverline{U},\bR)$, $(\xoverline{Z}f)(p)=\xoverline{Z}_pf=(i_*(Z_p))f=Z_p(f\circ i)=Z(f\vert_U)(p)$. Conversely, if the two extreme terms are equal, then the second equality follows. 
+
+For the rest of the proposition consider for $p$ in $U$
+\begin{align*}
+    [\xoverline{X},\xoverline{Y}]_pf&=\xoverline{X}_p(\xoverline{Y}f)-\xoverline{Y}_p(\xoverline{X}f)=X_p((\xoverline{Y}f)\vert_U)-Y_p((\xoverline{X}f)\vert_U)\\
+    &=X_p(Y(f\vert_U)-Y_p(X(f\vert_U)=[X,Y]_p(f\vert_U),
+\end{align*}
+thus $[\xoverline{X},\xoverline{Y}]$ is an extension of $[X,Y]$.
+\end{proof}
+
+\begin{theorem} \label{thm:ch2.2.2}
+The Weingarten map is self-adjoint.
+\end{theorem}
+\begin{proof}
+Take $X$ and $Y$ in $\tangentspace{M}{p}$, imbed $X$ and $Y$ in $\CInfty$ fields on a special neighborhood $U$ of $p$, and extend $X$ and $Y$ to $\CInfty$ fields $\xoverline{X}$ and $\xoverline{Y}$ on $\xoverline{U}$ as above. Then
+\begin{align*}
+    \ip{LX}{Y}-\ip{X}{LY}&=\ip{\covariant_XN}{Y}-\ip{X}{\covariant_YN}\\
+    &=\ip{\covariant_{\xoverline{X}}\xoverline{N}}{\xoverline{Y}}_p-\ip{\xoverline{X}}{\covariant_{\xoverline{Y}}\xoverline{N}}_p\\
+    &=\xoverline{X}_p\ip{\xoverline{N}}{\xoverline{Y}}-\ip{\xoverline{N}}{\covariant_{\xoverline{X}}\xoverline{Y}}_p-\xoverline{Y}_p\ip{\xoverline{N}}{\xoverline{X}}+\ip{\xoverline{N}}{\covariant_{\xoverline{Y}}\xoverline{X}}_p\\
+    &=\ip{\covariant_{\xoverline{Y}}\xoverline{X}-\covariant_{\xoverline{X}}\xoverline{Y}}{\xoverline{N}}_p\\
+    &=\ip{[\xoverline{Y},\xoverline{X}]}{\xoverline{N}}_p=\ip{[Y,X]_p}{N_p}=0,
+\end{align*}
+since $\xoverline{X}_p\ip{\xoverline{N}}{\xoverline{Y}}=X_p\ip{N}{Y}=0=Y_p\ip{N}{X}$.
+\end{proof}
+
+The \defemph{fundamental forms}\index{fundamental forms} on $M$ can now be defined in terms of $L$ and the inner product. If $X$ and $Y$ are in $\tangentspace{M}{p}$, then 
+\begin{align*}
+    \firstForm(X,Y) &= \ip{X}{Y}\\
+    \secondForm(X,Y) &= \ip{L(X)}{Y}\\
+    \thirdForm(X,Y) &= \ip{L^2(X)}{Y}\\
+    \fourthForm(X,Y) &= \ip{L^3(X)}{Y}
+\end{align*}
+etc., and these forms are called the \emph{first, second, third, etc. fundamental forms}\index{second fundamental form} on $M$. Notice $M$ is a Riemannian manifold with metric tensor defined by the first fundamental form. Since the inner product is symmetric and $L$ is self-adjoint, the fundamental forms are all symmetric bilinear functions on $\tangentspace{M}{p}\times \tangentspace{M}{p}$ for all $p$ in $M$. These forms are $\CInfty$ in the sense that if $X$ and $Y$ are $\CInfty$ fields with domain $A$, then $\ip{L^k(X)}{Y}_p=\ip{L^k(X_p)}{Y_p}$ is a $\CInfty$ real valued function on $A$. The first three forms have a direct interpretation geometrically since $L$ represents the Jacobian of the sphere map.
+
+The algebraic invariants of the linear map $L$ at each point now define the imbedded geometric invariants of the submanifold $M$ at each point. Thus the determinant of $L$ at $p$ is the \emph{total curvature}\index{total curvature} (\emph{Gauss curvature}\index{Gauss curvature}) $K(p)$ of $M$ at $p$, the trace of $L$ at $p$ is the \emph{mean curvature}\index{mean curvature} $H(p)$, etc. The eigenvalues of $L$ are the \emph{principal curvatures}\index{principal curvature} and the eigenvectors of $L$ are the \emph{directions of curvature} or \emph{principal vectors}\index{principal vector}. Since $L$ is self-adjoint there are always $(n-1)$ independent directions of curvature. If $L$ is a multiple of the identity map on $\tangentspace{M}{p}$, then $p$ is an \emph{umbilic}\index{umbilic} point of $M$. If $L=0$ at $p$ we call $p$ a \emph{flat} point of $M$. Non-zero vectors $X$ and $Y$ in $\tangentspace{M}{p}$ are \emph{conjugate} if $\ip{LX}{Y}=0$. A vector $X$ (not zero) is \emph{asymptotic} if it is self-conjugate, i.e., if $\ip{LX}{X}=0$. A curve in $M$ is a \emph{line of curvature}\index{line of curvature} if its tangent is a principal vector at each of its points.
+
+The following facts come immediately from these definitions. An asymptotic direction $X$ is a direction of curvature iff $LX=0$ iff $X$ is conjugate to all vectors\index{conjugate vectors}. Conjugate directions always exist since if $LX\neq 0$ then there exists a $Y$ which is orthogonal to $LX$. If the second fundamental form $\ip{LX}{Y}$ is positive or negative definite no asymptote directions exist. If $X$ and $Y$ are two directions of curvature belonging to unequal eigenvalues, then $X$ is orthogonal to $Y$. The proof of this is standard algebra, i.e.,
+\begin{equation*}
+    0=\ip{LX}{Y}-\ip{X}{LY}=\ip{k_1X}{Y}-\ip{X}{k_2Y}=(k_1-k_2)\ip{X}{Y},
+\end{equation*}
+so $k_1\neq k_2$ implies $\ip{X}{Y}=0$. If $X$ and $Y$ are non-zero independent vectors with $LX=kX$ and $LY=-kY$, then the vectors $X+Y$ and $X-Y$ are orthogonal asymptotic directions spanning the same subspace as $X$ and $Y$. Finally one notices that $L$ must satisfy its characteristic polynomial, which will also give a relation between the fundamental forms, i.e., if $n=3$, then $L^2-HL+K\text{(identity)}=0$ and $\thirdForm-H\secondForm+K\firstForm=0$.
+
+When $X$ is a principal vector, the Weingarten map says $\covariant_XN=kX$, where $k$ is a principal curvature, and this equality is classically called the \emph{formula of Rodrigues}\index{Rodrigues formula}.
+
+Another classical concept is the \emph{Dupin indicatrix}\index{Dupin indicatrix} at each $p$ in $M$ which is the subset of $\tangentspace{M}{p}$ consisting of all vectors in $X$ such that $\ip{L(X)}{X}=\pm 1$.
+
+Let $n=3$ and let $X$ and $Y$ be unit orthogonal principal vectors in $\tangentspace{M}{p}$ with $LX=kX$ and $LY=hY$. If $Z=aX+bY$, then $\ip{LZ}{Z}=ka^2+hb^2$. Thus the indicatrix is the curve (or curves) in $\tangentspace{M}{p}$ such that $ka^2+hb^2=\pm 1$. Consider the three cases:
+\begin{enumerate}
+    \item If $K(p)>0$, then $h$ and $k$ have the same sign (for $K=hk=\det L$) so suppose they are positive. The indicatrix is then an ellipse determined by $ka^2+hb^2=1$, and $p$ is an \emph{elliptic point}.
+    \item If $K(p)<0$, then $h$ and $k$ have opposite signs, the indicatrix is two hyperbolas, and $p$ is a \emph{hyperbolic point}.
+    \item If $K(p)=0$, say $k=0,h>0$, then $b=\pm 1/\sqrt{h}$ gives two straight lines parallel to the $X$ vector, and $p$ is a \emph{parabolic point}. (When $k=h=0$, $p$ is an \emph{umbilic} and a \emph{flat point}\index{flat point}.)
+\end{enumerate}
+There is a geometric interpretation of the indicatrix as an approximation to the intersection of the surface with a plane which is parallel and close to the tangent plane; for details see \cite{struik1961lectures} (p.84).
+
+\end{document}

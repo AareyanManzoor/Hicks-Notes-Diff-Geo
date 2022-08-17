@@ -1,0 +1,88 @@
+\documentclass[../../main]{subfiles}
+\begin{document}
+
+\begin{figure}[h!]
+\[
+\begin{tikzpicture}[decoration={
+	markings,
+	mark=at position .5 with {\arrow[]{Stealth}} }
+	]
+%uses calc and decoration.markings libraries
+
+    %torus
+    \begin{scope}[scale=0.6]
+    
+    %the basic shape
+    \draw         (4,0) arc (0:180:4cm and 2cm);
+    \draw[thick]
+        (-4,0) arc (180:360:4cm and 2cm)
+        coordinate[pos=0.6](bottomtorus);
+    \draw[ultra thick, line cap=round] 
+        (-1.5,1) to[bend right=20] 
+        coordinate[pos=0.5](topcenter)
+        (1.5,1);
+        
+    %coordinate axes
+    %z
+    \draw (topcenter)--(0,4) node[right]{$z$};
+    \draw[dashed] (topcenter)--(0,-2);
+    \draw (0,-2)--(0,-4);
+    
+    %y
+    \draw (-3,-4)--(3,-2) node[right]{$y$};
+    
+    %x
+    \draw (-4,-3)--(4,-3) node[below]{$x$};
+    
+    %circle on top
+    \draw[]
+        (0,0.575) arc (-90:270:2.5cm and 0.5cm)
+        coordinate[pos=0.6](T1)
+        coordinate[pos=0.65](T2)
+        node[pos=0.2, right]{$E$};
+        
+    \draw[very thick, ->] (T1) to ++(0,1.5) node[above]{$N$};
+    \draw[very thick, ->] (T2) to ++(0,1.5) node[above]{$N$};
+    
+    %small center part "A"
+    \draw[dashed]
+        (-1,0) arc (180:-180:1cm and 0.25cm) node[pos=0, left]{$A$};
+        
+    %"B"
+    \draw[thick]
+        (-4,0) arc (180:360:4cm and 1cm)
+        node[near start, above]{$B$}
+        coordinate[pos=0.75](M1)
+        coordinate[pos=0.8](M2);
+    
+    \draw[very thick, ->] (M1) to ++(-15:1.5) node[below]{$N$};
+    \draw[very thick, ->] (M2) to ++(-10:1.5) node[right]{$N$};
+    
+    %circle through torus
+    \draw[very thick, line cap=round] (bottomtorus) arc (-90:90:0.75cm and 1.28cm);
+    \draw[dashed] (bottomtorus) arc (-90:-270:0.75cm and 1.28cm);
+    \end{scope}
+    
+    %circle
+    \begin{scope}[shift={(5,-1)}]
+    \draw (-10:1.5) arc (-10:105:1.5cm);
+    
+    %angle t/r, radius r
+    \draw (80:1.5) to (0:0) to node[midway,below]{$r$} (20:1.5);
+    \filldraw (80:1.5) circle (1pt);
+    \draw[dashed] (20:0.5) arc (20:80:0.5cm) node[midway, above right]{$t/r$};
+    
+    %vectors
+    \draw[very thick, ->] (30:1.5) to ++(30:1) node[right]{$N$};
+    \draw[very thick, ->] (40:1.5) to ++(40:1) node[right]{$N$};
+    \draw[very thick, ->] (40:1.5) to ++(40+90:1) node[above right]{$X$};
+    \draw[very thick, ->] (75:1.5) to ++(75:1) node[above]{$N$};
+    \draw[very thick, ->] (80:1.5) to ++(170:1) node[left]{$X_t$};
+    \end{scope}
+\end{tikzpicture}
+\]
+\caption{The Torus}
+\label{fig:ch02fig4}
+\end{figure}
+
+\end{document}

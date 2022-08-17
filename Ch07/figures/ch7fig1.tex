@@ -1,0 +1,72 @@
+\documentclass[../../main]{subfiles}
+\begin{document}
+
+\begin{figure}[ht]
+\[
+\begin{tikzpicture}
+    \begin{scope}
+    \draw (0.75,2.5) node {$\bR^2$};
+    
+    \draw (-0.5,0)--(2,0);
+    \draw (0,-0.5)--(0,2);
+    
+    \draw[very thick]
+        (0,0) 
+        to node[midway, anchor=south]{1}
+        (1.5,0)
+        to node[midway, anchor=east]{2}
+        (1.5,1.5)
+        to node[midway, anchor=north]{3}
+        (0,1.5)
+        to node[midway, anchor=west]{4}
+        (0,0);
+    \end{scope}
+    
+    \begin{scope}[shift={(7,1)}]
+    \draw[rotate=10] (0,0) ellipse (3cm and 2cm);
+    \draw (2,1) node {$M$};
+    
+    \draw[dashed, ->] (-4,0.5) to[bend left] (-1,0.5);
+    
+    \draw[very thick]
+        (-0.5,0)
+        to[out=-30, in=150, relative]
+            node[midway, anchor=south]{1}
+            node[midway, anchor=north]{3}
+        (1.5,0.25)
+        to[bend left=20] node[midway, anchor=east]{2}
+        (1.25,1.5)
+        to[bend right=15] node[midway, anchor=north]{3}
+        (-1,1.5)
+        to[bend left=35] node[midway, anchor=west]{4}
+        (-0.5,0);
+    
+    \draw[very thick]
+        (-0.5,0)
+        to[bend right=20]
+            node[midway, anchor=west]{4}
+            node[midway, anchor=east]{2}
+        (0,-1.25)
+        to[bend right=15] node[midway, anchor=south]{1}
+        (1.5,-0.75)
+        to[bend left=15] node[midway, anchor=east]{2}
+        (1.5,0.25);
+        
+    \draw[very thick]
+        (-0.5,0)
+        to[out=-20, in=150, relative]
+            node[midway, anchor=north]{3}
+        (-2,-0.25)
+        to[out=-20, in=150, relative]
+            node[midway, anchor=west]{4}
+        (-1.5,-1.75)
+        to[bend left] node[midway, anchor=south]{1}
+        (0,-1.25);
+    \end{scope}
+\end{tikzpicture}
+\]
+\caption{A Fundamental 2-Chain}
+\label{fig:ch07fig1}
+\end{figure}
+
+\end{document}

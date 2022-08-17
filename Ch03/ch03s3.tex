@@ -1,0 +1,60 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section{Parallel Surfaces (Normal Maps)}\label{ch03:s3}
+Let us state a standard hypothesis for some theorems (and problems on ``parallel surfaces'): $M$ is a closed connected surface in $\bbR^3$ with $\CInfty$ unit normal $N$, $r$ is a non-zero real number, and $f$ is a map $f : M \functionMaps \bbR^3$ defined by $f(p) = p + N_p$ (see section~\ref{ch02:s6}). 
+
+
+\begin{theorem} \label{thm:ch3.3.1}
+With the standard hypothesis, if $f$ is strictly conformal, then $M$ is a sphere, plane, or has constant mean curvature $H = -\dfrac{2}{r}$ with no umbilics. 
+\end{theorem}
+
+\begin{proof}
+From section~\ref{ch02:s6}, if $X \in \tangentspace M m$, then $f_\ast(X) = X + r L(X)$. Since $f$ is strictly conformal, there is a $\CInfty$ real-valued function $F$ on $M$ with 
+
+\[
+\ip {f_\ast X} {f_\ast Y} = F(m) \ip X Y = \ip {X + 2 r L X + r^2 L^2 X} Y
+\]
+
+for all $X, Y$ in $\tangentspace M m$ for all $m$ in $M$. Hence $r^2 L^2 + 2 r L + (1 - F) \firstForm = 0$ and, as always, $L^2 - HL + K\firstForm = 0$, so 
+
+\[
+\Big(H + \dfrac{2}{r}\Big)L = \Big[K -\dfrac{1 - F}{r^2}\Big] \firstForm.
+\]
+
+If $H(m) + 2/r \ne 0$, then $m$ is an umbilic, and, indeed, \newline $U = \{m \in M : H(m) \ne -2/r\}$. For if $m$ umbilic and $H(m) = -2/r = 2k$, then \[k = -\dfrac{1}{r},K = \dfrac{1}{r^2},K - \dfrac{1 - F}{r^2} = \dfrac{F}{r^2} = 0\], and so $F(m) = 0$, which is impossible. Thus $M = U$ or $M = V$, and the only possibilities give the conclusion of the theorem.
+\end{proof}
+
+
+
+\begin{theorem} \label{thm:ch3.3.2}
+With the standard hypothesis, if $f$ preserves the second fundamental form, then $M$ is a plane. 
+\end{theorem}
+
+\begin{proof}
+From section~\ref{ch02:s6}, for all $X$ and $Y$ in $\tangentspace M m$, 
+\[
+\ip {LX} Y = \ip {L_r f_\ast X} {f_\ast Y} = \ip {L X} {Y + r LY}
+\]
+thus $\ip {LX} {r LY} = \ip X {r L^2 Y} = 0$ for all $X$ and $Y$, and hence $L^2 = 0$. Thus the principal curvatures are zero, $L = 0$, and $M$ is a plane. 
+\end{proof}
+
+
+
+Similar results are given as problems. The following theorem is due to Bonnet, and the examples in the next section show the hypothesis is not vacuous. 
+
+
+
+\begin{theorem} \label{thm:ch3.3.3}
+Let $M$ be a surface of constant positive Gauss curvature $K$ with no umbilics. Let $r_1 = 1/\sqrt K$ and $r_2 = -1/\sqrt K$ define parallel sets $M_1$ and $M_2$ respectively. Then $M_1$ and $M_2$ are immersions of $M$ which have constant mean curvature $\sqrt K$ and $-\sqrt K$, respectively. If $M'$ is a surface with constant mean curvature $H$ (non zero) and non-zero Gauss curvature, letting $r = -1/H$ yields a parallel set that is an immersion of $M'$ with constant positive Gauss curvature $H^2$.
+\end{theorem}
+
+\begin{proof}
+The proof is a corollary to the formulas for $H_r$ and $K_r$ in section~\ref{ch02:s6}. The special assumptions avoid trivial cases (sphere or cylinder) and singularities. 
+
+For the first part, $f_\ast$ is non-singular, since for principal vectors \[f_\ast X = (1 + rk)X \text{ and } 1 + r k = 1 \pm \dfrac{k}{\sqrt{K}} \ne 0,\] since there are no umbilics. Then \[H_1 = \dfrac{H + 2 \sqrt K}{2 + H/\sqrt K} = \sqrt K,\] and similarly, $H_2 = -\sqrt K$.
+
+For the second part, $f_\ast$ is non-singular, since $1 + r k = 1 - k/H = 0$ would imply $k = H$, so the other principal curvature is zero and $K = 0$ contrary to the hypothesis. Then \[K_r = \dfrac{K}{1 - 1 + K/H^2} = H^2\].
+\end{proof}
+
+\end{document}

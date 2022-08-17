@@ -1,0 +1,33 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section*{Problems}
+
+\begin{enumerate}
+    \setcounter{enumi}{22}
+    \item\label{pro:23} 
+    \begin{enumerate}[label = (\roman*)]
+        \item Let $f$ be in $\CInfty(\bR^2, \bR)$. Let $M$ be the graph of $f$; thus \\ $M = \{(x,y,f(x,y)) \colon (x,y) \in \bR^2\}$. Let $W = \sqrt{(f_x)^2 + (f_y)^2 + 1}$ and let $N = W^{-1}(-f_x, -f_y, 1)$. Show $X = (1, 0, f_x)$ and $Y = (0, 1, f_y)$ span $M_m$ at all $m$ and $N$ is a unit normal that is $\CInfty$ on $M$.
+        \item Let $E = \ip{X}{X}$, $F=\ip{X}{Y}$, and $G = \ip{Y}{Y}$. Show
+    \[ 
+    \begin{aligned}
+    L(X) &= -\dfrac{f_{xx}G-f{xy}F)X + (f_{xy}E - f_{xx}F)Y}{W^3}\\
+    L(Y) &= -\dfrac{(f_{xy}G-f_{yy}F)X+(f_{yy}-f_{xy}F)Y}{W^3}\\
+    K &= \frac{f_{xx}f_{yy} - f_{xy}^2}{W^4}\\
+    H &= -\frac{1}{W^3} (f_{xx}G + f_{yy}E - 2f_{xy}F).
+    \end{aligned}
+    \]
+        \item Compute $b_{11} = \ip{LX}{X}$, $b_{12}=\ip{LX}{Y}$, $b_{22} = \ip{LY}{Y}$, $c_{11}=\ip{LX}{LX}$, $c_{12}=\ip{LX}{LY}$, and $c_{22}=\ip{LY}{LY}$.
+        \item  Show \[K = \dfrac{\det b_{ij}}{EG-F^2} = \bigg[\dfrac{\det c_{ij}}{EG-F^2}\bigg]^{1/2} = \dfrac{2F_{xy} -E_{yy} - G_{xx}}{2W^4}.\]Show $L^2 - HL + KI = 0$ where $I$ is the identity map. (Compare with section \ref{ch03:s4}). 
+    \end{enumerate}
+     
+    
+    
+    
+    \item\label{pro:24} Compute the invariants for the \emph{right helicoid}\index{helicoid} (a ruled surface) which is the image of the map $\phi\colon\bR^2\functionMaps\bR^3$ defined by $\phi(u,v) = (u\cos v,u\sin v, av)$ for $a>0$. 
+    
+    \item\label{pro:25} Show a curve on a surface is a line of curvature iff the surface normals along the curve form a developable surface (Result is due to Monge).
+\end{enumerate}
+
+
+\end{document}

@@ -1,0 +1,20 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+%claimed by Manan
+
+\section{The Jacobian of a Map}\label{ch01:s4}
+Let $M$ and $N$ be $\CInfty$ manifolds of dimensions $n$ and $k$ respectively. We defined the above concept of a $\CInfty$ map $f$ from $M$ into $N$. Such a map induces a linear transformation from each tangent space $\tangentspace{M}{m}$ into the tangent space $\tangentspace{N}{f(m)}$. This linear map is called the \emph{Jacobian map}\index{Jacobian map} or the \emph{differential of} $f$\index{differential of a map} and we denote it by $f_{*}$ (often it is denoted $\mathrm{d}f$, but we reserve the symbol $\mathrm{d}$ for the exterior derivative\footnote{See sections \ref{ch05:s2} and \ref{ch07:s1}} operator). Let $X$ be in $\tangentspace{M}{m}$ and we define $f_*X$ as a vector $f(m)$ and setting $(f_*X)g=X(g\circ f)$. It is trivial to check that $f_*X$ is a vector at $f(m)$ and the map $f_*$ is linear.
+
+By selecting a coordinate system $x_1,\dots,x_n$ about $m$ and another $y_1,\dots,y_k$ about $f(m)$, we can determine a matrix representation for $f_*$ which is called the \emph{Jacobian matrix} of $f_*$ with respect to the chosen coordinate systems. Let $X_i=\pdv{}{x_i}$, $Y_j=\pdv{}{y_j}$, thus $X_1,\dots,X_n$, at $m$, form a base for $\tangentspace{M}{m}$ and we compute $f_*$ by computing its action on this base. Namely, $f_*X_i=\sum\limits_j(f_*X_i)y_jY_j$ by the representation theorem \ref{thm:ch1.3.2} above, hence the matrix in question is the matrix \[((f_*X_i)y_j)=\Big(\pdv{(y_j\circ f)}{x_i}\Big) \text{ for } 1\leq i\leq n \text{ and } 1\leq j\leq k.\]
+
+The implicit function theorem and the inverse function theorem can be applied and formulated in this language. The former we postpone, since we do not really need it for some time (see Problem \ref{pro:16}) but the latter is both useful and instructive. First a definition. A \emph{diffeomorphism}\index{diffeomorphism} is a map $f\colon M\functionMaps N$ that is $1$ to $1$ and onto with both $f$ and $f^{-1}$ $\CInfty$, and if such an $f$ exists, then $M$ is \emph{diffeomorphic} to $N$.
+
+\begin{theorem}[Inverse function]\label{thm:ch1.4.1}
+Let $M$ and $N$ be $\CInfty$ $n$-manifolds and let $f\colon M\functionMaps N$ be $\CInfty$. If for $m$ in $M$, the Jacobian $f_*$ at $m$ is an isomorphism of $\tangentspace{M}{m}$ onto $\tangentspace{N}{f(m)}$, then there is a neighborhood $U$ of $m$ and a neighborhood $V$ of $f(m)$ such that $f$ is a diffeomorphism from $U$ to $V$ (i.e., $f$ is a local diffeomorphism about $m$).
+\end{theorem}
+
+We leave it to the reader to choose a coordinate system on both sides and apply the theorem from advanced calculus to obtain the result. Notice the $\CInfty$ demand of $f$ and $f^{-1}$ implies the theorem could be stated as \emph{necessary} as well as sufficient condition for the existence of a local inverse. If one only demands continuity of the inverse, then the map $x\mapsto x^3$ provides a homeomorphism of $\bR$ onto $\bR$ whose Jacobian is singular at the origin.
+
+Now consider the behavior of the Jacobian with respect to the composite maps. Let $g$ be a $\CInfty$ map of $N$ into the $\CInfty$ manifold $L$. Then at each $m$ in $M$, $(g\circ f)_*=g_*\circ f_*$, for if $h$ is a $\CInfty$ function about $g(f(m))$ and $X$ in $\tangentspace{M}{m}$ then $((g\circ f)_*X)h=X(h\circ g\circ f)=(f_*X)(h\circ g)=(g_*(f_*X))h$. In terms of coordinate systems, the above computation exhibits the chain rule and multiplicative behavior of Jacobian matrices. When $f$ is a diffeomorphism of $M$ into $N$, and $X$ and $Y$ are $\CInfty$ fields on $M$, then $f_*X$ and $f_*Y$ are $\CInfty$ fields on $N$ with $f_*[X,Y]=[f_*X,f_*Y]$.
+\end{document}

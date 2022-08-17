@@ -1,0 +1,126 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+\section{Tensors and Forms}
+The material in the first three chapters was based on a minimum amount of structure, i.e., manifolds, functions, and vector fields; moreover, there was a strong bias on hypersurfaces in Euclidian space. By the time the reader should be at home with these concepts, and before discussion general connexions on manifolds, it is convenient to define tensors and forms. They are there, and they are useful. At times in the past, one notices a strong compulsion to seek out and label tensors \emph{ad nauseum}, and objects that were not tensors were eyed with suspicion. In a sense, this chapter is the ``7th'' section of Chapter \ref{ch01}; it is just more structure that a $\CInfty$ manifold has automatically, and Chapter \ref{ch07} continues the theme. It is hoped by breaking the definitions up they become more digestible.
+
+Let $M$ be a $\CInfty$ $n$-manifold throughout this chapter, and let $m$ be a point in $M$. Since the tangent space $\tangentspace{M}{m}$ at $m$ is an $n$-dimensional vector space, the theory of linear algebra can be applied to define tensors and forms. A $p$\emph{-covariant tensor at}\index{tensors} $m$ (for $p> 0$) or a $p$\emph{-co tensor at} $m$ is a real valued $p$-linear (i.e., linear in each slot) function on $\tangentspace{M}{m} \times \tangentspace{M}{m} \times \cdots \times \tangentspace{M}{m}$ ($p$ copies). Thus $\alpha$ is a 2-co tensor at $m$ if 
+\[
+\begin{aligned}
+&\alpha(X+Y, Z) = \alpha(X,Z) + \alpha(Y,Z)\\
+&\alpha(X,Y+Z) = \alpha(X,Y) + \alpha(X,Z)\\
+&\alpha(rX, Y) = \alpha(X, rY) = r\alpha(X, Y)
+\end{aligned}
+\]
+for all $X$, $Y$ and $Z \InText \tangentspace{M}{m}$ and $r \in \bR$. In a similar way, one defines a \emph{$V$-valued $p$-co tensor at $m$}, where $V$ is any vector space over $\bR$; indeed, $V$ could be $\tangentspace{M}{m}$ itself.
+
+Let $\cotangentspace{M}{m}$ be the \emph{dual space} of $\tangentspace{M}{m}$. Thus $\cotangentspace{M}{m}$ is the set of real valued 1-co tensors at $m$, or the set of linear functionals from $\tangentspace{M}{m}$ into $\bR$, and $\cotangentspace{M}{m}$ is endowed with its natural vector space structure (i.e., one adds functions by adding their values and multiplies by a constant in an obvious way). Similarly, the set of $p$-co tensors at $m$, denoted by $\tensorspace{M}{m}{0}{p}$\footnote{In the original book, the tangent space was notated $M_m$, and $\tensorbundle{V}{p}{q}$ denoted the $(p,q)$ tensors over $V$. So the original book had $\mathbf T^{p,q}(M_m)$ to denote this. However as we decided to change notations for tangent space, and since $\mathbf{T}^{p,q}(\tangentspace{M}{m})$ does not look good, we changed the notation here. So whenever we say $\tensorspace{M}{m}{p}{q}$, what is really meant is $(p,q)$ tensors over $\tangentspace{M}{m}$. }, is a vector space over $\bR$. A \emph{$p$-contravariant} or \emph{$p$-contra tensor at $m$} (for $p>0$) is a real valued $p$-linear function on $(\cotangentspace{M}{m})^p$, the cross product of $p$ copies of $\cotangentspace{M}{m}$, and the natural vector space formed by $p$-contra tensors at $m$ is denoted by $\tensorspace{M}{m}{p}{0}$. Define $\tensorspace{M}{m}{0}{0} = \bR$. (The sets of $p$-co tensor and $p$-contra tensors on any vector space $W$ are denoted by $\tensorbundle{W}{0}{p}$ and $\tensorbundle{W}{p}{0}$, respectively.) Again, $V$-valued $p$-contra tensors are defined analogously. Finally, a \emph{$p$-co and $q$-contra tensor at $m$} is a $(p+q)$-linear real valued function on $(\tangentspace{M}{m})^p \times (\cotangentspace{M}{m})^q$, and the vector space of these tensors is denoted by $\tensorspace{M}{m}{q}{p}$. If $p$ and $q$ are greater than zero, elements of $\tensorbundle{}{p}{q}$ are called \emph{mixed tensors}. Notice that a vector at $m$ is a \emph{1-contra tensor at $m$}. Similarly, there is a special name for a 1-co tensor at $m$, for it is called a \emph{1-form at $m$}.
+
+A tensor is \emph{symmetric}\index{symmetric tensor} iff its value remains the same for all possible permutations of its arguments (thus only $\tensorbundle{}{p}{ 0}$ or $\tensorbundle{}{0}{ p}$ tensors can be symmetric). A tensor is \emph{skew-symmetric}\index{skew-symmetric tensor} or \emph{alternating}\index{alternating tensor} iff its value after any permutation of its arguments is the product of its value before the permutation and the sign of the permutation. For example, let $\alpha$ be a 3-co tensor at $m$ and let $\pi$ be a permutation of the set $\{1, 2, 3\}$. Then $\alpha$ is symmetric iff 
+\[\alpha^\pi(X_1, X_2, X_3) = \alpha(X_{\pi 1}, X_{\pi 2}, X_{\pi 3})= \alpha(X_1, X_2, X_3)\]
+for all permutations $\pi$ and all vectors $X_i \InText \tangentspace{M}{m}$. When $\alpha^\pi$ is defined by the first equality in the above line, $\alpha$ is alternating iff $\alpha^\pi = (-1)^\pi \alpha$, where $(-1)^\pi$ is the sign of the permutation $\pi$. Then a \emph{$p$-form at $m$}\index{forms} (for $p>0$) is an alternating $p$-co tensor at $m$, and the set of $p$-forms at $m$ is denoted by $\formspace{M}{m}{p}$. A \emph{0-form at $m$} is a real number; thus $\formbundle{W}{0} = \bR$ for any vector space $W$ over $\bR$. A $p$-form is said to be of \emph{degree} $p$. 
+
+Tensor fields and $\CInfty$ tensor fields are now defined in a way that is analogous to the definition of a vector field, once a vector was defined. For example, a \emph{$p$-co tensor field} on a set $U$ is a mapping that assigns to each $m \InText U$ a $p$-co tensor at $m$. A \emph{$p$-co tensor field $\alpha$ on a set $U$ is $\CInfty$} iff $U$ is open and for all sets of $\CInfty$ vector fields $X_1,\dots,X_p$ on $U$, the function 
+\[ [\alpha(X_1,\dots,X_p)](m) = \alpha_m(X_1(m),\dots,X_p(m)) \]
+is a $\CInfty$ function on $U$. A $\CInfty$ $p$-form field on an open set $U$ is called a \emph{differential $p$-form} on $U$. 
+
+The \emph{tensor product} of covariant tensors is defined as follows: if $\alpha \InText \tensorbundle{W}{0}{ p}$ and $\beta \InText \tensorbundle{W}{0}{ q}$, then $\alpha\otimes \beta$ is the element in $\tensorbundle{W}{0}{ p+q}$ defined by
+\[ (\alpha\otimes\beta)(X_1,\dots,X_{p+q}) = \alpha(X_1,\dots,X_p)\beta(X_{p+1},\dots,X_{p+q}) \]
+for all $X_i \InText W$. Notice that
+\begin{itemize}
+    \item $(\alpha_1 + \alpha_2) \otimes \beta = (\alpha_1\otimes\beta) + (\alpha_2\otimes\beta)$,
+    \item $\alpha\otimes(\beta_1+\beta_2) = (\alpha\otimes\beta_1) + (\alpha\otimes\beta_2)$,
+    \item $(r\alpha)\otimes\beta=\alpha\otimes(r\beta) = r(\alpha\otimes\beta)$ for $r \InText \bR$,
+    \item However, in general, $\alpha\otimes\beta\ne\beta\otimes\alpha$
+    \item $(\alpha\otimes\beta)\otimes\gamma = \alpha\otimes(\beta\otimes\gamma)$.
+\end{itemize}
+Thus the tensor product is bilinear and associative but not symmetric. The tensor product of contravariant tensors or mixed tensors is defined analogously, but the details are omitted since these products are rarely used in this study.
+
+If $\alpha$ and $\beta$ are forms of degree $p$ and $q$, respectively, then the \emph{exterior}\index{exterior product}\index{wedge product}, \emph{wedge}, or \emph{Grassman product}\index{Grassman product} $\alpha\wedge\beta$ is defined to be the $(p+q)$-form 
+\[ \alpha\wedge\beta = \bigc(\frac{1}{p!q!}\bigc)\sum (-1)^\pi(\alpha\otimes\beta)^\pi, \]
+where the sum is taken over all permutations $\pi$ of the set $\{1, 2,\dots,p+q\}$. In problem \ref{pro:35} there is an expression for $\alpha \wedge\beta$ that avoids division. Notice that
+\begin{itemize}
+    \item $\alpha\wedge\beta = (-1)^{pq}\beta\wedge\alpha$,
+    \item $\alpha\wedge(\beta_1+\beta_2)=\alpha\wedge\beta_1+\alpha\wedge\beta_2$, where $\beta_i$ are forms of the same degree,
+    \item $(\alpha\wedge\beta)\wedge\gamma = \alpha\wedge(\beta\wedge\gamma)$ which is proved by using problem \ref{pro:35}. 
+\end{itemize}
+To continue the definitions in terms of the abstract vector space $W$ over $\bR$, the \emph{tensor algebra}\index{tensor algebra} $\tangentbundle{W}$ over $W$ and the \emph{Grassman algebra}\index{Grassman algebra} (\emph{exterior algebra}\index{exterior algebra}) $\formbundle{W}{}$ over $W$ are defined as the weak direct sums 
+\[ \tangentbundle{W} = \sum_{p, q\ge 0} \tensorbundle{W}{p}{q}\hspace{1em}\text{and}\hspace{1em} \formbundle{W}{} = \sum_{p\ge 0} \formbundle{W}{p}. \]
+By a \emph{weak direct sum}, $\sum_IM_i$ of modules over an index set $I$, one means the set of formal finite linear combinations of elements $m_1 + m_2 + \cdots + m_k$ where each $m_i \InText M_i$; or more precisely,
+\[ \sum_{I} M_i = \big\{ f\in \prod_I M_i \colon f(i) = 0 \text{ for all but a finite number of elements } i\in I\big\}, \]
+and the one writes $f=m_1 + m_2 + \cdots + m_k$ if $f(i) = m_i$ for $i=1,\dots, k$ and $f(j) = 0$ for $j\ne 1, \dots, k$, (see \cite{chevalley1956fundemental} and \cite{jacobson2013lectures} for more details). The tensor multiplication and the exterior product can be extended distributively to $\tangentbundle{W}$ and $\formbundle{W}{}$, respectively, thus making them algebras over $\bR$.
+
+If $U$ is an open set in the manifold $M$, let $\tensorbundle{U}{p}{q}$ be the set of $\CInfty$ $p$-contra and $q$-co tensor fields on $U$, and let $\tangentbundle{U}$ and $\formbundle{U}{}$ be defined analogously. On the other hand, let $\realFunctions$ be the ring of $\CInfty$ real valued functions on $U$ and let $\vectorFields_u$ be the $\realFunctions_u$-module of $\CInfty$ vector fields on $U$. Then the above definitions can be extended to define the $\realFunctions_u$-modules $\tensorbundle{\vectorFields_u}{p}{q}$ and $\formbundle{\vectorFields_u}{p}$ for $p, q \ge 0$, where $\tensorbundle{\vectorFields_u}{0}{ 0} = \formbundle{\vectorFields_u}{0} = \realFunctions_u$. The next theorem and its corollary are designed to illuminate the relation between $\tangentbundle{U}$ and $\tangentbundle{\vectorFields_u}$. To accomplish this, let us define an open set $V \InText M$ to be \emph{framed}\index{framed} if there exists a $\CInfty$ \emph{base field} on $V$, i.e., a set of $n$ $\CInfty$ vector fields $e_1,\dots,e_n$ on $V$ that are independent at each point of $V$.
+
+
+
+\begin{theorem}[characterization of $\CInfty$ tensors] \label{thm:ch4.1}
+If $U$ is a framed open set in $M$, then $\tensorbundle{U}{p}{q}$ is isomorphic to $\tensorbundle{\vectorFields_u}{p}{q}$ in a natural way.
+\end{theorem}
+
+\begin{proof}
+Let $e_1,\dots,e_n$ be a $\CInfty$ base field on $U$, and let $w_1,\dots,w_n$ be the dual $\CInfty$ 1-forms on $U$ (see problem \ref{pro:32}). It is sufficient to illustrate the proof for $\tensorbundle{\vectorFields_U}{0}{p}$ where $p>0$, since the other cases are analogous. Consider $\alpha \InText \tensorbundle{}{0}{p}$, and let 
+\[ \xoverline\alpha = \sum_{1\le i_j\le n} \alpha(e_{i_1}, e_{i_2},\dots,e_{i_p})[w_{i_1} \otimes w_{i_2} \otimes \cdots \otimes w_{i_p}],\]
+be an element in $\tensorbundle{\vectorFields_U}{0}{p}$ defined by
+\[ 
+\begin{aligned}
+[&\xoverline\alpha(X_1,\dots,X_p)](m) \\ 
+&= \sum_{1\le i_j\le n} [\alpha(e_{i_1},\dots,e_{i_p})](m)[w_{i_1}(X_1(m)) w_{i_2}(X_2(m))\cdots w_{i_p}(X_p(m))].
+\end{aligned}
+\] 
+
+where $X_i$ are $\CInfty$ fields on $U$. Then $\alpha =\xoverline\alpha$ as elements of $\tensorbundle{\vectorFields_U}{0}{p}$, for if $X_i$ are in $\vectorFields_U$, then the function
+\[
+\begin{aligned}
+\alpha(X_1,\dots,X_p) &= \alpha\bigg( \sum_{i_1=1}^n w_{i_1}(X_1)e_{i_1}, \sum_{i_2=2}^n w_{i_2}(X_2)e_{i_2}, \dots, \sum_{i_p=p}^n w_{i_p}(X_p)e_{i_p} \bigg)\\
+&= \sum_{1\le i_j\le n}w_{i_1}(X_1)w_{i_2}(X_2)\cdots w_{i_p}(X_p)\alpha(e_{i_1},\dots,e_{i_p}),
+\end{aligned}
+\]
+since $\alpha$ is multilinear over $\realFunctions_U$ and each $w_j(X_i)$ is a function in $\realFunctions_U$.
+
+But $\xoverline\alpha$ is only an element of $\tensorbundle{U}{0}{p}$, and notice $[\xoverline\alpha(X_1,\dots,X_p)]$ \emph{depends only on the vectors $X_1(m),\dots,X_p(m)$ and not on the fields $X_1, \dots, X_p$}. Thus the map $\alpha\mapsto\xoverline\alpha$ defines an isomorphism of $\tensorbundle{\vectorFields_U}{0}{p}$ onto $\tensorbundle{U}{0}{p}$. 
+\end{proof}
+
+
+
+One can ``roughly'' paraphrase the above theorem by saying that an $\realFunctions_U$-multilinear function on vector fields on $U$ is actually a smooth piecing together of $\bR$ multilinear functions on $\tangentspace{M}{m}$ for each $m \InText U$. 
+
+
+
+\begin{corollary} \label{cor:ch4.2}
+Let $U$ be open in $M$. Let $\alpha$ be a map that assigns to each framed open set $V\subset U$ an element $\alpha_V$ in $\tensorbundle{\vectorFields_V}{q}{p}$ with $\xoverline\alpha_V = \xoverline\alpha_W \InText \tensorbundle{(V\cap W)}{q}{p}$ for all open framed $V$ and $W$ contained in $U$. Then there is a unique tensor $\alpha \InText \tensorbundle{U}{p}{q}$ such that $\alpha|_V = \xoverline\alpha_V$ for each framed open $V\subset U$. Moreover, if $m\InText U$ and $X_1,\dots,X_p$ are in $\tangentspace{M}{m}$ while $z_1,\dots,z_q$ are in $\cotangentspace{M}{m}$, then
+\[
+\alpha_m(X_1,\dots,X_p, z_1,\dots,z_q) = [a_V(\xoverline X_1,\dots\xoverline X_p, \xoverline z_1,\dots\xoverline z_q)](m), \tag{*} \label{eq:CH04.*}
+\]
+\end{corollary}
+
+\begin{proof}
+Use (\ref{eq:CH04.*}) to define $\alpha_m$ at any $m\InText U$. If $W$ is any other framed open neighborhood of $m$, then $\alpha_m = (\xoverline{\alpha_V})_m = (\xoverline{\alpha_W})_m$, and one need only know the values of fields and forms at $m$ in order to evaluate both of the tensors on the right.
+\end{proof}
+
+
+
+If the reader will become familiar with tensors and compuitations involving their linearity via some of the problems, then the above theorem and corollary should become more natural.
+
+To close this chapter we study the maps on tensors induced by a $\CInfty$ map $f \colon M \functionMaps M'$, where $M$ is a $\CInfty$ $n$-manifold and $M'$ is a $\CInfty$ $n'$-manifold. Because the Jacobian $f_*$ maps vectors on $M$ into vectors on $M'$, it induces a map $f^\ast$ of covariant tensors(and forms) on $M'$ into covariant tensors (and forms) on $M$. If $g$ is in $\tensorbundle{U'}{0}{ 0} = \realFunctions_U$, for open $U'$ on $M'$, then $f^\ast (g) = g\circ f$ is a $\CInfty$ real valued function in $\realFunctions_U$ where $U = \formbundle{U'}{{-1}}$. If $\alpha$ is a $p$-co tensor at $f(m) \InText M'$, then $(f^*\alpha)_m$ is the $p$-co tensor at $m$ defined on $X_1,\dots,X_p$ in $\tangentspace{M}{m}$ by
+\[ (f^\ast\alpha)_m(X_1,\dots,X_p)  = \alpha_{f(m)}(f_*X_1,\dots,f_*X_p). \]
+
+If $\alpha$ is $\CInfty$ on the open set $U' \subset M'$,t then $f^\ast \alpha$ is $\CInfty$ on the open set $f^{-1}(U')\subset M$. In the next paragraph we prove this for a 1-form $\alpha$ and leave the other cases to the problems.
+
+Let $\alpha$ be a $\CInfty$ 1-form on $U'$, let $X$ be any $\CInfty$ vector field on $U$, and we show that $(f^\ast\alpha)(X)$ is a $\CInfty$ function on $U$. Take $m\in U$, let $x_1,\dots, x_n$ be a coordinate system about $m$ with domain $V\subset U$, and let $y_1,\dots,y_{n'}$ be a coordinate system about $f(m)$ with domain $V'\subset U'$. Define $\CInfty$ functions $a_1$ on $V$ and $b_j$ on $V'$ by \[X = \sum_1^n a_i\Big(\pdv{}{x_i}\Big)\text{ and }\alpha = \sum_{1}^{n'} b_j(\dd y_j),\text{ where }\dd y_r\Big(\pdv{}{y_s}\Big) = \delta_{rs} = 0\text{ or }1,\] according as $r\ne s$ or $r=s$, respectively (see problem \ref{pro:32}). Then on $V$,
+\[ (f^\ast \alpha)(X) = \sum a_i(b_j\circ f)\pdv{(y_i\circ f)}{x_i} \]
+for $i=1,\dots, n$ and $j=1,\dots,n'$, and since the right side is a $\CInfty$ function on $V$, $(f^\ast \alpha)(X)$ is $\CInfty$ on $V$, and hence $f^*\alpha$ is $\CInfty$ on $U$.
+
+Finally, one checks that
+\begin{itemize}
+    \item $ f^\ast(\alpha_1+\alpha_2) = f^\ast\alpha_1 +f^\ast\alpha_2$,where $\alpha_i$ are tensors of the same degree.
+    \item $f^\ast(\gamma_1 \otimes \gamma_2) = f^\ast (\gamma_1) \otimes f^\ast (\gamma_2)$, where $\gamma_i$ are any covariant tensors.
+    \item $f^\ast(\beta_1\wedge\beta_2) = (f^\ast\beta_1) \wedge (f^\ast \beta_2)$,where $\beta_i$ are alternating covariant tensors.
+\end{itemize}
+Thus $f^\ast:\formbundle{M'}{} \functionMaps \formbundle{M}{}$ is a degree preserving exterior-algebra map of the $\CInfty$ forms on $M'$ into the $\CInfty$ forms on $M$.
+
+There are certain natural tensors on every manifold called \emph{universal}\index{universal tensors} tensors. These are mixed tensors that let the arguments ``work on each other.'' For example, let $I$ be the 1, 1-tensor $I(w,X) = w(X)$ for $X \InText \tangentspace{M}{m}$ and $w \InText \cotangentspace{M}{m}$. Another is the 2, 2-tensor $E(w_1,w_2,X_1,X_2) = w_1(X_1)w_2(X_2)$, etc.
+
+The 1,1-tensors, $\tensorbundle{W}{1}{ 1}$, over a vector space $W$ have a natural interpretation, for there is a natural isomorphism of $\tensorbundle{W}{1}{1}$ with the group, $\Hom_\bR(W,W)$, of linear transformations of $W$ into itself. If $B$ is in $\tensorbundle{W}{1}{ 1}$, then let $\xoverline B$ be the linear map \[\xoverline B(Z_i) = \sum_{j=1}^n B(w_j, Z_i)Z_j,\] where $Z_1,\dots,Z_n$ is a base of $W$ with the dual base $w_1,\dots,w_n$ of $W^*$ (see problem \ref{pro:36}).
+
+
+\end{document}

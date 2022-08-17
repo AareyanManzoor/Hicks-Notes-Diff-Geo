@@ -1,0 +1,20 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section{Curves in Riemannian Manifolds}\label{ch06:s3}
+
+This section parallels the standard treatment of curves in advanced calculus. Let $M$ be a Riemannian manifold with Riemannian connexion $\D$. Let $\sigma$ be a $\CInfty$ curve in $M$ with tangent field $V=\sigma_*\Big(\dv{}{t}\Big)$, which can legitimately be called the ``velocity vector'' of $\sigma$ since ``length'' is defined. Assuming $V$ does not vanish on the domain of $\sigma$, define the \emph{unit tangent vector} and  the \emph{speed} function
+\[T(t)=\frac{V(t)}{\norm{V(t)}}, \, s'=\dv st = \norm{V(t)}\]
+respectively, so $V(t)=s'(t)T(t)$ for $t$ in the domain of $\sigma$. Define the \emph{geodesic curvature vector field}\index{geodesic curvature} of $\sigma$ to be the field $\D_TT$, and its length $k_1$ is the \emph{geodesic curvature} of $\sigma$. Notice that $\D_TT$ and $k_1$, at a particular point on the curve, do not depend on the parameterization of the ``point set of the curve'' but only on the orientation (choice of ``direction'') and the existence of a $\CInfty$ parameterization with non-vanishing tangent at the point.
+
+The curve $\sigma$ is a geodesic ($\D_VV=0$) iff $V$ has constant length and (a) $\D_TT=0$ or (b) $k_1=0$. This follows since
+\[\D_VV = s'\D_T(s'T) = s's''T+(s')^2\D_TT\]
+and $s'>0$ while $\D_TT$ is orthogonal to $T$ ($\ip{T}{T}=1$ so \newline $0=T\ip{T}{T}=2\ip{\D_TT}{T}$).
+
+When $k_1(t)>0$, define the (first) \defemph{normal}\index{normal of a curve@normal (of a curve)} to $\sigma$ at $\sigma(t)$ to be the unit vector $N_1(t)$ such that $\D_TT=k_1N_1$ at $t$. If $N_1$ is defined on an interval then
+\[0 = T\ip{N_1}{T} = \ip{\D_TN_1}{T}+\ip{N_1}{\D_TT} = \ip{\D_TN_1}{T}+k_1\]
+so $\D_TN_1\ne0$ on the interval. The vector $\D_TN_1+k_1T$ is orthogonal to both $T$ and $N$; hence, let its length be $k_2$, the \defemph{second curvature} or \defemph{torsion}\index{torsion of a curve@torsion (of a curve)}. If $k_2(t)>0$, define the \defemph{second normal} to $\sigma$ at $\sigma(t)$ to be the unit vector $N_2(t)$ such that $\D_TN_1+k_1T=k_2N_2$. If $k_2>0$ on an interval, then the above process can be continued to define $k_3$, and where $k_3>0$, one gets $N_3$, etc. The vectors $T,N_1,N_2,\ldots$ are called \defemph{Frenet vectors}, and the equations that express the $\D_TN_i$ in terms of the Frenet vectors are called the \defemph{Frenet formulae}\index{Frenet formulae}.
+
+When $M$ is a 2-manifold and $k_1>0$, then the Frenet formulae become \newline $\D_TT=k_1N$ and $\D_TN_1=-k_1T$. In this case it is possible to locally choose $N_1$ along $\sigma$ independently of $\D_TT$ (on univalent pieces of $\sigma$), and letting $\D_TT=k_1N_1$ would define $k_1$, which could take on negative values (see problem \ref{pro:72}).
+
+\end{document}

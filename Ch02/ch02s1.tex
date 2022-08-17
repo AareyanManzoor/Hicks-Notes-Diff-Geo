@@ -1,0 +1,72 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section{The Standard Connexion on \texorpdfstring{$\bR^n$}{R^n}}\label{ch02:s1}
+
+
+Recall in section \ref{ch01:s3} we shifted the classical notion of a vector from a ``directed line segment'' to an operator on functions, i.e., if $X=a \vec{i}+b \vec{j}+c \vec{k}$ is a familiar vector on $\bR^{3}$ from advanced calculus, then we rewrite $X=a\pdv{}{x}+b\pdv{}{y}+c\pdv{}{z}$ so if $f$ is a real valued $\CInfty$ function on $\bR^{3}$, then $X f$ is a derivative of $f$ in the direction $X$,
+\[
+X f=X \cdot \nabla f=a \pdv{f}{x}+b \pdv{f}{y}+c \pdv{f}{z} .
+\]
+Notice that $X$ need not be a unit vector. When $a, b$, and $c$ are $\CInfty$ functions on $\bR^{3}$ themselves (possibly constant functions), then $X$ is a $\CInfty$ field and $X f$ is a $\CInfty$ real valued function on $\bR^{3}$,
+\[
+(X f)(p)=X_{p} f=a(p) \pdv{f}{x}(p)+b(p) \pdv{f}{y}(p)+c(p) \pdv{f}{z}(p)
+\]
+Since both of the representations of a vector field $X$ given above are awkward to write, let us simply write $X=(a, b, c)$, thus giving $X$ by giving the coefficient functions (or constants) $a, b$, and $c$ of the global base field $\pdv{}{x},\pdv{}{y}, \pdv{}{z}$ on $\bR^{3}$.
+
+We now define the \defemph{derivative of a vector field $Y$ in a direction $X$}. Let $X$ be a vector at $p$ in $\bR^{n}$ and let $Y=\left(y_{1}, \ldots, y_{n}\right)$ be a $\CInfty$ field about $p$, thus each $y_{i}$ is a $\CInfty$ real valued function on the domain of $Y$ which includes $p$. The \defemph{covariant derivative of $Y$ in the direction $X$}\index{covariant derivative} is the vector $\xoverline{\connection_{X}} Y=\left(X_{p} y_{1}, \ldots, X_{p} y_{n}\right)$ as a vector at $p$. If $X$ and $Y$ are $\CInfty$ fields with the same domain $A$, then $\covariant_{X} Y$ is a $\CInfty$ field with domain $A$. 
+
+For example take $\bR^{3}$, let $X=(a, b, c)$, let  $Y=(x y^{2}+4 z, y^{2}-x,x+z^{3})$. and then
+\[
+\begin{aligned}
+\covariant_{X} Y &=[X \cdot(y^{2}, 2 x y, 4), X \cdot(-1,2 y, 0), X \cdot(1,0,3 z^{2})] \\
+&=(a y^{2}+2 x y b+4 c,-a+2 y b, a+3 z^{2} c)
+\end{aligned}
+\]
+where $a, b$, and $c$ may be functions or constants.
+
+The properties of $\covariant$ which we now list are one of the main analytic tools of these notes. Let $X$ and $W$ be vectors at $p$ in $\bR^{n}$, let $Y$ and $Z$ be $\CInfty$ fields about $p$, and let $f$ be a $\CInfty$ real valued function about $p$. Then
+\begin{enumerate}[label=(\arabic*)]
+    \item\label{enu:ch02.1.1} $\covariant_{X}(Y+Z)=\covariant_{X} Y+\covariant_{X} Z$
+    \item\label{enu:ch02.1.2} $\covariant_{X+W}(Y)=\covariant_{X} Y+\covariant_{W} Y$
+    \item\label{enu:ch02.1.3} $\covariant_{f(p) X} Y=f(p) \covariant_{X} Y$
+    \item\label{enu:ch02.1.4} $\covariant_{X}(f Y)=(X f) Y_{p}+f(p) \covariant_{X} Y$
+\end{enumerate}
+
+
+These follow directly from the definition of $\covariant$. It is important to notice $\covariant_{X} Y$ can be computed once one knows $Y$ along a curve $\sigma$ that fits $X$, i.e., if $\sigma(0)=p$ and $T_{\sigma}(0)=T(0)=X_{p}$. For let $Y_{\sigma(t)}=(y_{1}(t),\ldots, y_{n}(t))$ and then $\covariant_{X} Y=\Big(\dv{y_1}{t}(0), \ldots, \dv{y_n}{t}(0)\Big)$ since by the chain rule, \[\dv{y_i}{t}(0)=\sum_{j=1}^{n} \pdv{y_i}{u_j}(p)\dv{u_j}{t}(0)=X_{p} \cdot (\nabla y_{i})_{p}\] and $T(0)=X_{p}$. Thus if $Y$ is an $\bR^{n}$ - vector field that is $\CInfty$ on the curve $\sigma$ with tangent $T$, then $\covariant_{T} Y$ is a well-defined $\bR^{n}$-vector field that is $\CInfty$ on $\sigma$.
+
+Using the operator $\covariant$, we can define parallel vector fields along a curve and geodesics. Let $\sigma$ be a $\CInfty$ curve (in $\bR^{n}$ ) with tangent $T$ and let $Y$ be an $\bR^{n}$-vector field that is $\CInfty$ on $\sigma$. The field $Y$ is \defemph{parallel along $\sigma$}\index{parallel translation} if $\covariant_{T} Y = 0$ along $\sigma_{0}$ The curve $\sigma$ is a geodesic \index{geodesic} if $\covariant_{T} T = 0$, i.e. if its tangent $T$ is parallel along $\sigma$.
+
+It is trivial to see these are the usual concepts of parallel fields and geodesics in $\bR^{n} ;$ for let $\sigma(t)=(a_{1}(t), \ldots, a_{n}(t))$ and $Y_{\sigma(t)}=(y_{1}(t), \ldots, y_{n}(t))$. Then $\covariant_{T} Y=\Big(\dv{y_1}{t}, \ldots, \dv{y_n}{t}\Big)=0$ iff each $y_{i}(t)$ is a constant function of $t$, so $Y$ is a ``constant'' vector field of $\bR^{n}$ evaluated on $\sigma$. The curve $\sigma$ is a geodesic iff $\covariant_{T} T=\Big(\dvn{a_1}{t}{2}, \ldots, \dvn{a_n}{t}{2} \Big)=0$, and this implies $a_{i}(t)=c_{i} t+d_{i}$ are linear functions of $t$ so $\sigma$ is a linear parameterization of a straight line.
+
+Notice that the parameterization of a curve is important in the definition of a geodesic.
+
+The generalization of the definition of \emph{covariant differentiation}\index{covariant derivative} or a \emph{connexion}\index{connexion} on any $\CInfty$ manifold $M$ is clear, i.e. we merely demand the existence of an operator $\connection$ which satisfies the above four properties (listed for $\covariant$) and assigns to $\CInfty$ vector fields $X$ and $Y$ with the domain $A$, a $\CInfty$ field $\connection_{X} Y$ on $A$. Notice there can be more than one connexion on a manifold. In the case of ``semi-Riemannian'' manifolds however there exists one connexion which fits the ``semi-Riemannian'' structure nicely, and in the case of $\bR^{n}, \covariant$ is this nice connexion In fact, we now explain how $\covariant$ is ``nice.''
+
+Henceforth, denote the usual dot product or inner product of vectors $Y$ and $Z$ tangent to $\bR^{n}$ by $\ip{Y}{Z}$. Thus if $Y=(y_{1}, \ldots, y_{n})$ and $Z= (z_{1}, \ldots, z_{n})$, then $\ip{Y}{Z}=\sum\limits_{i=1}^{n} y_{i} z_{i}$. If $Y$ and $Z$ are $\CInfty$ fields with do main $A$, then $\ip{Y}{Z}$ is a $\CInfty$ function with domain $A$. One checks easily that
+\begin{enumerate}[label = (\arabic*)]
+    \setcounter{enumi}{4}
+    \item \label{enu:ch02.1.5} $\covariant_{Y} Z-\covariant_{Z} Y=[Y, Z]$ on $A$, and 
+    \item \label{enu:ch02.1.6}$X_{p}\ip{Y}{Z}=\ip{\covariant_{X} Y}{Z}_{p}+\ip{Y}{\covariant_X Z}_p$
+\end{enumerate}
+for any vector $X$ at $p$ in $A$.
+
+We now generalize and fix some terminology. A \defemph{Riemannian manifold}\index{Riemannian manifold} is a $\CInfty$ manifold $M$ on which one has singled out a $\CInfty$ real valued, bilinear, symmetric, and positive definite function $\ip{-}{-}$ on ordered pairs of tangent vectors at each point. Thus if $X,Y$ and $Z$ are in $\tangentspace{M}{p}$, then $X,Y$ is a real number and $\ip{-}{-}$ satisfies the following properties:
+
+\begin{enumerate}[label=(\alph*)]
+    \item(symmetric) $\ip{X}{Y}= \ip{Y}{X}$, \label{enu:ch02.1.a}
+    \item (bilinear) \[\ip{X+Y}{Z} = \ip{X}{Z}+\ip{Y}{Z}\]\[ \ip{aX}{Y} = a\ip{X}{Y} \text{for }a\text{ in } \bR\]\label{enu:ch02.1.b}
+    \item\label{enu:ch02.1.c} $\ip{X}{X} >0$ for all $X\neq 0$
+    \item $(\CInfty)$ if $X$ and $Y$ are $\CInfty$ fields with domain $A$ then 
+    \[\ip{X}{Y}_p = \ip{X_p}{Y_p}\text{ is a } \CInfty\text{ function on } A\]\label{enu:ch02.1.d}
+\end{enumerate}
+
+When \ref{enu:ch02.1.c} is replaced by
+\begin{enumerate}
+    \item[(c')] (non-singular) $\ip{X}{Y}=0$ for all $X$ implies $Y=0$,
+\end{enumerate}
+then $M$ is a \defemph{semi-Riemannian}\index{semi-Riemannian manifold} (or pseudo-Riemannian) manifold. In either case, the functional $\ip{-}{-}$ is called the \defemph{inner product}\index{inner product}, \defemph{the metric tensor}\index{metric tensor}, \defemph{the Riemannian metric}\index{Riemannian metric}, or \defemph{the infinitesimal metric of $M$}. Notice the word ``metric'' in the preceding sentence is not referring to a metric function (distance function) in the topological sense. In Chapter \ref{ch06}, the connexion of the concepts is clarified. It is also customary to require a semi-Riemannian manifold to be Hausdorff; however, as far as the local differential geometry is concerned, this is irrelevant so the restriction is not enforced at this time.
+
+If $\connection$ is a $\CInfty$ connexion in a semi-Riemannian manifold $M$, then $\connection$ is a \defemph{Riemannian connexion}\index{Riemannian connexion} if it satisfies the above properties \ref{enu:ch02.1.5} and \ref{enu:ch02.1.6}. In Chapter \ref{ch06}, the existence of Riemannian manifolds is discussed and the fundamental theorem asserting the existence and uniqueness of a Riemannian connexion is proved. In section \ref{ch02:s3} one sees that many hypersurfaces in $\bR^{n}(n \geq 3)$ provide examples of Riemannian manifolds with a Riemannian connexion.
+\end{document}

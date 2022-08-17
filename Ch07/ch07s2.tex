@@ -1,0 +1,45 @@
+\documentclass[../main]{sub+files}
+\begin{document}
+
+\section{Contraction}\label{ch07:s2}
+Let $X$ be a $\CInfty$ vector field on the open set $A$. An operator $C_X$, called \defemph{contraction by $X$}\index{contraction}, which maps $\formbundle{A}{p}$ into $\formbundle{A}{{p - 1}}$ is defined as follows: (a) if $f \in \formbundle{A}{0}$, let $C_X f = 0$, and (b) if $w \in \formbundle{A}{p}$ for $p > 0$, let \[(C_X w) (X_1, \ldots, X_{p - 1}) = w (X, X_1, \ldots, X_{p - 1})\].
+
+
+
+\begin{proposition} \label{prop:ch7.2.1}
+The operator $C$ has the following properties:
+
+\begin{enumerate}[label=(\arabic*)]
+	\item $(C_X)^2 = 0$. \label{enu:ch07.2.1}
+	\item $C_X(w + v) = C_X w + C_X v$,\label{enu:ch07.2.2}
+	\item $C_{X + Y} = C_X + C_Y$,\label{enu:ch07.2.3}
+	\item $C_{f X} = f C_X$,\label{enu:ch07.2.4}
+	\item $C_X(w \wedge z) = (C_X w) \wedge z + (-1)^p (w \wedge C_X z)$,\label{enu:ch07.2.5}
+\end{enumerate}
+
+for $f$ in $\formbundle{A}{0}$, $X$ and $Y$ in $\tensorbundle{A}{1}{0}$, $w$ and $v$ in $\formbundle{A}{p}$, and $z$ in $\formbundle{A}{q}$.
+\end{proposition}
+
+\begin{proof}
+Properties \ref{enu:ch07.2.1} through \ref{enu:ch07.2.4} are trivial. Property \ref{enu:ch07.2.5} follows by induction on $p$, and it is sufficient to prove it when $w$ is a product of $p$ $1$-forms by the local representation of forms.
+\end{proof}
+
+
+
+The operator $C_X$ can be defined on covariant tensors and mixed tensors in an obvious way (with only \ref{enu:ch07.2.2}, \ref{enu:ch07.2.3}, and \ref{enu:ch07.2.4} valid in general), and one can let $C_X$ be zero on pure contravariant tensors. Properties \ref{enu:ch07.2.3} and \ref{enu:ch07.2.4} indicate $C$ is a tensor map (an anti-derivation valued $1$-form of degree $-1$ on $\formbundle{A}{}$).
+
+\par There is another form of ``contraction'' induced by the natural identification of tensors of type $(1, 1)$ and linear maps. Let $W$ be an $n$-dimensional vector space over $\bbR$. For $r > 0$, $s > 0$, $1 \le i \le r$, $1 \le j \le s$ define \newline $\tr^{i, j} : \tensorbundle{W}{r}{s} \functionMaps \tensorbundle{W}{r-1}{s-1}$ by taking $\theta$ in $\tensorbundle{W}{r}{s}$, $w_1, \ldots, w_{r - 1}$ in $W^\ast$, and $X_1, \ldots, X_{s - 1}$ in $W$ and letting 
+
+\begin{equation}\tag{2}
+\label{eqn:ch07.2}
+\begin{split}
+(\tr^{i, j} \theta)(w_1, \ldots, w_{r - 1}, X_1, \ldots, X_{s - 1}) = \\ 
+\sum_{k = 1}^n \theta(w_1, \ldots, w_{i - 1}, z_k, w_i, \ldots, w_{r - 1}, X_1, \ldots, X_{j - 1}, Z_k, X_j, \ldots, X_{s-1})
+\end{split}
+\end{equation}
+
+where $Z_1, \ldots, Z_n$ is a base of $W$ and $z_1, \ldots, z_n$ the dual base of $W^\ast$. One checks easily that $\tr^{i, j} \theta$ is well-defined independently of the particular base used. If $\theta \in \tensorbundle{W}{1}{1}$, let $\tr^{1, 1}\theta = \tr \theta$. The above operator induces an operator \newline $\tr^{i, j} : \tensorbundle{A}{r}{s} \functionMaps \tensorbundle{A}{r-1}{s-1}$ for an open set $A$ in $M$. 
+
+
+
+\end{document}

@@ -1,0 +1,90 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section{Involutive Distributions and the Frobenius Theorem}\label{ch09:s1}
+We prove the standard theorem on the existence of ``integral manifolds" of a distribution following \cite[p. 88]{chevalley1946theory}. The theorem also appears in \cite[p.~147]{auslander2012introduction} with the terminology altered slightly.
+
+In this section let $M$ be a $\CInfty$ $n$-manifold. A $k$-dimensional distribution on a set $A$ in $M$ is a function $P$ that assigns each point $p$ in the $k$-dimensional subspace $P_p$ of the tangent space $\tangentspace{M}{p}$. We say $P$ is $\CInfty$ on $A$ if $A$ is open, and for each $p \in A$ there are $k$ independent $\CInfty$ vector fields $X_1, \dots, X_k$ which span $P_m$ for all $m$ in some neighborhood of $p$. A vector field $X$ with domain $B$ \emph{lies in} $P$ or \emph{is in} $P$ if $B \subset A$ and $X_p$ is in $P_p$ for all $p \in B$. A $\CInfty$ distribution $P$ is \emph{integrable (involutive or closed)}\index{closed distributions}\index{integrable distribution}\index{involutive distribution} when it is closed under the bracket operation, i.e, if $X$ and $Y$ are any $\CInfty$ fields with common domain that lie in $P$, then $[X,Y]$ lies in $P$. A submanifold $V$ of $M$ is an \emph{integral submanifold or integral manifold of $P$}\index{integral manifold} if $V$ is contained in the domain of $P$, and $V_p=P_p$ for all $p\in V$; thus the subspace of the tangent space $\tangentspace{M}{p}$ which belongs to $V_p$ is exactly the subspace $P_p$.
+
+The theorem proved below implies a $\CInfty$ distribution has integral manifolds if and only if it is involutive. A slightly stronger statement is made involving the existence of a special coordinate system. First some terminology: if $x_1,\dots, x_n$ is a coordinate system on $M$ with domain $U$, then define a \defemph{slice of $U$}\index{slice} to be any subset of $U$ on which $r$ of the functions $x_1\dots x_n$ are constant, where $1\leq r<n$. Obviously, each slice of $U$ is a submanifold of $U$ (or $M$).
+
+\begin{theorem}\label{thm:ch09.1.1}
+Let $P$ be a $k$-dimesnional involutive $\CInfty$ distribtuion on $M$. for any $m\in M$ there exists a coordinate system $x_1,\dots ,x_n$ with domain $U$ including $m$ such that the coordinate fields $\pdv{}{x_j}$ for $j=1,\dots, k$ span $P$ at each point of $U$. Thus the slices of $U$ for which $x_{k+1},\dots,x_n$ are constant are integral manifolds of $P$.
+\end{theorem}
+
+The theorem is proved by induction on $k$. The case $k=1$ is coved by the following lemma, and note in this case any distribution is automatically involutive.
+
+\begin{lemma}\label{lem:ch09.1.2}
+Let $X$ be a $\CInfty$ vector field on $M$, $p\in M$, and $X_p\neq 0$, then there exists a coordinate system $y_1\dots y_n$ on a neighborhood $U$ of $p$ with $X=\pdv{}{y_1}$ on $U$.
+\end{lemma}
+\begin{proof}[Proof of Lemma 9.2]
+Let $x_i=u_i\circ \phi$ be a coordinate system on the neighborhood $V$ of $p$ with $x_i(p)=0$ and $\pdv{}{x_1}(p)=X_p$. Let $X=\displaystyle \sum_1^n a_i \Big(\pdv{}{x_i}\Big)$ where $a_i$ are $\CInfty$ real valued functions on $V$ and $a_1(p)\neq 0$, and restrict $V$ if necessary so $a_1\neq 0$ on $V$. Setting up the sytem of differential equations for the integral curves $\sigma$ of $X$ on $V$, we have 
+\[\dv{(x_i\circ \sigma)}{t} = a_i \circ \sigma \quad \text{ or } \quad \dv{f_i}{t}= a_i(f_1(t),\dots,f_n(t)) \]
+where $f_i (t)=x_i \circ \sigma(t)$. Applying an existience theorem from the theory of differential equations (\cite[Chapter 1]{coddington1990theory}) we obtain an $r>0$ and $n$ functions $F_i(t,a_1,a_2\dots a_n)$ which are $\CInfty$ on the neighborhood $W$ of the origin in $\bR^{n+1}$ where $|t|<r$ and $|a_i|<r$ such that for $i=1,\dots,n$:
+\begin{enumerate}[label = (\arabic*)]
+    \item $F_i(0,a_1,a_2,\dots,a_n)=a_i$,
+    \item $(F_1(b),\dots,F_n(b))\in \phi(V)$ for $b\in W$
+    \item Letting \[F(t,a_2,\dots, a_n)=\phi^{-1}[F_1(t,0,a_2,\dots,a_n),\dots, F_n(t,0,a_2,\dots ,a_n)]\]
+    define a map $F$ of $B(0,r)$ in $\bR^n$ into $V$; then for fixed $a_2,\dots,a_n$ the curves \[\sigma_{(a_2,\dots,a_n)}(t)=F(t,a_2,\dots,a_n)\]
+    are integral curves of $X$, i.e, $F_\ast\Big(\pdv{}{u_1}\Big)=X$
+\end{enumerate}
+
+For points $(0,a_2,\dots,a_n)$ in $B(0,r)$ we notice that \[F(0,a_2,\dots,a_n)=\phi^{-1}(0,a_2,\dots,a_n);\] hence $F_\ast\Big(\pdv{}{u_i}\Big)_{\text{origin}} = \pdv{}{x_i}(p)$ for $i=2,\dots,n$. Since $F_\ast \Big(\pdv{}{u_1}\Big)_b= X_{F(b)}$ for all $b\in B(0,r)$ we have $F_\ast = \big(\phi^{-1}\big))\ast$ at the origin in $\bR^n$, Hence $F_\ast$ is non-singular at the origin and by the Inverse Function Theorem $F$ is a diffeo between a neighborhood of the origin and a neighborhood $U$ of $p$ with $U\subset V$. Finally, let $y_i=u_i\circ F^{-1}$ on $U$.
+\end{proof}
+
+Intuitively, in the above proof we have changed the $x_1,\dots,x_n$ coordinates about $p$ by leaving the slice where $x_1=0$ fixed, and replacing the ``$x_1$-coordinate curves'' by the integral curves of $X$ emanating from this slice.
+\begin{proof}[Proof of Theorem \ref{thm:ch09.1.1}]
+Take the point $m$ and take $\CInfty$ fields $X_1,\dots,X_k$ that span $P$ on a neighborhood $U_1$ on $m$. Apply the previous lemma to get a coordinate system $y_1,\dots,y_n$ about $m$ with domain $U_2\subset U_1$ such that $\pdv{}{y_1}=X_1$ on $U_2$, and assume $y_i(m)=0$.
+
+If $k=1$, then the coordinate system $y_1,\dots y_n$ satisfies the conclusion of the theorem. If $k>1$, we assume the theorem is true for the distributions of dimension less than $k$, and we define the $(k-1)$ dimensional distribution $\xoverline{P}$ on $U_2$ by \[\xoverline{P}_p = \{X\in P_p: X_py_1=0\}\text{ for } p\in U_2.\] This is a $(k-1)$-dimensional $\CInfty$ distribution for it is spanned by the $(k-1)$ independent $\CInfty$ fields \[Y_i =X_i-(X_iy_1)X_1 \text{ for } i=2,\dots,k\]
+It is involutive since if $Y$ and $Z$ are in $\xoverline{P}$, then $[Y,Z]$ is in $P$ and \[[Y,Z]y_1 = Y(Zy_1)-Z(Yy_1)=0\text{ on } U_2,\] so $[Y,Z]$ is in $\xoverline{P}$.
+
+Let $V_0$ be the slice of $U_2$ defined by $y_1=0$. Then for $p\in V_0$, $\xoverline{P}_p\subset (V_0)_p$, so we apply the induction hypothesis to the distribution $\xoverline{P}$ on the manifold $V_0$ to obtain a coordinate system $z_2,\dots,z_n$ on the neighborhood $U_3$ about $m\in v_0$ such that $\pdv{}{z_2},\dots,\pdv{}{z_k}$ span $\xoverline{P}$ on $U_3$. We define the map $\pi: U_2\functionMaps V_0$ by $\pi(p)=\phi^{-1}(0,y_2(p),\dots,y_n(p))$, where $\phi$ is the coordinate map so $y_i=u_i\circ \phi$. Let $U_4 = \pi^{-1}(U_3)$ and define functions $x_1,\dots,x_n$ on $U_4$ by \[x_1=y_1, x_2= z_2\circ \pi,\dots,x_n=z_n\circ \pi\] Then the functions $x_1,\dots,x_n$ define a coordinate system in a neighborhood $U$ of $m$ with $U\subset U_4$; indeed, $\pdv{}{x_1}(m) = \pdv{}{y_1}(m)$, while $\pdv{}{x_2},\dots, \pdv{}{x_n}$ span $(V_0)_m$ at $m$.
+
+We show $\pdv{}{x_1},\dots ,\pdv{}{x_k}$ span $P$ on $U$ by showing they span the same subspaces as $X_1,Y_2,\dots,Y_k$. Let $Y_1=X-1$, then we show \[Y_ix_j =0 \text{ for } i=1,\dots,k\text{ and } j=k+1,\dots,n.\] SInce $Y_1=X_1=\pdv{}{x_1}$, we immediately see $Y_1x_j=0$ for $j\neq 1$. SInce $P$ is involutive, there are $\CInfty$ functions $g_{irs}$ on $U$ such that for $i\leq k$ and $r\leq k$ we have $[Y_i,Y_r] = \sum_{s=1}^k g_{irs}Y_s$. thus for $i=2,\dots,k$ and $j>k$, \[Y_1(Y_ix_j) = [Y_1,Y_i]x_j = \sum_{s=1}^k g_{1is}(Y_sx_j).\]
+This implies the functions $Y_ix_j$ satisfy a linear homogeneous system of ordinary differential equations along any $x_1$-curve. But on $V_0,x_j=z_j$ for $j>1$ and $Y_ix_j=Y_iz_j=0$ on $V_0$ for $j>k$ because of the choice of coordinates $z_2,\dots,z_n$. Hence, by the uniqueness of solutions to systems of the above type, $Y_ix_j=0$ for $i\leq k$ and $j>k$
+\end{proof}
+
+We use the theorem on involutive distributions to prove the classical Frobenius theorem on (total) partial differential equations (see \cite{levi1977absolute}). This theorem can be stated roughly as follows: there exist unique solution functions $f_{i}(x_{1}, \ldots, x_{k})$, with prescribed values at a point, to the system of partial differential equations
+\[
+\pdv{f_1}{x_j}=A_{i j}(x_{1}, \ldots, x_{k}, f_{1}, \ldots, f_{d})
+\]
+if and only if for all $j \leq k, r \leq k$ and $i \leq d$
+\[
+\pdv{A_{ij}}{x_r}+\sum_{s=1}^{d} \pdv{A_{ij}}{f_s}A_{s t}=\pdv{A_{ir}}{x_j}+\sum_{s=1}^{d} \pdv{A_{ir}}{f_s} A_{s j}
+\]
+(which is merely what the chain rule demands if $\dfrac{\partial^{2} f_{i}}{\partial x_{r} \partial x_{j}}=\dfrac{\partial^{2} f_{t}}{\partial x_{j} \partial x_{t}}$ ). 
+
+\begin{theorem}[Frobenius]\label{thm:ch09.1.3}
+For $1 \leq i \leq d$ and $1 \leq j \leq k$, let \newline $A_{i j}(x_{1}.$, $.\ldots, x_{k}, u_{1}, \ldots, u_{d})$ be $\CInfty$ real valued functions on an open set $Q$ in $\bR^{n}$ Where $n=k+d$, and we have labelled the coordinate functions of $\bR^{n}$ in order to conveniently express partial derivatives. Let $(a ; b)=$ $(a_{1}, \ldots, a_{k}, b_{1}, \ldots, b_{d})$ be in $Q .$ Then there exists a unique set of $\CInfty$ real valued functions $f_{1}, \ldots, f_{d}$ defined on a neighborhood $V$ of $a$ and satisfying the following three conditions:
+\begin{enumerate}[label=(\arabic*)]
+    \item $f_{i}(a)=b_{i}$ or $f(a)=b$, where $f$ is the mapping of $V$ into $\bR^{d}$ defined by $f(p)=(f_{1}(p), \ldots, f_{d}(p))$ \label{enu:9.1.1}
+    \item if $p\in V$, then $(p; f(p))$ in $Q$, and \label{enu:9.1.2}
+    \item if $p$ in $V$, then $\pdv{f_i}{x_j}(p)=A_{i j}(p ; f(p))$ \label{enu:9.1.3}
+\end{enumerate}
+iff at every point of $Q$,
+\[\tag{4}\label{enu:9.1.4} \pdv{A_{ij}}{x_r}+\sum_{s=1}^d \pdv{A_{ij}}{u_s} A_{sr} = \pdv{A_{ir}}{x_j} +\sum_{s=1}^d \pdv{A_{ir}}{u_s} A_{sj}.\]
+\end{theorem} 
+
+\begin{proof}
+
+Let $e_{1}, \ldots, e_{n}$ be the usual global orthonormal vector fields on $\bR^{n}$. We use the functions $A_{i j}$ to define $\CInfty$ vector fields $Y_{1}, \ldots, Y_{k}$ on $Q$ by \newline $Y_{r}=e_{r}+\sum_{s=1}^{d} A_{s r} e_{k+s}$. These vector fields are independent at each point of $Q$ and hence they span a $k$-dimensional $\CInfty$ distribution $P$ on $Q .$ We form brackets
+\[\begin{split}
+[Y_{r}, Y_{q}]&=\bigg[e_{z}+\sum_{s=1}^{d} A_{s r} e_{k+s}, e_{q}+\sum_{t=1}^{d} A_{t q} e_{k+t}\bigg]\\
+&=\sum_{t=1}^{d}\Big(\pdv{A_{tq}}{x_r}+\sum_{s=1}^{d} A_{s t} \pdv{A_{tq}}{u_s}\Big) e_{k+t}-\sum_{s=1}^{d}\Big(\pdv{A_{sr}}{x_q}+\sum_{t=1}^{d} A_{t q} \pdv{A_{sr}}{u_t}\Big) e_{k+s},\end{split}\]
+
+and thus by condition  \ref{enu:9.1.4}, $[Y_{r}, Y_{q}]=0$.
+
+Hence the distribution $P$ is involutive and by the theorem above there exists an integral manifold $U$ of $T$ through $(a ; b)$ with $U \subset Q$. Let $\phi: U \functionMaps R^{k}$ by $\phi(a^{\prime} ; b^{\prime})=a^{\prime}$, then $\phi_{\ast}(Y_{r})=e_r$ and $\phi_{*}$ is nonsingular on the tangent space of $U$ at $(a ; b)$. Thus there is a neighborhood $V$ of $a$ and a map $F$ which is a diffeo of $V$ onto $F(V) \subset U$ such that $F \circ \phi$ and $\phi \circ F$ give the identity map on $F(V)$ and $V$, respectively. Define $f_{1}, \ldots, f_{d}$ on $V$ by $F(p)=(p ; f_{1}(p), \ldots, f_{d}(p))$. Then the functions $f_{1}, \ldots, f_{d}$ are $\CInfty$ functions satisfying  \ref{enu:9.1.1} and \ref{enu:9.1.2}, and \ref{enu:9.1.3} follows since $F_{\ast}(e_{t})=Y_{t}$ for $r \leq k_{0}$
+
+The implication of the theorem in the other direction is trivial.\end{proof} 
+
+Actually the Frobenius theorem in turn can be used to prove the theorem on involutive distributions. A $k$-dimensional distribution $P$ about $m$ can be carried to an open set $Q$ in $\bR^{n}$ via a coordinate map. Furthermore one may choose the coordinate map so the induced dise tribution on $Q$ is spanned by vectors $Y_{1}, \ldots, Y_{k}$ of the type defined above, and this defines functions $A$ The involutive condition will then imply $[Y_{r}, Y_{q}]=0$ since $[Y_{r}, Y_{q}]$ must be a linear combination of $Y_{1}, \ldots, Y_{k}$ at each point. This implies the integrability condition \ref{enu:9.1.4} of the Frobenius theorem is satisfied which we then apply to get local integral manifolds. One actually has to state the Frobenius theorem to include the $\CInfty$ dependence of the solution functions on the initial conditions (which follows from the Chevalley theorem) in order to obtain the full equivalence. %cite chevalley
+
+A first application of the Frobenius theorem provides a useful theorem concerning the existence of coordinate systems.
+
+\begin{theorem}
+Let $M$ be an $n$-dimensional $\CInfty$ manifold and let $X_{1}, \ldots, X_{n}$ be a set of independent $\CInfty$ vector fields on a neighborhood $U$ of $m\in M$. Then there exists a set of coordinate functions $x_{1}, \ldots, x_{n}$ defined on a neighborhood $V$ of $m$ with $V \subset U$ and $X_{i}=\pdv{}{x_i}$ on $V$ for all $i$ iff $[X_{i}, X_{j}]=0$ for all $i$ and $j$.
+\end{theorem} 
+
+\end{document}

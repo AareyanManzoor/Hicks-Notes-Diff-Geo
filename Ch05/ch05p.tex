@@ -1,0 +1,55 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section*{Problems}
+Let $M$ and $M'$ be $\CInfty$ manifolds.
+\begin{enumerate}
+    \setcounter{enumi}{41}
+    \item\label{pro:42} Let $x_1=x$ and $x_2=y$ be the usual coordinates on $\bR^2$. Define a connexion $\connection$ on $\bR^2$ by letting $\Gamma_{jk}^i=0$ except for $\Gamma_{12}^1 = \Gamma_{21}^1=1$. 
+    \begin{enumerate}[label = (\roman*)]
+        \item Set up and solve the differential equations for the geodesics thru any point in $\bR^2$.
+        \item Find the particular geodesic $g$ with $g(0)=(2,1)$ and $T_g(0) = \pdv{}{x}+\pdv{}{y}$.
+        \item Is D complete?
+        \item Do the geodesics emanating from the origin pass thru all points of the plane?
+        \item If $\sigma$ and $\gamma$ are geodesics with $\gamma(0)=\sigma(0)$, and $T_\gamma(0)=bt_\sigma(0)$ for $b\in \bR$, show $\gamma(t)= \sigma(bt)$ for all possible $t$
+        \item Investigate the connexion $\connection'$ with all $\Gamma_{jk}^i=0$ except $\Gamma_{12}^1=1$
+    \end{enumerate} 
+
+
+    \item\label{pro:43}Let $\connection$ be a connexion on $M$. Let $\sigma(t)$ be an integral curve of the $\CInfty$ field $X$, let $e_{1}(t), \ldots$, e $(t)$ be a parallel base along $\sigma$ and let $Y(t)=\sum y_{i}(t) e_{i}(t)$ be a $\CInfty$ field along $\sigma$. 
+    \begin{enumerate}[label = (\roman*)]
+        \item Show $(\connection_{X} Y)(t)=\displaystyle \sum \dv{y_i}{t} e_i(t)$ along $\sigma$.
+        \item Show \[(\connection_{X} Y)(0)=\lim_{t\to 0}\dfrac{P_{t,0} Y(\sigma(t))-Y(0)}{t}\]
+    \end{enumerate} 
+    
+    \item\label{pro:44} Let $f$ be a connexion preserving $\CInfty$ map of $M$ into $M'$. Show \[f_*(\Tor(X, Y))=\Tor'(f_*X,f_*Y)\quad \text{ and } \quad f_*(R(X,Y)Z)=R'(f_*X,f_*Y)(f_*Z).\]
+
+    \item\label{pro:45} A manifold $M$ is \defemph{parallelizable}\index{parallelizable} if there is a connexion $\connection$ on $M$ in which parallel translation is independent of curves, and such a $\connection$ is called a \defemph{flat connexion}\index{flat connexion}. 
+    \begin{enumerate}[label = (\roman*)]
+        \item Show $M$ is parallelizable iff there is a global $\CInfty$ base field on $M$.
+        \item If $\connection$ is a flat connexion, show its curvature tensor is zero (see problem \ref{pro:85}).
+    \end{enumerate}
+
+    \item\label{pro:46} Let $G$ be a Lie group. Define the \defemph{left invariant connexion}\index{left invariant connexion} $\connection$ on $G$ by asserting all vector fields in the Lie algebra ${\mathfrak{g}}$ are parallel fields.
+    \begin{enumerate}[label=(\roman*)]
+        \item Show $\connection$ is flat, $G$ is parallelizable, and if $X$ and $Y$ are in ${\mathfrak{g}}$ then $\Tor(X, Y)=-[X, Y]$.
+        \item Show that each geodesic $g$ on $G$ is the left translate of a one-parameter sub group $\sigma$; i.e., $g(t)=L_{g(0)}(\sigma(t))$ for all $t$.
+        \item Show $\connection$ is complete.
+     \end{enumerate}
+
+    \item\label{pro:47} Let $\connection$ be a connexion on $M$. For $m$ in $M$, let $H_m$ denote the set of linear maps of $M$ into itself, obtained by parallel translation of $M_m$ around broken $\CInfty$ curves starting and ending at $m$. 
+    \begin{enumerate}[label = (\roman*)]
+        \item Show $H_m$ is a group.
+        \item If $M$ is connected, show $H_m$ is isomorphic to $H_{m'}$, for $m'$ in $M$.
+    \end{enumerate}
+    The group $H_m$ is called the \defemph{holonomy group at $m$}\index{holonomy}, and if $M$ is connected then the \defemph{holonomy group of $M$} is the group $H=H_m$ for any $m$ in $M$. Restricting group of $M$ is the group $H=H_m$ for any $m$ in $M$. Restricting the closed curves to be null-homotopic, one obtains the \defemph{restricted holonomy group} $H^0_m$.
+    \begin{enumerate}
+        \item[(iii)]  If $\connection$  is flat, show $H_m=0$.
+        \item[(iv)] If $M$ is the unit sphere in $\bR^{3}$ and $\connection$ is the Riemannian connexion, show that $H=\mathrm{SO}(2, \bR)$, where $\mathrm{SO}(2, \bR)$ is the \emph{special orthogonal group}\index{special orthogonal group}, or \defemph{rotation group}\index{rotation group}, consisting of orthogonal maps with determinant one.
+    \end{enumerate}
+    
+
+    \item\label{pro:48} (Continuing problem \ref{pro:13}.) Let $X=\pdv{}{x_1}$ and $X=\pdv{}{x_2}$ for $a$ coordinate system $x_1, \dots, x_n$ on $M$ about $m$, and show \[\lim _{t\to0}\dfrac{[(P_{0,t}-I)(\partial / \partial x_j)]^n}{t} =R(Y, X)\Big(\pdv{}{x_j}\Big)=\sum_{k} R_{j21}^{k}\Big(\pdv{}{x_k}\Big)\] where $I$ is the identity map and $P_{0, t}$ is parallel translation along $\gamma$ from $\gamma(0)$ to $\gamma(t)$. Because of this, one often says $R(X, Y)$ is ``infinitesional parallel translation around an infinitesimal parallelogram spanned by $X$ and $Y$.''
+\end{enumerate}
+
+\end{document}

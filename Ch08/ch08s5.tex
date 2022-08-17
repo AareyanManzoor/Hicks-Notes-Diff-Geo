@@ -1,0 +1,79 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section{Rigidity Problems}\label{ch08:s5}
+
+Two submanifolds of $\bR^n$ are \defemph{congruent}\index{congruent surfaces} or \defemph{symmetric}\index{symmetric surfaces} if there is an isometry of $\bR^n$ mapping one onto the other that is orientation preserving or reversing, respectively. Let us say a submanifold $M$ of $\bR^n$ is \defemph{rigid} if any submanifold $M'$ that is isometric to $M$ is actually congruent or symmetric to $M$. Natural questions arise which are called \defemph{rigidity problems}. For example, which submanifolds are rigid, or when are two isometric submanifolds congruent or symmetric?
+
+Our principal reference for this section is \cite{chern1951topics}. The standard procedure in the following theorems is to somehow set up the hypothesis of the fundamental rigidity theorem proved in section \ref{ch06:s5}. Given an isometry $f$ between submanifolds, the first fundamental form is preserved by hypothesis, and our task is to show the second fundamental form is preserved, or that $f_*$ commutes with the fundamental linear transformations $L$.
+
+
+\begin{theorem} \label{thm:ch8.5.1}
+If $n \geq 3$ and $M$ is an oriented hypersurface in $\bR^{n+1}$ with positive Riemannian curvature, then $M$ is rigid.
+\end{theorem}
+
+\begin{proof}
+Let $f: M \functionMaps M'$ be an isometry and let $L'=L\circ f_*$. Since $f$ is an isometry, the Gauss curvature equations give $R(X,Y)Y=R'(X, Y) Y$ or \[\ip{LY}{Y}L(X)-\ip{LY}{X}L(Y)=\ip{L'Y}{Y}L'(X)-\ip{L'Y}{X}L'(Y),\] where $X, Y$ in $\ts{M}{m}$. Choose an orthonormal base $X_1, \dots, X_n$ of vectors at $m$, and let $L X_i=k_iX_i$. We show $L'$ is invariant on each subspace $P_{ij}$ spanned by $X_i$ and $X_j$ for $i \neq j$. Let $b_{r s}=\ip{L'X_r}{X_s}$, and the Gauss curvature equations imply
+\begin{align*}
+    k_i k_j X_i&=b_{j j} L' X_i-b_{i j} L' X_j\\
+    k_i k_j X_j&=-b_{i j} L' X_i+b_{i i} L' X_j.
+\end{align*}
+
+Then $K(P_{i j})=k_ik_j=b_{ii} b_{jj}-b_{i j}^2>0$ implies $L' X_i$ and $L' X_j$ lie in $P_{i j}$. Since $n \geq 3$, there is a third index $r$ with $L'X_i$ in $P_{ir}$; hence $L' X_i$ lies in $P_{i r} \wedge P_{i j}$, and thus $X_i$ is an eigenvector of $L'$. For all $i$, let $L' X_i=h_i X_i$. Then $k_i k_j=h_i h_j>0$ for all $i \neq j$; hence $k_i^2=h_i^2$, so $h_i=\pm k_i$. The positive curvature condition also implies $h_i=k_i$ for all $i$, or $h_i=-k_i$ for all $i$. Thus $L=\pm L'$ and we apply the fundamental rigidity theorem.
+\end{proof}
+
+
+
+If in the above theorem we assume $M$ is complete (or closed), then we need not assume it is oriented. For $n=2$, the Cohn-Vossen theorem provides a similar result with the additional requirement that $M$ be compact. We now examine some global functions and forms on an oriented surface $M$ in $\bR^3$ before proving the Cohn-Vossen theorem.
+
+Let $N$ be the unit normal on $M$, let $p\in M$, and let $e_1, e_2$ be a positively oriented orthonormal base field in the neighborhood $U$ about $p$. Identifying $p$ with the vector from the origin to $p$, define local functions $y_1, y_2$ on $U$, and a global function $y_3$ on $M$, by $p=y_1(p) e_1+y_2(p)e_2+y_3(p)N$. Define global $1$-forms $\alpha$ and $\beta$ on $U$ by \[\alpha(X)=\ip{p}{e_1}\ip{X}{e_2}-\ip{p}{e_2}\ip{X}{e_1}\] and $\beta(X)=\alpha(L X)$. One checks that $\alpha$ is independent of the particular positively oriented base $e_1, e_2$ used to define it, so $\alpha$ and $\beta$ are global 1-forms on $M$. We now compute $\dd\alpha$ and $\dd\beta$. Let $w_i, w_{i j}$ be the local forms belonging to the base $e_1,e_2$ so $w_{i j}=-W_{ji}$. Then \[L(X)=\covariant_X(N)=w_{13}(X)e_1+w_{23}(X) e_2, w_{i 3}=b_{1 i} W_1+b_{2 i} w_2,\] and $b_{i j}=\ip{L e_i}{e_j}$. Thus $\alpha=y_1w_2-y_2 w_1$ and $\beta=y_1w_{23}-y_2w_{13}$.
+
+Since $y_i=\ip{p}{e_i}$ we have 
+\begin{align*}
+  \dd y_i(X)&=X\ip{p}{e_i}\\
+  &=\ip{\covariant_Xp}{e_i}+\ip{p}{\covariant_Xe_i}\\
+  &=\ip{X}{e_i}+\ip{p}{\sum_1^3w_{r i}(X)e_r}\\
+  &=w_i(X)+\sum_{r=1}^3 y_r w_{r i}(X). 
+\end{align*}
+Thus, using the Cartan structural equations,
+\begin{align*}
+    \dd\alpha=&(w_1+y_2 w_{21}+y_3 w_{31})w_2-y_1(w_{21}w_1)-(w_2+y_1w_{12}+y_3w_{32})w_1\\
+    &+y_2(w_{12}w_2)=2 w_1 w_2-y_3Hw_1 w_2=(2-y_3 H) v
+\end{align*}
+where $v$ is the volume element. Similarly, $\dd\beta=(H-2y_3 K)v$.
+
+If $M$ is compact, then \[\int_M(H-2 y_3K)=\int_M\dd\beta=\int_{\partial M} \beta=0,\] and \[\int_M(2-y_3H)=\int_M\dd\alpha=\int_{\partial M}\alpha=0,\] by Stokes' theorem. The equality $\int_M(H/2)=\int_My_3K$ is called \defemph{Minkowski's formula}, and the other integral implies the area of $M$ is $\int_My_3(H/2)$. For other formulae of this type see \cite{Bonnesen1974theorie}.
+
+The above paragraph provides two examples of ``Chern's formula for theorems in differential geometry,'' i.e., take a global $1$-form $w$ such that $\dd w=Fv$ where $F$ is an ``interesting'' function, then state $\int_MF=0$. Another example is that $\int_M K=0$ is a necessary condition that $w_{12}$ be a global $1$-form.
+
+
+
+\begin{theorem}[Cohn-Vossen] \label{thm:ch8.5.2}
+\label{thm:stuff}
+A compact surface of positive Gaussian curvature is rigid.
+\end{theorem}
+
+\begin{proof}
+Let $f: M \functionMaps M'$ be an isometry of such surfaces, and assume the origin to be inside $M$ so $y_3>0$. Let $L'=L_{M'}\circ f_{*}$, then $L$ and $L'$ are positive definite on $M$ since $K=K'>0$. Let $\Delta=\det(L-L')$. We show $L=\pm L'$ by showing $\Delta=0$ and apply the following lemma: if $A$ and $B$ are two positive definite quadratic forms on $\bR^2$ with $\det A=\det B$, then $\det(A-B)\leq 0$, and $\det(A-B)=0$ implies $A=\pm B$.
+
+Let $\beta'=\alpha \circ L'$ and, as above, we compute $\dd\beta'=[H'-y_3(2K-\Delta)]v$. Hence \[\int H'=\int\xoverline{y_3}(2k-\Delta)=\int H-\int y_3\Delta,\] all integrals taken over $M$. Thus $\int H'-\int H \geq 0$ since $y_3 \leq 0$, so $\int H' \geq \int H$. By symmetry we can reverse the inequality so $\int H'=\int H$ and $\int y_3 \Delta=0$, which implies $\Delta=0$.
+\end{proof}
+
+
+
+\begin{theorem} \label{thm:ch8.5.3}
+If $f$ is an isometry between two oriented surfaces that preserves the mean curvature and the third fundamental form, and the mean curvature is never identically zero on any neighborhood, then the surfaces are congruent.
+\end{theorem}
+
+\begin{proof}
+Let $f: M \functionMaps M'$ and let $L'=L_{M'} \circ f_*$. Equality of the third fundamental forms implies $\ip{L^2X}{Y}=\ip{(L')^2 X}{Y}$ for all $X, Y$ in $\ts{M}{m}$ so $L^2=(L')^2$. Using the characteristic equation for $L$ and $L'$ we have \[HL=L^2+K I=(L')^2+K'I=H' L'=H L'.\] Thus if $H(m)\neq 0$, then $L=L'$ at $m$, and since $H$ never vanishes identically on any neighborhood, we have $L=L'$ on $M$ by continuity.
+\end{proof}
+
+
+
+There is a theorem, similar to the preceding result, which states if $f$ is a diffeo between two compact convex hypersurfaces that preserves the mean curvature and the third fundamental form, then the hypersurfaces are congruent or symmetric. For the proof of this result we refer the reader to \cite{chern1951topics}, p. 29. Problem \ref{pro:77} shows one can relax the compactness assumption in the Cohn-Vossen theorem by assuming the third fundamental form is preserved.
+
+The above theorems were included chiefly for their accessibility. Much better theorems have been proved (see \cite{poggorelov1956a}) with weaker differentiability assumptions.
+
+
+\end{document}

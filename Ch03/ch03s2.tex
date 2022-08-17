@@ -1,0 +1,121 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section{Surfaces of Constant Curvature}\label{ch03:s2}
+Let $M$ be a closed connected surface in $\bbR^3$ with constant Gauss curvature $K$. Then $M$ is a sphere, a developable surface, or doesn't exist, according as $K > 0$, $K = 0$, or $K < 0$, respectively. The cases when $K > 0$ (due to Liebmann) and $K < 0$ (due to Hilbert) were solved around 1900. It is amazing that the case $K = 0$ (due to Massey) was not completely solved until 1962.
+
+Consider the case $K > 0$. The result of Liebmann follows from a lemma due to Hilbert.
+
+
+
+\begin{lemma} \label{lem:ch3.2.1}
+If $K$ is a positive constant on $M$, then $h$ cannot have a relative maximum (and $k$ cannot have a relative minimum) at any non-umbilic point.
+\end{lemma}
+
+\begin{proof}
+Suppose $m \in V$ and $m$ is a relative maximum for $h$ and a relative minimum for $k$ (since $K = hk = \text{constant}$). With the notation Theorem~\ref{thm:ch3.1.2},\newline  $X^2 h \le 0$ and $Y^2 k \ge 0$ at $m$. Thus by the above corollary, $K(m) \le 0$, which is a contradiction.
+\end{proof}
+
+
+
+A theorem of Bonnet, proved in Chapter~\ref{ch10}, shows the ``compact'' assumption in the following theorem can be replaced by ``closed''.
+
+
+
+\begin{theorem} \label{thm:ch3.2.2}
+A compact connected surface in $\bbR^3$ of constant positive Gauss curvature is a sphere.
+\end{theorem}
+
+\begin{proof}
+At all points, the principal curvature $h \ge \sqrt K$, since $h^2 \ge hk = K$. Since $M$ is compact, $h$ must have an absolute maximum $m \in M$, and $m$ must be umbilic by Hilbert's lemma \ref{lem:ch3.2.1}. Thus $h(m) = k(m) = \sqrt K$, and hence $h \le \sqrt K$ on $M$. Thus $h = \sqrt K$, all points are umbilic, and $M$ must be a sphere.
+\end{proof}
+
+
+
+The preceding theorem can be paraphrased by saying ``a sphere cannot be bent''. For a precise interpretation of this phrase, see Chapter~\ref{ch08}, where a generalization, the rigidty theorem for convex bodies, is proved.
+
+A proof of Hilbert's theorem stating that a closed connected surface with constant $K < 0$ cannot exist in $\bbR^3$ is in \cite{willmore1959introduction}. Here again, the compact case is easily disposed of by the first corollary of the following theorem; indeed, no compact $M$ exists with variable $K \le 0$ on $M$. 
+
+
+
+\begin{theorem} \label{thm:ch3.2.3}
+On a compact surface in $\bbR^3$ there is a point $m$ with $K(m) > 0$.
+\end{theorem}
+
+\begin{proof}
+Let $r(p) = |p|$ give the distance from a point $p \in \bbR^3$ to the origin. Then $r \circ i$ is a continuous function on the compact surface $M$ so it takes on a maximum at a point $m \in M$. By a rotation (orthogonal transformation) of $\bbR^3$, we may assume $m$ lies on the $z$-axis (or $u_3$-axis). Let $N$ be a $\CInfty$ unit normal to $M$ on a neighborhood of $m$ with $N_m = (0, 0, 1)$. Let $X$ be any unit principal vector at $m$ with $L(X) = \covariant_X N = k X$.
+
+Let $\sigma(t) = (f(t), g(t), h(t))$ be a $\CInfty$ curve on $M$ with unit tangent vector $X$ at $t = 0$; thus $X = (f'(0), g'(0), h'(0))$. Since $m$ is an absolute maximum of $u_3 \circ i = z \circ i$ on $M$, $h''(0) < 0$. Letting $X$ be the tangent to $\sigma$, we have at $m$, $\covariant_X X = (f''(0), g''(0), h''(0))$. Decomposing this vector into tangent and normal components, we get, by the Gauss equation, \[-\ip {L X} X N = (0,0, -k) = (0,0,h''(0)),\] so $k = -h''(0) > 0$.
+
+Since all principal curvatures are greater than zero at $m$, $K(m) > 0$.
+\end{proof}
+
+
+
+Notice the theorem is true for any compact hypersurface in $\bbR^n$ with a trivial modification of the proof.
+
+
+
+\begin{corollary} \label{cor:ch3.2.4}
+There is no compact hypersurface in $\bbR^n$ with non-positive Gauss curvature at all points.
+\end{corollary}
+
+
+
+\begin{corollary} \label{cor:ch3.2.5}
+There is no compact minimal ($H = 0$)\index{minimal surface} surface in $\bbR^3$.
+\end{corollary}
+
+\begin{proof}
+If $H = 0$, then $k = -h$ and $K = -h^2 \le 0$.
+\end{proof}
+
+
+
+Before considering the case $K = 0$, recall that a generator on a surface $M$ is a straight line in $\bbR^3$ that lies on $M$ with the normal to $M$ constant along the line. A \defemph{developable surface} is a ruled surface with the normal constant along the ruling lines in the surface. If a developable surface is closed, then it has a generator through each point. 
+
+
+
+\begin{theorem} \label{thm:ch3.2.6}
+Let $M$ be a closed connected surface in $\bbR^3$ with $K = 0$ on $M$. Then either $M$ is a plane, or through each point of $M$ passes a unique generator and all generators are parallel in $\bbR^3$. Moreover, the mean curvature is constant along generators, and hence the boundary of the umbilic set is a union of these generators.
+\end{theorem}
+
+\begin{proof}
+Supposing $M$ is not a plane; then the set $V$ is non-empty. Let $A$ be a connected neighbourhood in $V$ as described in theorems~\ref{thm:ch3.1.1} and \ref{thm:ch3.1.2}. Since $H$ does not vanish on $V$ and $A$ is connected, we may assume $H = h > 0$ while $k = 0$ on $A$. Theorem~\ref{thm:ch3.1.1} gives an orthonormal pair of $\CInfty$ fields $X$ and $Y$ on $A$, with $LX = 0$ and $LY = HY$ on $A$. Since $Yk = 0$ on $M$, referring to theorem~\ref{thm:ch3.1.2} we have $a = 0$ on $A$, so $\connection_X Y = 0$ and $\connection_X X = 0$ on $A$. By the Gauss equation, $\covariant_X X = \connection_X X - \ip {L X} X N = 0$ on $A$. Thus the integral curves of $X$ in $A$ are straight line segments in $\bbR^3$. Since $M$ is closed, the continuation of these line segments must lie in $M$. Hence for $p$ in $V$ there is a unique line $G_p$ through $p$ with $G_p \subset M$. We next show $G_p \subset V$.
+
+On the neighborhood $A$ of $p$, by theorem~\ref{thm:ch3.1.2},
+
+\[
+K = 0 = \frac {X^2 H} H - \frac {2(XH)^2} {H^2} = -HX^2 \biggl(\frac 1 H\biggr).
+\]
+
+Hence if $s$ is the arc length on $G_p$ in the direction $X$ with $s = 0$ at $p$, then \[\dfrac{1}{H} = cs +d \implies H = \dfrac{1}{cs + d}\text{ for points in }G_p \cap A.\]If there was an umbilic point at $s'$ on $G_p$ then $H(s') = 0$. At \newline $s'' = \inf \{s' : s' \text { is umbilic}\}$, $H(s'') = 1/(cs'' + d) \ne 0$, since $H$ is continuous. Hence there are no umbilics on $G_p$, $G_p \subset V$, and to avoid an impossible singularity in $H$ at $s = -c/d$, it follows $H$ is constant on $G_p$. 
+
+After extending $X$ and $Y$ along $G_p$ by letting $X$ be the unit tangent to $G_p$, an overlapping neighborhood argument will show $X$ and $Y$ remain principal vectors; hence $L(X) = 0$ and $L(Y) = HY$ on $G_p$. Then $\covariant_X N = L(X) = 0$ implies $N$ is constant on $G_p$, so $G_p$ is a generator.
+
+In the neighborhood $A$, since $H$ is constant in the $X$ direction, by theorem~\ref{thm:ch3.1.2}, $\connection_Y X = 0$, and so $\covariant_Y X = \connection_Y X - \ip {LX} Y N = 0$. Thus $X$ is parallel in $\bbR^3$ along an integral curve of $Y$, which implies all generators through points in $A$ are parallel. This implies all generators in one connected component of $V$ must be parallel by another overlapping neighborhood argument. Hence the boundary of one connected component of $V$ consists of two (or just one) lines parallel to the generators in that component. Consider now a connected component $U_1$ of the umbilic set. If $U_1$ has a non-empty interior in $M$, then this interior is an open surface of umbilics with $K = 0$, and hence it is an open subset of a plane in $\bR^{3}$. This open plane subset is bounded by two generator lines in the boundary of $V$, and these generator lines cannot intersect (by the uniqueness of the generators through points in $V$ and its boundary), and hence they are parallel. Thus parallel generators are defined through all points of $M$.
+\end{proof}
+
+
+
+\begin{corollary} \label{cor:ch3.2.7}
+A closed connected surface is a developable surface iff its Gauss curvature is identically zero.
+\end{corollary}
+
+
+
+Problem~\ref{pro:26} provides additional theorems leading to surfaces with constant $K$ and $H$, and it is hoped that by now their proofs would provide little difficulty. Another ``classic'' type of argument is provided by the following theorem and some of the theorems in the next section.
+
+
+
+\begin{theorem} \label{thm:ch3.2.8}
+Let $M$ be a closed connected surface whose sphere map (Gauss map) is strictly conformal. Then $M$ is a sphere or a minimal surface\index{minimal surface} with negative curvature. If $M$ is compact, it must be a sphere.
+\end{theorem}
+
+\begin{proof}
+Let $\eta : M \functionMaps S$ be the sphere map. Since $\eta$ is strictly conformal, there is a $\CInfty$ positive real valued scale function $F$ on $M$ with \[\ip {\eta_\ast X} {\eta_\ast Y} = \ip {LX} {LY} = F(m) \ip X Y\] for all $X, Y$ in $\tangentspace M m$ for all $m$ in $M$. Hence $\ip {L^2(X) - F(m) X} Y = 0$ for all $Y$ so $L^2(X) = FX$ for all $X$. One always has $L^2 - HL + KI = 0$, where $I$ is the identity map; hence $HL = (K + F)I$. If $H(m) \ne 0$, then $m$ is an umbilic and $K(m) = H^2(m)/4 > 0$. If $m$ is umbilic and $H(m) = 0$, then $K(m) = -F(m) < 0$, but an umbilic $K(m) = k^2(m) \ge 0$ always. Thus the umbilic set $U$ is exactly the set of $m$ where $H(m) \ne 0$, and hence $U$ is open and closed. Since $M$ is connected, either $M = U$ and $M$ is a sphere ($F > 0$ rules out a plane) or $M = V$, $H = 0$, and $K = -F < 0$. 
+
+The last assertion of the theorem follows from corollary~\ref{cor:ch3.2.4}.
+\end{proof}
+
+\end{document}

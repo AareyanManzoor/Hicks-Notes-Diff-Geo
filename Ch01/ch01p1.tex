@@ -1,0 +1,25 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section*{Problems}\label{ch01:ex1}
+
+The following list of nine problems are recommended in order to familiarize oneself with the notion of a $\CInfty$ map. In particular the problems are aimed at obtaining numbers \ref{pro:6} and \ref{pro:7} which are often useful. The list (remember $A$ is open in $M$, which is a $\CInfty$ $n$-manifold);
+
+\begin{enumerate}
+    \item\label{pro:1} The map $f\colon A\functionMaps N$ is $\CInfty$ on $A$ iff $f$ is $\CInfty$ at each point $p$ in $A$.
+    \item\label{pro:2} If $f\colon A\functionMaps N$, $f$ is $\CInfty$ on $A$, and $U$ is an open set contained in $A$, then $f|_U$ is $\CInfty$ on $U$.
+    \item\label{pro:3} Let $U_h$ be a collection of open sets in $M$ and let $f_h\colon U_h\functionMaps N$ be $\CInfty$ on $U_h$ for each $h$. If $f$ is a function whose domain is the union of all $U_h$ and if $f\vert_{U_h}=f_h$ for all $h$, then $f$ is $\CInfty$ on its domain.
+    \item\label{pro:4} If $f\colon A\functionMaps\bR^k$ is $\CInfty$ on $A\subset\bR^n$ and $g\colon B\functionMaps\bR$ is $\CInfty$ on the open set $B\subset\bR^k$, then $g\circ f$ is $\CInfty$ on $A\cap f^{-1}(B)$.
+    \item\label{pro:5} If $f\colon A\functionMaps N$ is $\CInfty$ on $A\subset M$ and $(\phi, U)$ is a coordinate pair on $M$, then $f\circ\phi^{-1}$ is $\CInfty$ on $\phi(A\cap U)$.
+    \item\label{pro:6} Let $P$ be a $\CInfty$ $s$-manifold. If $F\colon A\functionMaps N$ is $\CInfty$ on $A\subset M$ and $g\colon B\functionMaps P$ is $\CInfty$ on the open set $B\subset N$, then $g\circ f$ is $\CInfty$ on $A\cap f^{-1}(B)$.
+    \item\label{pro:7} The map $f\colon A\functionMaps N$ is $\CInfty$ on $A\subset M$ iff for every coordinate pair $(\phi,U)$ in a subatlas on $N$ the functions $x_i\circ f$ are $\CInfty$ on $A\cap f^{-1}(U)$, for $i=1,\dots,d$ and $x_i=u_i\circ\phi$.
+    \item\label{pro:8} If $n\geq k$ and $g\colon\bR^n\functionMaps\bR^n$ by $g(a_1,\dots,a_n)=(a_1,\dots,a_k)$ then $g$ is $\CInfty$ on $\bR^n$. If $h\colon\bR^k\functionMaps\bR^n$ by $h(a_1,\dots,a_k)=(a_1,\dots,a_k,0,\dots,0)$ then $h$ is $\CInfty$ on $\bR^k$.
+    \item\label{pro:9} Let $f$ and $g$ be real valued functions that are $\CInfty$ on the subsets $A$ and $B$ of $M$, respectively. Show that $f+g$ and $fg$ are $\CInfty$ on $A\cap B$, where $(f+g)(p)=f(p)+g(p)$ and $(fg)(p)=f(p)g(p)$.
+\end{enumerate}
+
+
+For the record, we can and so do define a Lie group. A \emph{Lie group}\index{Lie group} $G$ is a group $G$ whose underlying set is also a $\CInfty$ manifold such that the group operations are $\CInfty$, i.e., the map $\phi\colon G\times G\functionMaps G$ where $\phi(g,h)=gh^{-1}$ is $\CInfty$ (see problem \ref{pro:18} and \ref{pro:20}). %Should I use label/ref for problem numbers instead?
+
+One last bit of notation, let $\CInfty(A,N)$ denote the set of $\CInfty$ functions mapping an open set $A$ in a manifold $M$ into a manifold $N$.
+
+\end{document}

@@ -1,0 +1,47 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+\graphicspath{./figures/}
+\section{Manifolds}\label{CH01:s1}
+
+First some notation. Let $\bR$ be the set of real numbers. For an integer $n>0$, let $\bR^n$ be the product space of ordered $n$-tuples of real numbers. Thus \newline $\bR^n = \{(a_1,\dots,a_n)\colon a_i\in\bR\}$. For $i= 1,\dots, n$, let $u_i$ be the natural coordinate (slot) functions of $\bR^n$, i.e., $u_i \colon \bR^n \functionMaps \bR$ by $u_i(a_1,\dots,a_n) = a_i$. An open set\index{open set} of $\bR^n$ will be a set which is open in the standard metric topology induced by the standard metric function $d$ on $\bR^n$, thus if $a=(a_1,\dots,a_n)$ and $b=(b_1,\dots,b_n)$ are points in $\bR^n$, then $d(a,b) = \bigg[ \displaystyle\sum_{i=1}^n (a_i-b_i)^2 \bigg]^{1/2}$. % angled frac or normal frac?
+
+The concept of differentiability is based ultimately on the definition of a derivative in elementary calculus. Let $r$ be an integer, $r>0$. Recall from advanced calculus that a map $f$ from an open set $A\subset \bR^n$ into $\bR$ is called $C^r$ on $A$ if it possesses continual partial derivatives on $A$ of all orders $\le r$. If $f$ is merely continuous from $A$ to $\bR$, then $f$ is $C^0$ on $A$. If $f$ is $C^r$ on $A$ for all $r$, then $f$ is $\CInfty$ on $A$. If $f$ is real analytic on $A$ (expandable in a power series in the coordinate functions about each point of $A$), then $f$ is $\Comega$ on $A$. Henceforth, unless otherwise specified, we let $r$ be $\infty$, $\omega$, or an integer $> 0$. 
+
+A map $f$ from an open set $A\subset \bR^n$ into $\bR^k$ ($k$ an integer $\ge 1$) is $C^r$ on $A$ if each of its slot functions $f_i = u_i \circ f$ is $C^r$ for $i=1,\dots,k$; thus for $p \InText \bR^n$, $f(p) = (f_1(p),\dots,f_k(p))\in\bR^k$. 
+
+\begin{figure}[ht]
+    \centering
+    \incfig{overlapping-coordinate-domains}
+    \caption{Overlapping Coordinate Domains}
+    \label{fig:overlapping-coordinate-domains}
+\end{figure}
+
+
+We now define a manifold. Let $M$ be a set. An \defemph{$n$-coordinate pair}\index{coordinate pair} on $M$ is a pair $(\phi, U)$ consisting of a subset $U$ of $M$ and a $1$ to $1$ map $\phi$ of $U$ onto an open set in $\bR^n$. One $n$-coordinate pair $(\phi, U)$ is \defemph{$C^r$ related} to another $n$-coordinate pair $(\psi, V)$ if the maps $\phi\circ\theta^{-1}$ and $\psi\circ\phi^{-1}$ are $C^r$ maps wherever they are defined (thus their domains of definition must be open)\footnote{See Figure \ref{fig:overlapping-coordinate-domains}.}. A \defemph{$C^r$ $n$-subatlas}\index{subatlas} on $M$ is a collection of $n$-coordinate pairs $(\phi_h, U_h)$, each of which is $C^r$ related to every other member of the collection, and the union of sets $U_h$ is $M$. A maximal collection of $C^r$ related $n$-coordinate pairs is called a \defemph{$C^r$ $n$-atlas}\index{atlas}. If a $C^r$ $n$-atlas contains a $C^r$ $n$-subatlas, we say that the subatlas \defemph{induces} or \defemph{generates} the atlas. Finally, an \defemph{$n$-dimensional $C^r$ manifold}\index{manifold} or a \defemph{$C^r$ $n$-manifold} is a set $M$ together with a $C^r$ $n$-atlas. When $r=0$, $M$ is customarily called a \defemph{locally Euclidean space} or a \defemph{topological manifold}, and only when $r \ne 0$ is $M$ called a \defemph{differentiable} or \defemph{smooth} manifold. An atlas on a set $M$ is often called a \defemph{differentiable structure} or a \defemph{manifold structure} on $M$. Notice that one set may possess more than one differentiable structure (see example \ref{enu:CH01S01.4} below), however, a definition of ``equivalent'' differentiable structures is necessary before the study of different atlases on a set becomes meaningful (see \cite{munkres1966elementary}).
+
+Each $n$-coordinate pair $(\phi, U)$ on a set $M$ induces a set of $n$ real valued functions on $U$ defined by $x_i = u_i \circ \phi$ for $i = 1,\dots, n$. The functions $x_1,\dots,x_n$ are called \defemph{coordinate functions} or \defemph{a coordinate system}\index{coordinate system} and $U$ is called the \defemph{domain} of the coordinate system.
+
+We list some examples:
+\begin{enumerate}
+    \item\label{enu:CH01S01.1} Let $M$ be $\bR^n$ with a $C^r$ $n$-subatlas equal to the pair consisting of $\phi =$ the identity map and $U=\bR^n$.
+    
+    \item\label{enu:CH01S01.2} Let $M$ be any open set of $\bR^n$ and let a $C^r$ $n$-subatlas be (the identity map, $M$).
+    
+    \item\label{enu:CH01S01.3} Let $M = \GL(n, \bR)$, the group of non-singular $\bR$-linear transformations of $\bR^n$ onto itself\index{general linear group $\GL(n,\bR)$}. Then $M$ can be mapped 1:1 onto an open set in $\bR^{n^2}$ and thus a manifold structure can be defined on $M$ via example \ref{enu:CH01S01.2}. If $(a_{ij})$ is a matrix representation of an element of $M$ with respect to the usual base of $\bR^n$, then map $(a_{ij})$ into the $n^2$-tuple
+    \[ (a_{11}, a_{12},\dots,a_{1n}, a_{21}, a_{22}, \dots, a_{2n}, a_{31}, \dots, a_{nn}). \]
+    The image set of this map will be open since it is the inverse image of an open set by the determinant map, which is continuous (indeed it is $\Comega$ as a map on $\bR^{n^2}$).
+    
+    \item\label{enu:CH01S01.4} Let $M_1$ be the $1$-dimensional $C^1$ manifold of example \ref{enu:CH01S01.1}, and let $M_2 = \bR$ with the $C^1$ $1$-subatlas $(x^3,\bR)$, where $x$ is the identity mapping on $\bR$. Then $M_1 \ne M_2$ since $x^{1/3}$ is not $C^1$ at the origin.
+    
+    \item\label{enu:CH01S01.5} Let $f$ be a $C^r$ real valued function on $\bR^{n+1}$, with $r>0$ and $n>0$, and suppose the gradient of $f$ does not vanish on an $f$-constant set \newline $M = \{p\in\bR^{n+1}\colon f(p) = 0\}$. Then at each point in $M$, choose any partial derivative of $f$ that doesn't vanish, say the $i$th one. Apply the implicit function theorem to obtain a neighborhood of $p$ (relative topology on $M$) which projects in a 1:1 way into the $u_i = 0$ hyperplane of $\bR^{n+1}$. This can then be used to define a subatlas which makes $M$ a $C^r$ $n$-manifold. %run on sentence
+    
+    This example covers many classical hypersurfaces in $\bR^{n+1}$, including sphe\-res, planes, and cylinders.
+    
+    \item\label{enu:CH01S01.6} The process in example \ref{enu:CH01S01.5} can easily be generalized to obtain $C^r$ $(n-k)$-manifolds from ``constant sets'' of a $C^r$ map $f\colon\bR^n\functionMaps\bR^k$ whose Jacobian matrix is of rank $k$ on the constant set\footnote{Suppose $f: U\subseteq \bR^m \to \bR^n$ is a $C^r$ map, where $m>n$. A point $q\in f(U)$ is called a \emph{regular value}\index{regular value} of $f$ if the Jacobian of $f$ is surjective at each point $p\in f^{-1}(\{q\})$. Thus we can reword this example as follows: if $q$ is a regular value of $f$, then $M=f^{-1}(\{q\})$ is a $(m-n)$-dimensional submanifold of $\bR^m$. Similarly if $f: M\to N$ is a $C^r$ map between two manifolds $M$ and $N$, of dimension $m$ and $n$ resp. with $m>n$, a point $q\in N$ is called a \emph{regular value} of $f$ if the differential $f_*: \tangentspace{M}{m} \to \tangentspace{N}{f(m)}$ (cf. section \ref{ch01:s4}) is surjective at each point $p\in f^{-1}(\{q\})$. Then for regular values $q$, $S=f^{-1}(\{q\})$ is a $(m-n)$-dimensional submanifold of $M$. This is a standard result and follows from the implicit and inverse function theorems, see e.g. \cite[Chapter 1, Theorem 3.2]{hirsch1976differential}.}.
+    
+    \item\label{enu:CH01S01.7} Let $F$ be a univalent map from an open set in $\bR^n$ into $\bR^m$, with $0 < n< m$, and let $M$ be the image of $F$. Then the $n$-coordinate pair $(F^{-1}, M)$ defines a $C^r$ $n$-subatlas on $M$.
+\end{enumerate}
+
+For further definitions, let $M$ be a fixed $C^r$ $n$-manifold. An \defemph{open} set in $M$ is a subset $A$ of $M$ such that $\phi(A\cap U)$ is open in $\bR^n$ for every $n$-coordinate pair $(\phi, U)$. The reader can verify that $M$ becomes a topological space with this definition of the open sets. If $p \in M$, then a \defemph{neighborhood of} $p$ is any open set containing $p$. Notice $M$ need not be Hausdorff. The concept of Hausdorffness is irrelevant for much of local differential geometry. It becomes relevant in passing from a Riemannian metric to a distance function.
+
+\end{document}

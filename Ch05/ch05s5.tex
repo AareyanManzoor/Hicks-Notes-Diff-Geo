@@ -1,0 +1,41 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section{Bundle Viewpoint}\label{ch05:s5}
+
+In this section we define a connexion on the bundle of bases over a manifold and sketch a proof of the equivalence of such a definition with our previous viewpoints. This is the fourth (and last) viewpoint we consider. The bundle viewpoint provides a natural ``jumping off'' for generalizations to connexions in all kinds of bundles, and much of the research in differential geometry at this time uses these concepts. For more details the reader is referred to the  \cite{bishop2011geometry} or \cite{kobayashi1963foundations}.
+
+Throughout this section let $M$ be a $\CInfty n$-manifold, let $B=B(M)$ be the bundle of bases over $M$ (see problem \ref{pro:22}), and let $\pi: B \functionMaps M$ be the natural projection map. If $\connection$ is a connexion on $M$, then by integrating ordinary differential equations (\ref{eq:ch05.5} above), we can parallel translate the tangent space along curves in $M$. If $b=\left(m ; e_{1}, \ldots, e_{n}\right)$ is in $B$ and $\sigma$ is a curve in $M$ with $\sigma(0)=m$, then by parallel translation we define a $\CInfty$ curve $\xoverline{\sigma}(t)=\left(\sigma(t) ; e_{1}(t), \ldots, e_{n}(t)\right)$ in $B$, where $e_i(t)$ is the parallel translate of $e_{i}=e_{i}(0)$ along $\sigma$ to $\sigma(t)$. Since $\pi \circ \xoverline{\sigma}=\sigma$, we say $\xoverline{\sigma}$ is a ``lift of $\sigma$'', or $\xoverline{\sigma}$ ``lies over $\sigma$'' and since $\xoverline{\sigma}$ reads off a parallel base, we say $\xoverline{\sigma}$ is a ``horizontal'' curve in $B$. Thus a connexion $\connection$ on $M$ yields unique ``horizontal lifts'' of $\CInfty$ curves in $M$. The bundle definition of a connexion gives an independent method for defining ``horizontal lifts'' (of curves in $M$) with the correct properties.
+
+Recall at each point $b\in B$ we defined the subspace of vertical vectors \newline $V_{b}=\{X\in B_{b}: \pi_{\ast}(X)=0\}$. A \emph{connexion}\index{connexion} on $B$ is a mapping $H$ that assigns to each $b$ in $B$,a subspace $H_{b}$ of $B_{b}$ such that:
+\begin{enumerate}[label=(\arabic*)]
+\item $H_{b} \cap V_{b}=0$ and $\pi_{\ast} \vert_{H_{b}}$ is an isomorphism of $H_{b}$ onto $\tangentspace{M}{\pi(b)}$ (hence $H_{b}$ is $n$-dimensional).\label{enu:ch05.5.1}
+
+\item $(R_{g})_{\ast}(H_{b})=H_{bg}$ for all $g$ in $\GL(n, \bR)$.\label{enu:ch05.5.2}
+
+\item $H$ is $\CInfty ;$ i.e., for each $b$ in $B$ there is a neighborhood $U$ and a set of $n$ independent $\CInfty$ vector fields $E_{1}, \ldots, E_{n}$ on $U$ that give a base for $H_{b'}$ for every $b'$ in $U .$\label{enu:ch05.5.3}
+\end{enumerate}
+If $X$ is in $H_{b}$, we say $X$ is a \defemph{horizontal vector}. Property \ref{enu:ch05.5.1} implies for each $X$ in $B_{b}$ there is a unique decomposition $X=X_{H}+X_{V}$ with $X_{H}\in H_{b}$ and $X_{V}\in V_{b}$, and property \ref{enu:ch05.5.3} implies if $X$ is $\CInfty$ then $X_{H}$ and $X_{v}$ are $\CInfty$ fields. If $X$ is a $\CInfty$ field with domain $U$ in $M$, then there is a unique $\CInfty$ horizontal field $\xoverline{X}$ on $\xoverline{U}=\pi^{-1}(U)$ with $\pi_{\ast}(\xoverline{X})=$ $X_{\pi(b)}$ for all $b$ in $\xoverline{U}$.
+
+Having the existence of ``horizontal lifts'' for vector fields, one can ``horizontally'' lift curves in a natural way. Thus if $\sigma$ is a curve in $M$ with tangent $T$ (non-vanishing), extend $T$ to a $\CInfty$ field in a neighborhood $U$ of a univalent part of $\sigma$, lift $T$ to a horizontal field $\xoverline{T}$ on $\xoverline{U}$, and take integral curves of $\xoverline{T}$ to find horizontal lifts of $\sigma$. The parallel translation so defined will be independent of the base (the starting point for $\xoverline{\sigma}$) by property \ref{enu:ch05.5.2}; i.e., if $\xoverline{\sigma}$ is horizontal (has a horizontal tangent), then $R_g\circ\xoverline{\sigma}$ is also horizontal.
+
+
+There is a dual viewpoint involving differential forms. To motivate it, let $H$ be a connexion as described above and notice at each $b=\left(m ; e_{1}, \ldots, e_{n}\right)$ in $B$ we can define a unique horizontal field $E_{i}(b)$ with $\pi_{\ast}\left(E_{i}(b)\right)=e_{i}$ by \ref{enu:ch05.5.1}. The fields $E_{1} \ldots, E_{n}$ are global independent horizontal $\CInfty$ fields on $B$. Together with the natural vertical fields $E_{11}, \ldots, E_{n n}$, we get a global base field on $B$. Let $\xoverline{w}_{1}, \ldots, \xoverline{w}_{n}$, $\xoverline{w}_{11}, \ldots, \xoverline{w}_{n n}$ be the dual 1-forms to this base (where $\xoverline{w}_{1}, \ldots, \xoverline{w}_{n}$ are the natural $1$-forms of problem \ref{pro:41}). Then if $X\in B_{b}$,$ X_{V}=\sum\limits_{i, j=1}^{n} \xoverline{w}_{i j}(X)(E_{i j})_{b}$. If one knows $X_{V}$, then, of course, $X_{H}=X-X_{V}$. Thus giving $X_{H}$ (or giving $H$) is equivalent to giving ``vertical projections'' at each point in $B$. Thus a set of \defemph{connexion 1-forms}\index{connexion 1-forms} $\xoverline{w}_{i j}$ (for $i, j=$ $1, \ldots, n)$ on $B$ is a set of $1$-forms such that
+
+\begin{enumerate}
+\item[(1')] $\xoverline{w}_{i j}\vert_{V_{b}}$ form a dual base to $E_{i j}$ at all $b$ in $B$,
+
+\item[(2')]$ \xoverline{w}_{i j}((R_{g})_{\ast} X)=\displaystyle\sum\limits_{t_{s}=1}^{n} g_{i r}^{-1} \xoverline{w}_{r s}(X) g_{s j}$ for all $X$ in $B_{b}$,
+
+\item[(3')]$ \xoverline{w}_{i j}$ are $\CInfty$ for al1 $i$ and $j .$
+\end{enumerate}
+That the definition of a connexion on $B$ in terms of $H$ or in terms of $\xoverline{w}_{i j}$ is equivalent is left as a problem.
+
+Notice that the $\xoverline{w}_{i j}$ can be used to define a Lie algebra (of $\GL(n, \bR)$) valued $1$-form $\xoverline{w}$ by $\xoverline{w}(X)=\sum\limits_{i, j=1}^{n} \xoverline{w}_{i j}(X) X_{i j}$, where the $X_{i j}$ are the canonical left invariant fields on $\GL(n, \bR)$ (see problem \ref{pro:21}).
+
+Finally, we connect with the Cartan viewpoint. Let $e_{1}, \ldots, e_{n}$ be a base field on the open set $U$ in $M$. Define a $\CInfty$ map $f\colon U \functionMaps B$ by $f(m)=\left(m ;\left(e_{1}\right)_{m}, \ldots,\left(e_{n}\right)_{m}\right)$ for $m$ in $U$. Since $\pi \circ f$ is the identity of $U_{,}$ we call $f$ a section over $U$. Let $w_{i j}$ be the connexion forms defined in section \ref{ch05:s2}, and let $\xoverline{w}_{i j}$ be the global forms defined above. Then $w_{i j}=\xoverline{w}_{i j} \circ f_{\ast}$ on $U$.
+
+Thus the Cartan structural equations \ref{eq:ch05.13} and \ref{eq:ch05.14} (and the torsion and curvature 2-forms) can be carried up to global equations on $B$.
+
+
+\end{document}

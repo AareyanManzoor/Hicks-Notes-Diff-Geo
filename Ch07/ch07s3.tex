@@ -1,0 +1,104 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section{Lie Derivative}\label{ch07:s3}
+Let $X$ be a $\CInfty$ vector field on the open set $A$. An operator $\liederiv{X}$, called the \defemph{Lie derivative via $X$}\index{Lie derivative}, which maps $\tensorbundle{A}{r}{ s}$ into itself, is defined as follows: 
+\begin{enumerate}[label=(\alph*)]
+    \item\label{enu:ch07.3.a} if $f\in \formbundle{A}{0}$, $\liederiv{X}{Y} = Xf$;
+    \item\label{enu:ch07.3.b} if $Y\in\tensorbundle{A}{1}{0}$, $\liederiv{X}{Y}=[X, Y];$
+    \item\label{enu:ch07.3.c} if $w\in\tensorbundle{A}{0}{1},(\liederiv{X}{w})(Y)=X w(Y)-w([X, Y])$;
+    \item\label{enu:ch07.3.d} if $\theta$ in $\tensorbundle{A}{r}{ s}, w_{1}, \ldots, w_{t}$ in $\tensorbundle{A}{0}{1}$, and $Y_{1}, \ldots, Y_{s}$ in $\tensorbundle{A}{1}{ 0}$, then $\liederiv{X} \theta$ is defined by solving for it in the equation
+\begin{equation}\tag{3}
+\label{eqn:ch07.3}
+\begin{split}
+\liederiv{X}&{[\theta(w_{1}, \ldots, w_{r}, Y_{1}, \ldots, Y_{s})]} = (\liederiv{X}{\theta})(w_{1}, \ldots, Y_{s}) \\ &+ \theta (\liederiv{X} w_1, w_{2}, \ldots, Y_{s})+\ldots+\theta(w_{1}, \ldots, Y_{s-1}, \liederiv{X} Y_{s}).
+\end{split}
+\end{equation}
+
+\end{enumerate}
+We call $\liederiv{X}$ a complete derivation because of the property \ref{enu:ch07.3.d} and note all terms in \ref{eqn:ch07.3} are well-defined by \ref{enu:ch07.3.a}, \ref{enu:ch07.3.b}, and \ref{enu:ch07.3.c} except the $\liederiv{X} \theta$ term (indeed, \ref{enu:ch07.3.c} is ``defined'' by \ref{enu:ch07.3.d}). One shows $\liederiv{X} \theta$ is a tensor by checking the linearity over $\formbundle{A}{0}$.
+
+
+
+\begin{proposition} \label{prop:ch7.3.1}
+The operator $\liederiv{X}$ has the following properties:
+
+\begin{enumerate}[label = (\arabic*)]
+    \item \label{enu:ch07.3.1} $\liederiv{X}$ preserves forms,
+    \item\label{enu:ch07.3.2} $\liederiv{X}(w+z)=\liederiv{X} w+\liederiv{X} z$,
+    \item \label{enu:ch07.3.3}$\liederiv{X}(w \otimes v)=\left(\liederiv{X} w\right) \otimes v+w \otimes \liederiv{X} v$,
+    \item \label{enu:ch07.3.4}$\liederiv{X}(\alpha \wedge \beta)=\left(\liederiv{X} \alpha\right) \wedge \beta+a \wedge \liederiv{X} \beta$,
+\end{enumerate}
+
+where $w$ and $z$ are tensors of the same type, $v$ is any tensor, and $a$ and $\beta$ are forms.
+\end{proposition}
+
+\begin{proof}
+An exercise (for \ref{enu:ch07.3.4} use $\liederiv{X}\left[(\alpha \otimes \beta)^\pi\right] = [\liederiv{X}(\alpha \otimes \beta)]^\pi$).
+\end{proof}
+
+
+
+There is a more geometric definition of the Lie derivative $\liederiv{X}$ on covariant tensors which we now discuss. Suppose the vector field $X$ is defined and $\CInfty$ on all of $M$. For each $m$ in $M$ let $f_{m}(t)$ be the integral curve of $X$ (section~\ref{ch01:s5}) through $m$ with $f_{m}(0)=m$. we know $f_{m}$ defined for $t$ in a neighborhood of zero, but suppose each $f_{m}$ is defined for all $t$ and $\bbR$. Then for each $t$ in $\bbR$ we could define a map $F_{t}: M \functionMaps M$ by $F_{t}(m)=f_{m}(t)$, with the properties $F_{t} \circ F_{s}=F_{t+s}$ and $F: M \times \bbR \functionMaps M$ by $F(m, t)=F_{t}(m)$ would be $\CInfty$ (from the fact that $X$ was $\CInfty$ and the $\CInfty$ dependence of solutions of ordinary differential equations upon initial conditions). Each $F$, would be a diffeo, since $\left(F_{t}\right)^{-1}=F_{-t}$ and $F_{0}$ is the identity map. A map $F$ with the above properties is called a \defemph{1-parameter group of differentiable transformations}\index{one parameter subgroup} of $M$, and $X$ is called its \defemph{infinitesimal generator}.
+
+In general $f_{m}$ is not defined for all $t$, but one does obtain a local 1-parameter group of local transformations in a neighborhood of each $m$ in $M$; i.e., for each $m$ in $M$ there is a neighborhood $U$ of $m$, a real number $b>0$, and a map $F: U \times(-b, b) \functionMaps M$ such that
+\begin{enumerate}[label=(\arabic*)]
+    \item $F$ is $\CInfty$,
+    \item for $t$ in $(-b, b), F_{t}: U \functionMaps F_{t}(U)$ is a diffeo,
+    \item for $t, s$, and $t+s$ in $(-b, b), F_{t} \circ F_{s}=F_{t+s}$, and
+    \item for fixed $p\in U$,$f_{p}(t)=F_{t}(p)$ is an integral curve of $X$.
+\end{enumerate}
+For more details see \cite{palais1954a, palais1957} and \cite[p.~5]{nomizu2021lie}.
+
+
+
+\begin{lemma} \label{lem:ch7.3.2}
+\label{lem:ch07s3.1}
+Let $Y$ be a $\CInfty$ field in a neighborhood of $m$ in $M$. We choose $U$ and $b$ in the preceding paragraph to be sufficiently small so the image of $F$ is contained in the domain of $Y$. Then
+\[
+[X, Y]_{m}=\lim _{t \to 0}\dfrac{\left(F_{-t}\right)_\ast Y_{F(m, t)}-Y_{m}}{t} .
+\]
+\end{lemma}
+
+\begin{proof}
+See \cite[p.~8]{nomizu2021lie}.
+\end{proof}
+
+
+
+Assuming lemma~\ref{lem:ch07s3.1}, which gives us another geometric interpretation of the bracket, it is trivial to show the following lemma.
+
+
+
+\begin{lemma} \label{lem:ch7.3.3}
+Let $w$ be a $\CInfty$ $p$-form at $m$. Then
+\[
+(\liederiv{X} w)_{m}=\lim _{t \to 0}\dfrac{\left(F_{t}^\ast w\right)_{m}-w_{m}}{t}
+\]
+where
+\[
+(F_{t}^\ast w)_{m}(Y_{1}, \ldots, Y_{p})=w_{F(m, t)}((F_{t})_\ast Y_{1}, \ldots,(F_{t})_\ast Y_{p})
+\]
+\end{lemma}
+
+
+
+The following is a useful relation between $\dd$, $\liederiv{X}$, and $C_{X}$.
+
+
+
+\begin{proposition} \label{prop:ch7.3.3}
+If $X$ is a $\CInfty$ field on $A$, then $\liederiv{X}= \dd \circ C_{X}+C_{X} \circ \dd$ when applied to $\CInfty$ forms on $A$.
+\end{proposition}
+
+\begin{proof}
+We verify this equality on functions ($0$-forms) and $1$-forms. This is sufficient to prove the proposition, since locally a form is a sum of products of functions and 1-forms, and the operators which we equate above are both derivations; hence their value on any form is determined by the values on functions and 1-forms.
+
+For $f\in \formbundle{A}{0}$, \[\dd C_{X}(f)+C_{X} \dd(f)=0+\dd f(X)=X f=\liederiv{X} f.\] For $w\in \formbundle{A}{1}$, 
+\begin{align*}
+    (\dd C_{X}+C_{X} \dd w)(Y)&=Y w(X)+\dd w(X, Y)\\&=Y w(X) + X w(Y)-Y w(X)-w([X, Y])\\&=(\liederiv{X} w)(Y)
+\end{align*}
+
+\end{proof}
+
+\end{document}

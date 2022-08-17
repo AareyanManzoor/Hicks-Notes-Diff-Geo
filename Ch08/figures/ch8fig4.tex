@@ -1,0 +1,114 @@
+\documentclass[../../main]{subfiles}
+\begin{document}
+
+\begin{figure}[h!]
+\[
+\begin{tikzpicture}[decoration={
+	markings,
+	mark=at position .75 with {\arrow[]{Stealth}} }
+	]
+    \begin{scope}
+    
+    %polygon thing
+    \draw[very thick, postaction={decorate}]
+        (0,0) 
+        to[bend left=20]
+        node[sloped, yshift=-0.5cm]{starting edge}
+        (3,1);
+    \draw
+        (3,1) to[bend left=20] 
+        (2.5,3) to[bend left=10] node[very near start, yshift=-0.5cm]{$\sigma_j$}
+        (-1,2) to[bend left=20] 
+        (0,0);
+    
+    %vectors
+    \draw[very thick, ->] (0:0)--(40:2) node[anchor=west]{$T$};
+    \draw[very thick, ->] (0:0)--(95:1.5) node[anchor=south]{$T'$};
+    
+    %angle
+    \draw[dashed, -Stealth] (40:1) arc (40:95:1cm) node[midway, anchor=south west] {$\beta_i^j$};
+    \end{scope}
+    
+    \begin{scope}[shift={(6,0.5)}, scale=0.75]
+    
+    \draw (-2.25,-0.25)--(-2.75,0.5);
+    
+    \draw
+        (-0.5,1.5) to[bend left=10] 
+        (-2,1.25) to[bend left=10]
+        (-2.25,-0.25) to[bend right=10]
+        (0,0);
+    
+    \draw[very thick, postaction={decorate}] (0,0)--(2,1);
+    \draw (2,1) to[bend left=10] 
+          (1,2) to[bend left=10] 
+          (-0.5,1.5) -- (0,0);
+    \draw[dashed, -Stealth] (30:0.5) arc (30:110:0.5cm) node[midway, anchor=south west] {$\beta$};
+
+    \draw (2,1)--(2.25,2);
+    \end{scope}
+    
+    \begin{scope}[shift={(10,1)}]
+    %yay excel coordinates again
+    \coordinate (A1) at (-1,2.5);
+    \coordinate (A2) at (-1.25,1.5);
+    \coordinate (A3) at (-1,-0.25);
+    \coordinate (A4) at (-1.25,-1.5);
+    \coordinate (B1) at (-0.25,2.75);
+    \coordinate (B2) at (-0.5,1.5);
+    \coordinate (B3) at (0,0);
+    \coordinate (B4) at (0,-1.75);
+    \coordinate (C1) at (0.5,2.25);
+    \coordinate (C2) at (0.25,1.25);
+    \coordinate (C3) at (0.5,0.5);
+    \coordinate (C4) at (0.75,-1);
+    
+    %angles
+    \draw[dashed, ->] ($(B3)+(100:0.5)$) arc (100:190:0.5cm);
+    \draw[dashed, ->] ($(B2)+(295:0.5)$) arc (295:345:0.5cm);
+    
+    \draw[postaction={decorate}]
+        (A2) to[bend left=10]
+        (A3);
+    \draw[postaction={decorate}]
+        (A3) to[bend left=10]
+        (B3);
+    \draw[postaction={decorate}]
+        (B3) to
+        (C3);
+    \draw[postaction={decorate}]
+        (C3) to[bend left=10]
+        (C2);
+        
+    \draw
+        (C2) to[bend left=10]
+        (C1) to[bend right=10]
+        (B1) to[bend left=10]
+        (B2) to[bend left=10]
+        (C2);
+    
+    \draw
+        (B1) to[bend left=10]
+        (A1) to[bend right=10]
+        (A2) to[bend right=10]
+        (B2) to[bend left=10]
+        (B3);
+    
+    \draw
+        (A3) to
+        (A4) to[bend left=10]
+        (B4) to[bend right=10]
+        (B3);
+        
+    \draw
+        (B4) to
+        (C4) to[bend right=10]
+        (C3);
+    \end{scope}
+\end{tikzpicture}
+\]
+\caption{Starting Edges}
+\label{fig:ch08fig4}
+\end{figure}
+
+\end{document}

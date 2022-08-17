@@ -1,0 +1,58 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section*{Problems}
+\begin{enumerate}
+\setcounter{enumi}{78}
+    \item\label{pro:79} Let $T$ be a $\CInfty$ vector field on the Riemannian manifold $M$ and define $A_T: \tangentspace{M}{m}\functionMaps\tangentspace{M}{m}$ by $A_T(X) = \connection_X T$, where $\connection$ is the Riemannian connexion. 
+    \begin{enumerate}[label=(\roman*)]
+        \item Show that $\Div{T} = \tr{A_T}$.
+        \item Show $A_T$ is self-adjoint iff $d\circ G(T) = 0$ ($T$ is \emph{closed}).
+        \item Let $(T^\bot)_m = \{X \in \tangentspace{M}{m}: \ip{X}{T_m} = 0\}$.
+        \item  If $T$ is closed, show $T^\bot$ is an integrable $(n-1)$-dim distribution on the subset of $M$ where $T\neq 0$.
+    \end{enumerate}
+      
+    \item\label{pro:80}(Frobenius) Let $W_1, \dots, w_k$ be a set of independent $\CInfty$ 1-forms on a $\CInfty$ $n$-manifold $M$ with $k<n$. Define an $(n-k)$-dim distribution $P$ on $M$ by \[P_m = \{X \in \tangentspace{M}{m}: w_i(X) = 0 \text{ for } i=1,2,\dots,k\}\] Show that $P$ is integrable iff \[\dd{w_i} = \sum_{1\le r\le s\le k} a_{irs} w_r \wedge w_s\] for all $i$. (For generalizations of this result, see Kuranishi \cite{kuranishi1957on} or Johnson \cite{johnson1960terminating}.)
+    \item\label{pro:81} If $G = \mathrm{GL}(n,\bR)$, $I$ is the identity in $G$, $A\in \tangentspace{G}{I}$, and \[\sigma: t\functionMaps e^{tA} = I + tA + \dfrac{(tA)^2}{2!} + \dots + \dfrac{(tA)^n}{n!} + \dots,\] show $\sigma(t)$ is a 1-parameter subgroup of $G$ with tangent $A$ at $t=0$. Thus show $e^{tA} = \exp_{I} (tA)$ for all $t$ (see problem \ref{pro:46}).
+    \item\label{pro:82} Show the map $(m, X)\functionMaps \norm{X}$ is $\CInfty$ on the set \newline $N = \{(m,X) \in \tangentbundle{M}: X\neq 0\}$.
+    \item\label{pro:83} If $M$ is a Riemannian manifold and $A$ is a compact set in $M$, show that there exists a real number $r>0$ such that the ball $B(m,r)$ is convex for all $m$ in $A$.
+    \item\label{pro:84} If $G$ is a Lie group, $g\in G$, $X$ in the Lie algebra, and $g = \exp(X)$, show that $h^2=g$ where $h = \exp(X/2)$. If \[h\in\mathrm{SL}(2,\bR) = \{g\in \mathrm{GL}(2,\bR):\det(g) = 1\},\] show the $\tr(h^2) \ge -2$. Use this to prove the exp map is not always onto even when the connexion is complete. 
+    \item\label{pro:85} Let $\connection$ be a connexion on $M$. 
+    \begin{enumerate}[label=(\roman*)]
+        \item Show the curvature $R\equiv 0$ iff the horizontal distribution $H$ on $B(M)$ is integrable (section \ref{ch05:s5}).
+        \item  Show that $R\equiv 0$ implies parallel translation is independent of the path (problem \ref{pro:45}). 
+    \end{enumerate}
+    
+    \item\label{pro:86} Show that there exists at least one umbilic on any compact convex $\CInfty$ surface in $\bR^3$. (It was conjectured by Caratheodory, and proven by Bol and Hamburger respectively, that a compact convex surface has at least two umbilics.)
+    \item\label{pro:87} 
+    \begin{enumerate}[label=(\roman*)]
+        \item  If $M$ is a surface in $\bR^3$, $U$ a coordinate domain on $M$ with coordinate fields $X$ and $Y$, show the area of $U$ is equal to \[\int_U\sqrt{\ip{X}{Y} \ip{Y}{Y} - \ip{X}{Y}^2}.\]
+        \item Let $f$ be in $\CInfty(U,\bR)$, and define a \defemph{normal deformation}\index{normal deformation} belonging to $f$ by $\phi_t(p) = p+tf(p)N_p$ for $p\in U$ and $N$ a $\CInfty$ unit normal on $U$. Let $J(t)$ be the area of $\phi_t(p)$. Show that $J'(0) = 0$ for all $f$ iff $U$ is a minimal surface ($H\equiv 0$)\index{minimal surface}.
+    \end{enumerate}
+    
+    \item\label{pro:88}
+    \begin{enumerate}[label=(\roman*)]
+        \item  Show that about any non-umbilic point on a minimal surface there exists an isothermal coordinate system $x,y$ whose coordinate systems are lines of curvature. 
+        \item Show the functions $z=(x+y)/2$ and $w = (x-y)/2$ define an isotheermal coordinate system whose coordinate curves are asymptotic curves which bisect the $x,y$ coordinate curves.
+    \end{enumerate}
+    
+    \item\label{pro:89} Using the notation of section \ref{ch03:s4}, let $u,v$ be conformal coordinates on domain $B$ with $E=G=\ip{T_u}{T_u}$.
+    \begin{enumerate}[label=(\roman*)]
+        \item Show $T_{uu} + T_{vv} = -HGN$. If $f$ is $\CInfty$ on $B$,
+        \item show $\Delta f = \dfrac{f_{uu} + f_{vv}}{G}$.
+        \item Let $I:M\functionMaps \bR^3$ be the inclusion map of a surface $M$ into $\bR^3$, and let $x_i = u_i\circ I$ for $i=1,2,3$. Defining $\Delta I = (\Delta x_1, \Delta x_2, \Delta x_3)$, show that $\Delta I = -HN$ on $B$. Thus, if $M$ is minimal, then the functions $x_i$ are harmonic on $B$. 
+    \end{enumerate}
+      
+    \item\label{pro:90} Let $f_1, f_2, f_3$ be three analytic functions defined on an open set $B\subset\bC$. Let $Z:B\functionMaps\bC^3$ by $Z(w) = (f_1(w), f_2(w), f_3(w))$ and define $X$ and $Y$ mapping $B$ into $\bR^3$ by $X=\mathrm{Re}(Z)$ and $Y=\mathrm{Im}(Z)$ so $Z = X+iY$. 
+    If $Z'\circ Z' = 0$ and $X_u\circ X_u >0$ on $B$, show the maps $X$ and $Y$ each define an immersion of $B$ into $\bR^3$ whose image locally is a minimal surface. Conversely, if $M$ is a minimal surface in $\bR^3$ and $m\in M$, show that there is an open set $B\subset \bC$ and analytic functions $f_1, f_2, f_3$ defined on $B$ such that $X(B)$ is a neighbourhood of $m$. 
+    \item\label{pro:91} A \defemph{Weingarten surface}\index{Weingarten surface} is a surface whose principal curvatures are functionally independent. Let $W:M\functionMaps \bR^2$ by $W(m) = (k(m), h(m))$, where $k\le h$, and call the image of $W$ the $W$-diagram.
+    \begin{enumerate}[label=(\roman*)]
+        \item Show there exists no compact Weingarten surface of positive Gauss curvature whose $W$-diagram has negative slope (see section \ref{ch03:s1}).
+        \item Show a compact surface with $K>0$ and $H$ constant is a sphere. 
+    \end{enumerate}
+     Hopf \cite{hopf1950uber} has shown a compact surface with (a) constant mean curvature and (b) Euler characteristic zero, is a sphere. It is an open question whether the assumption (b) can be dropped.\footnote{This conjecture was disproven, first by \cite{hsiang1982generalized} and next in $\bR^3$ by \cite{wente1986counterexample}.}
+    \item\label{pro:92} Let $X$ and $Y$ be the coordinate fields for a set of orthogonal coordinates on a surface. Show that there exist conformal coordinate with the same coordinate curves (as images) iff $YX\sbr{\log\br{\frac{E}{G}}} = 0$.
+\end{enumerate}
+
+
+\end{document}

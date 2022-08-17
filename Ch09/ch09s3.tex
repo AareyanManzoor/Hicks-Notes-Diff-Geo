@@ -1,0 +1,72 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section{The Exponential Map}\label{ch09:s3}
+
+Let $\D$ be a connexion on $M^n$. From section \ref{ch05:s1} we know for each vector $X$, tangent to $M$ at $m$, there is a unique geodesic $g_X(t)$ of the connexion $\D$, which is defined on a neighborhood of zero in $\bR$ with $g_X(0) = m$ and tangent $X$ at $t=0$. Furthermore, for appropriate $s \in \bR$, $g_{sX}(t) = g_X(st)$ by the nature of the differential equations defining the geodesics. This implies that $g_{aX}(1)$ is defined if $g_X(a)$ is defined, thus $g_Y(1)$ is a well-defined point of $M$ for $Y$ near zero in $\tangentspace{M}{m}$.
+
+\begin{definition}
+For $Y \in \tangentspace{M}{m}$, we define $\exp_mY=g_Y(1)$ when the latter is defined. The map $\exp_m$ is called the \emph{exponential map}\index{exponential map}. 
+\end{definition}
+
+The name ``exponential map'' is used because in a special case for the general linear group $\GL(n, \bR)$  it becomes the classical map,
+\[ A \mapsto e^A = I + A + \frac{A^2}{2!} + \cdots ,\]
+from the set of all $n$ by $n$ real matrices into the set of non-singular matrices (problem \ref{pro:81}).
+
+Our current objective is to obtain some important properties of the exponential map and to state these precisely we must use the tangent bundle $\tangentbundle{M}$ of $M$.
+
+\begin{proposition} \label{prop:ch9.3.1}
+Let $N$ be the subset of $\tangentbundle{M}$ such that if $(m,Y) \in N$ then $\exp_m(Y)$ is defined and define the map $\exp : N \functionMaps M$ by $\exp(m, Y) = \exp_m(Y)$. Then $N$ is an open set and $\exp$ is $\CInfty$ on $N$. In particular let \[\widehat M = \{(m, 0) \in \tangentbundle(M) : m\in M\},\] then there is an open set $\widehat N \subset \tangentbundle M$ such that $\widehat M \subset \widehat N \subset N$.
+\end{proposition} \label{pro:CH09S3.1}
+
+\begin{proof}
+We do not completely prove the above proposition. Applying the local theory of differential equations, we prove the last statement of the theorem and we prove $\exp : \widehat N \functionMaps M$ is $\CInfty$. Then we sketch the proof that $\exp$ is $\CInfty$ on $N$ and refer the reader to \cite{lang2014introduction}. 
+
+Using the above notation, if $g(t)$ is a geodesic in the neighborhood $U$, then
+\[ \dv{^2(x_k \circ g)}{t^2} + \sum_{i, j= 1}^n \Gamma_{i j}^k \dv{(x_i \circ g)}{t} \dv{(x_j \circ g)}{t} = 0 \]
+for $t$ such that $g(t) \in U$. For each point $(m, 0) \in \tangentbundle(M)$, take a coordinate neighborhood $U_m$ of $m \in M$ and apply the existence and uniqueness theorem to the above differential equation to obtain a real number $b>0$, a neighborhood $V_m$ of $(m, 0)\in \tangentbundle{M}$ with $V_m \subset \pi^{-1}(U_m)$, a $\CInfty$ map $g : (-b, b) \times V_m \functionMaps M$, such that for fixed $(p, Y)\in V_m$, the curve $g_Y(t) = g(t; p, Y)$ is the unique geodesic defined on $(-b, b)$ wwhich passes through $p$ with tangent $Y$ at $t=0$. Moreover, for $(p, Y) \in V_m$ and $a>0$, we have $g_{aY}$ defined on $(-b/a, b/a)$, since \newline $g_{aY}(t) = g_Y(at) = g(at ; p, Y)$. Choose $a>0$ so $a < b$ and let \[W_m = \{ (p,X) \in V_m : (p, X/a)\in V_m\}.\]Then for $(p, X)\in W_m$, $\exp(p, X) = g(1; p, X) = g(a; p, X/a)$ is defined and $\exp$ is $\CInfty$ on $W_m$. 
+
+Let $\widehat N = U_m\cap W_m$, and the last sentence of the theorem is proved.
+
+For each $(p, Y)\in \tangentbundle{M}$, choose $a>0$ so $(p, aY) \in \widehat N$, and thus $g_Y(t)$ is defined in some neighborhood of $t=0$. As usual, for any curve $g$ let $T_g$ be its tangent vector and define \emph{the natural lifting of a curve $g \in M$ to a curve $\xoverline g\in \tangentbundle{M}$} by $Z(p,Y) = T_{\xoverline g_Y}(0)$. Then $Z$ is a $\CInfty$ field on $\tangentbundle M$ by the above analysis, and if $\sigma$ is an integral curve of $Z$, then $\pi \circ \sigma$ is a geodesic in $M$. The field $Z$ is called the \emph{geodesic flow field}\index{geodesic flow field} associated with the connexion. The fact that $\exp$ is $\CInfty$ on all of $N$ now follows from Theorem 5 on p. 66 in \cite{lang2014introduction}. 
+\end{proof}
+
+
+
+\begin{corollary} \label{cor:ch9.3.2}
+For fixed $p\in M$, the map $\exp_p$ is a diffeo. of a neighborhood of $0 \in \tangentspace{M}{p}$ onto a neighborhood of $p$. Furthermore, if $\eta_0 : \tangentspace{M}{p} \functionMaps \tangentspace{\tangentspace{M}{p}}{0}$ is the natural map of the tangent space at $p$ onto \emph{its} tangent space at $0$, then $(\exp_p)_\ast\circ\eta_0$ is the identity map on $\tangentspace{M}{p}$. 
+\end{corollary}
+
+\begin{proof}
+The map $\eta_0$ is defined by choosing any base $e_1,\dots, e_n$ of $\tangentspace{M}{p}$ and letting $z_1,\dots, z_n$ be its dual base. Then $z_1,\dots,z_n$ are a global coordinate system on the vector space viewed as a $\CInfty$ manifold. Let $\eta_0(e_i) = \Big(\pdv{}{z_i}\Big)_0$ for all $i$. This map $\eta$ is independent of the particular base $e_1,\dots,e_n$; furthermore, by evaluating the global fields $\pdv{}{z_i}$ at any point $Y \in \tangentspace{M}{m}$, we obtain a natural isomorphism $\eta_Y:\tangentspace{M}{p} \functionMaps \tangentspace{\tangentspace{M}{p}}{Y}$. In these notes, for any $X \in \tangentspace{M}{p}$ we let $\xoverline X$ be the \emph{natural constant vector field} on $\tangentspace{M}{p}$ associated with $X$, where $\xoverline X_Y = \eta_Y(X)$. 
+
+Take $X \in \tangentspace{M}{p}$, then $\eta_0(X) = \xoverline X_0$. To compute $(\exp_p)_\ast\xoverline X_0$ we note $\xoverline X_0$ is the tangent vector at $t=0$ to the ray $\gamma(t) = tX \in \tangentspace{M}{p}$. The curve \newline $\exp_p \circ \gamma(t) = \exp_p tX$ is by definition the geodesic through $p$ with tangent $X$ at $t=0$. Thus $(\exp_p)_\ast\xoverline X_0 = X$. Thus $(\exp_p)_\ast$ is non-singular and onto at the origin in $\tangentspace{M}{p}$. The corollary now follows by applying the Inverse Function theorem.
+\end{proof}
+
+
+
+\begin{corollary} \label{cor:ch9.3.3}
+Let $G: \widehat N \functionMaps M\times M$ by $G(p, Y) = (p, \exp_pY)$. Then $G$ is $\CInfty$ and $G_\ast$ is non-singular and onto at all points $(p, 0) \in \Gamma(M)$. 
+\end{corollary} 
+
+\begin{proof}
+Let $\pi_i : M\times M \functionMaps M$ by $\pi_i(m_1, m_2) = m_i$ for $i=1, 2$. Each $\pi_i$ is $\CInfty$. Since $\pi_i \circ G = \pi_1$ and $\pi_2 \circ G = \exp$, the map $G$ is $\CInfty$ on $\widehat N$. 
+
+The tangent space $\widehat N_{(p, 0)}$ is naturally isomorphic to $\tangentspace{M}{p} \times \tangentspace{\tangentspace{M}{p}}{0}$, while the tangent space to $M\times M$ at $G(p, 0) = (p, p)$ is naturally isomorphic to $\tangentspace{M}{p} \times \tangentspace{M}{p}$. In terms of these natural isomorphic spaces, $G_\ast$ is the identity on the first factor and $(\exp_p)_\ast$ on the second factor. Hence, by Corollary \ref{cor:ch9.3.2}, $G_\ast$ is non-singular at $(p,0)$.
+\end{proof}
+
+
+
+We apply Corollary \ref{cor:ch9.3.2} to obtain \defemph{normal coordinate systems}. For any $m\in M$, let $e_1,\dots, e_n$ be a base of $\tangentspace{M}{m}$, let $z_1,\dots z_n$ be its dual base, and let $\xoverline U$ and $U$ be neighborhoods of $O \in \tangentspace{M}{m}$ and $m\in M$, respectively, such that $\exp_m$ is a diffeo. of $\xoverline U$ onto $U$ whose inverse we denote by $\exp^{-1}$.  Then define $\CInfty$ functions $x_1,\dots, x_n$ on $U$ by $x_i = z_i \circ \exp^{-1}$ for all $I$. These functions $x_1,\dots, x_n$ define a \defemph{normal coordinate system}\index{normal coordinates} (of the connection $\D$) on $U$. The curves $\sigma \in U$ such that $x_1 \circ \sigma(t) = a_it$ for constants $a_1, \dots, a_n$, are geodesics emanating from $m$ (at $t=0$), and if $\Gamma_{jk}^i$ are the connexion functions on $U$ for this coordinate system, then $\Gamma_{jk}^i (m) = 0$, provided the connexion has zero torsion.
+
+One verifies this last statement by letting $X_i = \pdv{}{x_i}$ and then \[\D_{X_i}(X_j) = \sum_{k=1}^n \Gamma_{ji}^k X_k\] by definition of $\Gamma_{ji}^k$. Since the curve $\sigma$ with \[x_i \circ \sigma(t) = t, x_j\circ \sigma(t) = t,\text{ and }x_k \circ \sigma(t) = 0\] for $k\ne i$ or $j$, is a geodesic, its tangent $X_i + X_j$ satisfies the condition 
+\[ 0 = \D_{(X_i + X_j)}(X_i + X_j) = \D_{X_i} X_i + \D_{X_i} X_j + \D_{X_j} X_i + \D_{X_j} X_j.\]
+Thus at $m$, $\D_{X_i}X_i = 0$ for all $i$, since each coordinate curve emanating from $m$ is a geodesic, and if $\D$ has zero torsion, then \[0 = 2(\D_{X_i} X_j)_m = 2\sum_k \Gamma_{ji}^k (m) X_k\] so $\Gamma_{ji}^k(m) = 0$ for all $i$, $j$, and $k$.
+
+We apply Corollary \ref{cor:ch9.3.3} to obtain \emph{Fermi coordinates along a curve}\index{Fermi coordinates}. Let $\sigma$ be a $\CInfty$ curve in $M$ that is univalent on the open interval $I\subset\bR$. Let $e_1,\dots,e_n$ be $\CInfty$ fields on $\sigma$ that are independent at each $\sigma(t)$ and $e_n(t) = T_\sigma(t)$ for all $t \in I$. Let $z_1,\dots,z_n$ be the dual base to $e_1,\dots,e_n$ for each $t$. By Corollary \ref{cor:ch9.3.3}, there is a neighborhood $V$ of $\widehat M \subset \tangentbundle M$ such that $G$ is a diffeo. of $V$ onto a neighborhood $N_M$ of the diagonal in $M \times M$. Let
+\[ U = \{ (m,Y) \in V:m=\sigma(t) \text{ and } z_n(Y) = 0 \text{ for some } t\in I \}.\]
+Then $F = G|_U$ is a 1 to 1 $\CInfty$ map of the submanifold $U$ into $M\times M$. Moreover $F_\ast$ is non-singular at each point of $U$, so $F$ is an imbedding of $U$ into $M \times M$. The map $H = \pi_2 \circ F$ then gives a 1 to 1 $\CInfty$ map of $U$ onto an open neighborood $W$ of the image set $\sigma(I)$. Define Fermi coordinate $y_1,\dots,y_n$ on $p \in W$ by letting $H^{-1}(p) = (\sigma(t), Y) \in W$ and $y_i(p) = z_i(Y)$ for $i= 1,\dots, n-1$ and $y_n(p) = t$. 
+
+More special types of Fermi coordinates can be defined by taking $e_1,\dots,e_n$ to be a parallel base along a geodesic $\sigma$, and in the Riemannian case, one can take an orthonormal parallel base along a geodesic.
+
+\end{document}

@@ -1,0 +1,73 @@
+% READY FOR PROOFREAD
+
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section{Submanifolds}\label{ch06:s4}
+
+The theory in sections \ref{ch02:s3} and \ref{ch02:s4} is now generalized. Throughout this section, let the $k$-manifold $M$ be a (non-singular) submanifold of the (semi-)Riemannian manifold $\xoverline M$. In the semi-Riemannian case, the submanifold\index{submanifold} $M$ is \emph{non-singular} if the metric tensor is non-singular when restricted to $\tangentspace{M}{m}$ for all $m\in M$ (thus $M$ is a semi-Riemannian manifold under the induced metric tensor). The induced metric tensor on $M$ is called the \emph{first fundamental form} on $M$. Let $\covariant$ be the Riemannian connexion on $\xoverline M$.
+
+
+
+\begin{theorem} \label{thm:ch6.4.1}
+For $\CInfty$ fields $X$ and $Y$ with domain $A$ on $M$ (and tangent to $M$), define $\D_XY$ and $V(X,Y)$ on $A$ by decomposing $\covariant_XY$ into its unique tangential and normal components, respectively; thus,
+\begin{equation}\tag{9} \label{eqn:ch6.4.1}
+    \covariant_XY=\D_XY+V(X,Y)
+\end{equation}
+Then $\D$ is the Riemannian connexion on $M$ and $V$ is a symmetric vector-valued 2-covariant $\CInfty$ tensor called the \defemph{second fundamental tensor}\index{second fundamental tensor}. The decomposition equation (\ref{eqn:ch6.4.1}) is called the \defemph{Gauss equation}\index{Gauss equation}.
+\end{theorem}
+
+\begin{proof}
+We will establish the $\CInfty$ nature of the decomposition. The rest of the proof will only be outlined, for it is a simple exercise. Use the properties of $\covariant$ (since it is a connexion) to establish the properties of $\D$ (making it a connexion) and the tensor character of $V$ (its multilinearity). Zero torsion for $\covariant$ implies zero torsion for $\D$, and $V$ is symmetric (use the proposition in section \ref{ch02:s2}, which generalizes trivially). Since $\covariant$ satisfies condition (\ref{eqn:ch6.2.2}) (section \ref{ch06:s2}), $\D$ does too. Hence $\D$ is Riemannian, and by the uniqueness theorem, $\D$ is the Riemannian connexion on $M$.
+
+To show $\D$ and $V$ are $\CInfty$ on $A$, choose $p\in A$. Let $\xoverline U$ and $U$ be special coordinate domains about $p$ in $\xoverline M$ and $M$, respectively, with $U\subset A$, and let $\xoverline Z_1,\ldots,\xoverline Z_n$ and $Z_1=\xoverline Z_1|_U,\ldots,Z_k=\xoverline Z_k|_U$ be the coordinate vector fields on $\xoverline U$ and $U$, respectively. Apply the Gram-Schmidt process to $\xoverline Z_1,\ldots,\xoverline Z_n$ on $\xoverline U$ to obtain $\CInfty$ (the Gram-Schmidt process is algebraic) orthonormal fields $W_1,\ldots,W_n$ on $\xoverline U$ such that $W_1|_U,\ldots,W_k|_U$ give a $\CInfty$ orthonormal base of $\tangentspace{M}{m}$ for $m$ in $U$, while $W_{k+1}|_U,\ldots,W_n|_U$ give $\xoverline M$-vector fields that are $\CInfty$ on $U$ and form a base of the orthogonal complement to $\tangentspace{M}{m}$, for $m$ in $U$. Let
+\[X = \sum_{i=1}^k x_iW_i,
+\quad Y = \sum_{i=1}^k y_jW_j\]
+define $\CInfty$ functions $x_i$ and $y_i$ on $U$ for $1\le i\le k$, and let
+\[\covariant_{W_i}W_j = \sum_{r=1}^n B_{ji}^rW_r\]
+define $\CInfty$ functions $B_{ij}^r$ on $\xoverline U$. Then
+\[\covariant_XY = \sum(XY_j)W_j + \sum y_jB_{ji}^rW_r\]
+where $1\le i,j\le k$ and $1\le r\le n$; thus
+\[\D_XY = \sum_{r=1}^k\bigg[(Xy_r) + \sum_{i,j=1}^k y_jx_iB_{ji}^r\bigg]W_r\]
+and
+\[V(X,Y) = \sum_{r=k+1}^n\bigg[\sum_{i,j=1}^k y_jx_iB_{ji}^r\bigg]W_r\]
+are $\CInfty$ on $U$.
+\end{proof}
+
+
+
+By decomposing the curvature $\xoverline R$ into tangent and normal parts, we obtain the \emph{Gauss curvature equation}\index{Gauss curvature equation} (\ref{eqn:ch6.4.2}), and the \emph{Codazzi-Mainardi equation}\index{Codazzi-Mainardi equations} (\ref{eqn:ch6.4.3}), respectively. Let $X,Y,Z$ be $\CInfty$ fields tangent to $M$ with a common domain. Writing the decomposition of a vector $W$ as $W=\tan W+\nor W$,
+\begin{equation}\tag{10} \label{eqn:ch6.4.2}
+    \tan\xoverline R(X,Y)Z = R(X,Y)Z+\tan\sbr{\covariant_XV(Y,Z)-\covariant_YV(X,Z)}
+\end{equation}
+and
+\begin{equation}\tag{11}\label{eqn:ch6.4.3}
+    \begin{split}
+        \nor\xoverline R(X,Y)Z &= V(X,\D_YZ)-V(Y,\D_XZ)-V([X,Y],Z)\\
+        &+\nor\big[\covariant_XV(Y,Z)-\covariant_YV(X,Z)\big]
+    \end{split}
+\end{equation}
+Since $V$ is a tensor, i.e., $V(X_m,Y_m)$ is well-defined and independent of the fields $X$ and $Y$ used to compute it in the Gauss equation, we define $X$ and $Y$ to be \emph{conjugate vectors}\index{conjugate vectors} at $m$ if $V(X,Y)=0$. A vector $X\in\tangentspace{M}{m}$ is an \emph{asymptotic vector}\index{asymptotic vector} if $V(X,X)=0$, and in any case define the \emph{asymptotic} (or \emph{normal}) \emph{curvature} of $X$, $k_X$, by $k_X=\norm{V(X,X)}$. If $V_m=0$ then $m$ is a \emph{flat point}\index{flat point} on $M$.
+
+If $\sigma$ is a curve in $M$ with $\CInfty$ unit tangent $T$, then $V(T,T)$ is the \defemph{normal curvature vector field} of $\sigma$ and $k_T=\norm{V(T,T)}$ is the \defemph{normal curvature}\index{normal curvature} of $\sigma$.
+
+
+
+\begin{theorem} \label{thm:ch6.4.2}
+(Meusnier). All curves on $M$ with the same unit tangent $T$ at a point have the same normal curvature at that point. If $\sigma$ is a curve on $M$ with $\CInfty$ unit tangent $T$, then $(\xoverline k_1)^2 = (k_1)^2+(k_T)^2$
+relates the geodesic curvatures $\xoverline k_1$ and $k_1$ of $\sigma$ in $\xoverline M$ and $M$ with its normal curvature $k_T$. Moreover, \newline$k_T = \xoverline k_1\cos\phi$
+determines the angle $\phi$ between the normal $\xoverline N_1$ of $\sigma$ in $\xoverline M$ and the normal curvature vector $V(T,T)$ if $\phi$ is defined.
+\end{theorem}
+
+\begin{proof}
+The first sentence follows since $V$ is a tensor. The second sentence follows from the Gauss equation
+$\covariant_TT = \D_TT+V(T,T)$
+since the vectors on the right are orthogonal. For the third sentence, if $\xoverline k_1=0$ then $k_1=k_T=0$ and $\phi$ is undefined. If $\xoverline k_1>0$ and $k_T=0$ then $V(T,T)=0,~\xoverline N_1$ is tangent to $M$, and $\phi=\frac\pi2$ (if anything). If $k_T\ne0$, let $N$ be the unit normal in the direction of $V(T,T)$ and
+\[k_T = \ip{V(T,T)}{N} = \ip{\covariant_TT}{N} = \xoverline k_1\cos\phi\]
+\end{proof}
+
+
+
+The theorem and corollary at the end of section \ref{ch02:s3} can now be generalized by replacing $\bR^n$ by $\xoverline M$.
+
+\end{document}

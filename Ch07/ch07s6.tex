@@ -1,0 +1,69 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section{Integration in a Riemannian Manifold}\label{ch07:s6}
+Let $M$ be a Riemannian manifold, let $\sigma$ be a $\CInfty$ curve in $M$, and let $f$ be a real valued $\CInfty$ function on the image of $\sigma$, i.e., let $f \circ \sigma$ be $\CInfty$. Consider a ``piece'' of $\sigma$, which we assume to be parameterized by arc length on the interval $[a, b]$, and define
+
+%TODO: this is a function restriction not mid
+\begin{equation}\tag{19}\label{eqn:ch07.19}
+\int_{\sigma \vert_[a, b]} f = \int_{a}^{b} f \circ \sigma(s) \dd s
+\end{equation}
+%TODO: ditto
+where $\sigma \vert_[a, b]$ denotes the restriction of $\sigma$ to the interval $[a, b]$. Call the integral just defined the integral of $f$ over $\sigma$ restricted to $[a, b]$ and when the interval is understood, we write simply $\int_\sigma f$. If $f$ is a $\CInfty$ real valued function $f$ defined on a broken $\CInfty$ curve $\sigma$, we define $\int_{\sigma} f$ to be the sum of the integrals of $f$ over the finite number of $\CInfty$ sub-curves determining $\sigma$. Notice that by assuming $\sigma$ parametrized by arc length we are integrating over oriented or directed curves.
+
+We wish to integrate real valued $\CInfty$ functions over other subsets of $M$, and in some cases over $M$ itself. This could be accomplished by using the Riemannian metric to define a measure on $M$, but for our purposes we need not be so general. First we define orientable manifolds and then utilize the theory developed above for integrating forms over chains.
+
+An $n$-dimensional manifold $M$ is \defemph{orientable}\index{orientable} if there is a non-vanishing $\CInfty$ $n$-form $w$ on $M$. When $M$ is orientable and we have selected $w$, we say $M$ is oriented (by $w$) and $w$ is an orientation of $M$. If $M$ is oriented by $w$, then an ordered base $e_{1}, \ldots, e_{n}$ of $\tangentspace{M}{m}$ is positively oriented if $w_{m}=b w_{1} \wedge \ldots \wedge w_{n}$ where $b>0$ and $w_{i}$ are the $1$-forms dual to $e_{j} .$ We say $M$ is non-orientable when $M$ is not orientable. If $M$ is oriented and $e_{1}, \ldots, e_{n}$ a positively oriented base of $M$, then one verifies easily that a base $f_1 \ldots, f_n$ of $M$ is positively oriented if and only if $\det\left(b_{i j}\right)>0$ where $f_{j}=\sum_i b_{ij} e_i$.
+
+For example, $\bbR^{n}$ is orientable, and we orient it by choosing $W=\dd u_{1} \wedge \ldots \wedge \dd u_{n}$ where $u_{i}$ are the natural coordinate functions. It is a topological result that any complete (or closed) hypersurface in $\bbR^n$ is orientable.
+
+Let $M$ and $M^{\prime}$ be oriented $n$-manifolds. A non-singular $\CInfty$ map $f$ of $M$ into $M^{\prime}$ is orientation preserving if $f_\ast$ maps a positively oriented base onto a positively oriented base.
+
+Let $M$ be an oriented Riemannian $n$-manifold. For $m$ in $M$ let $e_1, \ldots, e_{n}$ be a positively oriented orthonormal base of $\tangentspace{M}{m}$ with dual base $w_{1}, \ldots, w_{n}$. Define the $n$-form $v$ by $v_{m} = w_{1} \wedge \ldots \wedge w_{n}$. The form $v$ is a well-defined (independent of the particular base) $\CInfty$ $n$-form on $M$ called the \defemph{volume element}\index{volume element}.
+
+A major problem now confronts us: the problem of ``triangulating'' or ``cubulating'' a manifold. This is a theory for breaking the manifold into ``nice pieces'' over which one can integrate functions. For this purpose we define fundamental $n$-chains. Let $\Int(A)$ denote the interior of a set $A$.
+
+Let $M$ be an oriented $\CInfty$ $n$-manifold. A \defemph{fundamental $n$-chain}\index{fundamental n-chain@fundamental $n$-chain} in $M$ is a chain $c=\sigma_1+\ldots+\sigma_k$ such that: 
+\begin{enumerate}[label=(\arabic*)]
+    \item each $\sigma_{i}$ is an $n$-cube that is an orientation preserving diffeo onto its image;
+    \item $\Int (|\sigma_{i}|) \cap \Int (|\sigma_{j}|)$ is empty for $i \neq j$.
+\end{enumerate}
+Figure \ref{fig:ch07fig1} gives a schematic diagram of a fundamental $2$-chain (with the images of the faces of the canonical 2-cube numbered).\\
+
+\subfile{./figures/ch7fig1}
+
+If $M$ is an oriented Riemannian $n$-manifold, $c$ is an $n$-chain, and $f$ is a $\CInfty$ real valued function whose domain contains $|c|$, then define
+
+\begin{equation}\tag{20}\label{eq:ch07.20}
+\int_{c} f=\int_{c} f v
+\end{equation}
+
+where $v$ is the volume element on $M$. Let a subset $A$ of $M$ be \defemph{fundamental}\index{fundamental set} if there exists fundamental $n$-chain $c$ with $|c|=A$. Notice a fundamental set is compact. 
+
+
+
+\begin{proposition} \label{prop:ch7.6.1}
+If $c$ and $\tau$ are two fundamental $n$-chains with $|c| = |\tau| = A$, and $f$ is a $\CInfty$ function whose domain contains $A$, then $\int_c f v = \int_\tau f v$. Thus define $\int_A f = \int_c f v$.
+\end{proposition}
+
+\begin{proof}[Proof (King Lee)]
+Let $c = \sigma_1 + \ldots + \sigma_r$ and $\tau = \gamma_1 + \ldots + \gamma_s$, and throughout this proof let $1 \le i \le r$ and $1 \le j \le s$. If $A_{ij} = |\sigma_i| \cap |\gamma_j|$, let $B_{ij} = (\sigma_i)^{-1}(A_{ij})$ and $C_{ij} = (\gamma_j)^{-1}(A_{ij})$. Then $\gamma_j^{-1} \circ \sigma_i$ is a diffeo of $B_{ij}$ onto $C_{ij}$ and
+
+\[
+\int_{B_{ij}} (\sigma_i)^\ast f v = \int_{B_{ij}} (\sigma_i)^\ast (\gamma_j \circ \gamma_j^{-1})^\ast f v = \int_{B_{ij}} (\gamma_j^{-1} \circ \sigma_j)^\ast f v = \int_{C_{ij}} (\gamma_j)^\ast f v
+\]
+
+Hence
+
+\[
+\int_c f v = \sum_i \int_{\sigma_i} fv = \sum_{i, j} \int_{B_{ij}} (\sigma_i)^\ast fv = \sum_{i, j} \int_{C_{ij}} (\gamma_j)^\ast fv = \int_\tau f v.
+\]
+\end{proof}
+
+
+
+If $M$ is a compact oriented $n$-manifold, then $M$ is a fundamental set (this is hard; see \cite{cairns1961a}). Thus if $M$ is a compact oriented Riemanian manifold and $f$ is a $\CInfty$ real valued function on $M$, then $\int_{M} f$ is well-defined. To handle the non-compact case, define the \defemph{support}\index{support} of a function $f$ to be the set $S_{f}$ that is the closure of the set $\{p \in M : f(p) \ne 0\}$. Since any compact set of $M$ is contained in a fundamental set (a non-trivial remark), if $M$ is oriented and Riemannian, $f$ is $\CInfty$ with compact support, and $S_{f} \subset$ fundamental set $A$, then $\int_{M} f=\int_{A} f$ is well-defined (independent of $A$).
+
+The \defemph{area}\index{area}, \defemph{volume}\index{volume}, or \defemph{measure} (depending on the appropriate dimension) of a fundamental set $A$ is the number $\int_A f$, where $f \equiv 1$ on $M$. For a deeper study of integration theory on manifolds see the book of \cite{whitney2016geometric}. 
+
+\end{document}

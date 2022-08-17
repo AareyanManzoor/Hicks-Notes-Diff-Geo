@@ -1,0 +1,23 @@
+\documentclass[Ch01]{subfiles}
+\begin{document}
+
+%claimed by Manan
+\graphicspath{figures/}
+
+\section{Smooth Functions}\label{ch01:s2}
+
+In this section let $A$ be the domain of a function $f$ and assume $A$ is an open subset of the $C^r$ $n$-manifold $M$. If $f$ is real valued, then $f$ is \defemph{$C^s$ on $A$}\index{functions, Cs@functions, $C^s$} if $f\circ\phi^{-1}$ is $C^s$ on $\phi(A\cap U)$ for every coordinate pair $(\phi,U)$ on $M$. Note the independence of $r$ and $s$. If $N$ is a $C^k$ $d$-manifold and $f$ is $N$-valued, then $f$ is \defemph{$C^s$ on $A$} if $f$ is continuous and for every real valued function $g$, that is $C^s$ on an open domain in $N$, the composite $g\circ f$ is $C^s$ on $A\cap f^{-1}$ (domain of $g$). Note the independence of $r$, $k$, and $s$.
+
+\begin{figure}[ht]
+    \centering
+    \incfig{an-induced-map-from-r2-into-r}
+    \caption{An Induced Map from $\bR^{2}$ into $\bR$}
+    \label{fig:an-induced-map-from-r2-into-r}
+\end{figure}
+
+
+The local character of smoothness of a function is captured in the following definition. Suppose the domain of $f$ is not necessarily open and $f$ is $N$-valued. If $p$ is in the domain of $f$, then $f$ is $C^s$ at $p$ if there is a neighbourhood $U$ of $p$ with $f$ defined on $U$ such that $f\vert_U$ is $C^s$ on $U$. As a corollary, if $f$ is $C^s$ at every point in its domain then its domain is open.
+
+Let us now \emph{specialize} to $\CInfty$ \emph{manifolds} and $\CInfty$ \emph{functions}. This is done for convenience chiefly and it allows us to define a tangent vector in a very elegant way. Our concern in these notes is not with ``the least possible assumptions'' but rather with those concepts that arise naturally in a general situation. The restriction is not too drastic because of the following result due to Whitney: A $C^r$ atlas on a set with $r>0$ contains a $\CInfty$ atlas (see \cite{munkres1966elementary}). There is an example of Kervaire which exhibits a $C^0$ atlas on a set which admits no $C^1$ atlas. For further work on the ``equivalence'' of differentiable structures see \cite{milnor1997topology} and \cite{Milnor1956OnMH}, \cite{munkres1966elementary} and \cite{Munkres1959ObstructionsTT}, and \cite{Smale1961DifferentiableAC}. %does this warrant a change? Do we want the names to reflect like in the original?
+
+\end{document}

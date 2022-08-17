@@ -1,0 +1,103 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section{General Covariant Derivative}\label{ch07:s4}
+Let $\connection$ be a connexion on $M$, and let $X$ be a $\CInfty$ field on the open set $A$. An operator $\connection_{X}$, called the covariant derivative via $X$, which maps $\tensorbundle{A}{r}{ s}$ into itself, is defined by using the recipe for defining $\liederiv{X}$. The definition of $\connection_{X}$ proceeds exactly as the definition for $\liederiv{X}$ except for \ref{enu:ch07.3.b}, and if $Y$ in $\tensorbundle{A}{1}{0}, \connection_{X} Y$ is given by the connexion $\connection$ (see section~\ref{ch05:s1}).
+
+When $\connection_{X}$ is substituted for $\liederiv{X}$ in proposition \ref{prop:ch7.3.1} of the previous section, one obtains valid properties for $\connection_{X}$.
+
+An operator $\Delta$, called the \defemph{general covariant derivative operator}\index{covariant derivative}, which maps $\tensorbundle{A}{r}{ s}$ into $\tensorbundle{A}{r}{ s+1}$ is induced by $\connection$. If $\theta$ is in $\tensorbundle{A}{r}{ s}$, $w_{1}, \ldots, w_{r}$ are in $\tensorbundle{A}{0}{1}$, and $Y_{1}, \ldots, Y_{s+1}$ are in $\tensorbundle{A}{1}{ 0}$, then
+\begin{equation}\tag{4}
+\label{eqn:ch07.4}
+(\Delta \theta) (w_1, \ldots, w_r, Y_1, \ldots, Y_{s + 1}) = \bigl(\connection_{Y_{s + 1}} \theta\bigr) (w_1, \ldots, w_r, Y_1, \ldots, Y_s)
+\end{equation}
+That $\Delta \theta$ is a tensor is left as a problem. If $\theta$ and $\phi$ are tensors of the same type, then $\Delta (\theta + \phi) = \Delta \theta + \Delta \phi$, but $\Delta$ is not a tensor. (see problem~\ref{pro:64})
+
+If $1 \le i \le p$ and $1 \le j \le q$, then
+\begin{equation}\tag{5}
+\label{eqn:ch07.5}
+\Delta \circ \tr^{i, j} = \tr^{i, j} \circ \Delta 
+\end{equation}
+on $\tensorbundle{A}{p}{ q}$. 
+
+An operator $\Div$, called the \defemph{divergence}\index{divergence}, which maps $\tensorbundle{A}{r}{ s}$ into $\tensorbundle{A}{r - 1}{ s}$, for $r > 0$ and $s \ge 0$, is defined by $\Div = \tr^{r, s + 1} \circ \Delta$. We write $\Div \theta = \tr(\Delta \theta)$, where we assume the trace is taken on the last covariant slot and the last contravariant slot. A tensor $\theta$ is \defemph{conservative} if $\Div \theta = 0$. 
+
+The \defemph{Riemann-Christoffel curvature tensor}\index{Riemann-Christoffel curvature} of type $(1, 3)$ is the tensor $K\in \tensorbundle{A}{1}{ 3}$ defined by 
+\begin{equation}\tag{6}
+\label{eqn:ch07.6} 
+K(w, X, Y, Z) = w(R(Y, Z) X)
+\end{equation}
+for $w\in \tensorbundle{A}{0}{ 1}$ and $X, Y,Z\in\tensorbundle{A}{1}{ 0}$. The \defemph{second Bianchi identity}\index{Bianchi Identities} is the equation 
+\begin{equation}\tag{7}
+\label{eqn:ch07.7}
+(\Delta K)(w, X, Y, Z, W) + (\Delta K) (w, X, W, Y, Z) + (\Delta K)(w, X, Z, W, Y) = 0
+\end{equation}
+which is valid if $\connection$ is symmetric, and it is proved by noting the expression
+\begin{equation}\tag{8}
+\label{eqn:ch07.8}
+\connection_W(R(Y, Z)X) - R(Z, [Y, W])X - R(Y, Z)(\connection_W X),
+\end{equation}
+when written on three lines, permuting $W, X, Z$ cylically from line to line, and then adding the three lines, yields zero.
+
+The \defemph{Ricci tensor}\index{Ricci tensor map} is the $2$-covariant tensor 
+
+\begin{equation}
+\label{eqn:ch07.9}
+\Ric(X, Y) = (\tr^{1, 2} K)(X, Y) = -(\tr^{1, 3}K)(X, Y)
+\end{equation} 
+
+(and this is the negative of the ``classical'' Ricci tensor). Notice \newline $(\tr^{1, 1} K)(X, Y) = \tr R(X, Y)$. The \defemph{Ricci curvature}\index{Ricci curvature} of a vector $X$ is the number $\Ric(X, X)$ (and this agrees with the ``classical'' Ricci curvature). If $\connection$ is symmetric, the first Bianchi identity implies 
+
+\begin{equation}\tag{10}
+\label{eqn:ch07.10}
+\Ric(X, Y) = \Ric(Y, X) + \tr R(X, Y).
+\end{equation}
+
+If $\connection$ is Riemannian, then $R(X, Y)$ is skew-symmetric by \ref{enu:ch6.2.3}, so Ric is symmetric. Hence there exists a self-adjoint linear map $R^\ast$, called the Ricci map, defined on each $\tangentspace M m$ with $\operatorname{Ric}(X, Y)= \ip {R^\ast(X)} Y$; indeed
+\begin{equation}\tag{11}
+\label{eqn:ch07.11}
+R^\ast(X) = \sum_{j = 1}^n R(X, Z_j)Z_j
+\end{equation}
+for an orthonormal base $Z_1, Z_2, \ldots, Z_n$. By \eqref{eqn:ch07.11}, $R^\ast$ is $\CInfty$. The \defemph{scalar curvature}\index{scalar curvature} $S(m)$ at each $m\in M$ is defined by $S(m) = \tr(R^\ast)_m$. 
+
+A (semi-) Riemannian metric induces many operations called ``raising'' and ``lowering'' of indices which we now explain. The non-singular metric tensor induces a non-singular linear map $G$ of $\tangentspace M m$ onto $\cotangentspace M m$ for each $m$, i.e., if $X$ in $\tangentspace M m$, then $G(X)(Y)= \ip X Y$. We let $G_\ast$ denote the inverse map of $\cotangentspace M m$ onto $\tangentspace M m$. If $w\in\cotangentspace M m$, then $\ip {G_\ast w} X = w(X)$. If $1 \leq i \leq r, 1 \leq j \leq s+1$, and $\theta$ is in $\tensorbundle{}{r}{ s}$ define $G^{i, j} \theta$ in $\tensorbundle{}{r-1}{ s+1}$ by
+\begin{equation}\tag{12}
+\label{eqn:ch07.12}
+\begin{split}
+(G^{i, j} \theta)&(w_1, \ldots, w_{r - 1}, X_1, \ldots, X_{s + 1}) \\ &= \theta(w_1, \ldots, w_{i - 1}, G(X_j), w_i, \ldots, w_{r - 1}, X_1, \ldots, \widehat{X}_j, \ldots, X_{s + 1}).
+\end{split}
+\end{equation}
+Similarly, define $G_\ast^{i, j} : \tensorbundle{}{r}{ s} \functionMaps \tensorbundle{}{r + 1}{ s - 1}$ for $1 \le i \le r + 1$ and $1 \le j \le s$ by taking the form in the $i^{\mathrm{th}}$ covariant slot (of the new tensor); applying $G_\ast$, and inserting it into the $j^{\mathrm{th}}$ contravariant slot (of the old tensor). Thus $G^{1, 1} = G$ on $\tensorbundle{}{1}{ 0}$, and the $(1, 1)$-tensor $\xoverline R$ associated with $R^\ast$ is given by $\xoverline R = G_\ast^{1, 1} \Ric$ (where $\xoverline R(w, X) = w(R^\ast X)$). If $f$ is in $\CInfty(M, \bbR)$, the \defemph{gradient field}\index{gradient} of $f$ is the field $\grad f = G_\ast(\dd f)$ and the \defemph{Laplacian}\index{Laplacian} of $f$ is the function $\del f = \Div(\grad f)$; (sometimes the notation $\del f = \Delta f$ is used). 
+
+The operators $G^{i, j}$ and $G_\ast^{i, j}$ commute with $\Delta$ when possible, i.e.,
+
+\begin{equation}\tag{13}
+\label{eqn:ch07.13}
+\Delta \circ G^{i, j} = G^{i, j} \circ \Delta \text { on } \tensorbundle{}{r}{ s} \text { if } j \le s + 1 \text { and}
+\end{equation}
+
+\begin{equation}\tag{14}
+\label{eqn:ch07.14}
+\Delta \circ G_\ast^{i, j} = G_\ast^{i, j} \circ \Delta \text { on } \tensorbundle{}{r}{ s} \text { if } i \le r + 1.
+\end{equation}
+
+As an example of the use of these operations we prove that 
+\begin{equation}\tag{15}
+\label{eqn:ch07.15}
+\Delta S = 2 \Div \xoverline R
+\end{equation}
+which is used in general relativity. Let $Z_1, \ldots, Z_n$ be an orthonormal base of $\tangentspace M m$ and $w_1, \ldots, w_n$ be the dual base. The second Bianchi identity implies
+\[
+    \sum_{i, j} [\Delta K(w_j, Z_i, Z_j, X) + \Delta K(w_i, Z_i, X, Z_j, Z_i) + K(w_j, Z_i, Z_i, X,Z_j)]=0
+\]
+The first term of the sum gives $(\Delta S)(X)$, while the other two each give $(-\Div \xoverline R)(X)$. For
+
+\begin{align*}
+(\Delta S)(X) & = (\Delta \tr^{1, 1} G_\ast^{1, 1} \tr^{1, 2} K)(X) \\ & = (\tr^{1, 1}G_\ast^{1, 1} \tr^{1, 2} \Delta K)(X) \\ & = \sum_{i, j} \Delta K(w_j, Z_i, Z_j, Z_i, X),
+\\
+(\Div \xoverline R)(X) & = (\tr^{1, 2} \Delta G_\ast^{1, 1} \tr^{1, 2}K)(X) \\ & = \sum_{i, j} \Delta K(w_j, Z_i, X, Z_j, Z_i), \text { and}
+\\
+(\Delta K)(w_j, Z_i, Z_i, X, Z_j) & = (\Delta G^{1, 1} K)(Z_j, Z_i, Z_i, X, Z_j) \\ & = (\Delta G^{1, 1} K)(Z_i, X, Z_j, Z_i, Z_j) \\ & = -(\Delta G^{1, 1} K)(Z_i, Z_i, X, Z_j, Z_j) - (\Delta G^{1, 1} K)(Z_i, Z_j, Z_i, X, Z_j) \\ & = -(\Div \xoverline R)(X)
+\end{align*}
+by \ref{enu:ch6.2.3} and (\ref{enu:ch6.2.5}) in section~\ref{ch06:s2}.
+\end{document}

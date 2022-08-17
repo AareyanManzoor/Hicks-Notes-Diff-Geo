@@ -1,0 +1,113 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section{Gauss-Bonnet Formula}\label{ch08:s1}
+In this section, let $n=2,$ let $A$ be a fundamental set in $M,$ and let $c$ be a fundamental $2$-chain with $|c|=A.$ The oriented curve $\gamma=\partial c$ is called the \emph{bounding curve}\index{bounding curve} of $A.$ A \emph{vertex} of $c$ is a point in $M$ that is the image of a vertex in $I^2$ under a $2$-cube in $c.$ A \emph{face of $c$} is the support of a $2$-cube in $c.$ An \emph{edge} of $c$ is the face of a $1$-cube in $\partial \sigma$ for some $2$-cube $\sigma$ in $c.$ A \emph{boundary edge} of $c$ is an edge that is in $\gamma.$ A \emph{corner point} of $\gamma$ is a vertex of $c$ belonging to exactly two boundary edges. At a corner point $p$ of $\gamma,$ let $T_i(p)$ (the ``tangent in'') and $T_o(p)$ (the ``tangent out'') be the unit tangents at $p$ of the $1$-cubes in $\gamma,$ defined by the orientation, going ``into'' and ``out from'' $p,$ respectively. The \emph{exterior corner angle $\alpha(p)$} is the angle such that $\cos \alpha(p) = \ip{T_i(p)}{ T_o(p)}$ and $0<\alpha<\pi$ or $-\pi< \alpha < 0$ according as $T_i, T_o$ is a positively or negatively ordered base. If $T_o = T_i,$ then $\alpha=0,$ and if $T_o=-T_i$ then $\alpha=-\pi$ (see \ref{fig:ch08fig1}).
+
+\subfile{./figures/ch8fig1}
+
+In the proof of the Gauss-Bonnet formula that follows, the differential geometry involved is simple. The crux of the theorem is the Hopf Umlaufsatz (see discussion after proof). As usual, a \defemph{simple closed curve}\index{simple closed curve} is a homeomorphic image of the circle $S^1$ in $R^2.$ 
+
+
+
+\begin{theorem}[Gauss-Bonnet formula] \label{thm:ch8.1.1}
+Let $A$ be contained in a  coordinate domain $U$ of $M,$ let the bounding curve $\gamma$ of $A$ be a simple closed curve, and let $\alpha_1,\ldots,\alpha_r$ be the exterior corner angles of $\gamma.$ Then
+
+\begin{equation}\tag{1}\label{eq:ch08.1}
+    \int_{\gamma}k = 2\pi- \sum_{j=1}^r \alpha_j - \int_{A} K
+\end{equation} where $k$ is the signed geodesic curvature function on $\gamma$ and $K$ is the Riemannian (Gaussian) curvature function on $A.$ 
+\end{theorem}
+
+\begin{proof}
+Let $e_1,e_2$ be a $C^\infty$ positively oriented base field on $U.$ Let $\gamma_1,\ldots,\gamma_r$ be the $C^\infty$ pieces of $\gamma$ with each $\gamma_j$ parameterized by arc length on the interval $[s_j,s_{j+1}],$ $\gamma_j(s_{j+1})=\gamma_{j+1}(s_{j+1})$ for $j=1,\ldots,r-1,$ while $\gamma_r(s_{r+1})=\gamma_1(s_1),$ and $\alpha_j$ the exterior corner angle at $\gamma(s_j).$ Let $T$ be the unit tangent to $\gamma.$ By making a constant rotation of $e_1,e_2,$ if necessary, we may assume $T(s_1^+)=e_1.$ Define $\zeta(s)$ on $[s_1,s_2]$ so $\zeta$ is $C^\infty,$ $\zeta(s_1^+)=0,$ and $T=(\cos \zeta)e_1 + (\sin \zeta)e_2.$ This $\zeta$ is well-defined, since we have given its initial value and it is $C^\infty,$ since locally it is given by $\zeta(s)=\cos^{-1} \ip{T(s)}{ e_1(s) }$ for a proper branch of the inverse cosine. Thus we obtain $\zeta(s_2^-).$ Let $\zeta(s_2^+)=\zeta(s_2^-)+\alpha_1$ and extend $\zeta$ to $[s_2,s_3]$ so $\zeta$ is $C^\infty$ and $T=(\cos \zeta)e_1+ (\sin \zeta)e_2,$ as before. Continuing this process, we extend $\zeta$ to $[s_1,s_{r+1}]$ with $\zeta$ in $C^\infty$ at all interior points except $s_i$ where it has a jump precisely equal to $\alpha_i$ for $i=2,\ldots,r.$ Since $\gamma$ is a simple closed curve, we use the Hopf Umlaufsatz to obtain $\zeta(s_{r+1}^-)+\alpha_1=\zeta(s_1^+)+2\pi.$ We include a schematic diagram (\ref{fig:ch08fig2}): \subfile{./figures/ch8fig2} On each $C^\infty$ piece of $\gamma$ we have the positively ordered orthonormal base field, $T, N,$ and the \emph{signed geodesic curvature $k$}\index{geodesic curvature} is defined by $\connection_T T=kN.$ In terms of $\zeta,$ \[T=(\cos \zeta)e_1 + (\sin \zeta)e_2,\text{ while }N=(-\sin \zeta)e_1+(\cos \zeta)e_2.\]
+
+Let $w_1,w_2$ be the dual $1$-forms to the base $e_1,e_2$ and let $w_{12}=-w_{21}$ be the corresponding connection $1$-form on $U$ (note $w_{11}=w_{22}=0$ for the Riemann connection $D).$ Thus $v=w_1 \wedge w_2$ is the volume element on $U.$ Moreover, by the Cartan structual equations, $dw_{12}=R_{12},$ and \[K=\ip{ R(e_1,e_2)e_2}{ e_1}  = \bigg\langle \sum_{i=1}^2 R_{i2}(e_1, e_2)e_i,e_1\bigg\rangle = R_{12}(e_1,e_2)\] thus $R_{12}=Kw_{1} \wedge w_2.$ 
+
+Since $k= \ip{\connection}{N}$ and \[\connection_TT=(T\zeta)N+(\cos \zeta)w_{21}(T)e_2+(\sin \zeta)w_{12}(T)e_1,\] then
+\begin{equation}\tag{2}\label{eqn:ch08.2}
+    k=(T\zeta)-w_{12}T,
+\end{equation}
+which is a \emph{Cartan formula for the geodesic curvature}\index{Cartan formula (geodesic curvature)}. Then
+\begin{align*}
+    \int_{\gamma}k = \sum_{j=1}^r \int_{s_j}^{s_{j+1}} \frac{d\zeta}{ds}ds - \int_{\partial c}w_{12} &= \sum_{j=1}^r [\zeta(s_{j+1}^-)-\zeta(s_j^+)]-\int_{c}dw_{12}\\
+    &= 2\pi-\sum_{j=1}^r \alpha_j - \int_{A} K,
+\end{align*}
+where we use Stokes' theorem for the second equality.
+\end{proof}
+
+
+
+The Gauss-Bonnet formula almost proves the Hopf Umlaufsatz (see \cite{hopf1926uber}), which states if $\gamma$ is a simple closed smooth ($C^1$) curve in $\bR^2,$ then $\int_{\gamma}k=\pm 2\pi,$ depending on the orientation of $\gamma.$ We need the topological result that $\gamma$ disconnects the plane into two components and the map $\gamma$ may be extended into a homeomorphism of the interior of the disc $B(0,1),$ which then maps onto a set $A,$ which is fundamental and has $\gamma$ as bounding curve. Then letting $e_1=i, e_2=j$ (advanced calculus notation), we have $w_{12}=0, K=0,$ and all $a_i=0,$ so $\int_{\gamma}k=2\pi$ if $\gamma$ positively oriented. The reader may also be interested in the papers of \cite{Whitney1937}, \cite{griffin1958on}, and \cite{titus1960a}.
+
+The Gauss-Bonnet formula was first proved by Bonnet in 1848. Somewhat earlier Gauss had proved the following result on geodesic triangles.
+
+
+
+\begin{theorem}[Gauss] \label{thm:ch8.1.2}
+Let $A$ be a fundamental set of $M$ bounded by three (non-closed) geodesics, i.e., $A$ is a geodesic triangle, and let $\beta_1, \beta_2, \beta_3$ be the interior angles at the corners. Then \[\int_{A}K=\beta_1+\beta_2+\beta_3-\pi,\] and this number is called the \emph{excess}\index{excess} of the triangle. 
+\end{theorem}
+
+\begin{proof}
+The Gauss-Bonnet formula is applicable. Since $k=0$ and $\alpha_i=\pi-\beta_i,$ we have \[0=2\pi-\sum_{j=1}^3(\pi-\beta_j)-\int_{A}K.\]
+\end{proof}
+
+
+
+\begin{corollary} \label{cor:ch8.1.3}
+Let $B$ be the sum of the interior angles of a geodesic triangle $A$ on $M.$ Then $B$ is $>\pi, =\pi,$ or $<\pi,$ according as $K>0, =0,$ or $<0$ on $A.$ If $K$ is constant and not zero on $A,$ then the area of $A$ equals the excess of $A$ divided by $K.$ 
+\end{corollary}
+
+
+
+We obtain some simple applications of the Gauss-Bonnet formula by applying it to the cases when $M$ is diffeo to the sphere or the torus. In the former case $\int_{M}K=4\pi,$ and in the latter case $\int_{M}K=0.$ These are special cases of the Gauss-Bonnet theorem which we prove later in this section. We sketch the proofs of these facts.
+
+When $M$ is diffeo to $S^2,$ we let $\gamma$ be the image of the equator (under the diffeo), $A_1$ the image of the ``northern'' hemisphere, and $A_2$ the image of the ``southern'' hemisphere (see \ref{fig:ch08fig3}). Supposing $\gamma$ to be the bounding curve of $A_1,$ we have 
+\[\int_{\gamma}k=2\pi-\int_{A_1}K \hspace{3 mm} \text{and} \hspace{3 mm} \int_{-\gamma}k=-\int_{\gamma}k=2\pi-\int_{A_2}K.\]
+Hence \[\int_{M}K=\int_{A_1}K+\int_{A_2}K=4\pi.\]
+\subfile{./figures/ch8fig3}
+When $M$ is diffeo to the torus, let $A_1$ be the image of the ``top half'' and $A_2$ the image of the ``bottom half'' of the torus so $A_1$ and $A_2$ are bounded and seperated by the image $\gamma$ of the ``inside'' and ``outside'' curve on the torus (see \ref{fig:ch08fig3}). Again letting $\gamma$ be the bounding curve of $A_1,$ connecting and closing $\gamma$ via a cut curve $\beta$ (see \ref{fig:ch08fig3}), and taking a limit, we obtain \[\int_{\gamma}k=2\pi-2\pi-\int_{A_1}K\text{ and } -\int_{\gamma}k=-\int_{A_2}K\text{ so }\int_{M}K=0.\]
+
+Our next task is to free the Gauss-Bonnet formula from the special neighborhood $U.$ The proof follows from the \cite{samelson1955differential}. Define the \emph{Euler characteristic}\index{Euler characteristic}, $\EulerChar_c(A),$ of $A$ with respect to $c$ by $\EulerChar_c(A)=V-E+F,$ where $V$ is the number of vertices of $c,$ $E$ the number of edges, and $F$ the number of faces.
+
+
+
+\begin{theorem} \label{thm:ch8.1.4}
+Let $A$ be a fundamental set on $M,$ let the bounding curve $\gamma$ of $A$ be a finite disjoint union of simple closed curves, and let $\alpha_1,\ldots,\alpha_r$ be the exterior corner angles of $\gamma.$ Then
+
+\begin{equation}\tag{3}\label{eq:ch08.3}
+\int_{\gamma}k=2\pi\EulerChar_c(A)-\sum_{i=1}^r \alpha_i-\int_{A}K.
+\end{equation} This expression proves $\EulerChar_c(A)$ is independent of $c,$ so define $\EulerChar(A)=\EulerChar_c(A)$ to be the Euler characteristic of $A$ and drop the subscript $c$ in the above formula.
+\end{theorem}
+
+\begin{proof}
+Let $c=\sigma_1+\ldots+\sigma_F$ and note from the definition of a fundamental $2$-chain we may apply the Gauss-Bonnet formula to each set $|\sigma_j|$ (for $\sigma_j$ defines a coordinate neighborhood of $|\sigma_j|).$ Let $\alpha_1^j,\ldots,\alpha_4^j$ denote the four exterior angles for $\sigma_j.$ Then
+
+\[\int_{\gamma}k=\sum_{j=1}^F \int_{\partial \sigma_j}k=\sum_{j=1}^F (2\pi-\sum_{i=1}^4 \alpha_i^j)-\sum_{j=1}^F\int_{\sigma_j}K\] or \[\int_{\gamma}k=2\pi F-\sum_{j=1}^F \sum_{i=1}^4 \alpha_i^j - \int_{A}K.\] Thus the problem is one of bookkeeping with the term $\sum a_i^j.$ 
+
+Let $\beta_i^j$ be the interior angle corresponding to each $\alpha_i^j,$ thus $\beta_i^j=\pi-\alpha_i^j,$ and let $\beta_s=\pi-\alpha_s$ be the interior angles at the corners of $\gamma.$ In the following we sum over $i=1,\ldots,4$ and $j=1,\ldots,F.$ The sum \begin{align*}
+\sum_{ij}\beta_i^j&=2\pi(V-r)+\sum_1^r \beta_s=2\pi(V-r)+\sum_1^r(\pi-\alpha_s)\\
+&= 2\pi V-\pi r-\sum_{1}^r\alpha_s,
+\end{align*} since $r$ is the number of vertices of $c$ on $\gamma$ (as well as the number of angles and edges on $\gamma)$ so $(V-r)$ is the number of vertices interior to $A,$ each of which contributes $2\pi$ t the total sum.
+
+We now show that $rF=(2E-r),$ which is the number of terms in the sum $\sum_{ij}\beta_{i}^j.$ This is done by assigning to each $\beta_i^j$ an edge, namely, its ``starting'' edge, which is well-defined by the orientation. More precisely, if $T$ and $T'$ are the unit vectors at the vertex of $\beta_i^j$ which are tangent to the edge curves of $\beta_i^j,$ then $T$ and $T'$ are independent, since $c$ is a fundamental chain, so $(\sigma_j)_*$ is non-singular on its domain (which is slightly larger than $I^2$). Thus $T$ is the ``starting'' edge of $\beta_i^j$ if and only if $T, T'$ is a positively oriented bases (see \ref{fig:ch08fig4}).
+\subfile{./figures/ch8fig4}
+Then each edge on the boundary $\gamma$ belongs to exactly one $\beta_i^j,$ while each edge not on the boundary belongs to exactly two $\beta_i^j.$ Thus $rF=r+2(E-r),$ since $r$ is the number of edges on the boundary. 
+
+Finally, \[\sum_{ij}\alpha_i^j=\sum_{ij}(\pi-\beta_i^j)=\pi(2E-r)-2\pi V+\pi r+\sum_{i}^r\alpha_s=2\pi(E-V)+\sum_{1}^r \alpha_s.\] Hence, \[\int_{\gamma}k=2\pi(F-E+V)-\sum_1^r\alpha_s-\int_{A}K.\]
+\end{proof}
+
+
+
+\begin{theorem}[Gauss-Bonnet Theorem] \label{thm:ch8.1.5}
+Let $M$ be a compact connected oriented Riemannian $2$-manifold with Riemannian (Gaussian) curvature function $K.$ Then \[\int_{M}K=2\pi\EulerChar(M).\]
+\end{theorem}
+
+\begin{proof}
+We apply the preceding theorem to a fundamental chain on $M$ which will have no boundary and no exterior angles.
+\end{proof}
+
+
+
+The above theorem is an important example of a theorem relating differential geometry and topology. The Euler characteristic is a topological invariant which does not depend on either the differentiable structure or the Riemannian structure on $M.$ The theorem may be used to prove many ``negative'' statements: for example, there does not exist a Riemannian metric on the torus with $K>0$ everywhere (nor does there exist one with $K<0$ everywhere) since $\EulerChar(M)=0$ (which we computed above for the induced Riemannian metric). The theorem has been generalized for dimensions greater than two and provides one of the first successes of the global theory of fiber bundles.
+
+\end{document}

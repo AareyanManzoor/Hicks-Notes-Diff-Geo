@@ -1,0 +1,86 @@
+% READY FOR PROOFREAD
+
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section{Existence}\label{ch06:s8}
+
+The objective of this section is to show a paracompact connected Hausdorff $\CInfty$ manifold admits a Riemannian metric. This is accomplished by constructing a ``partition of the unit function''. The function $e^{-1/x^2}$ is the principal tool which is used to show there are ``many'' $\CInfty$ functions on a $\CInfty$ manifold.
+
+
+\begin{lemma} \label{lem:ch6.8.1}
+Given real numbers $0<b<c$, there exists a $\CInfty$ function $f:\bR\functionMaps\bR$ with $f(t)=0$ for $t\le b$, $0\le f(t)\le 1$ for all $t$, and $f(t)=1$ for $t\ge c$.
+\end{lemma}
+
+\begin{proof}
+Consider the $\CInfty$ function
+\[g(x) =
+\begin{cases}
+    0 & x\le 0 \\
+    e^{-1/x^2} & x>0
+\end{cases}
+\]
+We outline a sequence of operations which leads to the desired functions, and we illustrate (and number) the graphs of these intermediate functions in Fig. \ref{fig:ch06fig1}. Translate $g$ so its graph moves $\frac12(c-b)$ units to the left (this is no. (1)). Reflect the graph of (1) about the $y$-axis to obtain (2). Multiply (1) and (2) to obtain (3). Integrate (3) to obtain (4). Multiply (4) by a scale factor to obtain (5). Translate the graph of (5) to the right to obtain the desired function $f$.
+\end{proof}
+
+
+
+\subfile{./figures/ch6fig1}
+
+
+
+\begin{lemma} \label{lem:ch6.8.2}
+Given real numbers $0<b<c$, there exists a $\CInfty$ function \newline $F:\bR^n\functionMaps\bR$ with $F(p)=0$ for $\norm p\le b$, $0\le F(p)\le 1$ for all $p$, and $F(p)=1$ for $\norm p\ge c$.
+\end{lemma}
+
+\begin{proof}
+Let $F(p)=f(\norm p)$ where $f$ is obtained from lemma \ref{lem:ch6.8.1}.
+\end{proof}
+
+
+
+\begin{lemma} \label{lem:ch6.8.3}
+If $M$ is a Hausdorff $\CInfty$ manifold and $m\in M$, then there is a coordinate neighborhood $U$ of $m$ and a $\CInfty$ function $f:M\functionMaps\bR$ such that $f(p)>0$ for $p\in U$ and $f(p)=0$ for $p\notin U$.
+\end{lemma}
+
+\begin{proof}
+Let $V$ be any coordinate neighborhood of $m$ with coordinate map \newline $\phi:V\functionMaps\bR^n$ such that $\phi(m)=0$. Choose real numbers $0<b<c$ such that $B(0,c)\subset\phi(V)$. Apply lemma \ref{lem:ch6.8.2} to obtain $F$ and let $G=1-F$. Then let $U=\phi\inv(B(0,c))$ and let $f=G\circ\phi$ on $U$ while $f(p)=0$ for $p\notin U$.
+\end{proof}
+
+
+
+\begin{lemma} \label{lem:ch6.8.4}
+If $M$ is a paracompact Hausdorff $\CInfty$ manifold then there exists a locally finite covering $\brc{U_\alpha}$, where $U_\alpha$ are open coordinate neighborhoods, and a collection of non-negative real valued $\CInfty$ functions $\brc{g_\alpha}$ such that $g_\alpha(p)=0$ for $p\notin U_\alpha$ and $\sum_\alpha g_\alpha=1$. The collection $\brc{g_\alpha}$ is called a \defemph{partition of unity}\index{partition of unity} for the covering $\brc{U_\alpha}$.
+\end{lemma}
+
+\begin{proof}
+Combining lemma \ref{lem:ch6.8.3} and the definition of paracompactness, one obtains the desired covering $\brc{U_\alpha}$ with $\CInfty$ functions $f_\alpha:M\functionMaps\bR$ such that $f_\alpha>0$ on $U_\alpha$ and $f_\alpha$ on $M-U_\alpha$. The function $F=\sum_\alpha f_\alpha$ is a well-defined non-vanishing $\CInfty$ function on $M$ since the covering $\brc{U_\alpha}$ is locally finite. Finally let $g_\alpha=f_\alpha/F$.
+\end{proof}
+
+
+
+\begin{theorem} \label{thm:ch6.8.5}
+If $M$ is a connected Hausdorff $\CInfty$ manifold then the following are equivalent:
+%Fig 6.1 here
+\begin{enumerate}[label=(\alph*)]
+    \item $M$ is paracompact.
+    \item $M$ admits a Riemannian metric.
+    \item $M$ is second-countable (completely separable).
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+We show (a) implies (b) and give references for the other implications whose proofs are purely topological.
+
+Assuming (a), apply lemma \ref{lem:ch6.8.4} to obtain a locally finite cover $\brc{U_\alpha}$ with the partition of unity $\brc{g_\alpha}$. On each coordinate neighborhood $U_\alpha$, define a local Riemannian metric tensor $\ip{-}{-}_\alpha$ by demanding the coordinate map be an isometry. Then the tensor $g_\alpha\ip{-}{-}_\alpha$ is a global $\CInfty$ tensor on $M$ that vanishes outside $U_\alpha$. At any point $m\in M$, for $X,Y\in\ts Mm$, let
+\[\ip{X}{Y}=\sum_\alpha g_\alpha(m)\ip{X}{Y}_\alpha\]
+This defines a $\CInfty$ Riemannian metric tensor on $M$ which shows (a) implies (b).
+
+Assuming (b), then from section \ref{ch02:s6} we know $M$ is a metric space and hence must be paracompact (see \cite[p. 160]{kelley2017general}). Thus (b) implies (a). That (c) implies (a) follows from \cite[p .79]{hocking2012topology}. To show (b) implies (c), we refer the reader to Chapter 6 in \cite{kelley2017general}. The metric can be used to define a uniform structure on $M$ which must admit a countable base (see \cite[p. 186]{kelley2017general}).
+\end{proof}
+
+
+
+For theorems concerning the imbedding of manifolds in other manifolds, see \cite{sternberg1964lectures}, \cite{auslander2012introduction} or \cite{Smale1961DifferentiableAC}.
+
+\end{document}

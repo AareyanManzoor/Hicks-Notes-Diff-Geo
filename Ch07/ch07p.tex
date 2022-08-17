@@ -1,0 +1,58 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+
+\section*{Problems}
+Let $M$ be a $\CInfty$ $n$-manifold and let $U$ be an open subset of $M$.
+
+\begin{enumerate}
+    \setcounter{enumi}{63}
+    \item\label{pro:64} If $X$ and $Y$ are in $\tensorbundle{M}{1}{0}$, $f, g \in \CInfty(M, \bbR)$ and $w \in \tensorbundle{M}{0}{ 1}$ show 
+    \begin{enumerate}[label=(\roman*)]
+        \item $\liederiv{f X} w = w(X) \dd f + f(\liederiv{X} w)$,
+        \item $\liederiv{f X} Y = f(\liederiv{X} Y) - \dd f(Y) X$,
+        \item $\liederiv{f X} g = f \liederiv{X} g$,
+        \item  and $\Delta(fw) = f \Delta w + w \otimes \dd f$.
+    \end{enumerate}
+    Thus $\liederiv{}$ and $\Delta$ are not tensors.
+    
+    \item\label{pro:65} If $X$ is a $\CInfty$ vector field on $U,\, m\in U, \,Z_{1}, \ldots, Z_{n}$ a base of $T_m M$ with dual base $w_{1}, \ldots, w_{n}$
+    \begin{enumerate}[label=(\roman*)]
+        \item Show $(\operatorname{div} X)_{m}=\displaystyle\sum_{i=1}^{n} w_{i}\left(\connection_{Z_i} X\right)$.
+        \item  Show that the divergence of a $\CInfty$ field on $\bR^{3}$ agrees with the advanced calculus definition.
+    \end{enumerate}
+    
+    
+    \item\label{pro:66} Let $A$ be in $\tensorbundle{U}{1}{ 1}$, let $Z_1, Z_2, \ldots, Z_k$ be a $\CInfty$ base field on $U$ and let $w_1, w_2, \ldots, w_k$ be the dual base on $U$. Show \[\connection_X w_j = -\sum_k w_j(\connection_X Z_k) w_k\text{ and }\sum_j [A(\connection_X w_j, Z_j) + A(w_j, \connection_X Z_j)] = 0.\]
+    
+    \item\label{pro:67} Let $M$ be Riemannian, let $X_{1}, \ldots, X_{n-1}, T$ be an orthonormal base, and let $P_{i}$ be the plane section spanned by $X_{i}$ and $T$. Show \[\mathrm{Ric}(T, T)=\sum_{i=1}^{n-1} K\left(P_{i}\right).\]
+    
+    \item\label{pro:68} Prove formulas \eqref{eqn:ch07.5}, \eqref{eqn:ch07.7}, \eqref{eqn:ch07.13}, and \eqref{eqn:ch07.14}.
+    
+    \item\label{pro:69} If $\connection$ has zero torsion, show \[\dd w(X, Y) = (\connection_X w)(Y) - (\connection_Y w)(X).\]
+    
+    \item\label{pro:70} 
+    If $M$ is Riemannian and $G(X, Y) = \ip X Y$,
+    \begin{enumerate}[label=(\roman*)]
+        \item show that a connexion $\connection$ is metric preserving iff $\Delta G = 0$.
+        \item Given arbitrary $A\in\tensorbundle{M}{0}{ 3}$ and $B\in\tensorbundle{M}{1}{ 2}$ with \[A(X, Y, Z) = A(Y, X, Z)\text{ and }B(w, X, Y) = -B(w, Y, X)\] for all $w, X, Y, Z$, show there exists a unique connexion $\connection$ on $M$ with $\Delta G = A$ and $B(w, X, Y) = w(\Tor_D(X, Y))$. 
+    \end{enumerate}
+   
+    
+    \item\label{pro:71} (Poincar\'e lemma) Show every closed $p$-form on $\bbR^{n}$ is exact for $p>0$ as follows: for $b$ in $\bbR$ let $g_{b}: \bbR^{n} \rightarrow \bbR^{n+1}$ by $g_{b}\left(t_{1}, \ldots, t_{n}\right)=\left(t_{1}, \ldots, t_{n}, b\right)$, let $f: \bbR^{n+1} \rightarrow \bbR$ by \[f\left(t_{1}, \ldots, t_{n+1}\right)=\left(t_{n+1} t_{1}, t_{n+1} t_{2}, \ldots, t_{n+1} t_{n}\right),\] let $T=\pdv{}{u_n}$, and for $p>0$, define the linear map $K: \formbundle{\bbR^{n}}{p} \rightarrow \formbundle{\bbR^{n}}{p-1}$ by \[K(w)=\int_{0}^{1}(g_{b})^\ast \circ C_{T} \circ f^\ast(w) \dd b,\] and show $\dd K+K \dd$ equals the identity map on $\formbundle{\bbR^{n}}{p}$.
+    \item\label{pro:72} Let $M$ be an oriented Riemannian 2-manifold. If $\sigma$ is an oriented $\CInfty$ curve in $M$ with unit tangent $T$, let $T, N$ be an orthonormal oriented base along $\sigma$ and define the \emph{signed geodesic curvature}\index{geodesic curvature} of $\sigma$ to be the $\CInfty$ function $b$ with $\connection_{T} T=b N$ on $\sigma$. 
+    \begin{enumerate}[label = (\roman*)]
+        \item If $Z$, $W$ is an oriented orthonormal parallel base field along $\sigma$ and $T=(\cos \theta) Z+(\sin \theta) W$, show $b = \dv{\theta}{s} = T \theta$ on $\sigma$.
+        \item If $x, y$ is an oriented orthogonal coordinate system on $U\in M$, let $E=\ip X X$ and $G = \ip Y Y$. If $b_1$ and $b_{2}$ denote the geodesic curvature along the $x$-coordinate and $y$-coordinate curves, respectively, show \[b_{1}=-\dfrac{1}{2E\sqrt{G}}\pdv{E}{y}, b_{2}=\dfrac{1}{2E\sqrt{G}}\pdv{E}{y}\] and \[K=\dfrac{1}{\sqrt{EG}} \bigg[ \pdv{b_1\sqrt{E}}{y}-\pdv{b_2\sqrt{G}}{x}\bigg]\].
+        \item  Show the $y$-curve are geodesics (with $y$ as parameter) iff $G$ is constant.
+    \end{enumerate}
+     
+    
+    \item\label{pro:73} If $M$ is Riemannian, $(\phi, U)$ is a coordinate pair, \[x_i = u_i \circ \phi,g_{ij} = \ip {\pdv{}{x_i}}{\pdv{}{x_j}},\] $g = \det(g_{ij})$, $f$ is in $\CInfty(M, \bbR)$, and $A$ is a fundamental set with $A \subset U$, show \[\int_A f = \int_{\phi(A)} (f \circ \phi^{-1}) \sqrt {g \circ \phi^{-1}} \dd u_1 \dd u_2 \ldots \dd u_n.\]
+    
+    %NOTE: I have changed this from \lim[...] as r \to 0 to \lim_{r \to 0} [...]
+    \item\label{pro:74} Let $M$ be a surface in $\bbR^3$ with sphere map $\eta$. For $m$ in $M$ let $A(r)$ be the area of $B(m, r)$, the ball about $m$ of radius $r$ and let $A_\eta(r)$ be the area of $\eta(B(m, r))$. Show \[ K(m) = \lim_{r \to 0} \Big[\dfrac{A_\eta(r)}{A(r)}\Big]. \]
+\end{enumerate}
+
+
+\end{document}

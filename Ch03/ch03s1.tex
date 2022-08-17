@@ -1,0 +1,68 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section{Smoothness and the Neighborhood of a non-Umbilic Point}\label{ch03:s1}
+
+
+The first theorem establishes the smoothness of the invariants of $M$ and the local existence of $\CInfty$ orthonormal principal vectors on $V$.
+
+
+
+\begin{theorem} \label{thm:ch3.1.1}
+ The set of umbilics $U$ is closed in $M$, so its complement $V$ is open in $M$. The functions $K$ and $H$ are $\CInfty$ on $M$. The functions \[h=\dfrac{H+\sqrt{H^{2}-4 K}}{2} \text{ and } k=\dfrac{H-\sqrt{H^{2}-4 K}}{2}\] are $C^{0}$ on $M$ and $\CInfty$ on $V$. For any $p \in V$ there is a neighborhood $A$ of $p$ with $A \subset V$ and an orthonormal $\CInfty$ base field of principal vectors on $A .$
+\end{theorem}
+
+\begin{proof}
+
+ For any $m\in M$, let $B$ be the domain of a local coordinate system. By applying the Gram-Schmidt process to the coordinate vector fields on $B$, we obtain an orthonormal $\CInfty$ base field $Z, W$ on B. Since $L$ is $\CInfty$, the vectors $L(Z)=a Z+b W$ and $L(W)=b Z+c W$ are $\CInfty$ on $B$, and hence the functions $a, b$, and $c$ are $\CInfty$ on $B$. Thus $K=a c-b^{2}$ and $H=a+c$ are $\CInfty$ on $B$, and hence, on $M$.
+ 
+ The eigenvalues $h$ and $k$ must satisfy the algebraic equation $\lambda^{2}-H \lambda+K=0$ associated with the characteristic equation of $L$. Hence we get explicit global expressions for $h$ and $k$ by the quadratic formula and they are clearly continuous, since they are the composite of continuous functions. The set $U$ is precisely the set where $h=k$ or $H^{2}-4 K=0$, so by continuity, $U$ is closed and $V$ is open. Since $H^{2}-4 K>0$ on $V$, the functions $h$ and $k$ are $\CInfty$ on $V$.
+
+For $p$ in $V$, let $B, Z$, and $W$ be as in the first paragraph, with $B \subset V .$ We distinguish two cases: 
+\begin{enumerate}
+    \item If $b(p) \neq 0$: choose the neighborhood $A \subset B$ such that $b \neq 0$ on $A$ and let $Y'=b Z+(h-a) W$ and $X'=(a-h) Z+b W$. Then $X', Y'$ are $\CInfty$ orthogonal non-vanishing fields on $A$ with $L Y'=h Y'$ and $L X'=k'$. Let $X$ and $Y$ be unit fields in directions $X'$ and $Y'$, respectively.
+    \item If $b(p)=0$: suppose $a(p)>c(p)$, choose $A \subset B$ so $a>c$ on $A$, and let $Y'=(h-c) Z+b W$ and $X'=b Z+(c-h) W$, etc.
+\end{enumerate}
+
+\end{proof}
+
+
+
+In the next theorem we derive basic expressions for studying the neighborhood of a non-umbilic point.
+
+
+
+\begin{theorem} \label{thm:ch3.1.2}
+ 
+Let $m$ be a non-umbilic point on $M$ and let $X$ and $Y$ be an orthonormal $\CInfty$ base field of principal vectors on the neighborhood $A$ of $m$ with $A \subset V$ and $L X=k X, L Y=h Y$ on $A$. Defining the $\CInfty$ functions $a$ and $b$ on $A$ by
+\[
+a=\dfrac{Y k}{h-k} \text { and }  b=-\dfrac{X h}{h-k}
+\]
+then $\connection_{X} Y=a X, \connection_{Y} X=b Y, \connection_{X} X=-z Y, \connection_{Y} Y=-b X$
+
+    
+
+\[[X, Y]=a X-b Y, \text{ and}\]
+
+\[K=k h=\frac{\left(X^{2} h-Y^{2} k\right)(h-k)-(X h)(2 X h-X k)+(Y k)(Y h-2 Y k)}{(h-k)^{2}}\text{ on } A.\]
+
+\end{theorem} 
+
+\begin{proof}
+
+Since $\ip{ X}{ X}=1,\ip{ Y}{ Y}=1$, and $\ip{ X}{ Y}=0$ on $A$, \newline $0= X\ip{Y}{Y}=2\ip{\connection_{X} Y}{Y}$ so $\connection_{X} Y=a X$ for some $\CInfty$ function $a$, whìch we compute below. Similarly, $\connection_{X} Y=b Y$ for some $b$. Also \newline $0=$ $X\ip{ X}{ X}=2\ip{ \connection_{X} X}{ X}$ and $0=X\ip{ X}{ Y}=\ip{ \connection_{X} X}{ Y}+\ip{ X}{ \connection_{X} Y}$, so $\connection_{X} X=-a Y$, and similarly, $\connection_{Y} Y=-b X$. Then $[X, Y]=\connection_{X} Y-\connection_{Y} X= a X-b Y$.
+
+To compute the expressions for $a$ and $b$ in terms of $X, Y, h$ and $k$, we apply the Codazzi-Mainardi equation \ref{eqn:ch02.10}. Thus \[\connection_{X} L Y-\connection_{Y} L X=(X h) Y+h a X-(Y k) X-k b Y=L([X, Y])=a k X-b h Y.\] Equating coefficients of $X$ and $Y$ leads to the expressions for $a$ and $b$.
+
+To compute $K$, first notice \[R(X, Y) Y=\connection_{X}(-b X)-\connection_{Y}(a X)-\connection_{a X-b Y} Y=-(X b) X-(Y a) X-a^{2} X-b^{2} X .\] By the Gauss curvature equations, $K=\ip{R(X, Y) Y}{X}=-(X b)-(Y a)-a^{2}-b^{2}$, and the final expression for $K$ follows by inserting the formulas for $a$ and $b$ and computing.
+
+\end{proof}
+
+
+
+\begin{corollary} \label{cor:ch3.1.3}
+
+If $m$ is a non-umbilic critical point of both principal curvatures, then $K(m)=\dfrac{X^{2} h-Y^{2} k}{ h-k}$. If $H$ has no umbilics and $K$ and $H$ are constant (or the principal curvatures are constant) then $K=0$
+\end{corollary} 
+
+\end{document}

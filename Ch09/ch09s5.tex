@@ -1,0 +1,69 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section{Special Coordinate Systems}\label{ch09:s5}
+
+Let $M$ be a Riemannian $n$-manifold, let $\phi$ be a coordinate map on $M$ with domain $U$ and $x_i = u_i \circ \phi$, and let $X_i = \pdv{}{x_i}$. The coordinate system $x_1, \dots,x_n$ is \defemph{orthogonal}\index{orthogonal coordinates} if $\ip{X_i}{X_j} = 0$ for $i \ne j$. If the map $\phi$ is a conformal map of $U$ into $\bR^n$ (with respect to the canonical Riemannian metric on $\bR^n$), then the coordinate system is \defemph{isothermal}\index{isothermal coordinates} or \defemph{conformal}\index{conformal coordinates} (and hence also orthogonal). When $M^n$ is a hypersurface in some $\xoverline{M}^{n+1}$, the coordinate system is \defemph{principal}\index{principal coordinates} if each $X_i$ is a principal vector, and it is \defemph{asymptotic}\index{asymptotic coordinate} if each $X_i$ is an asymptotic vector.
+
+In this section we study the existence of such special coordinate systems when $n = 2$. Orthogonal systems and conformal systems exist about any point, and the latter may be used to define a Riemann surface structure on $M$. Principal coordinates exist of necessity about any non-umbilical point on a surface, while they may or may not exist about an umbilic. We show asymptotic coordinates exist in some special cases, e.g., about a point of a surface which has a neighborhood on which the curvature is a negative constant, and about a non-umbilical point on a negative constant, and about a non-umbilical point on a minimal surface (problem~\ref{pro:88}).
+
+
+
+\begin{theorem}[Gauss 1827] \label{thm:ch9.5.1}
+    Let $\gamma$ be an arbitrary univalent curve in $M^2$ parameterized by arc length on $(a, b)$, let $X$ be the (unit) tangent to $\gamma$, and let $Y$ be a unit $\CInfty$ field along $\gamma$ such that $\ip{X}{Y} = 0$. Then the Fermi coordinate system induced by $Y$ on a neighborhood of $\gamma$ is an orthogonal coordinate system about $\gamma$ which is called a set of ``geodesic parallel coordinates.'' This proves the existence of orthogonal coordinates about any point on a two-dimensional Riemannian manifold.
+\end{theorem}
+
+\subfile{./figures/ch9fig1} %fig 9.1
+
+\begin{proof}
+    Let $\phi$ be the Fermi coordinate map from the neighborhood $U$ of $\gamma$ onto the set $V$ in $\bR^2$.
+
+    Then for $(t, s) \InText V$, $\phi\inv(t, s) = \exp_{\gamma(t)}sY$. We let $X$ and $Y$ be the coordinate fields on $U$ which extend $X$ and $Y$ along $\gamma$. Since the $\gamma$-curves are geodesics parameterized by arc length, $\connection_Y Y = 0$ and $\ip{Y}{Y} = 1$, where $\connection$ is the Riemannian connexion. We compute \[Y\ip{X}{X} = \ip{D_Y X}{Y} + \ip{X}{\connection_Y Y} = \ip{\connection_Y X}{Y} = \frac{1}{2}X\ip{Y}{Y} = 0,\] since the torsion is zero, so $\connection_Y X - \connection_X Y = [Y, X] = 0$. Thus $\ip{X}{Y}$ is constant along the $y$-curves and since $\ip{X}{Y} = 0$ on $\gamma$ we have $\ip{X}{Y} = 0$ on $U$.
+\end{proof}
+
+
+
+One way to paraphrase the above situation is to say ``if segments of equal length (lying in $U$) are laid off along geodesics that are orthogonal to a univalent curve $\gamma$, then their endpoints determine an orthogonal trajectory to the family of geodesics.
+
+
+
+\begin{theorem} \label{thm:ch9.5.2}
+    If $m$ is a non-umbilical point on a surface $M$ in $\bR^3$, then there exists a set of principal coordinates in a neighborhood $U$ of $m$.
+\end{theorem}
+
+\begin{proof}
+    Since $m$ is non-umbilic, there is a neighborhood $V$ of $m$ which contains no umbilics. Assume $V$ is oriented via a unit field $N$, and let $L(X) = \covariant_X N$ as usual, where $\covariant$ is the Riemannian connexion on $\bR^3$. Let $X$ and $Y$ be $\CInfty$ orthonormal principal vector fields on $V$ with $L(X) = kX$, $L(Y) = hY$, and $k < h$, which corresponds to the notation of Chapter~\ref{ch03}. We seek non-vanishing $\CInfty$ functions $f$ and $g$ defined on a neighborhood of $m$ such that the fields $Z = fX$ and $W = gY$ satisfy the condition $[Z, W] = 0$. Finding $f$ and $g$, we can apply theorem \ref{thm:ch09.1.1} to obtain the desired principal coordinates.
+
+    We compute \[[fX, gY] = f(Xg)Y - g(Yf)X + fg(aX - bY),\] where \[a = (Yk)/(h - k)\text{ and }b = -(Xh)/(h - k)\]by theorem~\ref{thm:ch3.1.2}. Hence $[Z, W] = 0$ if $(Xg) - bg = 0$ and $(Yf) - af = 0$. Thus we may prescribe $g = 1$ on the integral curve of $Y$ through $m$, and then on each integral curve $\gamma(t)$ of $X$ we have the differential equation
+    \[ \dv{g \circ \gamma(t)}{t} - (b \circ \gamma)(t)(g \circ \gamma)(t) = 0\text{.} \]
+    From the existence theory of ordinary differential equations we get $g$ defined and $\CInfty$ on a neighborhood of $m$ with $g > 0$. Similarly, we obtain $f$.
+\end{proof}
+
+
+
+One can write the differential equations $Xg = bg$ and $Yf = af$ as first-order linear partial differential equations in terms of a coordinate system $u$, $v$ about $m$. This follows, since 
+\begin{equation*}
+   X = b_1 \pdv{}{u}+b_2 \pdv{}{v}\quad\text{and}\quad Y= a_1 \pdv{}{u}+a_2\pdv{}{v}
+\end{equation*}
+defines $\CInfty$ functions $a_i$ and $b_i$, and then one must solve,
+\[ b_1\frac{\partial g}{\partial u} + b_2\frac{\partial g}{\partial v} = bg \quad\text{and}\quad a_1\frac{\partial f}{\partial u} + a_2\frac{\partial f}{\partial v} = af\text{.} \]
+
+
+
+\begin{theorem} \label{thm:ch9.5.3}
+    If $m$ is contained in the neighborhood $U$ on a surface with constant $K = -a^2 < 0$ on $U$, then there exists a set of asymptotic coordinates about $m$.
+\end{theorem}
+
+\begin{proof}
+    Let $X$ and $Y$ be orthonormal principal fields on $U$ with $LX = kX$ and $LY = hY$, $k < 0 < h$. Let
+    \begin{itemize}
+        \item $b=\sqrt{a^2+k^2}$,
+        \item $Z=b(aX-kY)$,
+        \item $W=(-aX-kY)$.
+    \end{itemize}
+    Then $\ip{LZ}{Z} = \ip{LW}{W} = 0$, and $Z$ and $W$ are clearly independent. Using theorem~\ref{thm:ch3.1.2}, one computes $[Z,W] = 0$. Hence, the desired coordinates exist.
+\end{proof}
+
+
+
+\end{document}

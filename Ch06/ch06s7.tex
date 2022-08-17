@@ -1,0 +1,51 @@
+% READY FOR PROOFREAD
+
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section{Canonical Spaces of Constant Curvature}\label{ch06:s7}
+
+We exhibit the three classical examples of $n$-dimensional ($n\ge2$) simply connected complete spaces with constant Riemannian curvature $K=0,~K>0$, and $K<0$; i.e., the Riemannian curvature $K(P)$ of all plane sections is a constant.
+
+For $K=0$, let $M=\bR^n$ with the usual Riemannian metric. This is usually called \emph{Euclidean space} or \emph{flat space}\index{flat space}.
+
+For $K>0$, let
+\[M = \bigg\{a\in\bR^{n+1}: \sum_{i=1}^{n+1} a_i^2 = \frac1K\bigg\}\]
+i.e. $M$ is the $n$-dim sphere of radius $\frac{1}{\sqrt K}$ about the origin in $\bR^{n+1}$. It is a Riemannian manifold via the induced metric from $\bR^{n+1}$. This is called \defemph{spherical space}\index{spherical space} or \defemph{Riemann space}\index{Riemann space}. Letting $N$ be the unit outer normal on $M$, then $L(X)=\sqrt KX$ for all vectors tangent to $M$, and all points are umbilic. By equation (\ref{eqn:ch6.5.6}) above,
+\[K(P) = \ip{LX}{X}\ip{LY}{Y} = K\]
+where $X$ and $Y$ are unit orthogonal vectors spanning $P$. Since $M$ is compact, it is complete. An alternate proof that $M$ has constant curvature is provided by the group of orthogonal transformations on $\bR^{n+1}$, which provides isometries that will map any point $m$, and plane section $P$ at $m$, into any other point $m'$ and plane section $P'$. Since an isometry preserves the curvature, this would show $M$ has constant Riemannian curvature but would not evaluate this constant.
+
+For $K<0$, let
+\[M = \bigg\{a\in\bR^{n}: \sum_{i=1}^{n} a_i^2 < -\frac4K\bigg\}\]
+Let $x_1,\ldots,x_n$ be the usual coordinate functions on $\bR^n$, i.e., $x_i(a)=a_i$, let $X_i=\pdv{}{x_i}$ for $1\le i\le n$, and define a metric on $M$ by the functions
+\[g_{ij} = \ip{X_i}{X_j} = \frac{\delta_{ij}}{A^2},
+\quad \text{where}
+\quad A = 1+\frac K4\sum_{r=1}^n x_r^2\]
+Then $M$ with this metric is called \defemph{hyperbolic space}\index{hyperbolic space} or \defemph{Poincar\'e space}\index{Poincare space@Poincar\'e space}. Thus $M$ is obtained by a conformal change of the usual metric tensor on an open ball in $\bR^n$, and $M$ is simply connected since it is contractible.
+
+One proves $M$ has constant negative Riemannian curvature $K$ by a direct computation which we outline. Let $K_{ij}$ be a Riemannian curvature of the plane section spanned by $X_i,X_j$ at any point in $M$. Let
+\[R(X_i,X_j)X_r = \sum_k R_r^k(X_i,X_j)X_k = \sum_k R_{rij}^kX_k\]
+define functions $R_{rij}^k$. Then $K_{ij}=A^2R_{jij}^i$, and compute via the classical formulae for $R_{rij}^k$ in terms of $\Gamma_{jk}^i$, and $\Gamma_{jk}^i$ in terms of $g_{ij}$. These formulae show
+\[\Gamma_{jk}^i=0,
+\quad \text{unless two indices are equal}\]
+and
+\[\Gamma_{ij}^i = \Gamma_{ji}^j = \Gamma_{ii}^i = -\frac{Kx_i}{2A},
+\quad \Gamma_{ii}^j=\frac{Kx_j}{2A}.\]
+Then
+\[R_{jij}^i = \frac KA - \frac{K^2}{4A^2}\sum_rx_r^2,
+\quad K_{ij} = K.\]
+
+Also by direct computation one shows
+\[R_{jkr}^i=0,
+\quad \text{unless $k=i,r=j$ or $k=j,r=i$}\]
+Then letting $e_i=AX_i$ gives an orthonormal base $e_1,\ldots,e_n$ at each point of $M$. Let $P$ be any plane section at $m\in M$ and let $f_1,f_2$ be an orthonormal base of $P$ which we extend to an orthonormal base of $\ts Mm$. Then the base $e_i$ is related to the base $f_j$ via an orthogonal matrix, and one uses this fact to show $K(f_1,f_2)=K$. Thus $M$ has constant negative curvature. To show $M$ is complete, let $K=-B^2$, and one shows the curve
+\[g(t) = \br{2\frac{\sinh\frac B2t}{B\cosh\frac B2t},0,\ldots,0}\]
+is a geodesic defined for all $t$ and parameterized by arc length. Such a geodesic is obtained on every ray emanating from the origin 0 by symmetry. Thus
+\[\bar B_M(0,t) = \bar B_{\bR^n}\br{0,2\frac{\sinh\frac B2t}{B\cosh\frac B2t}}\]
+which is a compact set, so $M$ is complete. (Here,
+\[\bar B_m(p,r)=\brc{m\in M: d_M(m,p)\le r}\]
+where $d_M$ is the distance function in $M$.) Note that the mapping $g$, when generalized to all rays in $\bR^n$, exhibits explicitly the exponential map of $\ts M0$ onto $M$ (see section \ref{ch09:s3}).
+
+For $K>0$, let $M=\bR^n$, and let $g_{ij}=\delta_{ij}/A^2$ define a Riemannian metric on $M$ as above. The above computations show $M$ has constant Riemannian curvature $K$ and $M$ is trivially simply connected. But $M$ is not complete since $\bar B_M\br{0,\frac{2\pi}{\sqrt K}}=\bR^n$ is not compact. Thus we have an example of a conformal change of metric which changes a complete Riemannian manifold into a non-complete Riemannian manifold.
+
+\end{document}

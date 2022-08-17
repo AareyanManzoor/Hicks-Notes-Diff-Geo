@@ -1,0 +1,77 @@
+\documentclass[../../main]{subfiles}
+\begin{document}
+
+\begin{figure}[h!]
+\[
+\begin{tikzpicture}
+%uses the calc tikz library
+    \begin{scope}
+    \filldraw (0,0) circle (1pt);
+    \foreach \i in {30, 90, ..., 330}
+    {
+        \draw[very thick, ->] (\i:1)--(\i:0.25);
+    }
+    
+    \draw (0,-1.5) node {$J=1$};
+    \end{scope}
+    
+    \begin{scope}[shift={(3,0)}]
+    \filldraw (0,0) circle (1pt);
+    \foreach \i in {30, 90, ..., 330}
+    {
+        \draw[very thick, ->] (\i:0.25)--(\i:1);
+    }
+    
+    \draw (0,-1.5) node {$J=1$};
+    \end{scope}
+    
+    \begin{scope}[shift={(6,0)}]
+    \filldraw (0,0) circle (1pt);
+    \foreach \i in {0, 180}
+    {
+        \draw[very thick, ->] (\i:1)--(\i:0.25);
+        \draw[very thick, rounded corners=8pt, ->] 
+        ($(\i:0)!1!15:(\i:1)$) --
+        ($(\i:0)!1!45:(\i:0.5)$) --
+        ($(\i:0)!1!75:(\i:1)$);
+    }
+    \foreach \i in {90, 270}
+    {
+        \draw[very thick, ->] (\i:0.25)--(\i:1);
+        \draw[very thick, rounded corners=8pt, ->] 
+        ($(\i:0)!1!75:(\i:1)$) --
+        ($(\i:0)!1!45:(\i:0.5)$) --
+        ($(\i:0)!1!15:(\i:1)$);
+    }
+    
+    \draw (0,-1.5) node {$J=-1$};
+    \end{scope}
+    
+    \begin{scope}[shift={(9,0)}]
+    \filldraw (0,0) circle (1pt);
+    \foreach \i in {0, 120, 240}
+    {
+        \draw[very thick, ->] (\i:0.25)--(\i:1);
+        \draw[very thick, rounded corners=8pt, ->] 
+        ($(\i:0)!1!45:(\i:1)$) --
+        ($(\i:0)!1!30:(\i:0.5)$) --
+        ($(\i:0)!1!15:(\i:1)$);
+    }
+    \foreach \i in {60, 180, 300}
+    {
+        \draw[very thick, ->] (\i:1)--(\i:0.25);
+        \draw[very thick, rounded corners=8pt, ->] 
+        ($(\i:0)!1!15:(\i:1)$) --
+        ($(\i:0)!1!30:(\i:0.5)$) --
+        ($(\i:0)!1!45:(\i:1)$);
+    }
+    
+    \draw (0,-1.5) node {$J=2$};
+    \end{scope}
+\end{tikzpicture}
+\]
+\caption{Examples of $J(W,m)$}
+\label{fig:ch08fig5}
+\end{figure}
+
+\end{document}

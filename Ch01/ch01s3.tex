@@ -1,0 +1,73 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section{Vectors and Vector Fields}\label{ch01:s3}
+
+The definition of a tangent vector generalizes the ``directional derivative'' in $\bR^n$. If $X$ is an ordinary (advanced calculus) vector at a point $m$ in $\bR^n$ and $f$ is a $\CInfty$ function in a neighborhood of $m$, then define $X_mf=X_m\cdot(\nabla f)_m$, where $\nabla f$ is the gradient vector field of $f$. From the properties of the ``dot'' product and the operator $\nabla$, it follows that
+\begin{align*}
+&X_m(af+bg)=aX_mf+bX_mg\\
+&X_m(fg)=f(m)X_mg+g(m)X_mf,
+\end{align*}
+where $g$ is a $\CInfty$ function in a neighborhood of $m$ and $a$ and $b$ are real numbers. Notice $X$ is not normalized to be a unit vector. We generalize now to define a tangent vector on a manifold as an operator on $\CInfty$ functions which obeys the above rules.
+
+Let $M$ be a $\CInfty$ $n$-manifold. Let $m$ be in $M$ and let $\CInfty(m)$ denote the set of real valued functions that are $\CInfty$ on some neighborhood of $m$. A \defemph{tangent vector}\index{tangent vector} at $m$ is a real valued function $X$ on $\CInfty(m)$ having the following properties:
+\begin{enumerate}[label=(\arabic*)]
+    \item $X(f+g)=Xf+Xg$, $X(bf)=b(Xf)$
+    \item $X(fg)=(Xf)g(m)+f(m)(Xg)$
+\end{enumerate}
+where $f$ and $g$ are in $\CInfty(m)$, and $b$ is in $\bR$. The set $\CInfty(m)$ is almost a ring (there is a slight problem with domains), and thus a tangent vector is often called a derivation on $\CInfty(m)$.
+
+The \defemph{tangent space}\index{tangent space} to $M$ at $m$, denoted by $\tangentspace{M}{m}$, is the set of all tangent vectors at $m$. It is a vector space over the real field where $(X+Y)f=Xf+Yf$ and $(bX)f=b(Xf)$ for $X,Y$ in $\tangentspace{M}{m}$, $f$ in $\CInfty(m)$, and $b$ a real number.
+
+Let $x_1,\dots,x_n$ be a coordinate system about $m$ (i.e., $m$ is in the domain of these coordinate functions). We define for each $i$, a coordinate vector at $m$, denoted $\Bigr(\pdv{}{x_i}\Bigl)_m$ by \[\Bigr(\pdv{}{x_i}\Bigl)_m f=\pdv{(f\circ\phi^{-1})}{u_i}(\phi(m))\] where $x_i=u_i \circ \phi$ and the differentiation on the right side is as usual on $\bR^n$. The verification of properties (1) and (2) above we leave to the reader. In a moment we show these coordinate vectors form a base for the tangent space at $m$.
+
+\begin{lemma} \label{lem:ch1.3.1}
+Let $x_1, \dots, x_n$ be a coordinate system about $m$ with $x_i(m)=0$ for all $i$. Then for every function $f$ in $\CInfty(m)$ there exist $n$ functions $f_1, \dots, f_n$ in $\CInfty(m)$ with $f_i(m)=\Big(\pdv{}{x_i}\Big)_mf$ and $f=f(m)+\sum_i x_i f_i$ in a neighborhood of $m$. (Note the equality in question is an equality between functions, and $f(m)$ represents a constant function with value $f(m)$; the sum is taken for $i=1,2, \dots, n$, and in the future this relevant range is to be understood.)
+\end{lemma}
+
+\begin{proof}
+Let $\phi$ be the coordinate map belonging to the $x_i$. Let $F=f\circ\phi^{-1}$ and we know $F$ is defined in a ball about the origin in $\bR^n$, i.e., in a set \newline $B=\{p\in\bR^n:\text{ distance from origin to }p<r\}$. For $(a_1,\dots,a_n)$ in $B$ we have
+\begin{align*}
+F(a_1, \dots, a_n)=&F(a_1, \dots, a_n)-F(a_1, \dots, a_{n-1}, 0)\\
+&+F(a_1, \dots, a_{n-1}, 0)-F(a_1, \dots, a_{n-2}, 0,0)+\dots \\
+&+F(a_1, 0, \dots, 0)-F(0, \dots, 0)+F(0, \dots, 0)\\
+=&\sum_i F(a_1, \dots, a_{i-1}, ta_i, 0, \dots, 0)\bigg|_0^1+F(0, \dots 0) \\
+=&F(0, \dots, 0)+\sum_i\int_0^1 \pdv{F}{t_i}(a_1, \dots, a_{n-1}, t a_i, 0, \dots, 0) a_i\dd t \\
+=&F(0, \dots, 0)+\sum_i a_i F_i(a_1, \dots, a_n),
+\end{align*}
+where \[F_i(a_1, \dots, a_n)=\int_0^1\pdv{F}{u_i}(a_1, \dots, a_{i-1}, t a_i, 0, \dots, 0)\dd t\]
+is $\CInfty$ in $B$ since $\Big(\pdv{}{u_i}\Big)$ is $\CInfty$. Let $f_i=F_i\circ\phi$ and the lemma is proved.
+\end{proof}
+
+\begin{theorem} \label{thm:ch1.3.2}
+Let $M$ be a $\CInfty$ $n$-manifold and let $x_1, \dots, x_n$ be a coordinate system about $m$ in $M$. Then if $X \in \tangentspace{M}{m}$, $X=\sum_i(Xx_i)\Big(\pdv{}{x_i}\Big)_m$, and the coordinate vectors form a base for $\tangentspace{M}{m}$ which thus has dimension $n$.
+\end{theorem}
+
+\begin{proof}
+We first prove the stated representation. Take $X \in \tangentspace{M}{m}$ and $f \in \CInfty(m)$. If $x_i(m)\neq0$ for all $i$, let $y_i=x_i-x_i(m)$. Then apply the lemma to $f$ with respect to the coordinate system $y_i, \dots, y_n$ and notice $\Big(\pdv{f}{y_i}\Big)(m)=\Big(\pdv{f}{x_i}\Big)(m)$. Next we see if $c$ a constant map then \[X(c)=cX(1)=c(1X(1)+1X(1))=2cX(1)\] which implies $cX(1)=0$ and $X(c)=0$. Thus \begin{align*}
+    Xf&=X\bigg(f(m)+\sum_i y_i f_i\bigg)\\
+    &=\sum_i((Xy_i)f_i(m)+y_i(m)(Xf_i))\\
+    &=\sum_iX(x_i-x_i(m))f_i(m)\\
+    &=\sum_i(Xx_i)\Big(\pdv{f}{x_i}\Big)(m)
+\end{align*}
+which proves the required representation. If $Y=\sum_i a_i\Big(\pdv{}{x_i}\Big)=0$ then $0=Y_{x_j}=a_j$, thus the coordinate vectors are independent and span $\tangentspace{M}{m}$.
+\end{proof}
+
+A \defemph{vector field}\index{vector fields} $X$ on a set $A$ is a mapping that assigns to each point $p$ in $A$ a vector $X_p$ in $M_p$. A field $X$ is $\CInfty$ on $A$ if $A$ is open and for each real valued function $f$ that is $\CInfty$ on $B$, the function $(Xf)(p)=X_pf$ is $\CInfty$ on $A \cap B$. If $X$ and $Y$ are $\CInfty$ vector fields on $A$ their \defemph{Lie bracket}\index{Lie bracket} is a $\CInfty$ vector field $[X, Y]$ on $A$ defined by $[X, Y]_pf=X_p(Yf)-Y_p(Xf)$.
+
+If $f$ and $g$ are $\CInfty$ functions, it is trivial that $[X,Y](f+g)=[X, Y] f+[X, Y]g$, and $[X, Y](a f)=a[X, Y]f$ for $a$ in $\bR$. To check the product property, consider
+\begin{align*}
+[X, Y](f g)=&X(Y(f g))-Y(X(f g))\\
+=& X(f Y g+g Y f)-Y(f X g+g X f) \\
+=& f X Y g+(X f)(Y g)+(X g)(Y f)+g X Y f\\
+-& f Y X g-(Y f)(X g)-(Y g)(X f)-g Y X f \\
+=& f[X, Y] g+g[X, Y] f.
+\end{align*}
+Thus $[X, Y]$ is a vector field and the proof of its $\CInfty$ nature we leave as a problem.
+
+For later use, notice that $[X, Y]=-[Y, X]$, $[X, X]\neq0$, and the bracket is linear in each slot with respect to addition, i.e., $[X_1+X_2,Y]=[X_1, Y]+[X_2, Y]$. However, \[[fX, g Y]=f(X g) Y-g(Y f) X+f g[X, Y]\] and it is this property that prevents the bracket mapping from being a tensor (problem \ref{pro:10}). Problem \ref{pro:13} gives a geometric interpretation of the bracket, and in section \ref{ch09:s1} there are applications involving integrability conditions. For example, if $x_1, \dots, x_n$ is a coordinate system then $\Big[\pdv{}{x_i},\pdv{}{x_j}\Big]=0$ for all $i$ and $j$ (since cross partial derivatives of $\CInfty$ functions are equal), and actually this condition on $n$ independent vector fields is sufficient to imply the fields are coordinate vector fields (section \ref{ch09:s1}).
+
+The bracket operation also satisfies the following expression which is called the \defemph{Jacobi identity}\index{Jacobi identity}, \renewcommand{\theequation}{Jacobi Identity}\begin{equation}\label{jacobi identity}
+    [X,[Y, Z]]+[Z,[X, Y]]+[Y,[Z, X]]=0
+\end{equation} where $X$, $Y$, and $Z$ are $\CInfty$ fields with a common domain.
+\end{document}

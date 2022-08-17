@@ -1,0 +1,126 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section{Invariant Viewpoint}\label{ch05:s1}
+The approach to connexions that follows is due to Koszul and is found in \cite{kobayashi1963foundations} %reference 
+and the first chapter of \cite{helgason2012differential}. The definition was motivated in \ref{ch02:s1}.
+
+Let $M$ be a $\CInfty$ $n$-manifold. A \emph{connexion}\index{connexion}, \emph{infinitesimal connexion} or \emph{covariant differentiation}\index{covariant derivative} on $M$ is an operator $D$ that assigns to each pair of $\CInfty$ fields $X$ and $Y$, with domain $A$, a $\CInfty$ field $\connection_X Y$ with domain $A$; and if $Z$ is a $\CInfty$ field on $A$ while $f$ is a $\CInfty$ real valued function on $A$, then $D$ satisfies the following four properties:
+% include labels, and make them numbers
+%rokabe: added so i can ref them in 6.2
+\begin{enumerate}[label=(\arabic*)]
+
+    
+    \item\label{eqn:ch5.1.1} $\connection_X(Y+Z) = \connection_X Y + \connection_X Z$
+    
+    \item\label{eqn:ch5.1.2} $\connection_{(X+Y)}(Z) = \connection_X Z + \connection_Y Z$
+    
+    \item\label{eqn:ch5.1.3} $\connection_{(fX)} Y = f \connection_X Y$
+    
+    \item\label{eqn:ch5.1.4} $\connection_X(fY) = (Xf)Y + f\connection_X Y$.
+    
+\end{enumerate}
+These properties imply the vector $(\connection_X Y)_m$, at a point $m \in M$, depends only on $X_m$ and the values of $Y$ on some curve that fits $X_m$. For, let $e_1,\dots,e_n$ be a $\CInfty$ base field about $m$, let $X_m = \displaystyle\sum_1^n a_i(m)(e_i)_m$ and $Y = \displaystyle\sum_1^n b_j e_j$ on the domain of the base field (intersected with the domain of $Y$). Then
+\begin{align*}
+    (\connection_X Y)_m &= \Big[\connection_X\Big(\sum_j b_j e_j\Big)\Big]_m \\
+    &= \sum_j \Big[(X_m b_j)(e_j)_m + b_j(m)\sum_i a_i(m)(\connection_{e_i}e_j)_m\Big].
+\end{align*}
+Thus $a_i(m)$, $b_j(m)$ and $X_m b_j$ determine $\connection_X Y$ completely if the fields $\connection_{e_i}e_j$ are known (see section \ref{ch05:s2})
+
+The existence of many manifolds with connexions has been illustrated by the natural induced connexions on hypersurfaces of $\bbR^n$.
+
+Let $\sigma$ be a curve in $M$ with tangent field $T$. A $\CInfty$ vector field $Y$ on $\sigma$ is \emph{parallel along $\sigma$} iff $\connection_T Y = 0$ on $\sigma$. The curve $\sigma$ is a \emph{geodesic}\index{geodesic} iff $\connection_T T = 0$ on $\sigma$. Thus a curve is a geodesic iff its tangent field is a parallel field along the curve. The following two theorems give the existence of parallel fields and geodesics. The domain of an index of summation is always $1,\dots,n$ unless otherwise specified.
+
+
+
+\begin{theorem} \label{thm:ch5.1.1} % maybe incorrect labelling
+Let $\sigma$ be a curve on $[a,b]$ with tangent $T$. For each vector $Y$ in $\tangentspace{M}{\sigma(a)}$ there is a unique $\CInfty$ field $Y(t)$ on $\sigma$ such that $Y(a) = Y$ and the field $Y(t)$ is parallel along $\sigma$. The mapping $P_{a,t} \colon \tangentspace{M}{\sigma(a)} \longrightarrow \tangentspace{M}{\sigma(t)}$ by $P_{a,t}(Y) = Y(t)$ is a linear isomorphism which is called \defemph{parallel translation along}\index{parallel translation} $\sigma$ from $\sigma(a)$ to $\sigma(t)$.
+\end{theorem}
+
+\begin{proof}
+Let $x_1,\dots,x_n$ be a coordinate system about $\sigma(a)$ with domain $U$, and let $X_1,\dots,X_n$ be the associated vector fields. We define $\CInfty$ functions $\Gamma_{jk}^i$ on $U$ by $\connection_{X_k}X_j = \sum_{i} \Gamma_{jk}^i X_i$. Let $\sigma$ map the domain $[a,b_1]$ into $U$. If $Y(t)$ is a field on $\sigma$ with domain $[a,b_1]$ then define functions $a_i(t)$ on this domain by $Y(t) = \sum a_i(t) X_i(\sigma(t))$. Let $g_i(t) = x_i \circ \sigma(t)$ on $[a,b_1]$, so $T(t) = \sum g_j'(t) X_j(\sigma(t))$, where $g_j'(t) = \dv{g_j}{t}$. If $Y(t)$ is parallel along $\sigma$, then
+\[0 = \connection_T Y = \sum_i\Big[a_i'X_i + a_i \sum_j g_j'\Gamma_{ij}^k X_k\Big].\]
+Thus $Y(t)$ parallel along $\sigma$ iff
+\begin{equation} \label{eq:ch05.5}
+\tag{5}
+\frac{\dd{a_k}}{\dd{t}} + \sum_{i,j} a_i \frac{\dd{g_j}}{\dd{t}} \Gamma_{ij}^k = 0
+\end{equation}
+for $k=1,\dots,n$ and for $t \in [a,b_1]$. The condition $Y(a) = Y$ defines $n$ initial values $a_i(a)$, and the theory of ordinary differential equations then gives a unique set of $\CInfty$ functions $a_i(t)$, satisfying the above equations on the whole domain $[a,b_1]$, since the equations are linear. This defines the parallel field $Y(t)$.
+
+For $t \in [a,b_1]$, the map $P_{a,t}$ is linear because of the linearity of the equations \ref{eq:ch05.5}.
+
+If $t$ is any number in $[a,b_1]$, we obtain $P_{a,t}$ by covering the compact set $\sigma([a,t])$ by a finite number of coordinate neighbourhoods and parallel translating through each neighbourhood via solutions of the systems \ref{eq:ch05.5}.
+\end{proof}
+
+
+
+\begin{theorem} \label{thm:ch5.1.2}
+Let $m \in M$, $X \in \tangentspace{M}{m}$. Then for any real number $b$ there exists a real number $r > 0$ and a unique curve $\sigma$, defined on $[b-r,b+r]$ such that $\sigma(b) = m$, $T_\sigma(b) = X$, and $\sigma$ a geodesic.
+\end{theorem}
+
+\begin{proof}
+Using the notation of the above proof, we must find $\CInfty$ functions $g_i(t)$ that satisfy the second order differential system,
+\begin{equation}\label{eq:ch05.6}
+\tag{6}
+\frac{\dd^2 g_k}{\dd t^2} + \sum_{i,j} \Gamma_{ij}^k \frac{\dd g_i}{\dd t} \frac{\dd g_j}{\dd t} = 0
+\end{equation}
+with initial conditions $g_i(b) = x_i(m)$ and $X = \sum g_i'(b)X_i$. The theory of ordinary differential equations provides us with the $r>0$ and the functions $g_i(t)$.
+\end{proof}
+
+
+
+The existence and uniqueness theory of ordinary differential equations will actually give us more than the conclusion of the above theorem. In particular, if we let $\sigma(t;m,X,b)$ be the curve provided by the theorem, then the mapping $\sigma$ is actually $\CInfty$ with respect to all its parameters $t$, $m$, $X$ and $b$.
+
+The \defemph{torsion tensor}\index{torsion tensor} of a connexion $\connection$ is a vector valued tensor $\Tor$ that assigns to each pair of $\CInfty$ vectors $X$ and $Y$, with domain $A$, a $\CInfty$ vector field $\Tor(X,Y)$, with domain $A$, by
+\begin{equation}\label{eq:ch05.7}\tag{7}
+\Tor(X,Y) = \connection_X Y - \connection_Y X - [X,Y].
+\end{equation}
+One easily checks that for $Z \in \vectorFields_A$ and $f \in \mathcal{F}_A$
+\begin{itemize}
+    \item $\Tor(X,Y) = -\Tor(Y,X)$,
+    \item $ \Tor(X+Y,Z) = \Tor(X,Z) + \Tor(Y,Z)$,
+    \item $\Tor(fX,Y) = f\Tor(X,Y)$ . 
+\end{itemize}
+Thus the value of $\Tor(X,Y)$ at a point $m$ depends only on $\tangentspace{X}{m}$ and $\tangentspace{Y}{m}$, and not on the fields $X$ and $Y$, by the theorem at the end of Chapter \ref{ch04}. If more than one connexion enters the discussion, we write $\Tor_\connection$ for the torsion of the connexion $D$. If $\Tor_\connection \equiv 0$, then we say that $\connection$ is \defemph{symmetric}, or \defemph{torsion free}.
+
+As far as we know, there is no nice motivation for the word ``torsion'' to descibe the above tensor. In particular, it has nothing to do with the ``torsion of a space curve''.
+
+The following definition of curvature has been motivated in section \ref{ch02:s4}.
+
+The \defemph{curvature tensor} of a connexion $\connection$ is a linear transformation valued tensor $R$ that assigns to each pair of vectors $X$ and $Y$ at $m$ a linear transformation $R(X,Y)$ of $\tangentspace{M}{m}$ into itself, we define $R(X,Y)Z$ by imbedding $X$, $Y$, and $Z$ in $\CInfty$ fields about $m$ and setting
+\begin{equation}\label{eq:ch05.8}
+\tag{8}
+R(X,Y)Z = (\connection_X \connection_Y Z - \connection_Y \connection_X Z - \connection_{[X,Y]} Z)_m.
+\end{equation}
+
+Again we check linearity over the ring of $\CInfty$ functions as coefficients on the right to determine the tensor character if $R$. Here, $R(X,Y)Z = -R(Y,X)Z$, and if $f$ is $\CInfty$, then
+\begin{align*}
+R(fX,Y)Z &= f\connection_X \connection_Y Z - (Yf)\connection_X Z - f \connection_Y \connection_X Z + (Yf)\connection_X Z - f\connection_{[X,Y]}Z \\&= fR(X,Y)Z.    
+\end{align*}
+Also
+\begin{align*}
+    R(X,Y)(fZ) &= \connection_X[(Yf)Z + f\connection_Y Z] - \connection_Y[(Xf)Z + f\connection_X Z] - ([X,Y]f)Z - f\connection_{[X,Y]}Z \\
+    &= (XYf)Z + (Yf)\connection_X Z + (Xf)\connection_Y Z + f\connection_X \connection_Y Z - (YXf)Z\\ & - (Xf)\connection_Y Z - (Yf)\connection_X Z - f \connection_Y \connection_X Z - ([X,Y]f)Z - f\connection_{[X,Y]} Z \\
+    &= fR(X,Y)Z.
+\end{align*}
+The linearity of $R(X,Y)Z$ with respect to addition (in each of its variables) is trivial to check.
+
+The tensor nature of the torsion and curvature will again be verified in section \ref{ch05:s3} with exhibition of the classical coordinate representations of these tensors.
+
+The concept of a ``connexion-preserving'' map follows naturally. Let $M$ and $M'$ be $\CInfty$ manifolds with connexions $D$ and $D'$, respectively. A $\CInfty$ map \newline $f\colon M \longrightarrow M'$ is \defemph{connexion preserving}\index{connexion preserving map} if $f_*(\connection_X Y) = \connection'_{f_* X}(f_* Y)$ for all vectors $X$ and fields $Y$. Note the right side is well-defined since $f_* Y$ is a well-defined field on some curve that fits $f_* X$. A $\CInfty$ map $f \colon M \longrightarrow M'$ is \defemph{geodesic preserving}\index{geodesic preserving map} if $f \circ g$ is a geodesic in $M'$ for each geodesic $g$ in $M$. Trivially, a connexion-preserving map is geodesic preserving.
+
+
+
+\begin{theorem} \label{thm:ch5.1.3}
+Let $f$ be a diffeomorphism of $M$ onto $M'$, and let $D'$ be a connexion on $M'$. Then there is a unique connexion $D$ on $M$ for which $f$ is connexion preserving.
+\end{theorem}
+
+\begin{proof}
+Take $X$ in $\tangentspace{M}{m}$ and let $Y$ be a field around $m$. Since $f$ is a diffeo, $f_* Y$ is a field around $f(m)$. Define $\connection_X Y = f_*^{-1}(D'_{f_*X} f_* Y)$. The verification that $D$ is a connexion is left as an exercise.
+\end{proof}
+
+
+
+If every geodesic $g(t)$ can be extended so it is a geodesc for all $t \in \bbR$, then the connexion $\connection$ is \defemph{complete}\index{complete}.
+
+\end{document}

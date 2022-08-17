@@ -1,0 +1,42 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section{Examples (Surfaces of Revolution)}\label{ch03:s4}
+Some general methods for computations with ``parameterized'' surfaces are introduced in this section. Let $A$ be an open set in $\bbR^2$ and let $\phi : A \functionMaps \bR^3$ be defined by the three real-valued slot functions $f$, $g$ and $h$, so\newline  $\phi(u, v) = (f(u,v), g(u,v), h(u,v))$ for $(u, v) \in A$. Write $T_u = (f_u, g_u, h_u)$, where $f_u = \pdv{ f}{ u}$, $T_{uv} = (f_{uv}, g_{uv}, h_{uv})$, etc. Notice $T_u = \phi_\ast \Big(\pdv{}{ u}\Big)$ is the tangent to the $u$-parameter curves on $\phi(A)$. Let us assume $T_u \times T_v \ne 0$, where ``$\times$'' is the cross-product of advanced calculus; thus $\phi$ is an immersion of $A$ into $\bbR^3$. Let $N = (T_u \times T_v)/W$ with $W = |T_u \times T_v| \ne 0$ on $A$.
+
+To compute the Weingarten map $L$ associated with $N$, notice $L(T_u) = \covariant_{T_u}(N) = N_u$. Notice
+
+\begin{align*}
+\ip {L(T_u)} {T_u} & = \ip {N_u} {T_u} \\ & = W^{-1} \ip {(T_{uu} \times T_v) + (T_u \times T_{uv}) - W_u N} {T_u} \\ & = -\ip {T_{uu}} N.
+\end{align*}
+
+Similarly, $\ip {L(T_i)} {T_j} = -\ip {T_{ij}} N$ with obvious values of $i$ and $j$. 
+
+In case $T_u$ and $T_v$ are orthogonal, 
+
+\[
+L(T_u) = -\frac {\ip {T_{u u}} N} {\ip {T_u} {T_u}} T_u - \frac {\ip {T_{u v}} N} {\ip {T_v} {T_v}} T_v
+\]
+
+and similarly for $T_v$; hence, 
+
+\[
+H = -\frac {\ip {T_{uu}} N} {\ip {T_u} {T_u}} = -\frac {\ip {T_{vv}} N} {\ip {T_v} {T_v}}
+\]
+
+and
+
+\[
+K = \frac {\ip {T_{uu}} N \ip {T_{vv}} N - \ip {T_{uv}} N^2} {\ip {T_u} {T_u} \ip {T_v} {T_v}}.
+\]
+
+A little more computation is necessary to determine the matrix for $L$ in terms of $T_u$ and $T_v$ when they are not orthogonal.
+
+Specializing further, let $f$ be a positive (at least $C^2$) function, and for $u > 0$ let 
+
+\[
+\phi(u, v) = (u \cos v, u \sin v, f(v))
+\]
+
+define a ``surface of revolution''\index{surface of revolution}. Applying the above analysis, one sees directly that $T_u$ and $T_v$ are principal vectors and $K = \dfrac{f' f''}{u[1 + (f')]^2}$ where $f'(u) = \dv{f}{u}$. To find surfaces of constant curvature one must solve the differential equation $f' f'' =\ u K [1 + (f')]^2$, a task that is left to reader via several problems. For more details and pictures, see \cite{struik1961lectures}.
+\end{document}

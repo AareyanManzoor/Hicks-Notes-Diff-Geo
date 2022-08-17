@@ -1,0 +1,85 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section*{Problems}
+All manifolds will be Riemannian unless otherwise stated.
+\begin{enumerate}
+\setcounter{enumi}{48}
+
+\item\label{pro:49} If $M$ is semi-Riemannian and $\D$ satisfies (\ref{eqn:ch6.2.2}), then $\D$ is \defemph{metric preserving}\index{metric preserving connexion}. Show that $\D$ is metric preserving iff for parallel fields $Y$ and $Z$ along a curve $\sigma$, the function $\ip{Y}{Z}$ is constant on $\sigma$.
+
+\item\label{pro:50} Let $R$ and $R'$ be two linear map valued skew-symmetric 2-covariant tensors whose corresponding $K$ and $K'$ satisfy properties \ref{enu:ch6.2.1} through \ref{enu:ch6.2.4} on p. 103. Show $K=K'$ iff $R=R'$.
+
+\item\label{pro:51} 
+\begin{enumerate}[label=(\roman*)]
+    \item If $f$ is a $\CInfty$ strictly conformal map, show $f_*$ has no kernel and preserves angles.
+    \item  If $f$ is a complex analytic map, show
+    \[\ip{f_*X_p}{f_*Y_p}=\norm{f'(p)}^2\ip{X_p}{X_p}\]
+    where $f:\bC\functionMaps\bC$.
+\end{enumerate}
+
+
+\item\label{pro:52} Let $f:M\functionMaps M'$ be a strictly conformal map with scale function $F$.
+\begin{enumerate}[label = (\roman*)]
+    \item Show $f$ is (Riemannian) connexion preserving iff $F$ is constant and $f(M)$ is flat.
+    \item If $f$ is an isometry, show $f$ preserves the curvature tensor and the Riemannian curvature.
+\end{enumerate}
+
+\item\label{pro:53} With the standard hypothesis of section \ref{ch03:s3}, show if $f$ is connexion preserving, then $M$ is a sphere, a plane, or a right circular cylinder (see  \cite{hicks1963submanifolds}).
+
+\item\label{pro:54} Let $M\subset\bR^n$ be a hypersurface, let $N$ be a $\CInfty$ unit normal, let $g\in\CInfty(M,\bR)$, and define $f_t:M\functionMaps\bR^n$ by
+\[f_t(p)=p+tg(p)N_p\]
+\begin{enumerate}
+    \item Show that
+    \[(f_t)_*X = X + t(Xg)N + tgLX\]
+    for $X$ tangent to $M$.
+    \item If $f_t$ is an isometry for $t>0$, show that $M$ is flat.
+\end{enumerate}
+ 
+
+\item\label{pro:55} Generalize the first two theorems in section \ref{ch06:s5} to the case of a $k$-submanifold that is framed in an $n$-manifold for $1<k<n$ (see \cite{hicks1963connection}). In the second theorem, if $k=2$ and $n=3$, show $\xoverline K(P)=K(P)$ iff $g$ is a line of curvature on $M$.
+
+\item\label{pro:56} If $u$ and $v$ are orthonormal coordinates with domain $A$ on a 2-manifold (thus $\pdv{}{u}$ and $\pdv{}{v}$ are orthonormal), show the coordinate curves are geodesics and $K\equiv0$ on $A$.
+
+\item\label{pro:57} (K. Leisenring)
+\begin{enumerate}[label=(\roman*)]
+    \item Show that
+\[f(u,v) = (\cos u\cos v,\cos u\sin v,\sin u\cos v,\sin u\sin v)\]
+is an isometric imbedding of the flat torus $T$ into the unit sphere $S^3$ in $\bR^4$.
+    \item  Show the total imbedded curvature of $f(T)$ in $S^3$ is a constant negative one.
+\end{enumerate}
+
+
+\item\label{pro:58} Let $M$ be connected with symmetric connexion $\D$ and let \newline$L_p:\ts Mm\functionMaps\ts Mm$ be a $\CInfty$ linear map valued function on $M$. If $\Tor_L\equiv0$ and all points are $L$-umbilic, show $L$ is a constant multiple of the identity map.
+
+\item\label{pro:59} 
+\begin{enumerate}[label=(\roman*)]
+    \item Show that every isometry of $\bR^n$ can be factored uniquely into an orthogonal map follows by a translation.
+    \item  If $f:\bR^n\functionMaps\bR^n$ is orthogonal, show $f_*=f$ in a natural way.
+
+\end{enumerate}
+
+\item\label{pro:60} If $e_1,\ldots,e_n$ is an orthonormal base field with dual base $w_1,\ldots,w_n$ and $M$ has constant Riemannian curvature $K$, show the associated curvature forms $R_{ij}=Kw_i\wedge w_j$.
+
+\item\label{pro:61} If $M$ has constant Riemannian curvature $K$ and one defines a metric on $M\times M$ by
+\[\ip{(X_1,Y_1)}{(X_2,Y_2)} = \ip{X_1}{X_2} + \ip{Y_1}{Y_2}\]
+does $M\times M$ have constant curvature?
+
+\item\label{pro:62} If $x_1,\ldots,x_n$ are coordinates on a hypersurface $U\subset\bR^{n+1}$, let
+\[x_i = \pdv{}{x_i},
+\quad g_{ij} = \ip{X_i}{X_j},
+\quad b_{ij} = \ip{LX_i}{X_j},
+\quad LX_j=\sum_i a_{ij}X_i\]
+Show that
+\begin{align*}
+a_{ij} &= \sum_r(g\inv)_{ir}b_{rj} & \text{(Weingarten equation)}\index{Weingarten map}\\
+R_{jkh}^i &= \sum_r(g\inv))_{ir}(b_{hj}b_{rk}-b_{kj}b_{rh}) & \text{(Gauss curvature equation)}\\
+\pdv{b_{ir}}{x_s} - \pdv{b_{is}}{x_r} &= \sum_r(b_{kr}\Gamma_{is}^k - b_{ks}\Gamma_{ir}^k) & \text{(Codazzi-Mainardi equation)}
+\end{align*}\index{Codazzi-Mainardi equations}\index{Gauss curvature equation}
+
+\item\label{pro:63} If $M$ is a Hausdorff $\CInfty$ manifold, $A\subset M$ is compact, $B\subset M$ is open, and $A\subset B$, show there exists $f\in\CInfty(M,\bR)$ with $f(A)=0,~f(M-B)=1$, and $0\le f(M)\le 1$.
+
+\end{enumerate}
+
+
+\end{document}

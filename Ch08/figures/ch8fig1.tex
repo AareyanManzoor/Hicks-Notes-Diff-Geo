@@ -1,0 +1,53 @@
+\documentclass[../../main]{subfiles}
+\begin{document}
+
+\begin{figure}[h!]
+\[
+\begin{tikzpicture}[decoration={
+	markings,
+	mark=at position .5 with {\arrow[]{Stealth}} }
+	]
+    \begin{scope}
+    \draw (-2,0) node {$A$};
+    
+    \draw[postaction={decorate}]
+        (-1.5,-1) to[out=45, in=190]
+        node[very near start, anchor=north west] {$\gamma_1$}
+        (0,0);
+    
+    \draw[postaction={decorate}]
+        (0,0) to[bend right=20] 
+        node[very near end, anchor=south] {$\gamma_2$}
+        (-2,1);
+    
+    \draw[very thick, ->] (0:0)--(10:1.5) node[anchor=north west] {$T_i$};
+    \draw[very thick, ->] (0:0)--(130:1.25) node[anchor=south] {$T_0$};
+    \draw[dashed] (10:0.5) arc (10:130:0.5cm) node[near start, yshift=0.5cm] {$\alpha>0$};
+    \filldraw (0,0) circle (1pt) node[anchor=north] {$p$};
+    \end{scope}
+    
+    \begin{scope}[shift={(6,0.5)}]
+    \draw (-1,0.5) node {$A$};
+    
+    \draw[postaction={decorate}]
+        (-1.5,-1) to[out=45, in=190]
+        node[very near start, anchor=south east] {$\gamma_1$}
+        (0,0);
+    
+    \draw[postaction={decorate}]
+        (0,0) to[bend right=20] 
+        node[very near end, anchor=west] {$\gamma_2$}
+        (0.25,-2);
+    
+    \draw[very thick, ->] (0:0)--(10:1.5) node[anchor=north west] {$T_i$};
+    \draw[very thick, ->] (0:0)--(-110:1.25) node[anchor=north] {$T_0$};
+    \draw[dashed] (10:0.5) arc (10:-110:0.5cm) node[midway, anchor=north west] {$\alpha<0$};
+    \filldraw (0,0) circle (1pt) node[anchor=south] {$p$};
+    \end{scope}
+\end{tikzpicture}
+\]
+\caption{Corner Angles}
+\label{fig:ch08fig1}
+\end{figure}
+
+\end{document}

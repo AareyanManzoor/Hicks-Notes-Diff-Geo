@@ -1,0 +1,48 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section{Lines of Curvature}\label{ch03:s5}
+In this section we place some results involving lines of curvature\index{line of curvature}, i.e., curves whose tangent vectors are principal directions of curvature. 
+
+\begin{definition}
+A \defemph{triply orthogonal system of surfaces} in a neighborhood $U$ of $\bbR^3$ is a family of surfaces such that through each point of $U$ there passes exactly three members of the family whose normals are mutually perpendicular. 
+\end{definition}
+
+
+
+\begin{theorem}[Dupin] \label{thm:ch3.5.1}
+Intersecting surfaces from a triply orthogonal system intersect along a line of curvature.
+\end{theorem}
+
+\begin{proof}
+Let $S_1$, $S_2$ and $S_3$ be mutually orthogonal families of surfaces with unit normals $N_i$, respectively. Let $L_i X = \covariant_X N_i$, as usual. The field $N_3$ is a tangent to the intersection of $S_1$ and $S_2$, so one must show $N_3$ is a principal direction on $S_1$ and $S_2$ or $L_i(N_3) = a_i N_3$ for $i = 1, 2$. This is equivalent to showing $L_i(N_3)$ is orthogonal to $N_1$ and $N_2$ for $i = 1, 2$. To be specific, consider $L_1(N_3)$. Since $L_1(N_3)$ is tangent to $S_1$, $\ip {L_1 N_3} {N_1} = 0$. While \[\ip {L_1 N_3} {N_2} = \ip {\covariant_{N_3} N_1} {N_2} = -\ip{-N_1} {\covariant_{N_3} N_2} = -\ip {N_1} {L_2 N_3} = -\ip{L_2 N_1} {N_3},\] since $L_2$ is self-adjoint. Thus by symmetry, as one cyclically permutes the indices, 
+\[
+\ip {L_1 N_3} {N_2} = -\ip {L_2 N_1} {N_3} = +\ip {L_3 N_2} {N_1} = -\ip {L_1 N_3} {N_2}
+\]
+Hence $\ip {L_1 N_3} {N_2} = 0$.
+\end{proof}
+
+
+
+Examples of triply orthogonal coordinate systems are given by the coordinate surfaces in rectangular coordinates, cylindrical coordinates, and spherical coordinates. Another example is provided by a system of confocal quadrics, i.e., the surfaces \[\sum\limits_{i=1}^3 \dfrac{(x_i)^2}{a_i - \lambda} = 1\text{ with }a_1 < a_2 < a_3\text{ fixed},\]are orthogonal for unequal values of $\lambda$ (\cite[p.~100]{struik1961lectures}). The classic work in this area is by Darboux. 
+
+
+
+\begin{theorem}[Liouville] \label{thm:ch3.5.2}
+A conformal diffeomorphism of $\bbR^3$ onto $\bbR^3$ maps spheres into spheres.
+\end{theorem}
+
+\begin{proof}
+Let $S$ be a sphere. For $p\in S$, take an orthogonal family of curves on $S$ and use the normal direction to $S$ to generate an orthogonal family of surfaces. Adding in the ``parallel'' surfaces to $S$, one obtains a triply orthogonal system about $p$. Let $f$ be a map in question, so $f$ maps a neighborhood of $p$ into a triply orthogonal system of surfaces about $f(p)$ on $f(S)$. By Dupin's theorem \ref{thm:ch3.5.1}, the images of our original family of curves on $S$ must be lines of curvature on $f(S)$. But we may choose an orthogonal family of curves on $S$ to pass through any orthonormal pair of vectors $X$ and $Y$ at $p$. Hence all vectors tangent to $f(S)$ and $f(p)$ are principal, and $f(p)$ is an umbillic of $f(S)$. Thus $f(S)$ is completely umbillic, and since it is compact and connected it must be a sphere.
+\end{proof}
+
+
+
+The differentiability hypothesis in the above theorem is much too strong. The theorem can be used to show a conformal map of $\bbR^3$ onto $\bbR^3$ is a combination of similarities and isometries (also due to Liouville). For more details see \cite[p.225]{guggenheimer2012differential}.
+
+We next discuss the behaviour of the normal lines (in $\bbR^3$) to a surface $M$ along a line of curvature $C$. Let $k$ be the principal curvature of $M$ along $C$ with respect to the unit normal field $N$, and let $X$ be a unit tangent to $C$. If $k \equiv 0$ on $C$, then $\covariant_X N = LX = kX = 0$ implies $N$ is a constant field (in $\bbR^3$) along $C$, and $C$ is a plane curve (see section~\ref{ch06:s3}); thus the normal lines form a ``cylinder'', a developable surface. If $k$ is a constant ($\ne 0$) along $C$, let $C(t)$ be the parameterization of $C$ by arc length in the direction $X$, so $X(t) = C'(t) = \dv{}{t}C$. Then $k X = k C'$; thus all the normal lines along the curve pass through a single point (and thus form a ``cone''). If $k \ne 0$ and $k' \ne 0$ along $C$, then let $B(t) = C(t) + f(t)N(t)$, so $B' = X + f k X + f' N$, and choosing $1 + fk = 0$ or $f(t) = -1/k(t)$, we obtain a curve $B$ whose tangent developable gives the normal lines along $C$. 
+
+When both principal curvatures $k$ and $h$ are non-zero and non-constant in a neighborhood of $p$, then the points $p - (1/k)N$ and $p - (1/h)N$ are called the centers of principal curvature of $p$ on $M$. The loci of the centres of principal curvature are called \defemph{center surfaces}\index{center surfaces} (see \cite[p.~95]{struik1961lectures}).
+
+
+\end{document}

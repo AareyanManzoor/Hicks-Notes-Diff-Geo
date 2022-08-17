@@ -1,0 +1,66 @@
+\documentclass[../../main]{subfiles}
+\begin{document}
+
+\begin{figure}[h!]
+\[
+\begin{tikzpicture}[decoration={
+	markings,
+	mark=at position .5 with {\arrow[]{Stealth}} }
+	]
+%uses calc and decoration.markings libraries
+    %first some coordinates, set at where the \alpha are
+    \coordinate (O)    at (0,0)      ;
+    \coordinate (a1)   at (270-30:2) ;
+    \coordinate (a2)   at (270+30:2) ;
+    \coordinate (a3)   at (-10:2)    ;
+    \coordinate (a4)   at (-10:3.5)  ;
+    \coordinate (a5)   at (10:4)     ;
+    \coordinate (a5half) at (30:2.5)   ;
+    \coordinate (a6)   at (90+10:2)  ;
+    \coordinate (a7)   at (180-10:2) ;
+    
+    %main mesh
+    \draw (a1)
+    \foreach \i in {(a2),(a3),(a4),(a5),(a5half),(a6),(a7),(a1)}
+    {
+        -- \i
+    };
+    \draw[postaction={decorate}] (a4)--(a5);
+    \draw[postaction={decorate}] (a5half)--(a6);
+    \foreach \i in {(a1),(a3),(a6)}
+    {
+        \draw \i to[bend right=10] (O);
+    }
+    \draw (a3) to[bend right=10] (a5half);
+    
+    %\sigma nodes
+    \foreach \i/\j in {3/40,4/180,1/270+30}
+    {
+        \draw (\j:1) node {$\sigma_\i$};
+    }
+    \draw (5:2.875) node {$\sigma_2$};
+    
+    \foreach \i/\j/\k/\x/\y in    %params got out of hand lol
+        {
+         1/270+27.5/5   / 2mm/-2mm,
+         2/0       /0   / 3mm/ 0,
+         4/-10     /22.5/ 3mm/ 0,
+         5/90-20   /35  / 0  / 3mm,
+         6/180-15  /5   /-3mm/ 0,
+         7/180+45  /12.5/ 0  /-3mm
+        }
+    {
+        \draw[dashed] ($(a\i)+(\j:0.1)$)--($(a\i)+(\j:1)$);
+        \draw[dashed,->] ($(a\i)+(\j+5:0.75)$) arc (\j+5:\j+55+\k:0.75cm) node[midway, xshift=\x, yshift=\y]{$\alpha_\i$}; %using anchor=\foreachparameter here breaks PGF for some reason so I had to hardcode the x-y shift
+    }
+    
+    %now the blob
+    \draw[rotate=5] (0.5,0) ellipse (5.5cm and 3.5cm);
+    \draw (-4,0) node {$U$};
+\end{tikzpicture}
+\]
+\caption{Fundamental Set}
+\label{fig:ch08fig2}
+\end{figure}
+
+\end{document}

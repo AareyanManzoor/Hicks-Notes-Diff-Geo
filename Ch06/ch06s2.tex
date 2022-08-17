@@ -1,0 +1,100 @@
+% READY FOR PROOFREAD
+
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section{Riemannian Connexion and Curvature}\label{ch06:s2}
+
+A \defemph{Riemannian connexion}\index{Riemannian connexion} $\D$ on a Riemannian manifold $M$ is a connexion $\D$ such that
+\begin{equation}\tag{3}\label{eqn:ch6.2.1}
+    \D_XY-\D_YX=[X,Y]
+\end{equation}
+and
+\begin{equation}\tag{4}\label{eqn:ch6.2.2}
+    Z\ip{X}{Y} = \ip{\D_ZX}{Y}+\ip{X}{\D_ZY}
+\end{equation}
+for all fields $X,Y$, and $Z$ with a common domain. The fundamental theorem of (semi-) Riemannian manifolds is the following:
+
+
+
+\begin{theorem} \label{thm:ch6.2.1}
+There exists a unique Riemannian manifold connexion on a (semi-) Riemannian manifold.
+\end{theorem}
+
+\begin{proof}
+We show a Riemannian connexion $\D$ exists and is unique on every coordinate domain $U$. The uniqueness implies $\D$ must agree on overlapping domains; hence $\D$ exists and is unique on all of $M$.
+
+Let $X_1,\ldots,X_n$ be the coordinate fields on $U$, let $g_{ij}=\ip{X_i}{X_i}$ on $U$, and let $(g\inv)_{ij}$ be the $\nth{ij}$ entry of the inverse matrix of $g=(g_{ij})$ (which is non-singular). If (\ref{eqn:ch6.2.1}) and (\ref{eqn:ch6.2.2}) hold, then
+\begin{equation}\tag{5}\label{eqn:ch6.2.3}
+    X_i\ip{X_r}{X_j}+X_j\ip{X_r}{X_i}-X_r\ip{X_i}{X_j} = 2\ip{\D_{X_i}X_j}{X_r}
+\end{equation}
+since $[X_k,X_s]=0$ for all $k,s$. By section \ref{ch05:s2}, giving $\D$ on $U$ is equivalent to giving functions $\Gamma_{jk}^i$ with
+\[\D_{X_k}(X_j) = \sum_{i=1}^n \Gamma_{jk}^iX_i\]
+and demanding properties \ref{eqn:ch5.1.1} through \ref{eqn:ch5.1.4} of section \ref{ch05:s1} are valid. Thus (\ref{eqn:ch6.2.3}) implies
+\[2\sum_k\Gamma_{ji}^kg_{kr} = X_ig_{rj}+X_jg_{ri}-X_rg_{ij}\]
+hence
+\begin{equation}\tag{6} \label{eqn:ch6.2.4}
+    \Gamma_{ij}^k = \frac12\sum_r(g\inv)_{kr}\Big(\pdv{g_{rj}}{x_i}+\pdv{g_{ri}}{x_j}-\pdv{g_{ij}}{x_r}\Big)
+\end{equation}
+This is the classical expression for the Christoffel function $\Gamma_{ij}^k$ in terms of the metric tensor. Use (\ref{eqn:ch6.2.4}) to define $\D$ on $U$. A direct check of (\ref{eqn:ch6.2.1}) and (\ref{eqn:ch6.2.2}) shows $\D$ is Riemannian, and the explicit representation (\ref{eqn:ch6.2.4}) shows $\D$ is unique.
+\end{proof}
+
+
+
+The above theorem is a special case of a more general theorem (problem \ref{pro:70}). For the rest of this section, let $M$ be a (semi-) Riemannian manifold and let $\D$ be the Riemannian connexion on $M$. The \defemph{Riemann-Christoffel curvature tensor}\index{Riemann-Christoffel curvature} (of type 0, 4) is the 4-covariant tensor
+\[K(X,Y,Z,W)=\ip{X}{R(Z,W)Y}\]
+for $X,Y,Z,W\in\tangentspace{M}{m}$.
+
+
+
+\begin{theorem} \label{thm:ch6.2.2}
+The following relations are true:
+\begin{enumerate}[label=(\alph*)]
+
+    \item $R(X,Y)Z+R(Z,X)Y+R(Y,Z)X = 0$
+    \label{enu:ch6.2.1}
+
+    \item $K(X,Y,Z,W ) =-K(Y,X,Z,W)$
+    \label{enu:ch6.2.2}
+
+    \item $K(X,Y,Z,W) = -K(X,Y,W,Z)$
+    \label{enu:ch6.2.3}
+
+    \item $K(X,Y,Z,W) = K(Z,W,X,Y)$
+    \label{enu:ch6.2.4}
+    
+\end{enumerate}
+The relation \ref{enu:ch6.2.1} is called the \emph{first Bianchi identity}\index{Bianchi Identities} and it holds for any symmetric connexion. These relations are equivalent to the ``symmetries'' of the indices of the classical $R_{ijkh}$ functions.
+\end{theorem}
+
+\begin{proof}
+For \ref{enu:ch6.2.1}, use the Jacobi identity, property (\ref{eqn:ch6.2.1}) above, and compute. For \ref{enu:ch6.2.3}, use $R(Z,W)=-R(W,Z)$. For \ref{enu:ch6.2.2}, use property (\ref{eqn:ch6.2.2}) to shift $\D$ from one slot to the other. For \ref{enu:ch6.2.4}, notice \ref{enu:ch6.2.1} implies
+\begin{equation}\tag{a'} \label{enu:ch6.2.5}
+K(X,Y,Z,W)+K(X,W,Y,Z)+K(X,Z,W,Y) = 0
+\end{equation}
+By writing (\ref{enu:ch6.2.5}) three more times, cyclically permuting the arguments of the first term one step from one line to the next, adding all four equations, and cancelling via \ref{enu:ch6.2.2} and \ref{enu:ch6.2.3}, one obtains \ref{enu:ch6.2.4}.
+\end{proof}
+
+
+
+For $X,Y\in\tangentspace{M}{m}$, let
+\begin{equation}\tag{7} \label{eqn:ch6.2.5}
+    A(X,Y) = \ip{X}{X}\ip{Y}{Y}-\ip{X}{Y}^2
+\end{equation}
+If $A(X,Y)\ne0$, let
+\begin{equation}\tag{8} \label{eqn:ch6.2.6}
+    \xoverline K(X,Y) = \frac{K(X,Y,X,Y)}{A(X,Y)}
+\end{equation}
+and by direct computations, using the above properties of $K$, one can show
+\[\xoverline K(X,Y) = \xoverline K(Y,X) = \xoverline K(rX,sY) = \xoverline K(X+tY,Y)\]
+for some $r,s,t\ne0$. Thus if $A(X,Y)\ne0$ and $ad-bc\ne0$, then
+\[\xoverline K(X,Y) = \xoverline K(aX+bY,cX+dY)\]
+and we define $K(P)$, the \defemph{Riemannian curvature of the 2-dimensional subspace $P$ of $\tangentspace{M}{m}$ spanned by $X$ and $Y$}\index{Riemannian curvature}, by
+\[K(P) = \frac{\ip{X}{R(X,Y)Y}}{A(X,Y)}\]
+In section \ref{ch02:s4}, we showed $K(\tangentspace{M}{m})=K(m)$ is the Gauss curvature of a surface $M\subset\bR^3$. In the Riemannian case, $\sqrt{A(X,Y)}$ is the \emph{area of the parallelogram spanned by $X$ and $Y$.}\index{area}
+
+Let $f:M\functionMaps M'$ be a $\CInfty$ map between Riemannian manifolds. If there is a $\CInfty$ real valued positive function $F$ on $M$ such that, for all $m\in M$ and all $X,Y\in\tangentspace{M}{m}$, we have $\ip{f_*X}{f_*Y}=F(m)\ip{X}{Y}$, then $f$ is a \emph{conformal}\index{conformal} (or \emph{strictly conformal}) map and $F$ is called the \emph{scale function}. If $F$ exists but $F\ge0$ only, then $f$ is \emph{weakly conformal}. If $F=1$, then $f$ is an \emph{isometry}\index{isometry}. If $f$ is an isometry and a diffeomorphism, then $f$ is \defemph{isometric}\index{isometric} and $M$ is \defemph{isometric} to $M'$. If $F$ is constant, then $f$ is \defemph{homothetic}\index{homothetic}.
+
+At this point, we explicitly call the reader's attention to problem \ref{pro:52}, which is considered an integral part of the theory of Riemannian manifolds.
+
+\end{document}

@@ -1,0 +1,61 @@
+% READY FOR PROOFREAD
+
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section{Cartan Viewpoint and Coordinate Viewpoint}\label{ch06:s6}
+
+In this section, let $M$ be a hypersurface of a Riemannian $n$-manifold $\xoverline M$. Let $p\in M$, let $\xoverline U$ be a special coordinate neighborhood of $p$ in $\xoverline M$ and $U$ the corresponding neighborhood of $p$ in $M$ with $U\subset\xoverline U$. Apply the Gram-Schmidt process to the coordinate vector fields on $\xoverline U$ to obtain an orthonormal base field $e_1,\ldots,e_n$ on $\xoverline U$ with $e_1(m),\ldots,e_{n-1}(m)$ a base of $\ts Mm$ for $m\in U$ and $e_n(m)$ normal to $\ts Mm$ (thus $e_n$ provides a local normal for the neighborhood $U$). Let $f:U\functionMaps\xoverline U$ be the inclusion map.
+
+Applying the results of section \ref{ch05:s2}, let $\xoverline w_1,\ldots,\xoverline w_n$ be the dual 1-forms associated with $e_1,\ldots,e_n$ and let $\xoverline w_{ij}$ for $1\le i,j\le n$ be the connexion 1-forms associated with the Riemannian connexion $\covariant$ on $\xoverline U$, so
+\begin{equation}\tag{18} \label{eqn:ch6.6.1}
+    \covariant_Xe_j = \sum_{i=1}^n \xoverline w_{ij}(X)e_i
+\end{equation}\index{Gauss equation}
+for $1\le j\le n$.
+
+Let $w_{ij}=\xoverline w_{ij}|_U$ and $w_i=\xoverline w_i|_U$ for $1\le i,j\le n$, i.e., $w_{ij}=f^*\xoverline w_{ij}$ and $w_i=f^*\xoverline w_i$. If $X$ is tangent to $M$ at $m\in U$, by the Gauss equation,
+\begin{equation} \tag{19}\label{eqn:ch6.6.2}
+    \D_Xe_j = \sum_{i=1}^{n-1}\xoverline w_{ij}(X)e_i
+\end{equation}
+\begin{equation}\tag{20} \label{eqn:ch6.6.3}
+    V(X,e_j) = \xoverline w_{nj}(X)e_n
+\end{equation}
+for $1\le j\le n-1$. Thus $w_{ij}$ for $i,j\le n$ are the connexion forms for the induced Riemannian connexion $\D$ on $M$. Moreover,
+\begin{equation}\tag{21} \label{eqn:ch6.6.4}
+    L(X) = \covariant_Xe_n = \sum_{i=1}^{n-1} w_{in}(X)e_i
+\end{equation}
+since $L(X)\in\ts Mm$, so $w_{nn}=0$ on $U$. Also $w_n=0$ on $U$ since $e_n$ is normal to $M$. Equation (\ref{eqn:ch6.6.1}) is the Gauss equation and equation (\ref{eqn:ch6.6.4}) is the Weingarten equation\index{Weingarten map}.
+
+Let $\firstForm,\secondForm,\thirdForm$ be the first, second, and third fundamental forms, respectively. Then for $X,Y\in\ts Mm$, $m\in U$,
+\begin{align*}
+    \firstForm(X,Y) &= \sum_{i=1}^{n-1} w_i(X)w_i(Y) \\
+    \secondForm(X,Y) &= \ip{LX}{Y} = \sum_{i=1}^{n-1} w_{in}(X)w_i(Y) \\
+    \thirdForm(X,Y) &= \ip{LX}{LY} = \sum_{i=1}^{n-1} w_{in}(X)w_{in}(Y)
+\end{align*}
+Notice
+\[0 = X\ip{e_i}{e_j} = \ip{\D_Xe_i}{e_j} + \ip{e_i}{\D_Xe_j} = w_{ji}(X) + w_{ij}(X)\]
+for all $X$ tangent to $M$, i.e. $w_{ji}=-w_{ij}$ for connexion forms belonging to an orthonormal base (and this again shows $w_{nn}=0$). Thus we can write $\secondForm$ and $\thirdForm$ in terms of $w_{ni}$ if we wish.
+
+Certain relations are implied by the Cartan structural equations. The equation
+\[\dd\xoverline w_n = -\sum_{j=1}^n\xoverline w_{nj}\wedge\xoverline w_j = 0\]
+(on $\ts Mm$) implies $\secondForm$ is symmetric. The equation
+\[\dd\xoverline w_{nn} = -\sum_{j=1}^n\xoverline w_{nj}\wedge\xoverline w_{jn} = 0\]
+(on $\ts Mm$) implies $\thirdForm$ is symmetric. For $i,j\le n$,
+\[\dd\xoverline w_{ij} = -\sum_{s=1}^n\xoverline w_{is}\wedge\xoverline w_{sj} + \xoverline R_{ij}\]
+when restricted to vectors on $\ts Mm$, gives
+\[f^*\dd\xoverline w_{ij} = \dd w_{ij}
+= -\sum_{s=1}^{n-1} w_{is}\wedge w_{sj} + R_{ij}
+= -\sum_{s=1}^n w_{is}\wedge w_{sj} + \xoverline R_{ij}\]
+Thus
+\begin{equation}\tag{22} \label{eqn:ch6.6.5}
+    R_{ij} = -w_{in}\wedge w_{nj} + \xoverline R_{ij}
+\end{equation}
+which is the Gauss curvature equation\index{Gauss curvature equation} from this point of view. For $i\le n$,
+\begin{equation}\tag{23} \label{eqn:6.23}
+    f^*\dd\xoverline w_{in} = \dd w_{in} = -\sum_{s=1}^{n-1} w_{is}\wedge w_{sn} + \xoverline R_{in}
+\end{equation}
+is the Codazzi-Mainardi equation\index{Codazzi-Mainardi equations}.
+
+For the coordinate viewpoint, let $x_1,\ldots,x_n$ be the special coordinate system on $\xoverline U$ such that $x_1,\ldots,x_{n-1}$ give coordinates on $U$. Let $X_i=\pdv{}{x_i}$ for $1\le i\le n-1$ and let $X_n=e_n$ be the unit normal (on $U$). Now apply the above analysis to the base field $X_1,\ldots,X_n$ (and this time  $w_{ij}\ne -w_{ji}$ necessarily since the base $X_1,\ldots,X_n$ is not necessarily orthonormal).
+
+\end{document}

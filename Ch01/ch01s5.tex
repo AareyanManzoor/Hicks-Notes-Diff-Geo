@@ -1,0 +1,46 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section{Curves and Integral Curves}\label{ch01:s5}
+
+In these notes curves will be viewed as a special case of mappings, thus we will deal with ``parameterized curves'' almost exclusively. A \defemph{curve}\index{curve} in $M$ is a $\CInfty$ map $\sigma$ from an open subset of $\bR$ into $M$. Often we speak of a curve $\sigma$ from $[a, b]$ into $M$ where $[a, b]$ is a closed interval of real numbers, and in this case it is assumed the domain of $\sigma$ is actually an open set in $\bR$ containing $[a, b]$
+
+Let $\sigma$ be a curve in $M$ with domain $U$. For each $t$ in $U$ define the \defemph{tangent}\index{tangent of a curve@tangent (of a curve)} of $\sigma$ at $t$ to be the vector $T(t)$, or $T_\sigma(t)$, at $\sigma(t)$ where $T(t)=\sigma_*\Big(\dv{}{t}\Big)_t$ and $\dv{}{t}$ denotes the usual differentiation operator of real valued $\CInfty$ functions on $\bR$. Thus if $x,\dots,x_n$ a coordinate system about $\sigma(t)$, then \[T(t)=\sum_i\Big(\dv{(x_i\circ \sigma)}{t}\Big)_t\Big(\pdv{}{x_i}\Big)_{\sigma(t)}.\] By differentiating the coordinate parameter functions $x_i\circ\sigma(t)$ one determines the coefficients of $T(t)$ with respect to the coordinate vectors associated with the coordinate system. Notice this $T(t)$ is the usual ``velocity'' vector associated with a parameterized curve in $\bR^3$.
+
+\begin{figure}[ht]
+    \centering
+    \incfig{a-curve}
+    \caption{A Curve}
+    \label{fig:a-curve}
+\end{figure}
+
+
+Having the idea of curve and tangent vector we can give a geometric description of the Jacobian $f_*$ associated with the map $f: M \functionMaps N$. For $X$ in $\tangentspace{M}{m}$ choose any curve $\sigma$ on $M$ with $\sigma(0)=m$ and $T_\sigma(0)=X$. Then $f \circ \sigma$ is a curve on $N$ with $f \circ \sigma(0)=f(m)$ and indeed $f_*X=T_{f \circ \sigma}(0)$. Thus we ``fill in the vector by a curve, map the curve to $N$, and take the new tangent vector.'' This device is very useful if one knows geometrically the behavior of certain curves; e.g., let $M=\{(x, y, z) \in \bR^3:x^2+y^2=1\}$, let $S$ be the unit sphere in $\bR^3$, and let $f: M \functionMaps S$ by $f(x, y, z)=(x, y, 0)$. The particular $f$ just defined is called the ``sphere map'' or the ``Gauss map'' from $M$ to $S$, since it essentially uses a unit normal vector field to $M$ in its definition. Its Jacobian should be trivial to compute at each point from the above remarks.
+
+We carry the idea of ``filling in a vector'' to a classical setting. Let $X$ be a $\CInfty$ vector field on the manifold $M$. A curve $\sigma$ is an \defemph{integral curve}\index{integral curve} of $X$ if whenever $\sigma(t)$ is in the domain of $X$ then $T_\sigma(t)=X_{\sigma(t)}$. Thus we say the curve $\sigma$ ``fits'' $X$, and suggest the physical example of the velocity vector field (which gives $X$) of a steady fluid flow and its streamlines (which give integral curves). The local existence of integral curves is guaranteed by the theory of ordinary differential equations.
+
+\begin{figure}[ht]
+    \centering
+    \incfig{an-integral-curve-of-a-vector-field}
+    \caption{An Integral Curve of a Vector Field}
+    \label{fig:an-integral-curve-of-a-vector-field}
+\end{figure}
+
+
+
+\begin{theorem} \label{thm:ch1.5.1}
+Let $X$ be a $\CInfty$ vector field on $M$ and let $m$ be a point in the domain of $X$. Then for any real number $b$ there exists a real number $r>0$ and a unique curve $\sigma:(b-r, b+r) \functionMaps M$ such that $\sigma(b)=m$ and $\sigma$ an integral curve of $X$.
+\end{theorem}
+
+\begin{proof}
+Let $x_1,\dots,x_n$ be a coordinate system about $m$ whose domain $U$ is contained in the domain of $X$. Let $X=\sum\limits_{i} f_{i}\Big(\pdv{}{x_i}\Big)$ define $\CInfty$ real valued functions $f_i$ on $U$. Then the condition that a curve $\sigma$ be an integral curve of $X$ becomes the condition \[\dv{(x_i\circ\sigma)}{t}=f_i\circ\sigma\] on the domain of $\sigma$, or writing (improperly) as usual $x_i(t)=x_i\circ \sigma(t)$, we have the system of first order ordinary differential equations
+\[\dv{x_i}{t}=f_i(x_1,\dots,x_n),\]
+for $i=1, \dots, n$. Apply an existence and uniqueness theorem from differential equation theory to obtain $r>0$ and functions $x_{i}(t)$ that define $\sigma$ on the specified range with the required properties.
+\end{proof}
+
+Actually the theorem from differential equations gives much more than the above conclusion; it also includes the $\CInfty$ dependence of solutions as we vary the initial parameter $b$ and the point $m$ (see section \ref{ch09:s3}). We return to this later when discussing the existence of geodesics and the exponential map (sections \ref{ch05:s1} and \ref{ch09:s3}). For global ramifications see \cite{palais1957} or \cite{lang2014introduction}.
+
+It is convenient to define a \defemph{broken $\CInfty$ curve}\index{curve (broken)} $\sigma$ on an interval $[a, b]$ to be a continuous map $\sigma$ from $[a, b]$ into $M$ which is $\CInfty$ on each of a finite number of subintervals $[a, b_{1}],[b_{1}, b_{2}], \dots,[b_{k-1}, b]$.
+
+
+\end{document}

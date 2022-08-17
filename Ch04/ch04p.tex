@@ -1,0 +1,63 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section*{Problems}
+In these problems, $W$ is an $n$-dim real vector space and $M$ is a $\CInfty$ $n$-manifold.
+
+\begin{enumerate}
+    \setcounter{enumi}{31}
+    \item\label{pro:32} Let $e_1,\dots,e_n$ be a base of $W$. For $i= 1,\dots,n$, let $w_i(e_j) = \delta_{ij}$, where $\delta_{ij} = 0$ if $i\ne j$ and $\delta_{ii} = 1$. Show $w_1,\dots,w_n$ is a base of $W^\ast$, and  \[\Theta = \sum_{i=1}^n \Theta(e_i)w_i\text{ for } \Theta \in W^\ast\]. 
+    
+    \item\label{pro:33} 
+    \begin{enumerate}[label=(\roman*)]
+        \item Let $e_1,\dots,e_n$ be a base of $W$, and let $w_1,\dots,w_n$ be the dual base of $W$, ($w_i(e_j) = \delta_{ij}$). If $\alpha \in \tensorbundle{W}{0}{2}$, show \[\alpha = \sum_{i,j=1}^n \alpha(e_i, e_j)w_i \otimes w_j;\] thus $\alpha$ is determined by its values on a basis.
+        \item If $f_1,\dots,f_n$ another base, let $\alpha(e_i,e_j) = a_{ij}$, $\alpha(f_i, f_j) = b_{ij}$ and \newline $f_j = \displaystyle\sum_{i=1}^n c_{ij}e_i$. Show \[b_{ij} = \sum_{r,s=1}^n c_{ri} c_{sj}a_{rs}\].
+    \end{enumerate}
+      
+    
+    \item\label{pro:34} 
+    \begin{enumerate}[label=(\roman*)]
+        \item Show $\tensorbundle{W}{1}{0}$ is isomorphic to $W$.
+        \item Show $\tensorbundle{W}{p}{1}$ has dimension $(p+q)n$.
+        \item Show $\formbundle{W}{p}$ has dimension $\displaystyle\binom{n}{p} = \dfrac{n!}{p!(n-p)!}$.
+    \end{enumerate}
+      
+    
+    \item\label{pro:35} Let $\alpha \InText \formbundle{W}{p}$ and $\beta \InText \formbundle{W}{q}$. If $X_1,\dots,X_{p+q} \InText W$, show
+    \[ \alpha\wedge\beta(X_1,\dots,X_{p+q}) = \sum(-1)^\pi\alpha(X_{\pi_1},\dots,X_{\pi_p})\beta(X_{\pi_{p+1}},\dots,X_{\pi_{p+q}})\]
+    where the sum is over all \emph{shuffle}\index{shuffle permutation} permutations $\pi$ for $p$ and $q$, i.e., if\newline $1\le i<j\le p$ or $p+1\le i < j \le p+q$, then $\pi_i < \pi_j$. 
+    
+    \item\label{pro:36} 
+    \begin{enumerate}[label=(\roman*)]
+        \item Show $\tensorbundle{W}{1}{1}$ is isomorphic to $\Hom_\bR(W,W)$, the set of all $\bR$-linear maps of $W$ into $W$, via the above map $B \mapsto \xoverline B$, and show this map is independent of the base $Z_i$.
+        \item Show the universal tensor $I$ in $\tensorbundle{W}{1}{1}$ corresponds to the identity map on $W$. 
+    \end{enumerate}
+    
+    \item\label{pro:37} If $e_1,\dots,e_n$ is a $\CInfty$ base field on $U \InText M$, and $w_1, \dots, w_n$ is the set of dual 1-forms on $U$, show each $w_i$ is $\CInfty$ on $U$. 
+    
+    \item\label{pro:38} Let $f$ be in $\CInfty(M,\bR)$. For $p\InText M$ and $X \InText M_p$, let $(\dd f)_p X = Xf$.\footnote{This defines a map $d : \formbundle{A}{p} \functionMaps \formbundle{A}{p+1}$ called the \emph{exterior derivative}. See sections \ref{ch05:s2} and \ref{ch07:s1}.}
+    \begin{enumerate}[label = (\roman*)]
+        \item Show $(\dd f)_p$ is a 1-form at $p$.
+        \item If $x_1,\dots,x_n$ is a coordinate system with domain $U$, show $\dd x_1,\dots, \dd x_n$ is the dual base to $\pdv{}{x_1}\dots \pdv{}{x_n}$ and \[\dd f = \sum_{i=1}^n \pdv{f}{x_n}\dd x_i\text{ on }U.\]
+        \item Show $\dd f$ is $\CInfty$ on $M$.
+        \item Show $\dd(f+g) = \dd f + \dd g$ and $\dd (fg) = f\dd g + g\dd f$ for $g \InText \CInfty(M,\bR)$.
+        \item If $y_1,\dots,y_n$ is also a coordinate system on $U$ and \[w = \sum_1^n a_i\dd x_i = \sum_1^n b_j \dd y_j,\] show \[b_j = \sum_{i=1}^n \pdv{x_i}{y_j}.\]
+        \item If $\alpha = \sum a_{ij} \dd x_i \wedge\dd x_j = \sum b_{ij} \dd y_i\wedge \dd y_j$, find expressions for $a_{ij}$ in terms of $b_{ij}$
+        \item If $g \InText \CInfty(M, M')$, show $g^*\circ \dd = \dd \circ g^*$ on $\formbundle{M'}{0}$.
+    \end{enumerate}
+    
+    
+    \item\label{pro:39} If $w_1,\dots,w_n$ is a base of $\cotangentspace{M}{p}$, show there is a coordinate system $x_1,\dots,x_n$ about $p$ with $(\dd x_i)_p = w_i$ for all $i$. 
+    
+    \item\label{pro:40} Let $\cotangentbundle{M}$ be the set of all ordered pairs $(m,w)$ for $m \in M$ and $w \in \cotangentspace{M}{m}$\index{cotangent bundle}. Let $\pi\colon \cotangentbundle{M}\functionMaps M$ by $\pi(m, w) = m$. Let $x_1,\dots,x_n$ be a coordinate system on $M$ with domain $U$, and define functions $q_1,\dots,q_n$, $p_1,\dots,p_n$ on $\pi^{-1}(U)$ by $q_j = x_j \circ \pi$ and $w = \sum p_j(m, w)\dd x_j$. With these coordinate functions $\cotangentbundle{M}$ becomes a $\CInfty$ $2n$-manifold called the \emph{cotangent bundle of $M$}. The \emph{fundamental 1-form}\index{fundamental 1-form} $W$ on $M$ is defined by $W_{(m,w)} = \pi^*w$. 
+    \begin{enumerate}
+        \item Show $W = \sum p_i\dd q_i$ on $\pi^{-1}(U)$.
+        \item Show $\dd $ is a non-degenerate 2-form; i.e., $\dd W(X,Y) = 0$ for all $Y$ implies $X = 0$. The forms $W$ and $\dd W$ are fundamental in classical mechanics (see \cite{mackey2004mathematical}). 
+    \end{enumerate}
+     
+    
+    \item\label{pro:41} Let $X$ be tangent to $B(M)$ at $b = (m\colon e_1,\dots,e_n)$. Let $\xoverline w_i(X)$ be real numbers such that $X = \sum \xoverline w_i(X) e_i$. Show $w_i$ are $\CInfty$ 1-forms on $B(M)$ (see \ref{pro:22}).
+\end{enumerate}
+
+
+\end{document}

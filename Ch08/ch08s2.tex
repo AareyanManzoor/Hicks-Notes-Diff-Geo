@@ -1,0 +1,63 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section{Index Theorem}\label{ch08:s2}
+
+This section is also based on \cite{samelson1955differential}. Let $n=2$ and let $W$ be a $C^\infty$ vector field on $M.$ If $W_m=0,$ then $m$ is a \emph{singularity} of $W.$ Assuming $W$ has only isolated singularities, we define the \defemph{index}\index{index (vector field)} of $W$ at $m$, $J(W,m)$ as follows. 
+
+Let $U$ be a coordinate domain, with coordinate radius $b>0,$ about $m$ with $W \neq 0$ on $U-\{m\}.$ Assume the coordinate map is orientation preserving, and let $\sigma_r$ be the oriented coordinate circle of radius $r$ about $m $ with $0<r<b$ and $\sigma_r$ defined on $[0,1].$ Let $X$ be a unit vector field on $U.$ Since $W$ does not vanish on $\sigma_r,$ by using the proper inverse cosine function one obtains a $C^\infty$ function $\theta$ on $[0,1]$ with $\ip{W(s)}{X(s)}=|W(s)|\cos \theta(s)$ on $[0,1].$ Let
+\begin{equation}\tag{4}\label{eqn:ch08.4}
+    2\pi J_X(W,m,r)=\theta(1)-\theta(0)
+\end{equation}
+For $0<r<b, J_X(W,m,r)$ is a continuous integer-valued function, and hence yields a constant $J_X(W,m).$ If $m$ is not a singular point, then for small $r>0,$ $\theta$ is close to the constant $\cos^{-1}(\frac{\ip{W_m}{X_m}}{|W_m|})\pmod{2\pi};$ hence $\theta(1)=\theta(0),$ and $J_X(W,m)=0.$ If $Y$ is another unit vector field on $U,$ then \[J_X(W,m)=J_Y(W,m)+J_X(Y,m)=J_Y(W,m),\] since $Y$ has no singularities. Thus $J_X(W,m)$ is independent of $X.$ An analogous argument shows $J(W,m)$ can be computed by using any simple closed $C^\infty$ curve $\sigma$ about $m$ with $\sigma$ in $U,$ and thus $J(W,m)$ is an integer depending only on $W$ and $m$ (see \ref{fig:ch08fig5}). 
+
+\subfile{./figures/ch8fig5}
+
+If $W$ has only a finite number of singularities, define the \defemph{index} of $W$, $J(W)$, by $J(W)=\sum_m J(W,m)$.
+
+
+
+\begin{theorem}[Index Theorem] \label{thm:ch8.2.1}
+If $M$ is a compact connected oriented Riemannian $2$-manifold and $W$ is a $C^\infty$ vector field on $M$ with a finite number of singularities, then the index of $W$ equals the Euler characteristic of $M.$ 
+\end{theorem}
+
+\begin{proof}
+Take an oriented fundamental chain $c=\sigma_1+\ldots+\sigma_r$ with at most one singularity $m_i$ of $W$ in the interior of each $|\sigma_i|.$ Let $\gamma_i$ be the bounding curve of $\sigma_i,$ and define 
+functions $\theta_i,\zeta_i,\xi_i$  on the domain of $\gamma_i$ so that 
+\begin{itemize}
+    \item $\theta=\zeta_i+\xi_i$,
+    \item $\theta_i$ is an angle between $W$ and $e_i$,
+    \item $\zeta_i$ is an angle between the tangent $T_i$ of $\gamma_i$
+    \item and $\xi_i$ will be piece-wise $C^\infty$ and $\theta_i$ is continuous.
+\end{itemize}
+By integrating over the pieces of $\gamma_i$ we obtain
+\begin{align*}
+    2\pi J(W,m_i)&=\int_{\gamma_i}\dv{\theta_i}{s}=\int_{\gamma_i}\dv{\zeta_i}{s}+\int_{\gamma_i}\dv{\xi}{s} \\
+    &=\int_{\gamma_i}k+\int_{\sigma_i}K+\int_{\gamma_i}\dv{\xi_i}{s}
+\end{align*}
+Adding over the $2$-cubes in $c$ gives
+\begin{equation}\tag{5}\label{eq:ch08.5}
+    2\pi J(W)=\int_{M}K
+\end{equation}
+since the integrals over the bounding curves cancel one another. By the Gauss-Bonnet theorem, $J(W)=\EulerChar(M).$
+\end{proof}
+
+
+
+Omitting the last line of the proof, we note $2\pi J(W)=\int_{M}K$ implies $J(W)$ is independent of $W$ as long as $W$ has only a finite number of singularities. Then for any oriented fundamental chain $c$ we can define a particular $W$ which has a singularity for each face, edge, and vertex with index $1,-1,$ and $1$ respectively. We indicate in \ref{fig:ch08fig6} how $W$ is defined on each $2$-cube. Actually $W$ would be precisely defined by defining a field on a neighborhood of $I^2$ and carrying this to each $|\sigma_i|$ via the map $\sigma_i.$
+
+\subfile{./figures/ch8fig6}
+
+Thus $W$ is defined by ``going out from each vertex and in to the center of each face.'' From \ref{fig:ch08fig6} we see $J(W)=V-E+F=\EulerChar_c(M).$ Thus we again prove $\EulerChar_c(M)$ is independent of $c,$ and $2\pi\EulerChar(M)=2\pi J(W)=\int_{M}K$ reproves the Gauss-Bonnet theorem. 
+
+
+
+\begin{corollary} \label{thm:ch8.2.3}
+If $M$ is a manifold as described in the theorem and there exists a non-vanishing $C^\infty$ vector field on $M,$ then $\EulerChar(M)=0.$ Thus any surface that is diffeomorphic to the $2$-sphere has no non-vanishing $C^\infty$ vector fields.
+\end{corollary}
+
+
+
+Actually, a differentiable manifold (any dimension) admits a nonzero continuous vector field if and only if its Euler characteristic is zero (see \cite[p. 203]{steenrod1951the}, and \cite[p. 549]{alexandroff1937topologie}). 
+
+\end{document}

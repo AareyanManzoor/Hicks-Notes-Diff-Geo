@@ -1,0 +1,25 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section{Coordinate Viewpoint}\label{ch05:s3}
+
+Let $U$ be a coordinate neighborhood, and let $X_{1}, \ldots, X_{n}$ be the coordinate base field associated with the system $x_{1}, \ldots, x_{n}$ on $U .$ Then $w_{i}=\dd x_{i}$ and the associated forms $w_{i j}, T_{i}$, and $R_{i j}$ define functions $\Gamma_{j k}^{i}, T_{i j k}$, and $R_{j k h}^{i}$, respectively, by
+\begin{align*}
+\Gamma_{j k}^{i}=w_{i j}(X_{k}) && \text { so } \quad\quad\quad&w_{ij}=\sum_{k} \Gamma_{j k}^{i} \dd x_{k} \\
+T_{i j k}=T_{i}(X_{j}, X_{k}) &&\text { so } \quad\quad\quad & T_{i}=\sum_{j k} T_{i j k} \dd x_{j} \otimes \dd x_k, \\
+R_{j k h}^{i}=R_{i j}(X_{k}, X_{h}) && \text { so } \quad \quad\quad& R_{i j}=\sum_{k h} R_{j k h}^{i} \dd x_{k} \otimes d x_{h^{*}}
+\end{align*}
+From the structural equations, we have
+\[
+T_{i j k}=\Big(\dd^{2} x_{i}+\sum_{r,s} \Gamma_{r s}^{i} \dd x_{s} \wedge \dd x_{t}\Big)(X_{j}, X_{k})=\Gamma_{k j}^{i}-\Gamma_{j k}^{i},
+\]
+since $\dd^{2} x_{i}=0$, and
+
+\begin{align*}
+R_{j k h}^{i} &=\Big(\dd w_{i j}+\sum_{r,s,t}\left(\Gamma_{r s}^{i} \dd x_{s}\right) \wedge\left(\Gamma_{j t}^{r} \dd x_{t}\right)\Big)(X_{k}, X_{h}) \\
+&=X_{k} w_{i j}(X_{h})-X_{h} w_{i j}(X_{k})+\sum_{r} \big(\Gamma^i_{rk} \Gamma^r_{jh}-\Gamma_{r h}^{i} \Gamma_{j k}^{r}\big)\\
+&=\pdv{\Gamma_{j h}^{i}}{x_{k}}-\pdv{\Gamma_{j k}^{i}}{x_{h}}+\sum_{r} \big(\Gamma^i_{rk} \Gamma^r_{jh}-\Gamma_{r h}^{i} \Gamma_{j k}^{r}\big)
+\end{align*}
+which are the classical coordinate components of these tensors.
+
+\end{document}

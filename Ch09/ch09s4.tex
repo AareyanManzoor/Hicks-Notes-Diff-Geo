@@ -1,0 +1,64 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section{Convex Neighborhoods}\label{ch09:s4}
+
+
+This section is devoted to proving the following theorem, due to J. H. C. Whitehead \cite{whitehead1932convex}. 
+
+
+
+\begin{theorem} \label{thm:ch9.4.1}
+Let $M$ be a $\CInfty$ manifold and $\connection$ be a $\CInfty$ connexion on $M$. Then for any point $m$ in $M$ there is a neighbourhood $U$ of $m$ that is convex; i.e., for any two points in $U$ there is a unique geodesic of $\connection$ which joins the two points and lies in $U$. \index{convex neighborhood}
+\end{theorem}
+
+\begin{proof}
+We may assume $\connection$ has zero torsion, since by section \ref{ch05:s4} there is a unique torsion-free connexion with the same geodesics. The theorem is local, and we work completely in one coordinate neighbourhood of $m$. From the previous section, we choose a normal coordinate system $x_1, x_2, \dots, x_n$ about $m$ with domain $A$, thus $x_i(m) = 0$ and $\Gamma^i_{jk}(m) = 0$ for all $i, j$ and $k$. Let 
+\begin{itemize}
+    \item $d(p,q)$ be a local metric on $A$ defined by \[d(p,q) = \sqrt{\sum_{i} (x_i(p) - x_i(q))^2},\]
+    \item $f(p) = d(p,m)$,
+    \item $B(p,c) = \{q\in A: d(p,q)<c\}$ for $p\in A$.
+    \item $\norm{X} = \sqrt{\displaystyle \sum_{i} (\dd{x_i}(X)^2)} $ for $p\in A$ and $X\in \tangentspace{M}{p}$.
+\end{itemize}
+
+By Corollary \ref{cor:ch9.3.3} in section \ref{ch09:s3}, for each $p\in A$ there is a real number $r_p>0$ so that $G$ is a diffeomorphism on the set $(q,X)$ where $q\in B(p,r_p)$ and $d(q, \exp_p{X}) < r_p$. Take $c>0$ so $\xoverline{B} = \xoverline{B}(m,c)\subset A$. For each $p\in\xoverline{B}$ we obtain an integer $r_p>0$. The family of neighbourhoods $B(p, r_p)$ for $p\in\xoverline{B}$ is a covering of the compact set $\xoverline{B}$, hence we may select a finite subcovering of neighbourhoods belonging to $p_1, p_2, \dots, p_k$. Let $s = \min\{r_1, \dots, r_k\}$. Then for any $p\in\xoverline{B}$, $\exp_p$ maps a neighbourhood $\xoverline{U}_p$ of the origin in $\tangentspace{M}{p}$ diffeomorphism onto $B(p,s)$. This follows since $p\in B(p_j, r_j)$ for some $j$ and hence $G$ is a diffeomorphism on the set $(q, X)$ for $q\in B(p_j,r_j)$ and $d(q, \exp_p{X})<r_j$. We fix $q=p$, and $\exp_p$ is a diffeomorphism of a neighbourhood $\xoverline{V}_p$ of 0 in $\tangentspace{M}{p}$ onto $B(p,r_j)$ and $s\le r_j$. We have proved the following:
+
+
+\begin{lemma}\label{lem:ch9.4.1a}
+For any $c>0$ with $\xoverline{B}(m,c)\subset A$, there exists an $s>0$ such that for $p\in \xoverline{B}(m,c)$ the map $\exp_p$ is a diffeomorphism from a neighbourhood $\xoverline{U}_p$ of 0 in $\tangentspace{M}{p}$ onto $B(p,s)\subset A$.
+
+We now prove two lemmas that complete the proof of the theorem. 
+\end{lemma}
+
+
+\begin{lemma} \label{lem:ch9.4.1b}
+There exists a real number $a$, $0<a<1$ and $\xoverline{B}(m,a)\subset A$, such that if $0<b<a$ and $g$ is a geodesic with $\tangentbundle{g}$ and $f\circ g(0)=b$, $T_{g(0)} f = 0$, then $f\circ g$ has a strict relative minimum at $g(0)$. Thus if $g$ is tangent to the ``sphere about $m$ of radius $b$'' at $g(0)$, then $g$ lies outside of $B(m,b)$ near $g(0)$.  
+\end{lemma}
+
+\begin{proof}
+We may assume $\norm{T_{g(0)}}=1$. Let $T=\displaystyle\sum_j a_j X_j$ where $X_j = \pdv{}{x_j}$ and \newline $a_j\circ g = \Big(\dv{}{t}\Big)(x_j\circ g)$, and we assume $T_{g(0)}$ is extended to a $\CInfty$ field in a neighbourhood of $g(0)$. Since $f = \sqrt{\displaystyle\sum_i x_i^2}$ we have 
+\[Tf=\sum_j a_j (X_j f) = \dfrac{1}{f} \sum_j a_j x_j\] and 
+\[T^2 f = \sum_k a_k\bigg[-\dfrac{x_k}{f^3}\bigg(\sum_j a_jx_j\bigg) + \dfrac{1}{f}\bigg(\sum_j (X_ka_j) x_j a_k\bigg)\bigg].\] At $t=0$, or at $g(0)$, $Tf = 0$; hence 
+\[T^2 f = \dfrac{1}{b} \bigg[\sum_k a_k^2 + \sum_{k, j} a_kx_j (X_k a_j)\bigg]\] But at $g(0)$,
+\[\sum_k a_k^2 = \norm{T}^2 = 1\text{ and }\sum_k a_k(X_k a_j) + \sum_{r,s} \Gamma^j_{rs} a_r a_s = 0,\] since $g$ is a geodesic. Thus 
+\[T^2 f = \dfrac{1}{b}\bigg[1-\sum_{j,r,s} x_j\Gamma^j_{rs} a_r a_s\bigg].\] Choose $a>0$ and $a<1$ so for points $p$ with $f(p)\le a$, $\norm{\Gamma^i_{jk} (p)}<1/2n^3$ for all $i$, $j$ and $k$, which is possible since $\Gamma^i_{jk}$ continuous and $\Gamma^i_{jk}(m) = 0$. Then, at $g(0)$,
+\[
+\bigg|\sum_{j,r,s} x_j \Gamma^j_{rs} a_r a_s\bigg| \le \Big(\frac{1}{2n^3}\Big) \bigg(\sum_{j,r,s} 1\bigg) \le \frac{1}{2},
+\]
+hence $T^2 f(g(0)) > 0$, which implies $f\circ g$ has a strict relative minimum at 0. 
+\end{proof}
+
+
+\begin{lemma} \label{lem:ch9.4.1c}
+Let $a$ be given by Lemme \ref{lem:ch9.4.1b} and apply Lemma \ref{lem:ch9.4.1a} with $c=a/2$ to obtain $s>0$ with $s<(2/3)a$. Then $B(m,s/2)$ is convex. 
+\end{lemma}
+
+\begin{proof}
+Choose any $p$ and $q$ in $B(m, s/2)$. By Lemma \ref{lem:ch9.4.1a} there is a geodesic $g$ defined on some interval $\sbr{0,u}$ with $g(0)=p$, $g(u)=q$, and $g(t) \in B(p,s)$ for all $t\in \sbr{0,u}$. We show $f\circ g(t) < s/2$ for all $t\in \sbr{0,u}$. Let $v$ be a number in $\sbr{0,u}$ where $f\circ g$ attains its maximum value. Then $f\circ g(v) < a$ since \[f\circ g(v) = d(m, g(v))\le d(m,p) + d(p, g(v)) \le s/2 + s<a.\] Supppose $f\circ g(v) \ge s/2$. Then $(f\circ g)'(v) = 0$ and $f\circ g(v) < a$ which implies by Lemma \ref{lem:ch9.4.1b} that $f\circ g$ has a strict relative minimum at $v$ which gives a contradiction. Hence $B(m, s/2)$ is convex. 
+\end{proof}
+
+
+Our theorem follows.
+\end{proof}
+
+\end{document}

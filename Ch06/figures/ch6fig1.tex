@@ -1,0 +1,156 @@
+\documentclass[../../main]{subfiles}
+\begin{document}
+
+\renewcommand\floatpagefraction{.1}
+% ^ ugly hack to insert a dedicated float page as soon as invoked
+% https://tex.stackexchange.com/a/318214
+\begin{figure}[p!]
+\[
+\begin{tikzpicture}
+    \begin{scope}
+    \draw (-7,0.5) node[anchor=west] {Graph of $g$:};
+    \draw[latex-latex]
+        (-5,0)--
+        (0,0) node[anchor=north east] {$0$} --
+        (5,0) node[anchor=north] {$x$};
+    \draw[latex-latex] (0,-0.25)--(0,1.5) node[anchor=east] {$y$};
+    \draw (2pt,1)--(-2pt,1) node[anchor=east] {$1$};
+    \draw[dashed] (0,1)--(5,1);
+    
+    \draw[blue] (-5,0)--(0,0);
+    \draw[blue, domain=0.01:5, samples=100]
+        plot (\x, {exp(-1/(\x*\x))} );
+    \end{scope}
+    
+    \begin{scope}[shift={(0,-2.25)}]
+    \draw (-7,0.5) node[anchor=west] {(1)};
+    \draw[latex-latex]
+        (-5,0)--
+        (0,0) node[anchor=north east] {$0$} --
+        (5,0);
+    \draw[latex-latex] (0,-0.25)--(0,1.5) ;
+    \draw (2pt,1)--(-2pt,1) node[anchor=east] {};
+    \draw[dashed] (0,1)--(5,1);
+    
+    \draw (-3,2pt)--(-3,-2pt) node[anchor=north] {$-(c-b)/2$};
+    
+    \draw[blue] (-5,0)--(-3,0);
+    \draw[blue, domain=0.01:8, samples=100]
+        plot (\x-3, {exp(-1/(\x*\x))} );
+    \end{scope}
+    
+    \begin{scope}[shift={(0,-4.5)}]
+    \draw (-7,0.5) node[anchor=west] {(2)};
+    \draw[latex-latex]
+        (-5,0)--
+        (0,0) node[anchor=north east] {$0$} --
+        (5,0);
+    \draw[latex-latex] (0,-0.25)--(0,1.5) ;
+    \draw (2pt,1)--(-2pt,1) node[anchor=east] {};
+    \draw[dashed] (0,1)--(-5,1);
+    
+    \draw (3,2pt)--(3,-2pt) node[anchor=north] {$(c-b)/2$};
+    
+    \draw[blue] (5,0)--(3,0);
+    \draw[blue, domain=0.01:8, samples=100]
+        plot (3-\x, {exp(-1/(\x*\x))} );
+    \end{scope}
+    
+    \begin{scope}[shift={(0,-6.75)}]
+    \draw (-7,0.5) node[anchor=west] {(3)};
+    \draw[latex-latex]
+        (-5,0)--
+        (0,0) node[anchor=north east] {$0$} --
+        (5,0);
+    \draw[latex-latex] (0,-0.25)--(0,1.5) ;
+    \draw (2pt,1)--(-2pt,1) node[anchor=east] {};
+    
+    \draw (-3,2pt)--(-3,-2pt);
+    \draw (3,2pt)--(3,-2pt);
+    
+    \draw[blue] (-5,0)--(-3,0);
+    \draw[blue, domain=-2.99:2.99, samples=100]
+    plot (\x, {exp(-1/pow(3+\x,2))*exp(-1/pow(3-\x,2)) } );
+    \draw[blue] (3,0)--(5,0);
+    \end{scope}
+    
+    \begin{scope}[shift={(0,-9)}]
+    \draw (-7,0.5) node[anchor=west] {(4)};
+    \draw[latex-latex]
+        (-5,0)--
+        (0,0) node[anchor=north east] {$0$} --
+        (5,0);
+    \draw[latex-latex] (0,-0.25)--(0,1.5) ;
+    \draw (2pt,1)--(-2pt,1) node[anchor=east] {};
+    
+    \draw (-3,2pt)--(-3,-2pt);
+    \draw (3,2pt)--(3,-2pt);
+    
+    %used a Taylor series from Wolfram and did some trial and error in Desmos, resulting in an approximate plot
+    %...that could've just been replaced by some generic curve
+    \draw[blue, domain=-2.1047:2.1047, samples=100]
+    plot (\x, {
+        0.6*0.35014*( 
+  1.428 
++ \x/pow(e, 2/9) 
+- (2*pow(\x,3))/(81*pow(e, 2/9)) 
+- (8*pow(\x,5))/(3645*pow(e, 2/9)) 
+    });
+    \draw[blue] (-5,0)--(-2.1047,0);
+    \draw[blue] (2.1047,0.6)--(5,0.6);
+    \end{scope}
+    
+    \begin{scope}[shift={(0,-11.25)}]
+    \draw (-7,0.5) node[anchor=west] {(5)};
+    \draw[latex-latex]
+        (-5,0)--
+        (0,0) node[anchor=north east] {$0$} --
+        (5,0);
+    \draw[latex-latex] (0,-0.25)--(0,1.5) ;
+    \draw (2pt,1)--(-2pt,1) node[anchor=east] {};
+    
+    \draw (-3,2pt)--(-3,-2pt);
+    \draw (3,2pt)--(3,-2pt);
+    
+    \draw[blue, domain=-2.1047:2.1047, samples=100]
+    plot (\x, {
+        0.35014*( 
+  1.428 
++ \x/pow(e, 2/9) 
+- (2*pow(\x,3))/(81*pow(e, 2/9)) 
+- (8*pow(\x,5))/(3645*pow(e, 2/9)) 
+    });
+    \draw[blue] (-5,0)--(-2.1047,0);
+    \draw[blue] (2.1047,1)--(5,1);
+    \end{scope}
+    
+    \begin{scope}[shift={(0,-13.5)}]
+    \draw (-7,0.5) node[anchor=west] {Graph of $f$:};
+    \draw[latex-latex]
+        (-5,0)--
+        (0,0) node[anchor=north east] {$0$} --
+        (5,0);
+    \draw[latex-latex] (0,-0.25)--(0,1.5) ;
+    \draw (2pt,1)--(-2pt,1) node[anchor=east] {};
+    
+    \draw (0.5,2pt)--(0.5,-2pt) node[anchor=north] {$b$};
+    \draw (3.5,2pt)--(3.5,-2pt) node[anchor=north] {$c$};
+    
+    \draw[blue, domain=-2.1047:2.1047, samples=100]
+    plot ({0.5+(2.1047+\x)/1.4}, {
+        0.35014*( 
+  1.428 
++ \x/pow(e, 2/9) 
+- (2*pow(\x,3))/(81*pow(e, 2/9)) 
+- (8*pow(\x,5))/(3645*pow(e, 2/9)) 
+    });
+    \draw[blue] (-5,0)--(0.5,0);
+    \draw[blue] (3.5,1)--(5,1);
+    \end{scope}
+\end{tikzpicture}
+\]
+\caption{Constructing a $C^\infty$ Step Function}
+\label{fig:ch06fig1}
+\end{figure}
+
+\end{document}

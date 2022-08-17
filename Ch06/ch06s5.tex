@@ -1,0 +1,116 @@
+% READY FOR PROOFREAD
+
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section{Hypersurfaces}\label{ch06:s5}
+
+In this section, let $M$ be a hypersurface in the Riemannian manifold $\xoverline M$ and let $N$ be a $\CInfty$ unit normal on $M$. Define the \defemph{Weingarten map}\index{Weingarten map} $L(X) = \covariant_XN$
+for $X\in\ts Mm$ (as in section \ref{ch02:s2}). The Gauss equation for $M$ now becomes
+\begin{equation}\tag{12} \label{eqn:ch6.5.1}
+    \covariant_XY=\D_XY-\ip{LX}{Y}N
+\end{equation}
+since
+\[\ip{V(X,Y)}{N} = \ip{\covariant_XY}{N} = X\ip{N}{Y}-\ip{Y}{LX}\]
+and $\ip{N}{Y}\equiv0$. Thus $V(X,Y)=-\ip{LX}{Y}N$.
+
+The fundamental forms and the imbedded geometric variants of $M$ in $\xoverline M$ are defined in terms of $L$ exactly as in section \ref{ch02:s2}. Notice in this case $V$ being symmetric is equivalent to $L$ being self-adjoint.
+
+The Gauss curvature equation (\ref{eqn:ch6.4.2}) and Codazzi-Mainardi equation (\ref{eqn:ch6.4.3}) now become
+\begin{equation}\tag{13}\label{eqn:ch6.5.2}
+    \tan\xoverline R(X,Y)Z = R(X,Y)Z - \sbr{\ip{LY}{Z}LX-\ip{LX}{Z}LY}
+\end{equation}
+and
+\begin{equation}\tag{14} \label{eqn:ch6.5.3}
+    \nor\xoverline R(X,Y)Z = -\ip{\D_XLY-\D_YLX-L[X,Y]}{Z}N
+\end{equation}
+respectively.
+
+The torsion tensor is generalized by defining for any $\CInfty$ linear transformation valued tensor $W_p:\ts Mp\functionMaps\ts Mp$, on a $\CInfty$ manifold $M$, the \defemph{torsion}\index{torsion tensor} of $W$, $\Tor_W$, by
+\begin{equation}\tag{15}\label{eqn:6.5.4}
+    \Tor_W(X,Y) = \D_XW(Y) - \D_YW(X) - W[X,Y]
+\end{equation}
+The Codazzi-Mainardi equation (\ref{eqn:ch6.5.3}) on a hypersurface becomes
+\[\nor\xoverline R(X,Y)Z = -\ip{\Tor_L(X,Y)}{Z}N\]
+Thus $\Tor_L=0$ on $M$ iff
+\begin{equation}\tag{16} \label{eqn:ch6.5.5}
+    \xoverline R(X,Y)Z = R(X,Y)Z - \sbr{\ip{LY}{Z}LX-\ip{LX}{Z}LY}
+\end{equation}
+
+The following theorem generalizes the ``theorema egregium'' of Gauss, and actually, it may be generalized to the case where $M$ is a $k$-submanifold of $\xoverline M$ (see \cite{hicks1963submanifolds}). 
+
+
+
+\begin{theorem} \label{thm:ch6.5.1}
+Let $M$ be a hypersurface in the Riemannian manifold $\xoverline M$, let $P$ be a 2-dimensional subspace of $\ts Mm$, and let $K(P)$ and $\xoverline K(P)$ be the Riemannian curvature of $P$ in $M$ and $\xoverline M$ respectively. Let $N$ be a unit $\CInfty$ normal on a neighborhood of $m$, and let $LX=\covariant_XN$ for $X\in\ts Mm$. If $X$ and $Y$ form an orthonormal base of $P$, then
+\begin{equation} \tag{17}\label{eqn:ch6.5.6}
+    \xoverline K(P) = K(P) - \big(\ip{LY}{Y}\ip{LX}{X} - \ip{LX}{Y}^2\big)
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Combine the definition of Riemannian curvature with the Gauss curvature equation (\ref{eqn:ch6.5.2}).
+\end{proof}
+
+
+
+When $\xoverline M$ is a 3-manifold, the above theorem shows the determinant of $L$ is independent of the imbedding (i.e., independent of $L$) but depends only on the Riemannian structure of $\xoverline M$ and $M$.
+
+A related result is a form of the \emph{Lemma of Synge}.
+
+
+
+\begin{theorem} \label{thm:ch6.5.2}
+Let $k>1$, and let $M$ be a $k$-submanifold of the Riemannian $n$-manifold $\xoverline M$. Let $g$ be a geodesic of $\xoverline M$ that lies in $M$, let $T$ be the unit tangent to $g$, let $X$ be a unit field tangent to $M$ which is parallel in $M$ along $g$ and orthogonal to $T$, and let $P$ be the subspace spanned by $X$ and $T$. Then $\xoverline K(P)\ge K(P)$ along $g$, and $\xoverline K(P)=K(P)$ iff $X$ is parallel along $g$ in $\xoverline M$.
+\end{theorem}
+
+\begin{proof}
+We prove the theorem for $k=n-1$, leaving the other cases to problem \ref{pro:55}. Let $N$ be a $\CInfty$ unit normal on a neighborhood of a point on $g$ and let $L(Z)=\covariant_ZN$. Here $\covariant_TT=0$, so $\D_TT=0$ and $\ip{LT}{T}=0$. By the previous theorem,
+\[\xoverline K(P) = K(P) + \ip{LX}{T}^2 \ge K(P)\]
+If equality holds then $\ip{LX}{T}=0$, so $\covariant_TX=\D_TX=0$, and conversely.
+\end{proof}
+
+
+
+There is a basic ``rigidity''\index{rigidity} theorem for hypersurfaces of $\bR^n$ which is our next goal. This theorem is a uniqueness theorem, and there is a corresponding existence theorem that is proved in Chapter \ref{ch09}. When $n=3$, the theorem was first proved by O. Bonnet (1867).
+
+Intuitively, this theorem states that if two hypersurfaces of $\bR^n$ are isometric and their normals are ``bending the same'', then by a ``rigid motion'' one can superimpose the two manifolds.
+
+
+
+\begin{theorem} \label{thm:ch6.5.3}
+Let $M$ and $M'$ be connected hypersurfaces in $\bR^n$ for $n\ge3$. Let $N$ and $N'$ be $\CInfty$ unit normal fields on $M$ and $M'$, respectively. Let $F$ be a diffeomorphism on $M$ onto $M'$ that preserves the first and second fundamental forms. Then there is an isometry $G$ of $\bR^n$ with $F=G|_M$.
+\end{theorem}
+
+\begin{proof}
+During this proof let us use ``primes'' to denote concepts belonging to $M'$ which correspond to familiar concepts for $M$; i.e., let $L(X)=\covariant_XN$ for $X\in\ts Mp$ and $L'(Y)=\covariant_YN'$ for $Y\in\ts{M'}{p'}$. The hypothesis states if $X,Z\in\ts Mp$ then
+\[\ip{F_\ast X}{F_\ast Z} = \ip XZ,
+\quad \ip{L'(F_\ast X)}{F_\ast Z} = \ip{LX}{Z}\]
+Combining these statements,
+\[\ip{L'(F_\ast X)}{F_\ast Z} = \ip{LX}{Z} = \ip{F_\ast LX}{F_\ast Z}\]
+for all $Z$, which implies $L'\circ F_\ast =F_\ast \circ L$. Thus the hypothesis could be rephrased as a demand that $F$ be an isometry of $M$ onto $M'$ whose Jacobian commutes with the Weingarten maps. Since an isometry is connexion-preserving, \[F_\ast (\D_XZ)=\D'_{F_\ast X}F_\ast Z\]
+for vectors $X$ and fields $Z$ tangent to $M$.
+
+If $p\in M$, we extend the Jacobian of $F$ to be a linear map of $\ts{\bR^n}{p}$ onto $\ts{\bR^n}{p'}$ where $p'=F(p)$. Let $W\in\ts{\bR^n}{p}$, then $W=W_t+aN_p$ where $W_t$ is tangent to $M$, so define
+\[F_\ast (W) = F_\ast (W_t) + aN'_{p'}\]
+If $X\in\ts Mp$ and $W$ is a $\CInfty$ field of $\bR^n$-vectors on $M$, then
+\[F_\ast (\covariant_XW) = \covariant_{F_\ast X}(F_\ast W)\]
+where $\covariant$ is a natural covariant differentiation on $\bR^n$. This follows since
+\[\covariant_XW = \covariant_XW_t+\covariant_X(aN) = \D_XW_t - \ip{LX}{W_t}N + (Xa)N + aLX\]
+and
+\begin{align*}
+    F_\ast (\covariant_XW) &= \D'_{F_\ast X}F_\ast Wt - \ip{F_\ast LX}{F_\ast W_t}N' + F_\ast X(a\circ F\inv)N' + (a\circ F\inv)L'F_\ast X \\
+    &= \covariant_{F_\ast X}F_\ast W_t + \covariant_{F_\ast X}((a\circ F\inv)N') \\
+    &= \covariant_{F_\ast X}F_\ast W
+\end{align*}
+
+Now let $e_1,\ldots,e_n$ be the usual orthonormal fields on $\bR^n$ and define $\CInfty$ functions $b_{rs}$ on $M$ by
+\[F_\ast (e_s)_p = \sum_{r=1}^n b_{rs}(p)(e_r)_{p'}\]
+The functions $b_{rs}$ are $\CInfty$ since $F,M,M'$ are $\CInfty$, and the $n$ by $n$ matrix $b_{rs}(p)$ is orthogonal since $F$ is an isometry. If $X\in\ts Mp$ then $\covariant_Xe_s=0$ since $e_s$ are parallel fields. Thus
+\[0 = F_\ast (\covariant_Xe_s) = \covariant_{F_\ast X}(F_\ast e_s) = \sum_{r=1}^n\sbr{(Xb_{rs})e_r+b_{rs}\covariant_{F_\ast X}e_r} = \sum_r(Xb_{rs})e_r\]
+so $Xb_{rs}=0$ for all $r,s$. Since $X$ and $p$ are arbitrary and $M$ is connected, the functions $b_{rs}$ are constant on $M$ and thus the Jacobian of $F$ is a constant orthogonal transformation relative to the natural base $e_1,\ldots,e_n$ of $\bR^n$.
+
+Next define a map $G:\bR^n\functionMaps\bR^n$ which is a translation followed by an orthogonal map by letting for one $p\in M$ and requiring $(G_\ast )_p=(F_\ast )_p$. This completely determines $G$ and the Jacobian of $G$ is constant and hence equal to the Jacobian of $F$ at all points. Since $M$ is connected, $F=G|_M$.
+\end{proof}
+
+\end{document}

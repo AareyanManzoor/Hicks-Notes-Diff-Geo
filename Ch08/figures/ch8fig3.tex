@@ -1,0 +1,69 @@
+\documentclass[../../main]{subfiles}
+\begin{document}
+
+\begin{figure}[h!]
+\[
+\begin{tikzpicture}[decoration={
+	markings,
+	mark=at position .5 with {\arrow[]{Stealth}} }
+	]
+%uses calc and decoration.markings libraries
+    %the sphere
+    \begin{scope}[scale=0.75]
+    \draw (2,0) arc (0:180:2cm);
+    \draw[thick] (-2,0) arc (180:360:2cm);
+    \draw[dashed] (-2,0) to[bend left] node[midway, above]{$A_1$} (2,0);
+    \draw[thick, postaction={decorate}] (-2,0) to[bend right] node[midway, below]{$A_2$} (2,0);
+    \end{scope}
+    
+    %and their friend, the torus
+    \begin{scope}[shift={(6.5,0)}, scale=0.75]
+    %the basic shape
+    \draw         (4,0) arc (0:180:4cm and 2cm);
+    \draw[thick] (-4,0) arc (180:360:4cm and 2cm);
+    \draw[ultra thick] 
+        (-1.5,1.33) to[bend right=20] 
+        coordinate[pos=0.2](top1)
+        coordinate[pos=0.35](top2)
+        (1.5,1.33);
+    
+    %the curve (\gamma?):
+    
+    %small center part
+    \draw[dashed]
+        (0,-0.25) arc (-90:180+45+22.5:1cm and 0.25cm) 
+        coordinate[pos=1] (cen1)
+        coordinate[pos=0] (cen2)
+        node[near start, anchor=west] {$\gamma$};
+    
+    %large background part
+    \draw[dashed] 
+        (4,0) arc (0:180:4cm and 1cm) 
+        node[very near end, anchor=north west] {$\gamma$};
+    
+    %large foreground part
+    \draw[thick, postaction={decorate}]
+        (-4,0) arc (180:180+45+22.5:4cm and 1cm)
+        coordinate[pos=1] (beta1)
+        node[very near end, anchor=north] {$\beta$};
+    \draw[thick]
+        (4,0) arc (0:-90-15:4cm and 1cm)
+        coordinate[pos=1] (beta2)
+        node[pos=0.95, anchor=north] {$-\beta$};
+    
+    %let's close the curve
+    \draw[dashed] (top1) to[bend left=10] (cen1);
+    \draw[dashed] (top2) to[bend left=10] (cen2);
+    \draw[thick, postaction={decorate}] (beta1) to[bend left=20] (top1);
+    \draw[thick, Stealth-] (beta2) to[bend left=20] (top2);
+    
+    \draw (2,1.25) node {$A_1$};
+    \draw (2,-2.25) node {$A_2$};
+    \end{scope}
+\end{tikzpicture}
+\]
+\caption{Sphere and Torus}
+\label{fig:ch08fig3}
+\end{figure}
+
+\end{document}

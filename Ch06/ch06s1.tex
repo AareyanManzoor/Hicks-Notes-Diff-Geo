@@ -1,0 +1,70 @@
+% READY FOR PROOFREAD
+
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section{Length and Distance}\label{ch06:s1}
+
+The metric tensor allows us to define lengths, angles, and distances. Let $M$ be a Riemannian manifold with metric tensor $\ip{-}{-}$. Let $X,Y\in\tangentspace{M}{m}$. Define the \emph{length}\index{length (vector)} of $X$ by $\norm{X} = \sqrt{\ip{X}{X}}$. Define the \emph{angle $\theta$ between $X$ and $Y$} (both non-zero) by letting $\ip{X}{Y} = \norm{X}\norm{Y}\cos\theta$
+where $0 \le \theta \le \pi$, and notice the \emph{Schwartz inequality} $\norm{\ip{X}{Y}} \le \norm{X}\norm{Y}$
+makes this possible.
+
+The length of a curve is now defined by integrating the length of its tangent vector field. Let $\sigma$ be a $\CInfty$ curve on $[a,b]$ with tangent field $T$ (or $T_\sigma$ if necessary). The \emph{length of $\sigma$ from $a$ to $b$}\index{length (curve)}, denoted by $\norm{\sigma}_a^b$, is defined by
+\begin{equation}\tag{1}\label{eqn:ch6.1.1}
+    \norm{\sigma}_a^b = \int_a^b \sqrt{\ip{T(t)}{T(t)}}\dd t
+\end{equation}
+The integral exists, since the integrand is continuous. The length of a broken $\CInfty$ curve is defined as the (finite) sum of the lengths of its $\CInfty$ pieces. The number $\norm\sigma_a^b$ is independent of the parameterization of its image set in the following sense: let $g$ be a $C^1$ map of $[c,d]$ into $[a,b]$ with end points mapping to end points (assume $g(c)=a$ and $g(d)=b$); then
+\begin{align*}
+    \int_a^b\sqrt{\ip{T_\sigma(t)}{T_\sigma(t)}}\dd t
+    &= \int_c^d\sqrt{\ip{T_\sigma(g(t))}{T_\sigma(g(t))}}g'(t)\dd t \\
+    &= \int_c^d\sqrt{\ip{T_{\sigma\circ g}(t)}{T_{\sigma\circ g}(t)}}\dd t
+\end{align*}
+since $T_{\sigma\circ g}(t)=g'(t)T_\sigma(g(t))$ by the chain rule. Thus we can write $\norm\sigma_q^p=\norm\sigma_a^b$ where $q=\sigma(a)$ and $p=\sigma(b)$.
+
+Classically, the metric tensor is almost always expressed by the notation \newline ``$\dd s^2 = g_{ij}\dd x_i\dd x_j$''. This means one is giving the inner product on a coordinate domain $U$ with coordinate functions $x_1,\ldots,x_n$ in terms of the coordinate bases; i.e., if $X_i=\pdv{}{x_i}$, then $g_{ij}=\ip{X_i}{X_j}$ is a $\CInfty$ function on $U$. If
+\[Y=\sum_i y_iX_i,
+\quad Z=\sum_k z_kX_k\]
+then
+\[\ip{Y}{Z} = \sum_{i,k=1}^n y_iz_kg_{ik}\]
+Thus, giving the matrix of functions $g_{ij}$ on $U$ determines the inner product on $U$. The ``\emph{ds}'' only makes sense when one is discussing a curve $\sigma$ which maps into $U$, for then let $s(t)=\norm\sigma_a^t$ and
+\[\Big(\dv{s}{t}\Big)^2 = \ip{T}{T} = \sum_{ij} g_{ij}\dv{(x_i\circ\sigma)}{t}\dv{(x_j\circ\sigma)}{t}\]
+If $M$ is connected, a \emph{pseudo-metric}\index{pseudo-metric} is defined on $M$ by
+\begin{equation}\tag{2} \label{eqn:ch6.1.2}
+    d(p,m) = \inf\brc{\norm{\sigma}:\sigma\text{ a broken $\CInfty$ curve from $p$ to $m$}}
+\end{equation}
+Trivially, $d(p,m)\ge0,~d(p,p)=0$, and $d(p,m)=d(m,p)$. The triangle inequality is left as a problem.\\
+
+
+
+\begin{theorem} \label{thm:ch6.1.1}
+The pseudo-metric topology on $M$ equals the manifold topology.
+\end{theorem}
+
+\begin{proof}
+(After \cite[p. 44]{seifert1951variationsrechnung}). Let $m\in M$, and let $x_1,\ldots,x_n$ be a coordinate system about $m$ with domain $U$. For $p\in U$ let $d_m(p)=d(m,p)$ defined above, and let $d'(p)=\sbr{\sum x_i(p)^2}^{1/2}$ where we assume $x_i(m)=0$. Choose $a>0$ so $A = \brc{p:d'(p)\le a} \subset U$. On the compact set
+\[B = \brc{(p,X_p):p\in A,~1=\sum \dd x_i(X_p)^2}\]
+the norm function
+\[\norm{X_p} = \sqrt{\bigg[\sum_{ij}g_{ij}(p)\dd x_i(X_p)\dd x_j(X_p)\bigg]}\]
+is a continuous function which takes on a maximum $R$ and a minimum $r>0$.
+
+Let $\sigma$ be any broken $\CInfty$ curve in $A$ with $\sigma(0)=m,~\sigma(b)=p$ and $(\sigma(t),T_\sigma(t))\in B$ for all $t$. Then
+\[\norm\sigma = \int_0^b \norm{T_\sigma(t)}\dd t
+\ge rb \ge rd'(p)\]
+For a broken curve $\sigma$ from $m$ to $p$ that leaves $A$, one has $\norm\sigma \ge ra \ge rd'(p)$. Hence, (1) $d(p) \ge rd'(p)$. But if $\sigma$ is a curve with $x_i\circ\sigma(t)=\frac{tp_i}{d'(p)}$, where $x_i(p)=p_i$, then
+\[\norm\sigma = \int_0^{d'(p)} \norm{T_\sigma(t)}\dd t \le Rd'(p)\]
+Hence, (2) $d(p) \le Rd'(p)$. The inequalities (1) and (2) prove the theorem.
+\end{proof}
+
+
+
+\begin{corollary} \label{cor:ch6.1.2}
+A connected Riemannian manifold $M$ is Hausdorff iff the pseudo-metric $d$ is a metric\index{metric}.
+\end{corollary}
+
+
+
+In Chapter \ref{ch10} we show that geodesics are the curves that locally minimize arc length, i.e., the length of a small piece of a geodesic in $M$ is precisely the distance between the end points of the piece.
+
+Henceforth we assume all manifolds we mention are Hausdorff. A Riemannian manifold is \emph{complete}\index{complete} if it is complete as a metric space, i.e., every Cauchy sequences must converge.
+
+\end{document}

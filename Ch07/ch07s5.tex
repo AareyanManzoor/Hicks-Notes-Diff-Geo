@@ -1,0 +1,66 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section{Integration of Forms and Stokes' Theorem}\label{ch07:s5}
+One integrates $p$-forms over $p$-chains, or singular $p$-chains, which we now define. Let $I^{p}=\{a \in \bbR^p : 0 \le a_i \le 1\}$ denote the unit $p$-square for $p>0$, and $I^0=\{0 \in \bbR\}$. A $\CInfty$ $p$-cube\index{cube} on $M$ is an $M-$valued $\CInfty$ function defined on an open neighbourhood of the unit $p$-square $I^p$ in $\bbR^p$. A real $\CInfty$ $p$-chain\index{chains} $c$ is a finite formal linear combination of $\CInfty$ $p$-cubes with real coefficients, thus $c=r_{1} \sigma_{1}+r_{2} \sigma_{2}+\ldots+r_{k} \sigma_{k}$ where $r_{j} \in \bbR$ and $\sigma_{j}$ are $\CInfty$ $p$-cubes. The set $C_{p}(M, \bbR)$ of all real $\CInfty$ $p$-chains is an abelian group (actually an $\bbR$-module) where one defines addition by adding the coefficients of corresponding $p$-cubes.
+
+There are fancier ways of defining $C_{p}(M, \bbR)$. Let $Q_{p}$ be the set of $\CInfty$ $p$-cubes on $M$. Then $C_{p}(M, \bbR)$ is isomorphic to set of all functions mapping $Q_{p}$ into $\bbR$ which are zero except on a finite number of elements, and the addition and scalar multiplication structure on this function space is obvious. Similarly, one could define $C(M, \bbZ)$, the set of integral $\CInfty$ $p$-chains or $\CInfty$ $p$-chains over the integers. Then $C_{p}(M, \bbR)=\bbR \otimes_{\bbZ} C_{p}(M, \bbZ)$. More generally one could define $\CInfty$ $p$-chains over any ring $A$ with an identity element, and then by using the tensor product obtain the $A$-module of $\CInfty$ $p$-chains on $M$ over any $A$-module. There are corresponding groups obtained from $C^r$ $p$-chains for any integer $r \geq 0$. These groups are fundamental objects of the \defemph{cubical singular homology theory}\index{homology} for $M$ and are studied in algebraic topology, (see Eilenberg and Steenrod). Because of our differential geometry bias, we restrict ourselves to real $\CInfty$ $p$-chains, and let $\mathrm{C}_{p}=\mathrm{C}_{p}(M, \bbR)$.
+
+The \defemph{support of a $p$-cube}\index{support} $\sigma$ is the set $|\sigma|=\sigma\left(I^{p}\right)$, the image of $I^{p}$ under $\sigma$. The \defemph{support of a $p$-chain $c$} is the set $|c| = U_i |\sigma_i|$ for $\sigma_i$ in $c$, where we say $\sigma_i \in c$ if the coefficient of $\sigma_i$ is non-zero, i.e., adopting the functional viewpoint $c(\sigma_i) \ne 0$ iff $\sigma_i \in c$.
+
+To define the \defemph{boundary map}\index{boundary map} $\partial: C_{p} \rightarrow C_{p-1}$, define maps $\alpha_{i}^{1}$ and $a_{i}^{0}$ from $I^{p-1}$ into $I^{p}$ for $i=1, \ldots, p$ by
+
+\begin{equation}\tag{16}\label{eq:ch07.16}
+a_{i}^{\varepsilon}\left(t_{1}, \ldots, t_{p-1}\right) \in\left(t_{1}, \ldots, t_{i-1}, \epsilon, t_{i}, \ldots, t_{p-1}\right)
+\end{equation}
+
+where $\epsilon=1$ or 0. If $\sigma$ in $Q_{p}$, define \[\partial \sigma=\sum_{1}^{p}(-1)^{i+1}\left(\sigma \circ a_{i}^{1}-\sigma \circ a_{i}^{0}\right),\] and call the $(n-1)$-cubes $\sigma \circ \alpha_{i}^{1}$ and $\sigma \circ \alpha_{i}^{0}$ \defemph{faces of $\sigma$.} We extend $\partial$ to all of $C_{p}$ by demanding it be linear, i.e., \[\partial\left(c_{1}+c_{2}\right)=\partial c_{1}+\partial c_{2}\text{ and }\partial(r c)=r \partial c \text{ for }r \in\bbR\]. A straightforward computation shows $\partial^{2}=0$. 
+
+For $p>0$, let $\sigma$ be a $\CInfty$ $p$-cube, let $w$ be a $p$-form, and let $u_{1}, \ldots$, $u_{p}$ be the natural coordinate function on $\bbR^{p}$. Since $\sigma^\ast w$ is a $p$-form on a neighborhood of $I^{p}$, we may define a $\CInfty$ function $f$ on $I^{p}$ by $\sigma^\ast w=f d u_{1} \wedge d u_{2} \wedge \ldots \wedge d u_{p}$. Then
+\[\tag{17}\label{eq:ch07.17}
+\int_{\sigma} w \equiv \int_{I} p^\ast w \equiv \int_{I} p
+\]
+where the integral on the right is the standard Riemann integral of $f$ over $I^{p}$ developed in advanced calculus.For a $p$-chain \[c=\sum_{1}^{k_{i}} \sigma_{i} \implies \int_{c} w=\sum_{1}^k r_i \int_{\sigma_{i}} w;\]thus for fixed $w$, the integral over $w$ is an $\bbR$ -homomorphism of $C_{p}$ into $\bbR$. Since $\sigma^\ast$ is linear, it is trivial that $\int_{c}\left(w_{1}+w_{2}\right)=\int_c w_{1}+\int_{c} w_{2}$ for $p$-forms $W_{i}$ and a $p$-chain $c$.
+
+For $p=0$, let $f$ be a function on $M$ and $\sigma_{m}$ the 0 -cube with $\sigma_{m}(0)=m$, then \[\int_{\sigma} f=f(m)=\sigma_{m}^\ast f(0),\] and we extend the integral of $f$ over any real $0$-chain to be linear (as extended above).
+
+Let $C^{p} = \Hom_{\bbR}(C_{p}, \bbR)$, which is the $\bbR$-module of all $R$-linear homomorphisms of $C_{p}$ into $\bbR$. The set $C^{p}$ is called the module of real $\CInfty$ $p$-cochains\index{cochains} of $M$. The adjoint $\delta$ of the boundary operator $\partial$ is called the coboundary operator and is defined by $\delta f(c)=f(\partial c)$ for $p$-cochain $f$ and a $(p+1)$-chain $c$. Thus $\delta: C^{p} \rightarrow C^{p+1}$ and $\delta^{2}=0$.
+
+We define the \defemph{Stokes' map}\index{Stokes' map} $S: \formbundle{M}{p} \rightarrow C^p$ which maps $p$-forms on $M$ into $\CInfty$ $p$-cochains on $M$ by $[S(w)](c)=\int_c w$, for $c$ in $C_{p}$ The following theorem shows the Stokes' map commutes with the differential coboundary operator, i.e., $S \circ \dd = \delta \circ S$.
+
+
+
+\begin{theorem}[Stokes' Theorem] \label{thm:ch7.5.1}
+Let $w$ be a $\CInfty$ $p$-form and $\sigma$ be a $\CInfty$ $(p + 1)$-cube, then
+
+\begin{equation}\tag{18}\label{eq:ch07.18}
+\int_{\sigma} \dd w=\int_{\partial \sigma} w
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Define $\CInfty$ functions $a_{1}, \ldots, a_{p+1}$ on $I^{p+1}$ by \[\sigma^\ast w=\sum_1^{p + 1} a_{i} \dd u_{1} \wedge \dd u_2 \wedge \ldots \wedge \widehat {\dd u_i} \wedge \ldots \wedge \dd u_{p + 1}.\] Then
+\begin{align*}
+\dd(\sigma^\ast w) &= \sum_{i=1}^{p+1}\bigg(\sum_{i=1}^{p+1} \frac{\partial a_{i}}{\partial u_{j}} d u_{j}\bigg) \wedge \dd u_{1} \wedge \ldots \wedge \widehat {\dd u_i} \wedge \ldots \wedge \dd u_{p + 1} \\ &=\bigg[\sum_{i=1}^{p+1}(-1)^{i+1} \frac{\partial a_{i}}{\partial u_{i}}\bigg] \dd u_{1} \wedge \cdots \wedge \dd u_{p+1}.
+\end{align*}
+Hence
+\begin{align*}
+\int_{\sigma} \dd w & = \int_{I^{p+1}} \sigma^\ast \dd w = \int_{I^{p+1}} d \sigma^\ast w = \int_{I^{p+1}}\bigg[\sum_1^{p + 1} (-1)^{i + 1} \frac{\partial a_{i}}{\partial u_{i}}\bigg] \\ & = \sum_{1}^{p+1}(-1)^{i+1}\bigg[\int_{0}^{1} \int_{0}^{1} \cdots \int_{0}^{1} \frac{\partial a_{i}}{\partial u_{i}} \dd u_{1} \dd u_{2} \ldots \dd u_{p+1}\bigg] \\ & = \sum_{1}^{p+1}(-1)^{i+1} \int_{I^{p}}\left(a_{i} \circ \alpha_{i}^{1}-a_{i} \circ a_{i}^{0}\right)
+\end{align*}
+where we use Fubini's theorem and integrate first with respect to $i$th coordinate to obtain the last equality.
+
+For the other side we must compute $\displaystyle\int_{\sigma \circ \alpha_{i}^{\varepsilon}}w=\int_{I^{p}}(\alpha_{i}^{\varepsilon})^\ast \circ \sigma^\ast(w)$ for $\epsilon=0$ or $1$. Notice \[(\alpha_{i}^{\varepsilon})^\ast \dd u_{j}=\dd((\alpha_{i}^{\varepsilon})^\ast u_{j})=\dd(u_{j} \circ a_{i}^{\varepsilon})=\begin{cases}\dd u_{j} & j<i \\ 0&j=i \\ \dd u_{j-1} & j>i \end{cases}\] Thus $\left(a_{i}^{\varepsilon}\right)^\ast \sigma^\ast w = \left(a_{i} \circ \alpha_{i}^{\varepsilon}\right) \dd u_{1} \wedge_{\ldots} \wedge \dd u_{p}$ and
+
+\begin{align*}
+\int_{\partial \sigma} w & = \sum_{i=1}^{p+1}(-1)^{i+1}\left[\int_{\sigma \circ \alpha_{i}^{1}} w-\int_{\sigma \circ \alpha_{i}^{0}} w\right] \\ & = \sum_{i=1}^{p+1}(-1)^{i+1} \int_{I^{p}}\left(a_{i} \circ \alpha_{i}^{1}-a_{i} \circ \alpha_{i}^{0}\right)
+\end{align*}
+which proves the desired equality.
+\end{proof}
+
+
+
+We remark that Stokes' theorem is simply a generalized ``fundamental theorem of calculus.'' Let $f: M \rightarrow M^{\prime}$ be a $\CInfty$ map, let $w$ be a $p$-form on $M^{\prime}$ and $\sigma$ a $p$-cube in $M$, then it is trivial to show $\int_{f \circ \sigma} w=$ $\int_{\sigma} f^\ast$, which is essentially the classical substitution rule that deals with the behavior of integrals with respect to mappings.
+
+The Stokes' map induces a map at the cohomology level that yields an algebra-isomorphism of the differential cohomology groups of a manifold with the real singular cohomology groups. This fact is called the de Rham theorem (see \cite{Weil1952} and problem~\ref{pro:71}).
+
+\end{document}

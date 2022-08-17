@@ -1,0 +1,70 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section{The Gauss Equation}\label{ch02:s3}
+
+As in the last section, let $M$ be a hypersurface of $\bR^{n}$, let $\covariant$ be the natural connexion on $\bR^{n}$, let $N$ be a unit normal field that is $\CInfty$ on $M$, and let $L(X)=\covariant_{X} N$ for $X$ tangent to $M$. Let $U$ and $\xoverline{U}$ be special coordinate neighborhoods of a point $p$ in $M$ and $\bR^{n}$ respectively, and let $\xoverline{Z}$ be a $\CInfty$ extension to $\xoverline{U}$ of a $\CInfty$ field $Z$ on $U$ as usual.
+
+If $Y$ is a $\CInfty$ field about $p$ in $M$, and $X$ in $\tangentspace{M}{p}$, define $\connection_{X} Y$ by
+\begin{equation}\tag{8}\label{eqn:ch02.3.8}
+  \connection_{X} Y=\covariant_{X} Y-\langle L X, Y\rangle N.  
+\end{equation}
+
+
+This is the \defemph{Gauss equation}\index{Gauss equation}. First notice $\connection_{X} Y$ is in $\tangentspace{M}{p}$ for
+
+\[
+\langle \connection_{X} Y, N\rangle=\langle\covariant_{X} Y, N\rangle + \langle\covariant_{X} N, Y\rangle=X\langle Y, N\rangle=0.
+\]
+since $\langle Y, N\rangle=0$ in a neighborhood of $p$. Next notice if $X, Y$ are $\CInfty$ on $U$, then $\covariant_{X} Y=\left.\covariant_{\xoverline{X}} \xoverline{Y}\right|_{U}$ and $\langle L X, Y\rangle N$ are both $\CInfty$ on $U$, so $\connection_{X} Y$ is $\CInfty$ on $U$; because of this, we say $\connection$ is $\CInfty$.
+
+Thus $\connection$ becomes a candidate to define a \defemph{covariant differentiation}\index{covariant derivative} or a \defemph{connexion}\index{connexion} on the submanifold $M$ which is defined very simply from the natural connexion on $\bR^{n}$ by decomposing $\covariant_{X} Y$ into its unique tangent and normal components relative to the tangent space of $M$. One must now check if the properties \ref{enu:ch02.1.1}, \ref{enu:ch02.1.2}, \ref{enu:ch02.1.3} and \ref{enu:ch02.1.4} are satisfied for $\connection$, and indeed they are, since they are satisfied for $\covariant$ and the second fundamental form is bilinear. The properties \ref{enu:ch02.1.5} and \ref{enu:ch02.1.6} are also valid for $\connection$, so $\connection$ is the natural Riemannian connection associated with the induced metric (first fundamental form) on $M$ (see Chapter \ref{ch06}). The proof of the first four properties is left to the reader, but we now show \ref{enu:ch02.1.5} and \ref{enu:ch02.1.6}. Let $Y$ and $Z$ be fields on a neighborhood $U$ about $p$, let $\xoverline{Y}$ and $\xoverline{Z}$ be extensions to $\xoverline{U}$, and let $X$ be in $\tangentspace{M}{p}$. Then
+
+\[
+\begin{aligned}
+(\connection_Y Z - \connection_Z Y)_p &= (\covariant_Y Z-\covariant_Z Y)_p = (\covariant_{\xoverline{Y}}  \xoverline{Z} - \covariant_{\xoverline{Z}} \xoverline{Y})_p\\
+&= [ \xoverline{Y}, \xoverline{Z} ]_p = [Y, Z]_p
+\end{aligned}
+\]
+
+and
+\[
+\begin{aligned}
+X\langle Y, Z\rangle &=X\langle\xoverline{Y}, \xoverline{Z}\rangle=\langle\covariant_{X} \xoverline{Y}, \xoverline{Z}\rangle+\langle\xoverline{Y}, \covariant_{X} \xoverline{Z}\rangle\\
+&= \langle \connection_{X} Y, Z_{p}\rangle+\langle Y_{p}, \connection_{X} Z\rangle .
+\end{aligned}
+\]
+
+Thus the natural metric tensor and connexion on $\bR^n$ induce a Riemannian metric and Riemannian connexion on the hypersurface $M$.
+
+\begin{figure}[ht]
+    \centering
+    \incfig{the-decomposition-of-dxy}
+    \caption{The Decomposition of $\covariant_XY$}
+    \label{fig:the-decomposition-of-dxy}
+\end{figure}
+
+
+
+
+Since the Gauss equation induces a connexion $\connection$ on $M$, one can define parallel vector fields along a curve and geodesics exactly as in Section 2.1. If $\sigma$ is a $\CInfty$ curve in $M$ with tangent $T$ and $Y$ is a $\CInfty$ field along $\sigma$, then $Y$ is \defemph{parallel along}\index{parallel translation} $\sigma$ if $\connection_{T} Y=0$ along $\sigma$. The curve $\sigma$ is a geodesic\index{geodesic} if $\connection_{T} T=0$ along $\sigma$.
+
+Application of the Gauss equation to the tangent field along a curve gives two results immediately.
+
+\begin{theorem} \label{thm:ch2.3.1}
+Let $M$ be a hypersurface in $\bR^n$. A curve in $M$ is a geodesic in $\bR^n$ iff it is an asymptotic geodesic in $M$. A curve in $M$, which is not a geodesic in $\bR^n$, is a geodesic in $M$ iff $\covariant_T T$ is normal to $M$ along the curve (whose tangent is $T$).
+\end{theorem}
+
+\begin{proof}  Let $g$ be a curve in $M$ with tangent $T$. The Gauss equation implies $\covariant_T T = \connection_T T - \langle L T, T\rangle N$. Thus $\covariant_T T=0$ iff $\connection_T T = 0$ and $\langle L T, T\rangle=0$. And $\connection_T T=0$ iff $\covariant_T T$ is normal to $M$.
+\end{proof}
+
+\begin{corollary}
+If $M_1$ and $M_2$ are two hypersurfaces of $\bR^n$ and $g$ is a geodesic on both hypersurfaces that is not a geodesic in $\bR^n$, on any parameter interval, then $M_1$ and $M_2$ are tangent along $g$ (i.e., their tangent spaces coincide along $g$).
+\end{corollary} 
+
+\begin{proof}
+Let $T$ be the tangent to $g$. Since $\covariant_T T \neq 0$ on any parameter interval, the normals to $M_1$ and $M_2$ determine the same subspace on a dense set of the parameter domain. Hence $M_{1}$ and $M_{2}$ are tangent along $g$.
+\end{proof}
+
+
+\end{document}

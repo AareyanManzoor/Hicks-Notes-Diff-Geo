@@ -1,0 +1,56 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section{Exterior Derivative}\label{ch07:s1}
+For $p \ge 0$ we define the \defemph{exterior differentiation}\index{exterior derivative} map $\dd : \formbundle{A}{p} \functionMaps \formbundle{A}{p+1}$ where $\formbundle{A}{p}$ is the set of $C^\infty$ $p$-forms on $A$. If $f \in \formbundle{A}{0}$ and $X$ is a $\CInfty$ field on $A$, then $\dd f(X) = X f$. For $p > 1$, letting $w$ be a $(p - 1)$ form on $A$ and $X_1, \ldots, X_p$ be $\CInfty$ fields on $A$, then
+\begin{equation}\tag{1}
+\label{eqn:ch07.1}
+\begin{split}
+\dd w(X_1, \ldots, X_p) & = \sum_{j = 1}^p (-1)^{j + 1} X_j W(X_1, \ldots, \widehat X_j, \ldots, X_p) + \\
+& \sum_{i < j} (-1)^{i + j} w([X_i, X_j], X_1, \ldots, \widehat X_i, \ldots, \widehat X_j, \ldots, X_p),
+\end{split}
+\end{equation}
+where $\widehat X$ indicates that the field $X$ is omitted as an argument.
+
+\par Notice that the definition is consistent with the partial definition in section~\ref{ch05:s2}. One proves that $\dd w$ is in $\formbundle{A}{p}$ by using the characterization theorem in Chapter~\ref{ch04}. We outline the argument. That $\dd w$ is linear with respect to addition is trivial. That $\dd w$ is alternating can be shown by switching two arguments and examining the terms that don't immediately change signs (this must be done carefully). That $\dd w$ is linear over the ring $\formbundle{A}{0}$ then need only be checked in one slot.
+
+
+
+\begin{proposition} \label{prop:ch7.1.1}
+The operation $d$ has the following properties:
+
+\begin{enumerate}[label=(\arabic*)]
+	\item $\dd(w + v) = \dd w + \dd v$, where $w$ and $v$ are in $\formbundle{A}{p}$.\label{enu:ch07.1.1}
+	\item $\dd(w \wedge v) = ((\dd w) \wedge v) + (-1)^p (w \wedge \dd v)$, for $w$ in $\formbundle{A}{p}$ and $v$ any form on $A$. (Any operator with this property is called an \defemph{anti-derivation}.)\label{enu:ch07.1.2}
+	\item $\dd^2 = \dd \circ \dd = 0$.\label{enu:ch07.1.3}
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Property \ref{enu:ch07.1.1} follows trivially from the definitions of $\dd$ and addition of functionals. For the other two properties we first obtain a local representation of $\dd$. Let $x_1, \ldots, x_n$ be a coordinate system on an open set $U$, and let $X_i = \pdv{}{x_i}$. Then on $U$, a $(p - 1)$-form $w$ may be represented by \[w = \sum a_{i_1, \ldots, i_{p - 1}} \dd x_{i_1} \wedge \ldots \wedge \dd x_{i_{p - 1}},\]where the sum is over all indices such that $1 \le i_j \le n$ and $i_1 < i_2 < \ldots < i_{p - 1}$ and $a_{i_1, \ldots, i_{p - 1}} = w(X_{i_1}, \ldots, X_{i_{p - 1}})$. \[\dd w = \sum d a_{i_1, \ldots, i_{p - 1}} \wedge \dd x_{i_1} \wedge \ldots \wedge \dd x_{i_{p - 1}},\] which is proved by applying both sides to $(X_{k_1}, \ldots, X_{k_p})$ for $k_1 < k_2 < \ldots < k_p$. Since $[X_r, X_s] = 0$, \[\dd w(X_{k_1}, \ldots, X_{k_p}) = \sum_{j = 1}^p (-1)^{j + 1} X_{k_j} a_{k_1, \ldots, \widehat k_j, \ldots, k_p},\] while 
+\begin{align*}
+    \Big[\sum \dd a_{i_1, \ldots, i_{p - 1}}& \wedge \dd x_{i_1} \wedge \ldots \wedge \dd x_{i_{p - 1}}\Big](X_{k_1}, \ldots, X_{k_p})\\
+    &= \dd a_{k_2, \ldots, k_p}(X_{k_1}) - \dd a_{k_1, \widehat k_2, \ldots, k_p}(X_{k_2}) + \ldots= \dd w(X_{k_1}, \ldots, X_{k_p}).
+\end{align*}
+
+\par To prove property \ref{enu:ch07.1.2}, first let $f$ and $g$ be functions in $\formbundle{A}{0}$ and note \[\dd(fg) = (\dd f) g + f (\dd g)\] follows from the derivation property of vectors. Next observe that because of (1) and the local representation above, one need only verify (2) for forms of the type \[w = f \dd x_1 \wedge \ldots \wedge \dd x_p\text{ and } v = g \dd y_1 \wedge \ldots \wedge \dd y_r,\] where $x_i$ and $y_i$ are functions chosen from the members of a coordinate system. Then \[w \wedge v = fg \dd x_1 \wedge \ldots \wedge \dd x_p \wedge \dd y_1 \wedge \ldots \wedge \dd y_r,\] and 
+\begin{align*}
+  \dd (w \wedge v) &= \dd(fg) \wedge \dd x_1 \wedge \ldots \wedge \dd y_r\\ &= (g \dd f + f \dd g) \wedge \dd x_1 \wedge \ldots \wedge \dd y_r\\ &= \dd w \wedge v + (-1)^p w \wedge \dd v.  
+\end{align*}
+
+
+\par For property \ref{enu:ch07.1.3} we first show $\dd^2 f = 0$ for a $\CInfty$ function $f \in \formbundle{A}{0}$. Locally, \[\dd f = \sum_{j = 1}^n \pdv{f}{x_j} \dd x_j,\]so 
+\begin{align*}
+    \dd^2 f &= \sum_{i, j = 1}^n \dfrac{\partial^2 f}{\partial x_i \partial x_j} \dd x_i \wedge \dd x_j \\&= \sum_{i < j} \bigg[\dfrac{\partial^2 f}{\partial x_i \partial x_j} - \dfrac{\partial^2 f}{\partial x_j \partial x_i}\bigg] \dd x_i \wedge \dd x_j\\ &= 0.
+\end{align*}
+For any $w$ we may represent $\dd w$ locally as a sum of products of $\dd f$'s for functions $f$; hence by \ref{enu:ch07.1.2} each term in $\dd^2 w$ has a factor $\dd^2 f = 0$, so $\dd^2 w = 0$.
+\end{proof}
+
+
+
+Letting $\formbundle{M}{} = \sum_{k = 0}^n \formbundle{M}{k}$ be the direct sum of the modules of forms of homogeneous type, endowed with its exterior multiplication structure and exterior derivative operator $d$, one obtains a graded differential algebra which is called the \defemph{Cartan differential algebra}\index{Cartan differential algebra} of $M$. If $f : M \functionMaps N$ is $\CInfty$, then $\dd \circ f^\ast = f^\ast \circ \dd$ on $\formbundle{N}{}$, and it is sufficient to check this only on $0$-forms and $1$-forms.
+
+There are other ways to define $\dd$, indeed one natural way is to define $\dd$ via a local representation, get the desired properties, and then show it is independent of the local representation (see \cite[p.~146]{chevalley1946theory}). Then the invariant formula we took as definition must be verified. Our treatment in this and the following sections is similar to that of \cite{palais1954a}.
+
+
+\end{document}

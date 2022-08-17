@@ -1,0 +1,37 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section{Isothermal Coordinates and Riemannian Surfaces}\label{ch09:s6}
+
+The principal reference for this section is  \cite{samelson1955differential}. Let $M$ be a Riemannian 2-manifold. 
+
+Let $x$, $y$ be an arbitrary coordinate system on a neighbourhood $U$ of $M$. We seek functions $f$ and $g$ so the map $p \functionMaps (f(p), g(p))$ will define a conformal coordinate system about $m$ in $U$. If $f$ and $g$ exist, let 
+\begin{itemize}
+    \item $E = \Bip{\pdv{}{f}}{\pdv{}{f}}$, 
+    \item $F = \Bip{\pdv{}{f}}{ \pdv{}{g}}$,
+    \item and $G = \Bip{\pdv{}{g}}{\pdv{}{g}}$. 
+\end{itemize}
+ Then \[\grad f = \dfrac{1}{W^2}\Big(G\pdv{}{f} - F\pdv{}{g}\Big)\]
+ where $W = \sqrt{EG - F^2}$. If $f$ and $g$ are orthogonal coordinates, then $F=0$. If they are also conformal coordinates, then $E=G$ and $\norm{\grad f}^2 = 1/E = \norm{\grad g}^2$. Thus coordinates $f$ and $g$ are conformal iff $\ip{\grad{f}}{\grad{g}} = 0$ and $\norm{\grad f}^2 = \norm{\grad g}^2$.
+
+In terms of the $x$, $y$ coordinate system, \[\ip{\grad f}{\grad g} = g_x(Gf_x - Ff_y) - g_y(Ff_x - Ef_y)\] where $g_x = \pdv{g}{x}$, etc., and $E$, $F$ and $G$ now belong to $x$ and $y$, i.e., $E = \Bip{\pdv{}{x}}{\pdv{}{x}}$, etc. Thus $\ip{\grad f}{\grad g} = 0$ if there is a function $\rho$ on $U$ with 
+\begin{equation}
+    g_x = \rho(Ff_x-Ef_y) \text{ and } g_y = \rho(Gf_x - Ff_y).\tag{1}\label{eqn:ch9.6.1}
+\end{equation}
+Then $\norm{\grad{g}}^2 = \rho^2 W^2\norm{\grad f}^2$, so let $\rho = 1/W$. The equations \eqref{eqn:ch9.6.1} become a generalization of the Cauchy-Riemann equations. For a particular $f$, one can solve the system \eqref{eqn:ch9.6.1} for $g$ iff $g_{xy} = g_{yx}$ or
+\begin{equation}
+    \pdv{}{x}\sbr{\frac{Gf_x - Ff_y}{\sqrt{EG - F^2}}} + \pdv{}{y}\sbr{\frac{Ef_y - Ff_x}{\sqrt{EG-F^2}}} = 0\tag{2}\label{eqn:ch9.6.2}
+\end{equation}
+Equation \eqref{eqn:ch9.6.2} is the classical \emph{Beltrami} equation, a generalized form of the Laplace equation. Indeed, the left side of \eqref{eqn:ch9.6.2} is $W\Delta f$. Classically, $\ip{\grad f}{\grad g}$ is called the \defemph{first Beltrami operator} on $f$ and $g$ and the Laplacian $\Delta$\index{Laplacian} is called the \emph{second Beltrami operator}\index{beltrami operators}. 
+
+The theory of elliptic partial differential equations gives the existence of non-trivial solutions of \eqref{eqn:ch9.6.2} about a point in $U$ which proves the following theorem.
+
+
+
+\begin{theorem} \label{thm:ch9.6.1}
+There exists a system of isothormal (conformal) coordinates about any point of Riemannian 2-manifold.
+
+On manifolds $M$ as described in this theorem, if we restrict ourselves to conformal coordinate systems then, when the domains of these coordinate systems intersect, they induce a conformal map from one open set of $\bR^2$ onto another. Since $\bR^2$ is the underlying set for the space of complex numbers, these conformal maps must be given by analytic functions from one open set of  onto another. Thus at each point $m$ of $M$ we have diffeomorphisms of a neighborhood of $m$ onto an open set in $\bC$ which are related by analytic functions on the intersection of their domains. When $M$ is covered by neighborhoods such that the analytic functions induced by overlapping neighborhoods are orientation preserving, then $M$ is called a \defemph{Riemann surface}\index{Riemann surface} and the study of these objects leads to a rich theory (see  \cite{ahlfors1960riemann}).
+\end{theorem}
+
+\end{document}

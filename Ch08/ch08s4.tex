@@ -1,0 +1,67 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section{Characteristic Forms}\label{ch08:s4}
+
+A general reference for this section is \cite{chern1951topics} with related treatments in \cite{adler1957characteristic} and \cite{Cartan1925}. The ``wedge'' product symbol between forms will be omitted in this section.
+
+For $k>1$, define local forms
+\[Q_k=\sum_{i_j=1}^n R_{i_1 i_2} R_{i_2 i_3} R_{i_3 i_4} \cdots R_{i_ki_1},\]
+where the $R_{i j}$ belong to a local positively oriented orthonormal base field $e_1, \dots, e_n$. As above (equation \ref{eq:ch8.3.2}), one shows $Q_k$ is independent of this particular base field and thus $Q_k$ is a global $2k$-form on $M$. Moreover $\dd Q_k=0$, i.e., each $Q_k$ is a closed $2k$-form. To prove this, use
+\[\dd R_{i j}=\sum_{t=1}^n(R_{it}w_{rj}-R_{jr} w_{ri})\]
+which follows from the second structural equation (section \ref{ch05:s2}). Then,
+\[\dd Q_k=\sum[(\dd R_{i_1 i_2})R_{i_2 i_3}\cdots R_{i_k i_1}+R_{i_1 i_2}(\dd R_{i_2 i_3})R_{i_3 i_4}\cdots R_{i_k i_1}+\cdots].\]
+Consider one of the sums (all indices are summed from 1 to $n$), \[A=\sum R_{i_1r}w_{ri_2}R_{i_2i_3}\cdots R_{i_ki_1}.\] If $k$ is even, the products in $A$ are formed from an odd number of forms that are skew-symmetric in their indices; hence switching all the indices changes the sign, and adding, one gets $A=-A$ so $A=0$. If $k$ is odd, the argument just used shows $Q_k=0$.
+
+
+
+\begin{proposition} \label{prop:ch8.4.1}
+For even $k$, the forms $Q_k$ define global closed $2 k$-forms on $M$. For odd $k$, $Q_k=0$.
+\end{proposition}
+
+
+
+Let $W_\connection$ denote the subalgebra of the Cartan differential algebra $F$ (or $F(M)$) which is generated over the real field by the forms $Q_k$ for $k=2,4,\floor{n/2}$, and call $W_\connection$ the \defemph{algebra of characteristic forms for the connexion $\connection$}. Elements in $W_\connection$ are called \defemph{characteristic forms}\index{characteristic forms}, and they are closed forms since the generators are all closed. By going to the differential cohomology we can free ourselves of the connexion $\connection$ which we now do.
+
+Let $\Omega^p$ denote the module of $\CInfty$ $p$-forms on $M$. Let $Z^p$ denote the closed forms in $\Omega^p$, thus $Z^p=\{\alpha\in \Omega^p:\dd \alpha=0\}$; and let $B^p$ denote the exact forms in $\Omega^p$, so \[B^p=\{\alpha\in \Omega^p:\text{there is }\beta\in F^{p-1}\text{ with }\dd\beta=\alpha\}.\] Since $d^2=0, B^p \subset Z^p$; hence let $H^p=Z^p/B^p$ and call $H^p$ the \defemph{$p$-dimensional differential cohomology group of $M$}\index{cohomology group(differential)}. If $\alpha$ in $Z^p$, denote its image in $H^p$ by $\xoverline{a}$; hence $\xoverline{a}$ is the coset $\alpha+B^p$ which is called a \defemph{(differential) cohomology class on $M$}. Let $H^*=\bigoplus_{p=0}^nH^p$ (direct sum) and notice the multiplication in $F$ carries over to $H^*$.
+
+Thus $\xoverline{W}_\connection$ defines a set of classes called \defemph{(differential) characteristic cohomology classes}\index{characteristic classes}, and this set we show is independent of $\connection$ (the Riemannian structure) and depends only on the manifold $M$. It is customary to speak of $\xoverline{W}_\connection$ as the image of the \defemph{Wiel homomorphism}. This we explain.
+
+Let $\frakGL(n,\bR)$ be the set of $n$ by $n$ matrices over the real field $\bR$. Our notation is the customary one for this set when it is thought of as the Lie algebra of the general linear group $\GL(n,\bR)$. If $A=(a_{ij})$ in $\frakGL(n,\bR)$ we let $u_{i j}(A)=a_{i j}$. Then a \defemph{polynomial function} $P$ on $\frakGL(n,\bR)$ is a polynomial in the functions $u_{11}, u_{12}, \dots, u_{n n}$; for example, $P(A)=\det(A)$ is a polynomial function. An \defemph{invariant polynomial}\index{invariant polynomial} $P$ on $\frakGL(n,\bR)$ is a polynomial function $P$ such that $P(B A B\inv)=P(A)$ for all non-singular orthogonal matrices $B$. Referring to the way we define the characteristic forms $Q_k$, we see that every invariant polynomial $P$ can be used to define a global differential form $Q$ on $M$ by using the curvature forms from a Riemannian connexion $\connection$ on $M$ and letting $Q=P(R_{11}, R_{12}, \dots, R_{nn})$. Let us use ${\cal W}_\connection$ for this map, so $Q={\cal W}_\connection(P)$. Letting ${\cal J}$ denote the set of invariant polynomials on $\frakGL(n,\bR)$, we then claim to have a homomorphism ${\cal W}_\connection: {\cal J}\functionMaps F(M)$ with ${\cal W}_\connection({\cal J})=W_\connection(M)=W_\connection$. This is the \defemph{Weil homomorphism}\index{Weil homomorphism}.
+
+
+
+\begin{theorem} \label{thm:ch8.4.2}
+The Weil homomorphism is well-defined from the set of invariant polynomials on $\frakGL(n,\bR)$ onto the set of characteristic differential forms on $M$; moreover, the Weil homomorphism is independent of the connexion at the cohomology level, i.e., $\xoverline{W}_{\connection_1}=\xoverline{W}_{\connection_2}$ for two Riemannian connexions $\connection_1$ and $\connection_2$.
+\end{theorem}
+
+\begin{proof}
+Let $f_A(\lambda)$ denote the characteristic polynomial of a matrix $A$ and define polynomials $E_r(A)$ to be the coefficients of $f_A(\lambda)$, thus \[f_A(\lambda)=\det(\lambda I-A)=\lambda^n+E_{n-1}(A)\lambda^{n-1}+\cdots+E_0(A).\] From linear algebra we know $E_r(A)$ are invariant polynomials on $\frakGL(n,\bR)$; moreover, they generate a ring of invariant polynomials. In terms of the characteristic roots of $A$, $E_r(A)$ is the $r$th elementary symmetric function of these roots, i.e., $E_1(A)=a_1+\dots+a_n$, $E_2(A)=\sum_{i<j}a_ia_j$, etc. By Newton's theorem on symmetric functions, the functions $E_r(A)$ are expressible as polynomials in the functions $P_r(A)$, where $P_r(A)=(a_1)^r+(a_2)^r+\dots+(a_n)^r$. But $P_r(A)$ is the trace of $A^r$, and we can write this trace in terms of the elements of $A$ by
+\[P_r(A)=\sum a_{i_1 i_2} a_{i_2 i_3} \cdots a_{i_r i_1}\]
+summing over all $i_j=1, \dots, n$. Hence ${\cal W}_\connection({\cal J})$ is generated by the forms $Q_k$, ${\cal W}_\connection$ is well-defined, and ${\cal W}_\connection({\cal J})=W_\connection$.
+
+To show $\xoverline{W}_\connection$ is independent of the Riemannian connexion, we take two such connexions $\connection_1$ and $\connection_0$, let $Q_k^i=W_{\connection_i}(P_k)$ for $i=0,1$, and show $Q_k^1-Q_k^0=\dd G$, where $G$ in $\formbundle{M}{2k-1}$. Thus $\xoverline{Q}_k^1=\xoverline{Q}_k^0$, which implies $\xoverline{W}_{\connection_1}=\xoverline{W}_{\connection_0}$.
+
+Let $\ip{X}{Y}_1$ and $\ip{X}{Y}_0$ be the Riemannian metrics associated with $\connection_1$ and $\connection_0$, respectively, and for $0 \leq t \leq 1$ define $\ip{X}{Y}_t=t\ip{X}{Y}_1+(1-t)\ip{X}{Y}_0$. Then $\ip{X}{Y}_t$ is a Riemannian metric for each $t$, and its Riemannian connexion $\connection_t$ is given by $\connection_t=t\connection_1+(1-t)\connection_0$. This can be shown easily by verifying that $\connection$ has zero torsion and preserves the metric $\ip{X}{Y}_t$. For any base field $e_1, \dots, e_n$ on an open set $U$ of $M$ let $w_{i j}^t$ and $R_{i j}^t$ be the connexion and curvature forms associated with $\connection_t$. Then \[(\connection_t)_Xe_j=\sum_i w_{i j}^t(X)e_i=t\sum_iw_{i j}^1(X)e_i+(1-t)\sum_iw_{i j}^0(X)e_i,\] so $w_{i j}^t=t w_{i j}^1-(1-t) w_{i j}^0$. From the second Cartan structural equation we obtain
+\[R_{i j}^t=t R_{i j}^1+(1-t) R_{i j}^0+t(t-1)\sum_k\theta_{i k} \theta_{k j}\]
+where $\theta_{i j}=w_{i j}^1-w_{ij}^0$. The $1$-forms $\theta_{i j}$ are the local forms belonging to the difference tensor $B(X, Y)=(\connection_1)_X Y-(\connection_0)_X Y$, i.e., $B(X, e_j)=\sum_i\theta_{i j}(X)e_i$. Since $B$ is a tensor, if $f_1, \dots, f_n$ is another base field on $U$ with $f_j=\sum_i b_{i j} e_i$ and \[B(X, f_j)=\sum_i\xoverline{\theta}_{i j}(X)f_i,\text{ then }\theta_{i j}(X)=\sum_{r, s} b_{i s} \theta_{s t}(X)(b^{-1})_{r j}.\]
+
+For each even $k$ and each $t$, choose $e_1, \dots, e_n$ to be an orthonormal base field relative to the metric $\ip{X}{Y}_t$, and define a $(2k-1)$-form on $U$ by \[G_k^t=\sum\theta_{i_1i_2}R_{i_2i_3}^tR_{i_3i_4}^t\cdots R_{i_ki_1}^t,\] summing over all $i_j=1,\dots,n$. Since the $\theta_{i j}$ transform exactly like the $R_{i j}$ when changing to another orthonormal base, the forms $G_k^t$ are global forms on $M$ by the argument that was used to show $Q_k$ are global forms. Note $\theta_{i j}$ are not skew symmetric.
+
+In an obvious way, define for each $t$, a $2k$-form $\Big(\dv{}{t}\Big)Q_k^t$, i.e.,
+\[\dv{}{t}Q_k^t=\dv{}{t}\Big(\sum R_{i_1i_2}^tR_{i_2i_3}^t\cdots R_{i_ki_1}^t\Big)=k\sum\Big(\dv{}{t}R_{i_1i_2}^t\Big)R_{i_2i_3}^t\cdots R_{i_ki_1}^t\]
+where \[\dv{}{t}R_{i j}^t=R_{i j}^1-R_{i j}^0+(2t-1)\sum_k \theta_{i k} \theta_{k j}.\] Then $Q_k^1-Q_k^0=\dd G_k$ where $G_k=k\displaystyle\int_0^1G_k^t\dd t$.
+
+To compute $\dd G_k^t$, use the second Cartan structural equation to obtain \[\dd\theta_{i j}=R_{ij}^1-R_{ij}^0-\sum[\theta_{i k}\theta_{kj}+\theta_{i j}w_{k j}^0+w_{i k}^0\theta_{k j}].\] Also,
+\[\dd R_{i j}^t=\sum(R_{i k}^tw_{k j}^t-w_{i k}^tR_{kj}^t)=\sum[tR_{i k}^t\theta_{k j}-t\theta_{i k}R_{k j}^t+R_{i k}^t w_{k j}^0-w_{i k}^0 R_{k j}^t],\]
+since $w_{i j}^t=t \theta_{i j}+w_{i j}^0$. Hence
+\begin{align*}
+    \dd G_k^t=&\sum(R_{i_1 i_2}^1-R_{i_1 i_2}^0\theta_{i_1k}\theta_{ki_2}-\theta_{i_1k}w_{ki_2}^0-w_{i_1k}\theta_{ki_2})R_{i_2i_3}^t\cdots R_{i_ki_1}^t\\
+    &-\Big[\sum\theta_{i_1i_2}(tR_{i_2k}^t\theta_{ki_3}-t\theta_{i_2k}R_{ki_3}^t+R_{i_2k}^tw_{ki_3}^0-w_{i_2k}^0R_{ki_3}^t)R_{i_3i_4}^t\cdots R_{i_ki_1}^t\Big]-\cdots\\
+    &-\Big[\sum\theta_{i_1i_2}R_{i_2i_3}^t\cdots R_{i_{k-1}i_k}^t(tR_{i_kj}^t\theta_{ji_1}-t\theta_{i_kj}R_{ji_1}^t+R_{i_kj}^tw_{ji_1}^0-w_{i_kj}^0R_{ji_1}^t)\Big]\\
+    =&\sum\Big[R_{i_1i_2}^1-R_{i_1i_2}^0+(2t-1)\sum\theta_{i_1k}\theta_{ki_2}\Big]R_{i_2i_3}^t\cdots R_{i_ki_1}^t=\frac1k\dv{}{t}Q_k^t.
+\end{align*}
+\end{proof}
+
+
+\end{document}

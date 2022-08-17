@@ -1,0 +1,65 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section{Difference Tensor of Two Connexions}\label{ch05:s4}
+
+The reference of this section is \cite{ambrose1960sprays}. Let $M$ be a $\CInfty$ manifold, and let $\connection$ and $\covariant$ be \emph{connexions} on $M$. For fields $X$ and $Y$ we define the \defemph{difference tensor}\index{difference tensor} $B(X,Y)=\covariant_X Y - \connection_X Y $. The linearity of $B$ in the first slot is trivial from properties of the connexions (namely, \ref{eqn:ch5.1.2} and \ref{eqn:ch5.1.3}). To check the second slot, let $f$ be $\CInfty$ on the domain of $X$ and $Y$; then \[B(X,fY) = (Xf)Y+f\covariant_XY-(Xf)Y -f\connection_X Y = f B(X,Y)\]
+
+Let $B(X,Y)= S(X,Y)+A(X,Y)$ be the stanard decomposition of a bilinear tensor into symmetric and skew-symmetric pieces; i.e,
+\[S(X,Y) = \dfrac{1}{2} [B(X,Y)+B(Y,X)]\]
+and
+\[A(X,Y) = \dfrac{1}{2} [B(X,Y)-B(Y,X)]\]
+Actually, we can express $A$ in terms of the torsion tensors $T$ and $\xoverline{T}$ of $\connection$ and $\covariant$, respectively, for 
+\begin{align*}
+    2A(X,Y) &= \covariant_XY-\connection_XY-\covariant_YX+\connection_YX \\
+            &= \xoverline{T}(X,Y) +[X,Y] -T(X,Y)-[X,Y]\\
+            &= \xoverline{T}(X,Y) - T(X,Y)
+\end{align*}
+
+
+
+\begin{theorem} \label{thm:ch5.4.1}
+The following statements are equivalent:
+\begin{enumerate}[label = (\alph*)]
+    \item The connections $\connection$ and $\covariant$ have the same geodesics.
+    \item $B(X,X)=0$ for all vectors $X$.
+    \item $S=0$
+    \item $B=A$
+\end{enumerate}
+\end{theorem}
+
+\begin{proof} 
+\hfill
+
+\begin{enumerate}
+    \item[(a)$\implies$ (b):] Take $X$ at $m\in M$ and let $g$ be the geodesic with initial vector $X$. Extend $X$ along $g$ by letting $X$ be the tangent to $g$; then \[p=B(X,X)= \covariant_XX-\connection_XX=0-0,\] since $g$ is a geodesic for both connections.
+    \item[(b)$\implies$ (a):] Let $g$ be a geodesic for $\connection$ with tangent field $X$; then \newline $\covariant_XX = B(X,X)+\connection_XX=0$ on $g$; hence $g$ is a geodesic for $\covariant$
+    \item[(b) $\iff$ (c):] Since $S$ is symmetric, it is determined by its diagonal values $S(X,X)$, and $B(X,X)=0\iff S(X,X)=0$
+    \item[(c)$\iff$ (d):] For $B=S+A$. \qedhere
+\end{enumerate}
+\end{proof}
+
+
+
+\begin{theorem}\label{thm:ch5.4.2}
+The connexions $\connection$ and $\covariant$ are equal iff they have the same geodesics and the same torsion tensors.
+\end{theorem} 
+
+\begin{proof}
+
+ That the first part implies the second is trivial. Conversely if the geodesics are the same, then $S=0$, and if the torsion tensors are equal, then $A=0$; hence $B=0$ and $\connection=\covariant $
+\end{proof}
+
+
+
+\begin{theorem}\label{thm:ch5.4.3}
+Given a connexion $\covariant$ on $M$, there is a unique connexion $\connection$ having the same geodesics as $\covariant$ and zero torsion.
+\end{theorem} 
+
+\begin{proof}
+ Let $\connection_{X}Y=\covariant_{X} {Y}-\frac{1}{2} \xoverline{T}(X, Y)$. It is trivial to check that $\connection$ satisfies the required properties to define a connexion. Here $B=\frac{1}{2} \xoverline{T}=A$, since a torsion tensor is skew-symmetric; thus $S=0$, so $\connection$ and $\covariant$ have the same geodesics. Moreover, $T=\xoverline{T}-2 A=0$, so $\connection$ has zero torsion. The uniqueness follows from the preceding theorem.
+\end{proof}
+
+Thus if we partition connexions into equivalence classes by placing two connexions with the same geodesics in the same class, then in each class there exists a unique torsion-free (zero torsion) connexion. Moreover, given any connexion $\connection$ and any skew-symmetric vector-valued 2-covariant tensor $\xoverline{T}$, there exists a connexion with torsion tensor $\xoverline{T}$ and the same geodesics as $\connection$. From the above proof we have $\xoverline{T}(X, Y)=2(\covariant_{x} Y-\connection_{x} Y)$, which provides a geometric interpretation of the torsion tensor of a connexion as measuring the difference between covariant differentiation in the given connexion and covariant differentiation in the torsion-free connexion with the same geodesics.
+
+\end{document}

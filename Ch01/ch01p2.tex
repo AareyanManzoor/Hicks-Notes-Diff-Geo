@@ -1,0 +1,120 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+
+
+\section*{Problems}
+
+(For problems 1 thru 9 see page \pageref{ch01:ex1})
+
+\begin{enumerate}
+\setcounter{enumi}{9}
+
+\item\label{pro:10}
+\begin{enumerate}[label=(\roman{enumii})]
+    \item Let $W_1,\dots, W_n$ be a $\CInfty$ base field on an open set $U$ in a manifold $M$ and let $X = \sum\limits_{i=1}^{n} f_i W_i$ be a vector field on $U$. Show $X$ is $\CInfty$ on $U$ iff the functions $f_i$ are $\CInfty$ on $U$ for all $i$.
+    \item If $Y$ and $Z$ are $\CInfty$ fields on $U$ show $[Y,Z]$ is $\CInfty$, show that a coordinate field $\pdv{}{x_i}$ is $\CInfty$ on its domain.
+    \item If $X_p$ is a given vector at $p$ in $M$ show there is a $\CInfty$ field $\xoverline{X}$ on a neighborhood of $p$ with $\xoverline{X} = X_p$.
+    \item Let $x_i, \dots, x_n$ be a coordinate system with domain $U$ and let \newline $A = \displaystyle \sum a_i \bigg(\pdv{}{x_i}\bigg)$ and $B=\displaystyle \sum b_j \bigg(\pdv{}{x_j}\bigg)$ be $\CInfty$ fields on $U$ then find the representation of $[A,B]$ in terms of the coordinate vector fields.
+    \item Show $[fX,gY] = f(Xg)Y - g(Yf)X + fg[X,Y]$ where $X$ and $Y$ are $\CInfty$ fields on $U$ and $f$ and $g$ are in $\CInfty(U,\bR)$. 
+    \item Prove the \ref{jacobi identity}.
+\end{enumerate}
+
+
+\item\label{pro:11}
+\begin{enumerate}[label=(\roman{enumii})]
+    \item Let $A$, $B$ and $C$ be in $\CInfty(\bR^3, \bR)$ with $B \ne 0$ anywhere. Let\newline $V=Ai + Bj + Ck$, $X= -Bi + Aj$, and $Y=-Cj + Bk$ (advanced calculus notation). For $p$ in $\bR^3$, let $P_p = \{Z \in (\bR^3)_p : Z \cdot V_p = 0\}$. Show $P_p$ is a two-dimensional space of vectors at each point by showing $X_p$ and $Y_p$ are a base for $P_p$. 
+    \item Show $[X,Y]_p$ lies in $P_p$ iff $V_p \cdot (\curl V)_p = 0$.
+    \item Suppose there is a function $f$ in $\CInfty(\bR^3, \bR)$ with $\grad f \ne 0$ such that $P_p$ is the tangent plane to the constant surface of $f$ thru $p$. show $V_p \cdot (\curl V)_p = 0$ (see section \ref{ch09:s1}).
+    \item Instead of seeking surfaces that are orthogonal to $V$ (as above), one could seek surfaces whose tangent plane contains $V$ and then one has a ``geometric quasi-linear partial differential equation of the first order''. Integral curves of $V$ are called \defemph{characteristics}\index{characteristics} of the ``equation''. One generates solution surfaces by taking a non-characteristic curve (an ``initial value'' curve) and considering the surface formed by characteristics thru the initial value curve. Show two solution surfaces must intersect along a characteristic. Show there are an infinite number of solution surfaces thru one characteristic. Can there be an initial value curve with no solution thru it?
+\end{enumerate}
+
+
+\item\label{pro:12}
+\begin{enumerate}[label=(\roman{enumii})]
+    \item Let $f: \bR^2 \functionMaps \bR^2$ by $f(a,b) = (a^2 - 2b, 4a^3b^2)$ and let $g: \bR^2 \functionMaps \bR^3$ by $g(u,v) = (u^2 v + v^2, u - 2v^3, ve^u)$. Compute a matrix for $f_*$ at $(1,2)$ and $g_*$ at any $(u,v)$.
+    \item Find $g_* \Big(4\pdv{}{x}- \pdv{}{ y}\Big)_{(0,1)}$.
+    \item Find integral curves for the vector field $X = yi + yj + 2k$ on $\bR^3$.
+    \item Find a coordinate system $x_1, x_2, x_3$ on $\bR^3$ such that $\pdv{}{ x_1} = 2i + 3j - k$ at all points. 
+\end{enumerate}
+
+
+\item\label{pro:13}
+Let $X$ and $Y$ be $\CInfty$ fields about $m$ in $M$. For small $t \ge 0$ define the curve $\sigma(t)$ as follows: go $t$ parameter units on $X$'s integral curve thru $m$ to $p_1$, go $t$ units on $Y$'s integral curve thru $p_1$ to $p_2$, go $t$ units on $(-X)$ curve thru $p_2$ to $p_3$, go $t$ units on $(-Y)$ curve thru $p_3$ to $\sigma(t)$. If $\gamma(t) = \sigma(\sqrt{t})$ show $T_\gamma (0) = [X,Y]_m$. (Hint: use the lemma in section \ref{ch09:s1} and partial Taylor series.)
+
+
+\item\label{pro:14} Let $M$ and $N$ be manifolds with $M$ connected and let $f$ and $g$ be $\CInfty$ maps of $M$ into $N$. 
+\begin{enumerate}[label = (\roman*)]
+    \item Show $f_* \equiv 0$ iff $f$ is a constant map.
+    \item If $f(m) = g(m)$ at one $m$ in $M$ and $f_* \equiv g_*$ at all points show $f=g$.
+\end{enumerate} 
+
+
+\item\label{pro:15} Let $f$ be in $\CInfty(M,\bR)$ and define the \defemph{differential of f}, $\dd f$, to be the linear map of $\tangentspace{M}{m}$ into $\bR$ where $(\dd f)_m (X_m) = X_m f$. Show \newline $f_* (X_m) = [(\dd f)_m (X)]\Big(\pdv{}{t}\Big)$ where $t$ is the identity coordinate function on $\bR$. It is because of this case that in a general case the Jacobian $f_*$ is often called the ``differential of $f$''.
+
+
+\item\label{pro:16}
+\begin{enumerate}[label=(\roman{enumii})]
+    \item Prove the Inverse Function Theorem (Theorem \ref{thm:ch1.4.1}).
+    \item  State and prove a version of the Implicit Function Theorem of advanced calculus in terms of the Jacobian map.
+\end{enumerate} 
+
+
+\item\label{pro:17} \begin{enumerate}[label=(\roman{enumii})]
+    \item Prove the last sentence in the third paragraph of section \ref{ch01:s6}. 
+    \item Show that the image of a regular $(\sigma_* \ne 0)$ univalent curve $\sigma$ mapping an open interval into a manifold $M$ is a one-dimensional submanifold of $M$.
+    \item Let $X$ be a unit constant vector field on $\bR^2$ with irrational slope. Let $T$ be the set of equivalence classes on $\bR^2$ where $(a,b) \sim (c, d)$ iff $a-c = n$ and $b-d = m$ for integers $m$ and $n$. Show $T$ is a two-dimensional manifold (which is called the \defemph{flat torus}\index{torus (flat)}).
+    \item Show $X$ induces a vector field on $T$ such that the image of one integral curve of $X$ defines a one-dimensional submanifold of $T$ that is dense in $T$.
+\end{enumerate}
+
+
+\item\label{pro:18} Let $M_1$ and $M_2$ be $\CInfty$ manifolds. Let $\pi_i : M_1 \times M_2 \functionMaps M_i$ by $\pi_i (m_1, m_2) = m_i$ for $i=1,2$. Define a $\CInfty$ structure on $M_1 \times M_2$ so $\pi_i$ are $\CInfty$. Show $\tangentspace{M_1 \times M_2}{(m_1, m_2)}$ is naturally isomorphic to $\tangentspace{M_1}{m_1} \times \tangentspace{M_2}{m_2}$.
+
+
+\item\label{pro:19}
+\begin{enumerate}[label=(\roman{enumii})]
+    \item Let $M$ be a $\CInfty$ $n$-manifold. Let $\tangentbundle{M} = \{(m,X): X \in \tangentspace{M}{m}\}$, and let $\pi: \tangentbundle{M} \functionMaps M$ by $\pi(m,X) = m$. If $(\phi, U)$ is a coordinate pair on $M$ with $x_i = u_i \circ \phi$ let $\xoverline{U} = \pi \inv (U),$ $\xoverline{x}_i = x_i \circ \pi$, and for $(m,X)$ in $\xoverline{U}$ let $x_i (m,X) = a_i$ if $X = \displaystyle\sum a_i \Big(\pdv{}{x_i}\Big)$. Let $\xoverline{\phi}: \xoverline{U} \functionMaps \bR^{2n}$ so $u_i \circ \xoverline{\phi} = \xoverline{x}_i$ and $u_{n+i} \circ \xoverline{\phi} = x_i$ for $i=1, \dots,n$. Show the subatlas of pairs $(\xoverline{\phi}, \xoverline{U})$ defines a $\CInfty$ structure on $\tangentbundle{M}$ which is called the \defemph{tangent bundle of}\index{tangent bundle} $M$.
+    \item If $f$ is a $\CInfty$ map of $M$ into $N$ show $f_*$ induces a $\CInfty$ map of $\tangentbundle{M}$ into $\tangentbundle{N}$.
+\end{enumerate}
+
+
+\item\label{pro:20}
+\begin{enumerate}[label=(\roman{enumii})]
+    \item Let $G$ be a Lie group. If $g \in G$ let $L_g, R_g$, and $A_g$ denote the maps of $G$ into $G$ defined by $L_g (h) = gh, R_g (h) = hg$ and $A_g (h) = ghg\inv$. Show $L_g, R_g,$ and $A_g$ are $\CInfty$. 
+    \item A vector field $X$ on $G$ is \defemph{left invariant}\index{left invariant fields} if $(L_g)_* X_g = X_{gh}$ for all $g$ and $h$. Show a left invariant field is $\CInfty$ and is completely determined by its value at the identity $e$. 
+    \item If $X$ and $Y$ are left invariant, show $[X,Y]$ is left invariant.
+    \item The set of left invariant vector fields on $G$ forms an $n$-dimensional vector space called the \defemph{Lie algebra of}\index{Lie algebra} $G$ which is denoted by $\mathfrak{g}$. Define a \defemph{one-parameter}\index{one parameter subgroup} subgroup of $G$ to be the image of a $\CInfty$ homomorphism of $\bR$ into $G$. Show there is a 1:1 correspondence between one-parameter subgroups and integral curves of left invariant vector fields thru $e$.
+    \item Show the map $(g,h) \functionMaps gh\inv$ is $\CInfty$ from $G\times G$ into $G$ iff the maps $(g,h) \functionMaps gh$ and $g \functionMaps g\inv$ are $\CInfty$.
+\end{enumerate}
+
+
+\item\label{pro:21}
+\begin{enumerate}[label=(\roman{enumii})]
+    \item Let $G=\GL(n,\bR)$ and for a matrix $g \in G$ let $u_{i j} (g) = g_{i  j}$ (see example \ref{enu:CH01S01.3}). Call $u_{i  j}$ the natural coordinate functions on $G$. Write $u_{i  j} \circ L_g$ as a linear combination of the natural coordinate functions.
+    \item Let $X_{i  j}$ the unique left invariant field on $G$ with $X_{i  j} (e) = \Big(\pdv{}{u_{i  j}}\Big)(e)$ where $e$ is the identity element. Compute $X_{i  j}$ as a field on $G$ in terms of the coordinate vector fields. Compute $[X_{i  j}, X_{r  s}]$.
+    \item If $A(t)$ is a $\CInfty$ curve in $G$ with $A(0)=e$ and $A(t)$ orthogonal for all $t$ show $\dv{A}{t} = \Big(\dv{a_{ij}}{t}\Big)$ is a skew-symmetric matrix for $t=0$. 
+\end{enumerate}
+
+\item\label{pro:22}
+\begin{enumerate}[label=(\roman{enumii})]
+    \item Let $M$ be a $\CInfty$ $n$-manifold. Let
+    \[\basisBundle{M}=\{(m; e_1, \dots, e_n): m \in M \text{ and } e_1, \dots, e_n \text{ an ordered basis of }\tangentspace{M}{m}\}.\]
+    Let $\pi: \basisBundle{M} \functionMaps M$ by $\pi(m; e_1, \dots, e_n) = m$. If $(\phi,U)$ a coordinate pair on $M$ with $x_i = u_i \circ \phi$, let $(\xoverline{\phi}, \xoverline{U})$ be a coordinate pair on $\basisBundle{M}$ with $\xoverline{U} = \pi\inv(U)$ and $\xoverline{\phi}: \xoverline{U} \functionMaps \bR^{n+n^2}$ by the coordinate functions $\xoverline{x}_1, \dots, \xoverline{x}_n, x_{1  1}, x_{1  2}, \dots, x_{n  n}$ where $\xoverline{x}_i = x_i \circ \pi$ and if $b = (m; e_1, \dots, e_n)$ then $e_j = \sum_{i=1} ^n x_{i  j}(b)\Big(\pdv{}{x_i}\Big)$. Show the subatlas of pairs $(\xoverline{\phi}, \xoverline{U})$ defines a $\CInfty$ structure on $\basisBundle{M}$ which is called the \defemph{bundle of bases over} $M$\index{bundle of bases}. 
+    \item For $g$ in $\GL(n,\bR)$ let $R_g : \basisBundle{M} \functionMaps \basisBundle{M}$ by 
+    \[
+    R_g (b) \equiv bg \equiv \bigg(m; \sum_{i=1} ^n g_{i  1}e_i, \sum_{i=1} ^n g_{i  2} e_i, \dots, \sum_{i=1} ^n g_{i  n} e_i\bigg)
+    \]
+    if $b=(m; e_1, \dots, e_n)$. Show $R_g$ is $\CInfty$.
+    \item Let $s_U: U \functionMaps \basisBundle{M}$ by $s_U (m) =\Big(m; \Big(\pdv{}{x_1}\Big)_m, \dots, \Big(\pdv{}{x_n}\Big)_m\Big)$ for $m$ in $U$. Show $s_U$ is $\CInfty$ and $\pi \circ s_U$ is the identity on $U$. The map $s_U$ is called the \defemph{coordinate section map over} $U$.
+    \item Let $\hat{\phi}: U \times \GL(n,\bR) \functionMaps \xoverline{U}$ by $\hat{\phi}(m,g) = R_g \circ s_U (m) = s_U (m)g$. Show $\hat{\phi}$ is a diffeo. onto its image. The map $\hat{\phi}$ is called a \defemph{strip map}.
+    \item If $(\phi, U)$ and $(\psi, V)$ are coordinate pairs on $M$ define $s_{U  V}: U \cap V \functionMaps \GL(n,\bR)$ by $s_{U  V} (m) = g$ if $s_U (m)g = s_V (m).$ Show $s_{U  V}$ is $\CInfty$; it is called a \defemph{structural function}\index{structural function} for $\basisBundle(M)$. Show $(bg_1)g_2 = b(g_1 g_2)$ which justifies the name \defemph{right action} for $R_g$.
+    \item For fixed $b$ in $\basisBundle{M}$ let $f_b : \GL(n,\bR) \functionMaps \basisBundle{M}$ by $f_b (g) = bg$. Show $f_b$ is $\CInfty$.
+    \item Call the set $F_m = \pi\inv(m)$ the (vertical) \defemph{fiber over $m$}\index{fiber} in $M$. Show $F_m$ is an $n^2$-submanifold of $\basisBundle{M}$ and $f_b$ is a diffeo. of $\GL(n, \bR)$ onto $F_{\pi(b)}$. 
+    \item If $\pi(b) = \pi(c)$, show $f_c \inv \circ f_b$ is a left translation on $\GL(n,\bR)$.
+    \item A tangent vector $X$ on $\basisBundle{M}$ such that $\pi_*(X) = 0$ is called a \defemph{vertical}\index{vertical vector} vector. For $b$ in $\basisBundle{M}$, let $E_{i  j} (b) = (f_b)_* xX_{i  j}(e)$ define a vector $E_{i  j} (b)$ (see problem $21$). Show $E_{i  j}$ is a global $\CInfty$ vertical vector field on $\basisBundle{M}$.
+    \item Compute $[E_{i  j}, E_{r  s}]$.
+\end{enumerate}
+
+\end{enumerate}
+
+\end{document}

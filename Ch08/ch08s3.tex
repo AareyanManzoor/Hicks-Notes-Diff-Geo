@@ -1,0 +1,62 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section{Gauss-Bonnet Form}\label{ch08:s3}
+
+In the proof of the \hyperref[thm:ch8.1.1]{Gauss-Bonnet formula} we found that $R_{12}$ is a local representation of the global form $Kv$ on an oriented Riemannian $2$-manifold $M$. One might ask if there are other global forms obtainable in this way, or if there is an analogous form on an $n$-manifold. We answer these questions now.
+
+Let $e_1$, \dots, $e_n$ and $f_1$, \dots, $f_n$ be two sets of positively oriented orthonormal $\CInfty$ base fields on an open set $U$ in $M$, and let $f_j = \sum_{i=1}^n b_{ij} e_i$ define $\CInfty$ functions $b_{ij}$ on $U$. Notice that determinant $(b_{ij}) = 1$ and $(b_{ij})^{-1} = (b_{ji})$ since $(b_{ij})$ is orthogonal. We let $R_{ij}$ and $\xoverline{R}_{ij}$ denote the local curvature forms associated with $e_i$'s and $f_i$'s, respectively, thus $R(X, Y) e_j = \sum R_{ij}(X, Y) e_i$. Then for $m \in U$, $X$ and $Y$ in $\tangentspace{M}{m}$, we have
+\begin{equation} \tag{6}\label{eq:ch8.3.1} \begin{split}
+    R_{ij}(X, Y) &= \ip{R(X, Y) e_j}{e_i} = \bigg\langle R(X, Y)\Big(\sum_r b_{jr} f_r\Big),\sum_s b_{is} f_s\bigg\rangle \\
+    &= \sum_{r,s} b_{jr} b_{is} \ip{R(X, Y) f_r}{f_s} = \sum_{r,s} b_{is} \xoverline{R}_{sr}(X, Y) b_{jr}\text{.}
+\end{split} \end{equation}%
+Thus $R_{ij} = \displaystyle \sum_{r,s} b_{is} \xoverline{R}_{sr} b_{jr}$ relates the local curvature forms of the two bases on $U$.
+
+If $n$ is even, we define an $n$-form $Q$ on $U$ by
+\begin{equation}\tag{7} \label{eq:ch8.3.2}
+    Q = \sum (-1)^\pi R_{\pi(1)\pi(2)} \wedge R_{\pi(3)\pi(4)} \wedge \dots \wedge R_{\pi(n-1)\pi(n)}
+\end{equation}%
+where we sum over all permutations $\pi$ in $P_{n}$, the group of permutations on the set $\{1,2, \ldots, n\}$. The representation of $Q$ in terms of the forms $\xoverline{R}_{i j}$ is,
+\begin{align*}
+    Q &= \sum_{r_i = 1}^{n} \sum (-1)^\pi b_{\pi(1) r_1} \xoverline{R}_{r_1 r_2} b_{\pi(2) r_2} b_{\pi(3) r_3} \xoverline{R}_{r_3 r_4} b_{\pi(4) r_4} \dots \\
+    &= (\det b_{ij}) \sum (-1)^\pi \xoverline{R}_{\pi(1) \pi(2)} \wedge \xoverline{R}_{\pi(3) \pi(4)} \wedge \dots \wedge \xoverline{R}_{\pi(n-1) \pi(n)}
+\end{align*}%
+Since $(\det b_{ij}) = 1$, $Q$ is independent of the particular base field used to define it; thus $Q$ defines a global $n$-form on $M$ which is called the \defemph{Gauss-Bonnet form}\index{Gauss-Bonnet form}. Note if $n=2$, then locally $Q = R_{12} - R_{21} = 2R_{12} = 2Kv$.
+
+
+
+%To Editor: Replace \matahcal{X} and \mathcal{I} with the appropriate symbols
+\begin{theorem}[Generalized Gauss-Bonnet] \label{thm:ch8.3.1}
+    If $M$ is an even dimensional ($n=2 k$) compact connected oriented Riemannian manifold, then \[\int_M Q = 2^n \pi^k (k!) \EulerChar(M).\]
+\end{theorem}
+
+For a proof see \cite{chern1951topics}. Other pertinent references are \cite{hopf1926uber}, \cite{Allendoerfer1940the}, \cite{Allendoerfer1943the}, \cite{fenchel1940on}, \cite{chern1945on}, and \cite{Allendoerfer1950the}.
+
+
+
+Let $M$ be as in the theorem and assume further that $M$ is a hypersurface in $\bR^{n+1}$ with unit normal field $N$. Using the notation from section~\ref{ch04}, \[R_{ij} = -w_{i, n+1} \wedge w_{n+1, j} = w_{i, n+1} \wedge w_{j, n+1}\] and \[L(X)= \sum_{i = 1}^{n} w_{i, n+1}(X) e_i = \eta_\ast(X)\] where $\eta$ is the sphere map induced by the normal $N$ (section~\ref{ch02:s2}). Thus $\eta^\ast W_i = W_{i, n+1}$ and
+\begin{align*}
+    Q &= \sum (-1)^\pi w_{\pi(1), n+1} \wedge \dots \wedge w_{\pi(n-1), n+1} \wedge w_{\pi(n), n+1} \\
+    &= n!\, w_{1, n+1} \wedge w_{2, n+1} \wedge \dots \wedge w_{n, n+1} = n!\, \eta^\ast(v_S)\text{,}
+\end{align*}%
+where $v_S$ is the volume element of the unit sphere $S^n$ oriented by its outer normal, and we assume $N_m$ is parallel to the outer normal at $\eta(m)$. Integrating,\[\int_M Q = (n!) \int_{M} \eta^\ast (V_S).\] If $n=2$, then \[\int_M Q = 2\int_M Kv = 4\pi\EulerChar(M) = 2\int_M \eta^\ast (v_S),\] thus \[\int_M \eta^\ast (V_S) = \dfrac{(V_2) \EulerChar(M)}{2}\] where $V_2$ is the ``volume'' of the unit $2$-sphere. This is the \defemph{Hopf index theorem} for dimension $2$.
+
+In the general case ($M^{n}$ imbedded in $\bR^{n+1}$ as above), we let $X$ be any unit vector field of $\bR^{n+1}$ that is $\CInfty$ on $M$, and we define the \defemph{index of $X$ on $M$}\index{index (vector field)}, $\mathcal{I}(X)$, by
+\begin{equation}\tag{8}\label{eq:ch8.3.3}
+    \mathcal{I}(X) = \frac{1}{V_n} \int_M \eta_X^\ast(v_S)\text{,}
+\end{equation}%
+where $V_n$ is the ``volume'' of the unit $n$-sphere in $\bR^{n+1}$, and $\eta_X$ is the $\CInfty$ map of $M$ into $S^n$ induced by the vector field $X$.
+
+
+
+\begin{theorem}[Hopf index theorem] \label{thm:ch8.3.2}
+    If $M^n$ is an even-dimensional compact connected submanifold of $\bR^{n+1}$, then twice the index of the normal field $N$ on $M$ is the Euler characteristic of $M$, or $2\mathcal{I}(N)=\EulerChar(M)$.
+\end{theorem}
+
+\begin{proof}
+    Assuming the \hyperref[thm:ch8.1.5]{Gauss-Bonnet theorem} and letting $n = 2k$, we see
+    \[ 2\mathcal{I}(N) = 2\int_M \frac{Q}{V_n n!} = 2^{n+1} \pi^k k! \frac{\EulerChar(M)}{V_n n!} = \EulerChar(M)\text{,} \]
+    since $V_n = \dfrac{2^{n+1} \pi^k k!}{n!}$ (see problem~\ref{pro:75}).
+\end{proof}
+
+\end{document}

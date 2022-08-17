@@ -1,0 +1,50 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section{Cartan Viewpoint}\label{ch05:s2}
+
+For local problems concerning a connexion, one can transform the properties of $\connection$ to certain properties of differential forms. By using fiber bundles associated with a manifold, one can also study global problems via differential forms. We develop the local viewpoint here.
+
+Let $\connection$ be a connexion on an $n$-manifold $M$, and fix $\connection$ and $M$ throughout this section. Let $U$ be a fixed open set (perhaps a coordinate domain) in $M$, and let $e_1,\dots,e_n$ be a fixed base field of independent $\CInfty$ vectors on $U$. Let $w_1,\dots,w_n$ be the $\CInfty$ 1-forms on $U$ which are the dual base to $e_1,\dots,e_n$ at each point of $U$. Define $n^2$ \defemph{connexion 1-forms}\index{connexion 1-forms} $w_{ij}$ on $U$ which are associated with $\connection$ and the base field by
+\begin{equation}\label{eq:ch05.9}
+\tag{9}
+\connection_X e_j = \sum_{i=1}^n w_{ij} (X)e_i.
+\end{equation}
+The $w_{ij}$ are linear by property \ref{eqn:ch5.1.2} of the connexion $\connection$, and $w_{ij}$ are $\CInfty$, since if $X$ a $\CInfty$ field on $U$, then $\connection_X e$ is a $\CInfty$ field, so $w_{ij}(X) = w_i(D_X e_j)$ is a $\CInfty$ function.
+
+The torsion and curvature tensors may also be expressed via differential forms associated with the base field. Define 2-forms $T_i$ and $R_{ij}$ on $U$ by
+\[\label{eqn:ch05.10}\tag{10} T(X,Y) = \sum_{i=1}^n T_i(X,Y)e_i\]
+\[\label{eqn:ch05.11}\tag{11} R(X,Y)e_j = \sum_{i=1}^n R_{ij}(X,Y)e_i\]
+where the properties of an alternating tensor sumare checked for $T_i$ and $R_{ij}$ via the properties of $T$ and $R$.
+
+The forms $w_i$, $w_{ij}$,$T_i$ and $R_{ij}$ are related by the \emph{Cartan structural equations} which are equivalent to the definition of the torsion and curvature tensors. We merely express everything in terms of the base field. Let $X$ and $Y$ be $\CInfty$ fields on $U$. Then,
+
+\begin{align*}
+    T_i(X,Y)e_i &= \connection_XY-\connection_YX -[X,Y]\\ &= \connection_X\Big(\sum w_j(Y)\Big) - \connection_Y\Big(\sum w_j(X)e_j\Big) - \sum w_j([X,Y])e_j \\ &= \sum \big(Xw_j(Y)-Yw_j(X) -w_j[X,Y])e_j+(w_j(Y)w_{ij}(X)-w_j(X)w_{ij}(Y))e_i\big) 
+\end{align*}
+Equating components,
+\[T_i(X,Y) - \Big(\sum w_{ij}\wedge w_j\Big)(X,Y) = Xw_i(Y) -Yw_i(X) - w_i[X,Y] \]
+Since the expression on the left is a 2-form, so is the expression on the right (taken as a whole), and indeed, it is the exterior derivative $\dd w_i$ of $w_i$ evaluated on $X$ and $Y$. With this motivation we define the \emph{exterior derivative operator d}\index{exterior derivative} on 1-forms and functions (0-forms) as follows.
+
+For a $\CInfty$ function $f$ with domain $A$, let $\dd f(X)=Xf$; thus $\dd f$ is a $\CInfty$ 1-form on $A$. Let $w$ be any $\CInfty$ 1-form with domain $A$. Then $\dd w$ is a $\CInfty$ 2-form with domain $A$, defined on $\CInfty$ fields $X,Y$ on $A$ by
+
+\[\label{eqn:ch05.12}\tag{12} \dd w(X,Y) = Xw(Y)-Yw(X)-w[X,Y] \]
+
+We leave it to the reader to check that the right side is linear in each slot over the ring of $\CInfty$ functions on $A$, and hence that $\dd w(X_m,Y_m)$ is defined for $m$ in $A$ independent of the fields $X$ and $Y$.
+
+If $f$ is a $\CInfty$ function on $A$, then $\dd^2f - \dd(\dd f)=0$. To see this, let $X$ and $Y$ be $\CInfty$ fields on $A$; then,
+\begin{align*}
+    \dd^2f(X,Y) &= X\dd f(Y)-Y\dd f(X) - \dd f[X,Y]\\
+    &= XYf-YXf -[X,Y]f=0
+\end{align*}
+Also note that if $x_1,\dots,x_n$ a coordinate system on $A$, then $\dd x_1,\dots \dd x_n$ is the dual base to $\pdv{}{x_1},\dots ,\pdv{}{x_n}$, since $dx_i\Big(\pdv{}{x_j}\Big) = \pdv{x_i}{x_j}=\delta_{ij}$(the Kronecker delta).
+
+Now we can write the \emph{first Cartan structural equation}\emph{Cartan structural equations}
+\[\label{eq:ch05.13}\tag{13} \dd w_i = -\sum_{i=1}^n w_{ij}\wedge w_j +T_i\]
+By a comutation involving the definition of $R(X,Y)$, which is completely analogous to the above computation, one obtains the \emph{second Cartan structural equation},
+
+\[\label{eq:ch05.14}\tag{14} \dd w_{ij} = -\sum_{k=1}^n w_{ik}\wedge w_{kj} +R_{ij}\]
+
+These equations provide an alternate proof of the tensor character of $T$ and $R$, since they show that $T_i$ and $R_{ij}$ are 2-forms.
+
+\end{document}

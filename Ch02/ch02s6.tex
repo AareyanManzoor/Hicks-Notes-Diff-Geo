@@ -1,0 +1,47 @@
+\documentclass[../main]{subfiles}
+\begin{document}
+
+\section{Some Applications}\label{ch02:s6}
+
+Let $M$ be a hypersurface of $\bR^n$ with unit normal $N = (a_1,\dots,a_n)$ where each $a_i-I$ is a $\CInfty$ function on $M$ and $\sum_1^n a_i^2 = 1$. For any $r \InText R$, let\newline $M_r = \{p+rN_p \colon p\in M\}$. Thus if $p = (p_1,\dots,p_n)$ is in $M$, then \[f(p) = p+rN_p = (p_1 + ra_1(p),\dots,p_n + ra_n(p))\] is in $M_r$. The map $f$ is called the \defemph{natural map} of $M$ into $M_r$, and if $f$ is univalent, then $M_r$ is a \defemph{parallel hypersurface}\index{parallel hypersurface} of $M$ with unit normal $N$, i.e., $N_{f(p)} = N_p$ for all $p\InText M$. Let $L_r$ be the Weingarten map on $N_r$. 
+
+
+
+\begin{theorem} \label{thm:ch2.6.1}
+Let $f\colon M \functionMaps M_r$ as just described. Then for $X \in \tangentspace{M}{p}$, \newline $f_*(X) = X + rL(X)$, $L_r(f_*X) = L(X)$, and $f$ preserves principal directions of curvature, umbilics, and the third fundamental form. Also
+\[ \ip{f_*X}{f_*Y} = \firstForm(X, Y) + 2r\ \secondForm(X, Y) + r^2\ \thirdForm(X,Y), \]
+where $\firstForm$, $\secondForm$, $\thirdForm$ are the first, second, and third fundamental forms on $M$. If $k$ is a principal curvature of $M$ at $m$ in direction $X$, then $k/(1+rk)$ is the corresponding principal curvature of $M_r$ at $f(m)$ in direction $f_*X$.
+\end{theorem} 
+
+\begin{proof}
+To compute $f_*X$, take a curve $\sigma(t) = (b_1(t),\dots, b_n(t))$ with \\ $X = (b'_1(0), \dots, b'_n(0))$, and compute the tangent to $f\circ \sigma$ at $t=0$. Let \newline $N(\sigma(t)) = (a_1(t), \dots, a_n(t))$; then $f\circ \sigma(t) = (\dots, b_i(t) + ra_i(t), \dots)$, and its tangent at $t=0$ is indeed $X + rL(X)$. Also $N(\sigma(t)) = N(f\circ \sigma(t))$ from the definition of $f$ and $M_r$. Thus $L(X) = \covariant_XN = (a'_1(0),\dots,a'_n(0)) = \covariant_{f_*X}N=L_r(f_*X)$. This shows
+\[ \thirdForm_r(f_*X, f_*Y) = \ip{L_rf_*X}{L_rf_*Y} = \ip{LX}{LY} = \thirdForm(X,Y) \]
+
+Now let $X$ be a unit vector at $m \in M$ with $LX = kX$, so \newline $L_r(f_*X) = LX = kX$ and $f_*X = (1+rk)X$. If $1+rk = 0$, then \newline $f_*X= 0$ and $L_r(f_*X) = kX = 0$, so $k=0$ and $1=0$, thus $1+rk\ne 0$ if $M_r$ is a hypersurface. Hence $L_r(f_*X) = (k/(1+rk))f_*X$, which shows $f$ preserves directions of curvature and umbilics. Finally, one can verify the expression for $\ip{f_*X}{f_*Y}$ by direction computation using $f_*X = X + rLX$. 
+\end{proof}
+
+
+
+\begin{corollary} \label{cor:ch2.6.2}
+In the hypothesis of the above theorem let $n=3$, and let the total curvature and mean curvature of $M$ (and $M_r$) be denoted by $K$ (and $K_r$) and $H$ (and $H_r$). Then
+\[ K_r = \frac{K}{1+rH+r^2K} \hspace{1em} \text{and} \hspace{1em} H_r = \frac{H+2rK}{1+rH+r^2K}. \]
+\end{corollary}
+
+
+
+\begin{theorem} \label{thm:ch2.6.3}
+Let $M$ be a connected hypersurface in $\bR^n$ consisting entirely of umbilics. Then $M$ is either an open subset of a hyperplane or a sphere. If $M$ is closed, then $M$ is a hyperplane or a sphere.
+\end{theorem}
+
+\begin{proof}
+Take $p \InText M$ and $X_p \InText \tangentspace{M}{p}$, $X_p \ne 0$. Imbed $X_p$ in a $\CInfty$ field $X$ about $p$ and let $Y$ be any other $\CInfty$ field about $p$ with $X_p$ and $Y_p$ independent. Let $L = fI$ be the Ewingarten map where $f$ is a $\CInfty$ real valued function on $M$ and, $I$ is the identity of each tangent space. By the Codazzi-Mainardi equation \ref{eqn:ch02.10},
+\[ 0 = \connection_X(fY) - \connection_Y(fX)-f[X, Y] = (X_pf)Y_p - (Y_pf)X_p, \]
+since $\connection_XY - \connection_YX = [X, Y]$. The independence of $X_p$ and $X_y$ implies $X_pf = 0$. Since $M$ is connected, $f$ must be a constant function on $M$ (problem \ref{pro:14}). 
+
+Suppose $L = kI$, $k$ is constant on $M$. If $k=0$, then $L\equiv 0$ on $M$, so $N$ is constant on $M$ ($\covariant_XN=0$ for all $X\in \tangentspace{M}{p}$) and $M$ must be an open subset of a hyperplane.
+
+If $k\ne 0$, then we may assume $k>0$ by changing the sign of $N$ if necessary. Let $r= -1/k$ and let $f\colon M\functionMaps\bR^n$ by $f(p)=p+rN_p$. As in the preceding theorem, for all $X \InText \tangentspace{M}{p}$, $f_*(X) = X + rL(X) = X - (1/k)kX = 0$. Thus $f_*=0$, and since $M$ is connected, $f$ is a constant map. Let $c = p-(1/k)N_p$ for any $p \InText M$. Then all points of $M$ are $1/k$ units from $c$. Thus $M$ is an open subset of a sphere about $c$ of radius $1/k$. 
+\end{proof}
+
+
+\end{document}
