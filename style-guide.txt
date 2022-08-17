@@ -1,0 +1,32 @@
+Use \dd for differentials
+
+In the source text, sets are denoted with square brackets. These need to be changed to \{ \}
+
+The symbol \in does not appear in the text. Instances of the word "in" in set builder notation, or in scenarios like "if f in X", should be replaced with \in. I think a good rule of thumb is that if "in", somewhere outside set builder notation, makes the sentence grammatically incorrect, it needs to be replaced by \in, otherwise it can remain as is. For the intext ins, use the command $\InText$. So for example, "for x $\Intext$ A".
+
+Use `` '' for left and right quotation marks, respectively
+
+always use \[\] instead of $$ $$
+
+For brackets/parentheses, try sizing them correctly with \big \Big \bigg or \Bigg, these are all varying sizes of brackets and you have more flexibility here then \left or \right. For sums and such always use \bigg( \sum_n n\bigg) for instance.
+
+Anytime there is some new type of operator or anything that has ambiguous styling we might want to change later, either use a macros from operators[pr   eamble].tex or add it there. This is to make it easier to change it globally later.
+
+For maps between functions, use \functionMaps. This is so that it can be changed later in editing for instance.
+
+R^n is \mathbb{R}^n.
+
+Use \tangentspace{M}{m} for tangent space instead of M_m 
+
+Use \tangentbundle{M} for tangent bundle instead of T(M)
+
+Use the theorem environments and etc whenever applicable. the og book did not have numbers but ours will. besides each do \label{thm:CHx.x} and anytime there is a labeling simply \ref{} this. Label each item of an enumerate also, \label{enu:CHxxSx.x}
+
+use the connection macros for connections, not D_X or w/e
+
+
+use \nth macro for n\text{th}
+
+Make things that are like a/b into \frac{a}{b} with the obvious exceptions (exponents etc)
+
+label problems as \label{pro:xx}
