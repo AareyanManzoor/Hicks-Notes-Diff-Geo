@@ -44,9 +44,21 @@
 
 \pagestyle{plain}
 
-\printbibliography[heading=bibintoc, title={Bibliography}]
-\printindex
+\setstretch{0.1}
+\pagestyle{plain}
+\renewcommand*{\bibfont}{\small}
+\printbibliography[
+heading=bibintoc,
+title={Bibliography},
+]
 
+\setstretch{0.1}
+{\footnotesize
+\cleardoublepage
+\printindex\label{index}
+\clearpage
+}
 \subfile{cover/backcover}
 
 \end{document}
+
