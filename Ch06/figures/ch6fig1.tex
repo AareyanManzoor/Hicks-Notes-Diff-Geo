@@ -6,7 +6,35 @@
 % https://tex.stackexchange.com/a/318214
 \begin{figure}[p!]
 \[
-\begin{tikzpicture}
+\begin{tikzpicture}[x=0.8cm]
+    % Shape-preserving interpolation of the normalized numerical integral
+    % of exp(-1/(3+x)^2-1/(3-x)^2) on [-3,3].
+    % Reuse the same integral path for normalization and translation.
+    \def\hicksStepPath{(-3,0)
+        .. controls (-2.916666666667,0) and (-2.833333333333,0.000000000135) .. (-2.75,0.000000000270)
+        .. controls (-2.666666666667,0.000000000404) and (-2.583333333333,0.000144383626) .. (-2.5,0.000288766982)
+        .. controls (-2.416666666667,0.000433150338) and (-2.333333333333,0.003728997206) .. (-2.25,0.007169227431)
+        .. controls (-2.166666666667,0.010609457656) and (-2.083333333333,0.019391822901) .. (-2,0.029530100474)
+        .. controls (-1.916666666667,0.039668378047) and (-1.833333333333,0.052323656026) .. (-1.75,0.066792487604)
+        .. controls (-1.666666666667,0.081261319182) and (-1.583333333333,0.097533134143) .. (-1.5,0.115038211239)
+        .. controls (-1.416666666667,0.132543288336) and (-1.333333333333,0.151284119171) .. (-1.25,0.170862465670)
+        .. controls (-1.166666666667,0.190440812170) and (-1.083333333333,0.210860071000) .. (-1,0.231845285518)
+        .. controls (-0.916666666667,0.252830500035) and (-0.833333333333,0.274384152005) .. (-0.75,0.296310217709)
+        .. controls (-0.666666666667,0.318236283412) and (-0.583333333333,0.340536424338) .. (-0.5,0.363062768278)
+        .. controls (-0.416666666667,0.385589112218) and (-0.333333333333,0.408342805664) .. (-0.25,0.431203342872)
+        .. controls (-0.166666666667,0.454063880079) and (-0.083333333333,0.477032138862) .. (0,0.5)
+        .. controls (0.083333333333,0.522967861138) and (0.166666666667,0.545936119921) .. (0.25,0.568796657128)
+        .. controls (0.333333333333,0.591657194336) and (0.416666666667,0.614410887782) .. (0.5,0.636937231722)
+        .. controls (0.583333333333,0.659463575662) and (0.666666666667,0.681763716588) .. (0.75,0.703689782291)
+        .. controls (0.833333333333,0.725615847995) and (0.916666666667,0.747169499965) .. (1,0.768154714482)
+        .. controls (1.083333333333,0.789139929000) and (1.166666666667,0.809559187830) .. (1.25,0.829137534329)
+        .. controls (1.333333333333,0.848715880829) and (1.416666666667,0.867456711664) .. (1.5,0.884961788760)
+        .. controls (1.583333333333,0.902466865857) and (1.666666666667,0.918738680817) .. (1.75,0.933207512395)
+        .. controls (1.833333333333,0.947676343974) and (1.916666666667,0.960331621955) .. (2,0.970469899528)
+        .. controls (2.083333333333,0.980608177101) and (2.166666666667,0.989390542370) .. (2.25,0.992830772584)
+        .. controls (2.333333333333,0.996271002797) and (2.416666666667,0.999566849651) .. (2.5,0.999711233011)
+        .. controls (2.583333333333,0.999855616370) and (2.666666666667,0.999999999595) .. (2.75,0.999999999730)
+        .. controls (2.833333333333,0.999999999865) and (2.916666666667,1) .. (3,1)}
     \begin{scope}
     \draw (-7,0.5) node[anchor=west] {Graph of $g$:};
     \draw[latex-latex]
@@ -80,24 +108,15 @@
         (-5,0)--
         (0,0) node[anchor=north east] {$0$} --
         (5,0);
-    \draw[latex-latex] (0,-0.25)--(0,1.5) ;
-    \draw (2pt,1)--(-2pt,1) node[anchor=east] {};
+    \draw[latex-latex] (0,-0.25)--(0,1.5);
+    % Total integral: 2.90528214655; vertical drawing unit here: 0.35cm.
     
     \draw (-3,2pt)--(-3,-2pt);
     \draw (3,2pt)--(3,-2pt);
     
-    %used a Taylor series from Wolfram and did some trial and error in Desmos, resulting in an approximate plot
-    %...that could've just been replaced by some generic curve
-    \draw[blue, domain=-2.1047:2.1047, samples=100]
-    plot (\x, {
-        0.6*0.35014*( 
-  1.428 
-+ \x/pow(e, 2/9) 
-- (2*pow(\x,3))/(81*pow(e, 2/9)) 
-- (8*pow(\x,5))/(3645*pow(e, 2/9)) 
-    });
-    \draw[blue] (-5,0)--(-2.1047,0);
-    \draw[blue] (2.1047,0.6)--(5,0.6);
+    \draw[blue,yscale=1.01684875129] \hicksStepPath;
+    \draw[blue] (-5,0)--(-3,0);
+    \draw[blue] (3,1.01684875129)--(5,1.01684875129);
     \end{scope}
     
     \begin{scope}[shift={(0,-11.25)}]
@@ -107,21 +126,14 @@
         (0,0) node[anchor=north east] {$0$} --
         (5,0);
     \draw[latex-latex] (0,-0.25)--(0,1.5) ;
-    \draw (2pt,1)--(-2pt,1) node[anchor=east] {};
+    \draw (2pt,1)--(-2pt,1) node[anchor=east] {$1$};
     
     \draw (-3,2pt)--(-3,-2pt);
     \draw (3,2pt)--(3,-2pt);
     
-    \draw[blue, domain=-2.1047:2.1047, samples=100]
-    plot (\x, {
-        0.35014*( 
-  1.428 
-+ \x/pow(e, 2/9) 
-- (2*pow(\x,3))/(81*pow(e, 2/9)) 
-- (8*pow(\x,5))/(3645*pow(e, 2/9)) 
-    });
-    \draw[blue] (-5,0)--(-2.1047,0);
-    \draw[blue] (2.1047,1)--(5,1);
+    \draw[blue] \hicksStepPath;
+    \draw[blue] (-5,0)--(-3,0);
+    \draw[blue] (3,1)--(5,1);
     \end{scope}
     
     \begin{scope}[shift={(0,-13.5)}]
@@ -129,27 +141,20 @@
     \draw[latex-latex]
         (-5,0)--
         (0,0) node[anchor=north east] {$0$} --
-        (5,0);
+        (7.5,0);
     \draw[latex-latex] (0,-0.25)--(0,1.5) ;
-    \draw (2pt,1)--(-2pt,1) node[anchor=east] {};
+    \draw (2pt,1)--(-2pt,1) node[anchor=east] {$1$};
     
     \draw (0.5,2pt)--(0.5,-2pt) node[anchor=north] {$b$};
-    \draw (3.5,2pt)--(3.5,-2pt) node[anchor=north] {$c$};
-    
-    \draw[blue, domain=-2.1047:2.1047, samples=100]
-    plot ({0.5+(2.1047+\x)/1.4}, {
-        0.35014*( 
-  1.428 
-+ \x/pow(e, 2/9) 
-- (2*pow(\x,3))/(81*pow(e, 2/9)) 
-- (8*pow(\x,5))/(3645*pow(e, 2/9)) 
-    });
+    \draw (6.5,2pt)--(6.5,-2pt) node[anchor=north] {$c$};
+
+    \draw[blue,xshift=2.8cm] \hicksStepPath;
     \draw[blue] (-5,0)--(0.5,0);
-    \draw[blue] (3.5,1)--(5,1);
+    \draw[blue] (6.5,1)--(7.5,1);
     \end{scope}
 \end{tikzpicture}
 \]
-\caption{Constructing a $C^\infty$ Step Function}
+\caption{Constructing a $C^\infty$ Step Function. The integral curves are drawn numerically; panel (4) uses a shorter vertical drawing unit.}
 \label{fig:ch06fig1}
 \end{figure}
 

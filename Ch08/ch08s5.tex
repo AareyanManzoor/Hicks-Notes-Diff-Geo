@@ -13,20 +13,24 @@ If $n \geq 3$ and $M$ is an oriented hypersurface in $\bR^{n+1}$ with positive R
 \end{theorem}
 
 \begin{proof}
-Let $f: M \functionMaps M'$ be an isometry and let $L'=L\circ f_*$. Since $f$ is an isometry, the Gauss curvature equations give $R(X,Y)Y=R'(X, Y) Y$ or \[\ip{LY}{Y}L(X)-\ip{LY}{X}L(Y)=\ip{L'Y}{Y}L'(X)-\ip{L'Y}{X}L'(Y),\] where $X, Y$ in $\ts{M}{m}$. Choose an orthonormal base $X_1, \dots, X_n$ of vectors at $m$, and let $L X_i=k_iX_i$. We show $L'$ is invariant on each subspace $P_{ij}$ spanned by $X_i$ and $X_j$ for $i \neq j$. Let $b_{r s}=\ip{L'X_r}{X_s}$, and the Gauss curvature equations imply
+Let $f:M\functionMaps M'$ be an isometry and transport the shape operator to $TM$ by $L'=f_\ast^{-1}\circ L_{M'}\circ f_\ast$. \emph{Editor's note:} The inverse differential is required in the original's shorthand for $L'$, here and in the subsequent proofs. After identifying tangent spaces by $f_\ast$, the Gauss equations give
+\[\ip{LY}Y L(X)-\ip{LY}X L(Y)=\ip{L'Y}Y L'(X)-\ip{L'Y}X L'(Y).\]
+Choose an orthonormal principal base $X_1,\dots,X_n$ at $m$, with $LX_i=k_iX_i$, and put $b_{rs}=\ip{L'X_r}{X_s}$. We show that $L'$ preserves each plane $P_{ij}$ spanned by $X_i,X_j$. The Gauss equations imply
 \begin{align*}
     k_i k_j X_i&=b_{j j} L' X_i-b_{i j} L' X_j\\
     k_i k_j X_j&=-b_{i j} L' X_i+b_{i i} L' X_j.
 \end{align*}
 
-Then $K(P_{i j})=k_ik_j=b_{ii} b_{jj}-b_{i j}^2>0$ implies $L' X_i$ and $L' X_j$ lie in $P_{i j}$. Since $n \geq 3$, there is a third index $r$ with $L'X_i$ in $P_{ir}$; hence $L' X_i$ lies in $P_{i r} \wedge P_{i j}$, and thus $X_i$ is an eigenvector of $L'$. For all $i$, let $L' X_i=h_i X_i$. Then $k_i k_j=h_i h_j>0$ for all $i \neq j$; hence $k_i^2=h_i^2$, so $h_i=\pm k_i$. The positive curvature condition also implies $h_i=k_i$ for all $i$, or $h_i=-k_i$ for all $i$. Thus $L=\pm L'$ and we apply the fundamental rigidity theorem.
+Then $K(P_{ij})=k_ik_j=b_{ii}b_{jj}-b_{ij}^2>0$, so the two equations show $L'X_i,L'X_j\in P_{ij}$. Since $n\geq3$, choose $r\neq i,j$; then $L'X_i\in P_{ir}\cap P_{ij}=\operatorname{span}(X_i)$. Thus $L'X_i=h_iX_i$. For every $i\neq j$, $k_ik_j=h_ih_j>0$, and using a third index yields $k_i^2=h_i^2$. Hence $L'=L$ everywhere or $L'=-L$ everywhere on each connected component, by continuity. Choose the normal of $M'$ accordingly and apply the fundamental rigidity theorem.
 \end{proof}
 
 
 
 If in the above theorem we assume $M$ is complete (or closed), then we need not assume it is oriented. For $n=2$, the Cohn-Vossen theorem provides a similar result with the additional requirement that $M$ be compact. We now examine some global functions and forms on an oriented surface $M$ in $\bR^3$ before proving the Cohn-Vossen theorem.
 
-Let $N$ be the unit normal on $M$, let $p\in M$, and let $e_1, e_2$ be a positively oriented orthonormal base field in the neighborhood $U$ about $p$. Identifying $p$ with the vector from the origin to $p$, define local functions $y_1, y_2$ on $U$, and a global function $y_3$ on $M$, by $p=y_1(p) e_1+y_2(p)e_2+y_3(p)N$. Define global $1$-forms $\alpha$ and $\beta$ on $U$ by \[\alpha(X)=\ip{p}{e_1}\ip{X}{e_2}-\ip{p}{e_2}\ip{X}{e_1}\] and $\beta(X)=\alpha(L X)$. One checks that $\alpha$ is independent of the particular positively oriented base $e_1, e_2$ used to define it, so $\alpha$ and $\beta$ are global 1-forms on $M$. We now compute $\dd\alpha$ and $\dd\beta$. Let $w_i, w_{i j}$ be the local forms belonging to the base $e_1,e_2$ so $w_{i j}=-W_{ji}$. Then \[L(X)=\covariant_X(N)=w_{13}(X)e_1+w_{23}(X) e_2, w_{i 3}=b_{1 i} W_1+b_{2 i} w_2,\] and $b_{i j}=\ip{L e_i}{e_j}$. Thus $\alpha=y_1w_2-y_2 w_1$ and $\beta=y_1w_{23}-y_2w_{13}$.
+Let $N$ be the unit normal on $M$, let $p\in M$, and choose a positively oriented orthonormal local frame $e_1,e_2$. Write $p=y_1(p)e_1+y_2(p)e_2+y_3(p)N$, with $y_3$ global. Define $\alpha(X)=\ip p{e_1}\ip X{e_2}-\ip p{e_2}\ip X{e_1}$ and $\beta(X)=\alpha(LX)$. These expressions are independent of the positively oriented orthonormal frame, so $\alpha,\beta$ are global $1$-forms. Let $w_i,w_{ij}$ be the corresponding forms, with $w_{ij}=-w_{ji}$. Then
+\[L(X)=\covariant_XN=w_{13}(X)e_1+w_{23}(X)e_2,\qquad w_{i3}=b_{1i}w_1+b_{2i}w_2,\qquad b_{ij}=\ip{Le_i}{e_j}.\]
+Thus $\alpha=y_1w_2-y_2w_1$ and $\beta=y_1w_{23}-y_2w_{13}$.
 
 Since $y_i=\ip{p}{e_i}$ we have 
 \begin{align*}
@@ -54,9 +58,11 @@ A compact surface of positive Gaussian curvature is rigid.
 \end{theorem}
 
 \begin{proof}
-Let $f: M \functionMaps M'$ be an isometry of such surfaces, and assume the origin to be inside $M$ so $y_3>0$. Let $L'=L_{M'}\circ f_{*}$, then $L$ and $L'$ are positive definite on $M$ since $K=K'>0$. Let $\Delta=\det(L-L')$. We show $L=\pm L'$ by showing $\Delta=0$ and apply the following lemma: if $A$ and $B$ are two positive definite quadratic forms on $\bR^2$ with $\det A=\det B$, then $\det(A-B)\leq 0$, and $\det(A-B)=0$ implies $A=\pm B$.
+Let $f:M\functionMaps M'$ be an isometry. Choose outward normals, so $L$ and $L'=f_\ast^{-1}L_{M'}f_\ast$ are positive definite. Place the origin inside the convex body bounded by $M$, so $y_3>0$, and put $\Delta=\det(L-L')$. For positive definite $2$ by $2$ symmetric maps $A,B$ with $\det A=\det B$, one has $\det(A-B)\leq0$, with equality only when $A=B$: apply this to the positive eigenvalues $\lambda,\lambda^{-1}$ of $A^{-1/2}BA^{-1/2}$. Thus $\Delta\leq0$, and it suffices to show $\Delta=0$.
 
-Let $\beta'=\alpha \circ L'$ and, as above, we compute $\dd\beta'=[H'-y_3(2K-\Delta)]v$. Hence \[\int H'=\int\xoverline{y_3}(2k-\Delta)=\int H-\int y_3\Delta,\] all integrals taken over $M$. Thus $\int H'-\int H \geq 0$ since $y_3 \leq 0$, so $\int H' \geq \int H$. By symmetry we can reverse the inequality so $\int H'=\int H$ and $\int y_3 \Delta=0$, which implies $\Delta=0$.
+Let $\beta'=\alpha\circ L'$. The same calculation, using the Codazzi equation for $L'$, gives $\dd\beta'=[H'-y_3(2K-\Delta)]v$. Hence
+\[\int_MH'=\int_My_3(2K-\Delta)=\int_MH-\int_My_3\Delta.\]
+Since $y_3>0$ and $\Delta\leq0$, $\int_MH'\geq\int_MH$. Interchanging $M$ and $M'$ reverses the inequality, so $\int_My_3\Delta=0$. The integrand is nonpositive and continuous, and $y_3>0$, so $\Delta=0$ everywhere. \emph{Editor's note:} The original's conclusion uses the false inequality $y_3\leq0$; the required inequality is $\Delta\leq0$. Its barred $y_3$ and lowercase $k$ in this integral are also corrected. The fundamental rigidity theorem now applies.
 \end{proof}
 
 
@@ -66,7 +72,9 @@ If $f$ is an isometry between two oriented surfaces that preserves the mean curv
 \end{theorem}
 
 \begin{proof}
-Let $f: M \functionMaps M'$ and let $L'=L_{M'} \circ f_*$. Equality of the third fundamental forms implies $\ip{L^2X}{Y}=\ip{(L')^2 X}{Y}$ for all $X, Y$ in $\ts{M}{m}$ so $L^2=(L')^2$. Using the characteristic equation for $L$ and $L'$ we have \[HL=L^2+K I=(L')^2+K'I=H' L'=H L'.\] Thus if $H(m)\neq 0$, then $L=L'$ at $m$, and since $H$ never vanishes identically on any neighborhood, we have $L=L'$ on $M$ by continuity.
+Let $L'=f_\ast^{-1}L_{M'}f_\ast$. Equality of the third fundamental forms implies $L^2=(L')^2$. Since the mean curvatures agree, $H=H'$, the identity $2K=H^2-\tr(L^2)$ gives $K=K'$. The characteristic equations therefore give
+\[HL=L^2+KI=(L')^2+K'I=H'L'=HL'.\]
+At each point where $H\neq0$, $L=L'$. Such points are dense by hypothesis, so continuity gives $L=L'$ everywhere, and the fundamental rigidity theorem proves the conclusion.
 \end{proof}
 
 

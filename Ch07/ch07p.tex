@@ -39,11 +39,11 @@ Let $M$ be a $\CInfty$ $n$-manifold and let $U$ be an open subset of $M$.
     \end{enumerate}
    
     
-    \item\label{pro:71} (Poincar\'e lemma) Show every closed $p$-form on $\bbR^{n}$ is exact for $p>0$ as follows: for $b$ in $\bbR$ let $g_{b}: \bbR^{n} \rightarrow \bbR^{n+1}$ by $g_{b}\left(t_{1}, \ldots, t_{n}\right)=\left(t_{1}, \ldots, t_{n}, b\right)$, let $f: \bbR^{n+1} \rightarrow \bbR$ by \[f\left(t_{1}, \ldots, t_{n+1}\right)=\left(t_{n+1} t_{1}, t_{n+1} t_{2}, \ldots, t_{n+1} t_{n}\right),\] let $T=\pdv{}{u_n}$, and for $p>0$, define the linear map $K: \formbundle{\bbR^{n}}{p} \rightarrow \formbundle{\bbR^{n}}{p-1}$ by \[K(w)=\int_{0}^{1}(g_{b})^\ast \circ C_{T} \circ f^\ast(w) \dd b,\] and show $\dd K+K \dd$ equals the identity map on $\formbundle{\bbR^{n}}{p}$.
+    \item\label{pro:71} (Poincar\'e lemma) Show every closed $p$-form on $\bbR^{n}$ is exact for $p>0$ as follows: for $b$ in $\bbR$ let $g_{b}: \bbR^{n} \rightarrow \bbR^{n+1}$ by $g_{b}\left(t_{1}, \ldots, t_{n}\right)=\left(t_{1}, \ldots, t_{n}, b\right)$, let $f: \bbR^{n+1} \rightarrow \bbR^n$ by \[f\left(t_{1}, \ldots, t_{n+1}\right)=\left(t_{n+1} t_{1}, t_{n+1} t_{2}, \ldots, t_{n+1} t_{n}\right),\] let $T=\pdv{}{u_{n+1}}$, and for $p>0$, define the linear map $K: \formbundle{\bbR^{n}}{p} \rightarrow \formbundle{\bbR^{n}}{p-1}$ by \[K(w)=\int_{0}^{1}(g_{b})^\ast \circ C_{T} \circ f^\ast(w) \dd b,\] and show $\dd K+K \dd$ equals the identity map on $\formbundle{\bbR^{n}}{p}$. \emph{Editor's note:} The codomain of $f$ is corrected from the original.
     \item\label{pro:72} Let $M$ be an oriented Riemannian 2-manifold. If $\sigma$ is an oriented $\CInfty$ curve in $M$ with unit tangent $T$, let $T, N$ be an orthonormal oriented base along $\sigma$ and define the \emph{signed geodesic curvature}\index{geodesic curvature} of $\sigma$ to be the $\CInfty$ function $b$ with $\connection_{T} T=b N$ on $\sigma$. 
     \begin{enumerate}[label = (\roman*)]
         \item If $Z$, $W$ is an oriented orthonormal parallel base field along $\sigma$ and $T=(\cos \theta) Z+(\sin \theta) W$, show $b = \dv{\theta}{s} = T \theta$ on $\sigma$.
-        \item If $x, y$ is an oriented orthogonal coordinate system on $U\in M$, let $E=\ip X X$ and $G = \ip Y Y$. If $b_1$ and $b_{2}$ denote the geodesic curvature along the $x$-coordinate and $y$-coordinate curves, respectively, show \[b_{1}=-\dfrac{1}{2E\sqrt{G}}\pdv{E}{y}, b_{2}=\dfrac{1}{2E\sqrt{G}}\pdv{E}{y}\] and \[K=\dfrac{1}{\sqrt{EG}} \bigg[ \pdv{b_1\sqrt{E}}{y}-\pdv{b_2\sqrt{G}}{x}\bigg]\].
+        \item If $x, y$ is an oriented orthogonal coordinate system on $U\subset M$, let $E=\ip X X$ and $G = \ip Y Y$. If $b_1$ and $b_{2}$ denote the geodesic curvature along the $x$-coordinate and $y$-coordinate curves, respectively, show \[b_{1}=-\dfrac{1}{2E\sqrt{G}}\pdv{E}{y}, \qquad b_{2}=\dfrac{1}{2G\sqrt{E}}\pdv{G}{x}\] and \[K=\dfrac{1}{\sqrt{EG}} \bigg[ \pdv{b_1\sqrt{E}}{y}-\pdv{b_2\sqrt{G}}{x}\bigg].\]
         \item  Show the $y$-curve are geodesics (with $y$ as parameter) iff $G$ is constant.
     \end{enumerate}
      
@@ -51,7 +51,7 @@ Let $M$ be a $\CInfty$ $n$-manifold and let $U$ be an open subset of $M$.
     \item\label{pro:73} If $M$ is Riemannian, $(\phi, U)$ is a coordinate pair, \[x_i = u_i \circ \phi,g_{ij} = \ip {\pdv{}{x_i}}{\pdv{}{x_j}},\] $g = \det(g_{ij})$, $f$ is in $\CInfty(M, \bbR)$, and $A$ is a fundamental set with $A \subset U$, show \[\int_A f = \int_{\phi(A)} (f \circ \phi^{-1}) \sqrt {g \circ \phi^{-1}} \dd u_1 \dd u_2 \ldots \dd u_n.\]
     
     %NOTE: I have changed this from \lim[...] as r \to 0 to \lim_{r \to 0} [...]
-    \item\label{pro:74} Let $M$ be a surface in $\bbR^3$ with sphere map $\eta$. For $m$ in $M$ let $A(r)$ be the area of $B(m, r)$, the ball about $m$ of radius $r$ and let $A_\eta(r)$ be the area of $\eta(B(m, r))$. Show \[ K(m) = \lim_{r \to 0} \Big[\dfrac{A_\eta(r)}{A(r)}\Big]. \]
+    \item\label{pro:74} Let $M$ be an oriented surface in $\bbR^3$ with sphere map $\eta$. For $m$ in $M$ let $A(r)$ be the area of $B(m, r)$, the ball about $m$ of radius $r$, and let $A_\eta(r)=\int_{B(m,r)}\eta^\ast v_S$ be its signed spherical area, counted with multiplicity, where $v_S$ is the oriented area form of the unit sphere. Show \[ K(m) = \lim_{r \to 0} \Big[\dfrac{A_\eta(r)}{A(r)}\Big]. \] \emph{Editor's note:} Signed area with multiplicity replaces the original's unsigned image area, which does not in general recover $K$.
 \end{enumerate}
 
 

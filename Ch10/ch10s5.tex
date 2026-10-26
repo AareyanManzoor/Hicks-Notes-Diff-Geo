@@ -93,7 +93,7 @@ L_W''(0) &= \int_0^{\pi/\sqrt K}\sbr{\ip{R(W,T)W}{T}+\ip{\D_TW}{\D_TW}}\dd t \\
 &\le K\int_0^{\pi/\sqrt K}\sbr{\cos^2\sqrt Kt-\sin^2\sqrt Kt}\dd t \\
 &=0
 \end{align*}
-where $K(t)=\ip{R(e,t)T}{e}$. If the interval $\Big[0,\dfrac\pi{\sqrt K}\Big]$ was free of conjugate points, then by lemma \ref{lem:ch10.2.9},
+where $K(t)=\ip{R(e,T)T}{e}$. If the interval $\Big[0,\dfrac\pi{\sqrt K}\Big]$ was free of conjugate points, then by lemma \ref{lem:ch10.2.9},
 \[L_W''(0) > L_Z''(0) = 0\]
 where $Z=0$ is the unique Jacobi field along $g$, which coincides with $W$ at 0 and $\dfrac\pi{\sqrt K}$. This contradiction proves the theorem.
 \end{proof}
@@ -121,7 +121,7 @@ Since $M$ is paracompact, it is easy to show there exists $f\in\CInfty(M,\bR)$ w
 \[G_1(X,Y) = f^2(m)G(X,Y)\]
 for $X,Y\in\ts Mm$, which defines a $\CInfty$ Riemannian metric $G_1$ on $M$.
 
-That $G_1$ is complete will follow by showing $B(p,\tfrac13)\subset B(p,\tfrac{r(p)}{2})$ and hence $\bar B_1(p,\tfrac16)$ is compact. This implies every Cauchy sequence in the $G_1$ metric must converge. To show this, take $p\in M$ and take $m$ such that $d(p,m)\ge\frac{r(p)}{2}$. Let $\gamma$ ba a broken $\CInfty$ curve from $p$ to $m$, which is parameterized by $G$-arc length, i.e., if $T$ is the tangent to $\gamma$, then $G(T,T)=1$ and $\gamma$ is defined on $[0,L]$ where $L$ is the $G$-length of $\gamma$, so $L\ge\frac{r(p)}{2}$. Letting $L_1$ be the $G_1$-length of $\gamma$,
+That $G_1$ is complete will follow by showing $B_1(p,\tfrac13)\subset B(p,\tfrac{r(p)}{2})$ and hence $\bar B_1(p,\tfrac16)$ is compact. This implies every Cauchy sequence in the $G_1$ metric must converge. To show this, take $p\in M$ and take $m$ such that $d(p,m)\ge\frac{r(p)}{2}$. Let $\gamma$ be a broken $\CInfty$ curve from $p$ to $m$, which is parameterized by $G$-arc length, i.e., if $T$ is the tangent to $\gamma$, then $G(T,T)=1$ and $\gamma$ is defined on $[0,L]$ where $L$ is the $G$-length of $\gamma$, so $L\ge\frac{r(p)}{2}$. Letting $L_1$ be the $G_1$-length of $\gamma$,\footnote{Editor's correction: the first ball is for $G_1$, not $G$ as printed in the original.}
 \[L_1 = \int_0^L\sqrt{G_1(T,T)}\dd t
 = \int_0^L(f\circ\gamma)\dd t
 = f(\bar p)L
@@ -130,7 +130,7 @@ where $\bar p$ is on $\gamma$ between $p$ and $m$. But
 \[\norm{r(\bar p)-r(p)}\le d(p,\bar p)\le L\]
 hence
 \[r(\bar p)\le r(p)+L,
-\quad L'>\frac{L}{r(p+L)}>\frac{L}{3L}=\frac13\]
+\quad L_1>\frac{L}{r(p)+L}\ge\frac{L}{3L}=\frac13\]
 Hence $d_1(p,m)\ge\frac13$, so $B_1(p,\tfrac13)\subset B(p,\tfrac{r(p)}{2})$.
 
 For the second part of the theorem we may assume $G=G_1$ is complete. Fix a point $m\in M$ and let $f\in\CInfty(M,\bR)$ such that $f(p)>d(m,p)$ for all $p$. Let

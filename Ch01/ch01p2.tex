@@ -14,7 +14,7 @@
 \begin{enumerate}[label=(\roman{enumii})]
     \item Let $W_1,\dots, W_n$ be a $\CInfty$ base field on an open set $U$ in a manifold $M$ and let $X = \sum\limits_{i=1}^{n} f_i W_i$ be a vector field on $U$. Show $X$ is $\CInfty$ on $U$ iff the functions $f_i$ are $\CInfty$ on $U$ for all $i$.
     \item If $Y$ and $Z$ are $\CInfty$ fields on $U$ show $[Y,Z]$ is $\CInfty$, show that a coordinate field $\pdv{}{x_i}$ is $\CInfty$ on its domain.
-    \item If $X_p$ is a given vector at $p$ in $M$ show there is a $\CInfty$ field $\xoverline{X}$ on a neighborhood of $p$ with $\xoverline{X} = X_p$.
+    \item If $X_p$ is a given vector at $p$ in $M$ show there is a $\CInfty$ field $\xoverline{X}$ on a neighborhood of $p$ with $\xoverline{X}_p = X_p$.
     \item Let $x_i, \dots, x_n$ be a coordinate system with domain $U$ and let \newline $A = \displaystyle \sum a_i \bigg(\pdv{}{x_i}\bigg)$ and $B=\displaystyle \sum b_j \bigg(\pdv{}{x_j}\bigg)$ be $\CInfty$ fields on $U$ then find the representation of $[A,B]$ in terms of the coordinate vector fields.
     \item Show $[fX,gY] = f(Xg)Y - g(Yf)X + fg[X,Y]$ where $X$ and $Y$ are $\CInfty$ fields on $U$ and $f$ and $g$ are in $\CInfty(U,\bR)$. 
     \item Prove the \ref{jacobi identity}.
@@ -73,7 +73,7 @@ Let $X$ and $Y$ be $\CInfty$ fields about $m$ in $M$. For small $t \ge 0$ define
 
 \item\label{pro:19}
 \begin{enumerate}[label=(\roman{enumii})]
-    \item Let $M$ be a $\CInfty$ $n$-manifold. Let $\tangentbundle{M} = \{(m,X): X \in \tangentspace{M}{m}\}$, and let $\pi: \tangentbundle{M} \functionMaps M$ by $\pi(m,X) = m$. If $(\phi, U)$ is a coordinate pair on $M$ with $x_i = u_i \circ \phi$ let $\xoverline{U} = \pi \inv (U),$ $\xoverline{x}_i = x_i \circ \pi$, and for $(m,X)$ in $\xoverline{U}$ let $x_i (m,X) = a_i$ if $X = \displaystyle\sum a_i \Big(\pdv{}{x_i}\Big)$. Let $\xoverline{\phi}: \xoverline{U} \functionMaps \bR^{2n}$ so $u_i \circ \xoverline{\phi} = \xoverline{x}_i$ and $u_{n+i} \circ \xoverline{\phi} = x_i$ for $i=1, \dots,n$. Show the subatlas of pairs $(\xoverline{\phi}, \xoverline{U})$ defines a $\CInfty$ structure on $\tangentbundle{M}$ which is called the \defemph{tangent bundle of}\index{tangent bundle} $M$.
+    \item Let $M$ be a $\CInfty$ $n$-manifold. Let $\tangentbundle{M} = \{(m,X): X \in \tangentspace{M}{m}\}$, and let $\pi: \tangentbundle{M} \functionMaps M$ by $\pi(m,X) = m$. If $(\phi, U)$ is a coordinate pair on $M$ with $x_i = u_i \circ \phi$ let $\xoverline{U} = \pi \inv (U),$ $\xoverline{x}_i = x_i \circ \pi$, and for $(m,X)$ in $\xoverline{U}$ let $\dot{x}_i (m,X) = a_i$ if $X = \displaystyle\sum a_i \Big(\pdv{}{x_i}\Big)_m$. Let $\xoverline{\phi}: \xoverline{U} \functionMaps \bR^{2n}$ so $u_i \circ \xoverline{\phi} = \xoverline{x}_i$ and $u_{n+i} \circ \xoverline{\phi} = \dot{x}_i$ for $i=1, \dots,n$. Show the subatlas of pairs $(\xoverline{\phi}, \xoverline{U})$ defines a $\CInfty$ structure on $\tangentbundle{M}$ which is called the \defemph{tangent bundle of}\index{tangent bundle} $M$.
     \item If $f$ is a $\CInfty$ map of $M$ into $N$ show $f_*$ induces a $\CInfty$ map of $\tangentbundle{M}$ into $\tangentbundle{N}$.
 \end{enumerate}
 
@@ -81,7 +81,7 @@ Let $X$ and $Y$ be $\CInfty$ fields about $m$ in $M$. For small $t \ge 0$ define
 \item\label{pro:20}
 \begin{enumerate}[label=(\roman{enumii})]
     \item Let $G$ be a Lie group. If $g \in G$ let $L_g, R_g$, and $A_g$ denote the maps of $G$ into $G$ defined by $L_g (h) = gh, R_g (h) = hg$ and $A_g (h) = ghg\inv$. Show $L_g, R_g,$ and $A_g$ are $\CInfty$. 
-    \item A vector field $X$ on $G$ is \defemph{left invariant}\index{left invariant fields} if $(L_g)_* X_g = X_{gh}$ for all $g$ and $h$. Show a left invariant field is $\CInfty$ and is completely determined by its value at the identity $e$. 
+    \item A vector field $X$ on $G$ is \defemph{left invariant}\index{left invariant fields} if $(L_g)_* X_h = X_{gh}$ for all $g$ and $h$.\footnote{Editor's note: The original has $X_g$ instead of $X_h$; the differential of $L_g$ at $h$ takes vectors at $h$ to vectors at $gh$.} Show a left invariant field is $\CInfty$ and is completely determined by its value at the identity $e$.
     \item If $X$ and $Y$ are left invariant, show $[X,Y]$ is left invariant.
     \item The set of left invariant vector fields on $G$ forms an $n$-dimensional vector space called the \defemph{Lie algebra of}\index{Lie algebra} $G$ which is denoted by $\mathfrak{g}$. Define a \defemph{one-parameter}\index{one parameter subgroup} subgroup of $G$ to be the image of a $\CInfty$ homomorphism of $\bR$ into $G$. Show there is a 1:1 correspondence between one-parameter subgroups and integral curves of left invariant vector fields thru $e$.
     \item Show the map $(g,h) \functionMaps gh\inv$ is $\CInfty$ from $G\times G$ into $G$ iff the maps $(g,h) \functionMaps gh$ and $g \functionMaps g\inv$ are $\CInfty$.
@@ -111,7 +111,7 @@ Let $X$ and $Y$ be $\CInfty$ fields about $m$ in $M$. For small $t \ge 0$ define
     \item For fixed $b$ in $\basisBundle{M}$ let $f_b : \GL(n,\bR) \functionMaps \basisBundle{M}$ by $f_b (g) = bg$. Show $f_b$ is $\CInfty$.
     \item Call the set $F_m = \pi\inv(m)$ the (vertical) \defemph{fiber over $m$}\index{fiber} in $M$. Show $F_m$ is an $n^2$-submanifold of $\basisBundle{M}$ and $f_b$ is a diffeo. of $\GL(n, \bR)$ onto $F_{\pi(b)}$. 
     \item If $\pi(b) = \pi(c)$, show $f_c \inv \circ f_b$ is a left translation on $\GL(n,\bR)$.
-    \item A tangent vector $X$ on $\basisBundle{M}$ such that $\pi_*(X) = 0$ is called a \defemph{vertical}\index{vertical vector} vector. For $b$ in $\basisBundle{M}$, let $E_{i  j} (b) = (f_b)_* xX_{i  j}(e)$ define a vector $E_{i  j} (b)$ (see problem $21$). Show $E_{i  j}$ is a global $\CInfty$ vertical vector field on $\basisBundle{M}$.
+    \item A tangent vector $X$ on $\basisBundle{M}$ such that $\pi_*(X) = 0$ is called a \defemph{vertical}\index{vertical vector} vector. For $b$ in $\basisBundle{M}$, let $E_{i  j} (b) = (f_b)_* X_{i  j}(e)$ define a vector $E_{i  j} (b)$ (see problem $21$). Show $E_{i  j}$ is a global $\CInfty$ vertical vector field on $\basisBundle{M}$.
     \item Compute $[E_{i  j}, E_{r  s}]$.
 \end{enumerate}
 

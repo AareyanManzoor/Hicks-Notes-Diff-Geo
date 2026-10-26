@@ -4,10 +4,10 @@
 \section{Lie Derivative}\label{ch07:s3}
 Let $X$ be a $\CInfty$ vector field on the open set $A$. An operator $\liederiv{X}$, called the \defemph{Lie derivative via $X$}\index{Lie derivative}, which maps $\tensorbundle{A}{r}{ s}$ into itself, is defined as follows: 
 \begin{enumerate}[label=(\alph*)]
-    \item\label{enu:ch07.3.a} if $f\in \formbundle{A}{0}$, $\liederiv{X}{Y} = Xf$;
+    \item\label{enu:ch07.3.a} if $f\in \formbundle{A}{0}$, $\liederiv{X}{f} = Xf$;
     \item\label{enu:ch07.3.b} if $Y\in\tensorbundle{A}{1}{0}$, $\liederiv{X}{Y}=[X, Y];$
     \item\label{enu:ch07.3.c} if $w\in\tensorbundle{A}{0}{1},(\liederiv{X}{w})(Y)=X w(Y)-w([X, Y])$;
-    \item\label{enu:ch07.3.d} if $\theta$ in $\tensorbundle{A}{r}{ s}, w_{1}, \ldots, w_{t}$ in $\tensorbundle{A}{0}{1}$, and $Y_{1}, \ldots, Y_{s}$ in $\tensorbundle{A}{1}{ 0}$, then $\liederiv{X} \theta$ is defined by solving for it in the equation
+    \item\label{enu:ch07.3.d} if $\theta$ in $\tensorbundle{A}{r}{ s}, w_{1}, \ldots, w_{r}$ in $\tensorbundle{A}{0}{1}$, and $Y_{1}, \ldots, Y_{s}$ in $\tensorbundle{A}{1}{ 0}$, then $\liederiv{X} \theta$ is defined by solving for it in the equation
 \begin{equation}\tag{3}
 \label{eqn:ch07.3}
 \begin{split}
@@ -27,10 +27,10 @@ The operator $\liederiv{X}$ has the following properties:
     \item \label{enu:ch07.3.1} $\liederiv{X}$ preserves forms,
     \item\label{enu:ch07.3.2} $\liederiv{X}(w+z)=\liederiv{X} w+\liederiv{X} z$,
     \item \label{enu:ch07.3.3}$\liederiv{X}(w \otimes v)=\left(\liederiv{X} w\right) \otimes v+w \otimes \liederiv{X} v$,
-    \item \label{enu:ch07.3.4}$\liederiv{X}(\alpha \wedge \beta)=\left(\liederiv{X} \alpha\right) \wedge \beta+a \wedge \liederiv{X} \beta$,
+    \item \label{enu:ch07.3.4}$\liederiv{X}(\alpha \wedge \beta)=\left(\liederiv{X} \alpha\right) \wedge \beta+\alpha \wedge \liederiv{X} \beta$,
 \end{enumerate}
 
-where $w$ and $z$ are tensors of the same type, $v$ is any tensor, and $a$ and $\beta$ are forms.
+where $w$ and $z$ are tensors of the same type, $v$ is any tensor, and $\alpha$ and $\beta$ are forms.
 \end{proposition}
 
 \begin{proof}
@@ -96,7 +96,7 @@ We verify this equality on functions ($0$-forms) and $1$-forms. This is sufficie
 
 For $f\in \formbundle{A}{0}$, \[\dd C_{X}(f)+C_{X} \dd(f)=0+\dd f(X)=X f=\liederiv{X} f.\] For $w\in \formbundle{A}{1}$, 
 \begin{align*}
-    (\dd C_{X}+C_{X} \dd w)(Y)&=Y w(X)+\dd w(X, Y)\\&=Y w(X) + X w(Y)-Y w(X)-w([X, Y])\\&=(\liederiv{X} w)(Y)
+    (\dd C_{X}w+C_{X} \dd w)(Y)&=Y w(X)+\dd w(X, Y)\\&=Y w(X) + X w(Y)-Y w(X)-w([X, Y])\\&=(\liederiv{X} w)(Y)
 \end{align*}
 
 \end{proof}

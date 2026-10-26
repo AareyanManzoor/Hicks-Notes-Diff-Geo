@@ -21,7 +21,7 @@ L(T_u) = -\frac {\ip {T_{u u}} N} {\ip {T_u} {T_u}} T_u - \frac {\ip {T_{u v}} N
 and similarly for $T_v$; hence, 
 
 \[
-H = -\frac {\ip {T_{uu}} N} {\ip {T_u} {T_u}} = -\frac {\ip {T_{vv}} N} {\ip {T_v} {T_v}}
+H = -\frac {\ip {T_{uu}} N} {\ip {T_u} {T_u}} - \frac {\ip {T_{vv}} N} {\ip {T_v} {T_v}}
 \]
 
 and
@@ -35,8 +35,8 @@ A little more computation is necessary to determine the matrix for $L$ in terms 
 Specializing further, let $f$ be a positive (at least $C^2$) function, and for $u > 0$ let 
 
 \[
-\phi(u, v) = (u \cos v, u \sin v, f(v))
+\phi(u, v) = (u \cos v, u \sin v, f(u))
 \]
 
-define a ``surface of revolution''\index{surface of revolution}. Applying the above analysis, one sees directly that $T_u$ and $T_v$ are principal vectors and $K = \dfrac{f' f''}{u[1 + (f')]^2}$ where $f'(u) = \dv{f}{u}$. To find surfaces of constant curvature one must solve the differential equation $f' f'' =\ u K [1 + (f')]^2$, a task that is left to reader via several problems. For more details and pictures, see \cite{struik1961lectures}.
+define a ``surface of revolution''\index{surface of revolution}. Applying the above analysis, one sees directly that $T_u$ and $T_v$ are principal vectors and $K = \dfrac{f' f''}{u[1 + (f')^2]^2}$ where $f'(u) = \dv{f}{u}$. To find surfaces of constant curvature one must solve the differential equation $f' f'' =\ u K [1 + (f')^2]^2$, a task that is left to reader via several problems. For more details and pictures, see \cite{struik1961lectures}.
 \end{document}

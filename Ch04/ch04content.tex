@@ -49,16 +49,16 @@ By a \emph{weak direct sum}, $\sum_IM_i$ of modules over an index set $I$, one m
 \[ \sum_{I} M_i = \big\{ f\in \prod_I M_i \colon f(i) = 0 \text{ for all but a finite number of elements } i\in I\big\}, \]
 and the one writes $f=m_1 + m_2 + \cdots + m_k$ if $f(i) = m_i$ for $i=1,\dots, k$ and $f(j) = 0$ for $j\ne 1, \dots, k$, (see \cite{chevalley1956fundemental} and \cite{jacobson2013lectures} for more details). The tensor multiplication and the exterior product can be extended distributively to $\tangentbundle{W}$ and $\formbundle{W}{}$, respectively, thus making them algebras over $\bR$.
 
-If $U$ is an open set in the manifold $M$, let $\tensorbundle{U}{p}{q}$ be the set of $\CInfty$ $p$-contra and $q$-co tensor fields on $U$, and let $\tangentbundle{U}$ and $\formbundle{U}{}$ be defined analogously. On the other hand, let $\realFunctions$ be the ring of $\CInfty$ real valued functions on $U$ and let $\vectorFields_u$ be the $\realFunctions_u$-module of $\CInfty$ vector fields on $U$. Then the above definitions can be extended to define the $\realFunctions_u$-modules $\tensorbundle{\vectorFields_u}{p}{q}$ and $\formbundle{\vectorFields_u}{p}$ for $p, q \ge 0$, where $\tensorbundle{\vectorFields_u}{0}{ 0} = \formbundle{\vectorFields_u}{0} = \realFunctions_u$. The next theorem and its corollary are designed to illuminate the relation between $\tangentbundle{U}$ and $\tangentbundle{\vectorFields_u}$. To accomplish this, let us define an open set $V \InText M$ to be \emph{framed}\index{framed} if there exists a $\CInfty$ \emph{base field} on $V$, i.e., a set of $n$ $\CInfty$ vector fields $e_1,\dots,e_n$ on $V$ that are independent at each point of $V$.
+If $U$ is an open set in the manifold $M$, let $\tensorbundle{U}{p}{q}$ be the set of $\CInfty$ $p$-contra and $q$-co tensor fields on $U$, and let $\tangentbundle{U}$ and $\formbundle{U}{}$ be defined analogously. On the other hand, let $\realFunctions_U$ be the ring of $\CInfty$ real valued functions on $U$ and let $\vectorFields_U$ be the $\realFunctions_U$-module of $\CInfty$ vector fields on $U$. Then the above definitions can be extended to define the $\realFunctions_U$-modules $\tensorbundle{\vectorFields_U}{p}{q}$ and $\formbundle{\vectorFields_U}{p}$ for $p, q \ge 0$, where $\tensorbundle{\vectorFields_U}{0}{0} = \formbundle{\vectorFields_U}{0} = \realFunctions_U$. The next theorem and its corollary are designed to illuminate the relation between $\tangentbundle{U}$ and $\tangentbundle{\vectorFields_U}$. To accomplish this, let us define an open set $V \InText M$ to be \emph{framed}\index{framed} if there exists a $\CInfty$ \emph{base field} on $V$, i.e., a set of $n$ $\CInfty$ vector fields $e_1,\dots,e_n$ on $V$ that are independent at each point of $V$.
 
 
 
 \begin{theorem}[characterization of $\CInfty$ tensors] \label{thm:ch4.1}
-If $U$ is a framed open set in $M$, then $\tensorbundle{U}{p}{q}$ is isomorphic to $\tensorbundle{\vectorFields_u}{p}{q}$ in a natural way.
+If $U$ is a framed open set in $M$, then $\tensorbundle{U}{p}{q}$ is isomorphic to $\tensorbundle{\vectorFields_U}{p}{q}$ in a natural way.
 \end{theorem}
 
 \begin{proof}
-Let $e_1,\dots,e_n$ be a $\CInfty$ base field on $U$, and let $w_1,\dots,w_n$ be the dual $\CInfty$ 1-forms on $U$ (see problem \ref{pro:32}). It is sufficient to illustrate the proof for $\tensorbundle{\vectorFields_U}{0}{p}$ where $p>0$, since the other cases are analogous. Consider $\alpha \InText \tensorbundle{}{0}{p}$, and let 
+Let $e_1,\dots,e_n$ be a $\CInfty$ base field on $U$, and let $w_1,\dots,w_n$ be the dual $\CInfty$ 1-forms on $U$ (see problem \ref{pro:32}). It is sufficient to illustrate the proof for $\tensorbundle{\vectorFields_U}{0}{p}$ where $p>0$, since the other cases are analogous. Consider $\alpha \InText \tensorbundle{\vectorFields_U}{0}{p}$, and let
 \[ \xoverline\alpha = \sum_{1\le i_j\le n} \alpha(e_{i_1}, e_{i_2},\dots,e_{i_p})[w_{i_1} \otimes w_{i_2} \otimes \cdots \otimes w_{i_p}],\]
 be an element in $\tensorbundle{\vectorFields_U}{0}{p}$ defined by
 \[ 
@@ -71,7 +71,7 @@ be an element in $\tensorbundle{\vectorFields_U}{0}{p}$ defined by
 where $X_i$ are $\CInfty$ fields on $U$. Then $\alpha =\xoverline\alpha$ as elements of $\tensorbundle{\vectorFields_U}{0}{p}$, for if $X_i$ are in $\vectorFields_U$, then the function
 \[
 \begin{aligned}
-\alpha(X_1,\dots,X_p) &= \alpha\bigg( \sum_{i_1=1}^n w_{i_1}(X_1)e_{i_1}, \sum_{i_2=2}^n w_{i_2}(X_2)e_{i_2}, \dots, \sum_{i_p=p}^n w_{i_p}(X_p)e_{i_p} \bigg)\\
+\alpha(X_1,\dots,X_p) &= \alpha\bigg( \sum_{i_1=1}^n w_{i_1}(X_1)e_{i_1}, \sum_{i_2=1}^n w_{i_2}(X_2)e_{i_2}, \dots, \sum_{i_p=1}^n w_{i_p}(X_p)e_{i_p} \bigg)\\
 &= \sum_{1\le i_j\le n}w_{i_1}(X_1)w_{i_2}(X_2)\cdots w_{i_p}(X_p)\alpha(e_{i_1},\dots,e_{i_p}),
 \end{aligned}
 \]
@@ -87,10 +87,11 @@ One can ``roughly'' paraphrase the above theorem by saying that an $\realFunctio
 
 
 \begin{corollary} \label{cor:ch4.2}
-Let $U$ be open in $M$. Let $\alpha$ be a map that assigns to each framed open set $V\subset U$ an element $\alpha_V$ in $\tensorbundle{\vectorFields_V}{q}{p}$ with $\xoverline\alpha_V = \xoverline\alpha_W \InText \tensorbundle{(V\cap W)}{q}{p}$ for all open framed $V$ and $W$ contained in $U$. Then there is a unique tensor $\alpha \InText \tensorbundle{U}{p}{q}$ such that $\alpha|_V = \xoverline\alpha_V$ for each framed open $V\subset U$. Moreover, if $m\InText U$ and $X_1,\dots,X_p$ are in $\tangentspace{M}{m}$ while $z_1,\dots,z_q$ are in $\cotangentspace{M}{m}$, then
+Let $U$ be open in $M$. Let $\alpha$ be a map that assigns to each framed open set $V\subset U$ an element $\alpha_V$ in $\tensorbundle{\vectorFields_V}{q}{p}$ with $\xoverline\alpha_V = \xoverline\alpha_W \InText \tensorbundle{(V\cap W)}{q}{p}$ for all open framed $V$ and $W$ contained in $U$. Then there is a unique tensor $\alpha \InText \tensorbundle{U}{q}{p}$ such that $\alpha|_V = \xoverline\alpha_V$ for each framed open $V\subset U$. \emph{[Editor's note: the original transposes the tensor type in this conclusion.]} Moreover, if $m\InText U$ and $X_1,\dots,X_p$ are in $\tangentspace{M}{m}$ while $z_1,\dots,z_q$ are in $\cotangentspace{M}{m}$, then
 \[
-\alpha_m(X_1,\dots,X_p, z_1,\dots,z_q) = [a_V(\xoverline X_1,\dots\xoverline X_p, \xoverline z_1,\dots\xoverline z_q)](m), \tag{*} \label{eq:CH04.*}
+\alpha_m(X_1,\dots,X_p, z_1,\dots,z_q) = [\alpha_V(\xoverline X_1,\dots,\xoverline X_p, \xoverline z_1,\dots,\xoverline z_q)](m), \tag{*} \label{eq:CH04.*}
 \]
+where $V$ is any framed open neighborhood of $m$ contained in $U$, and $\xoverline X_i$ and $\xoverline z_j$ are arbitrary $\CInfty$ vector fields and 1-forms on $V$ satisfying $\xoverline X_i(m)=X_i$ and $\xoverline z_j(m)=z_j$.
 \end{corollary}
 
 \begin{proof}
@@ -101,13 +102,13 @@ Use (\ref{eq:CH04.*}) to define $\alpha_m$ at any $m\InText U$. If $W$ is any ot
 
 If the reader will become familiar with tensors and compuitations involving their linearity via some of the problems, then the above theorem and corollary should become more natural.
 
-To close this chapter we study the maps on tensors induced by a $\CInfty$ map $f \colon M \functionMaps M'$, where $M$ is a $\CInfty$ $n$-manifold and $M'$ is a $\CInfty$ $n'$-manifold. Because the Jacobian $f_*$ maps vectors on $M$ into vectors on $M'$, it induces a map $f^\ast$ of covariant tensors(and forms) on $M'$ into covariant tensors (and forms) on $M$. If $g$ is in $\tensorbundle{U'}{0}{ 0} = \realFunctions_U$, for open $U'$ on $M'$, then $f^\ast (g) = g\circ f$ is a $\CInfty$ real valued function in $\realFunctions_U$ where $U = \formbundle{U'}{{-1}}$. If $\alpha$ is a $p$-co tensor at $f(m) \InText M'$, then $(f^*\alpha)_m$ is the $p$-co tensor at $m$ defined on $X_1,\dots,X_p$ in $\tangentspace{M}{m}$ by
+To close this chapter we study the maps on tensors induced by a $\CInfty$ map $f \colon M \functionMaps M'$, where $M$ is a $\CInfty$ $n$-manifold and $M'$ is a $\CInfty$ $n'$-manifold. Because the Jacobian $f_*$ maps vectors on $M$ into vectors on $M'$, it induces a map $f^\ast$ of covariant tensors (and forms) on $M'$ into covariant tensors (and forms) on $M$. If $g$ is in $\tensorbundle{U'}{0}{0} = \realFunctions_{U'}$, for open $U'$ on $M'$, then $f^\ast(g) = g\circ f$ is a $\CInfty$ real valued function in $\realFunctions_U$ where $U = f^{-1}(U')$. If $\alpha$ is a $p$-co tensor at $f(m) \InText M'$, then $(f^*\alpha)_m$ is the $p$-co tensor at $m$ defined on $X_1,\dots,X_p$ in $\tangentspace{M}{m}$ by
 \[ (f^\ast\alpha)_m(X_1,\dots,X_p)  = \alpha_{f(m)}(f_*X_1,\dots,f_*X_p). \]
 
 If $\alpha$ is $\CInfty$ on the open set $U' \subset M'$,t then $f^\ast \alpha$ is $\CInfty$ on the open set $f^{-1}(U')\subset M$. In the next paragraph we prove this for a 1-form $\alpha$ and leave the other cases to the problems.
 
-Let $\alpha$ be a $\CInfty$ 1-form on $U'$, let $X$ be any $\CInfty$ vector field on $U$, and we show that $(f^\ast\alpha)(X)$ is a $\CInfty$ function on $U$. Take $m\in U$, let $x_1,\dots, x_n$ be a coordinate system about $m$ with domain $V\subset U$, and let $y_1,\dots,y_{n'}$ be a coordinate system about $f(m)$ with domain $V'\subset U'$. Define $\CInfty$ functions $a_1$ on $V$ and $b_j$ on $V'$ by \[X = \sum_1^n a_i\Big(\pdv{}{x_i}\Big)\text{ and }\alpha = \sum_{1}^{n'} b_j(\dd y_j),\text{ where }\dd y_r\Big(\pdv{}{y_s}\Big) = \delta_{rs} = 0\text{ or }1,\] according as $r\ne s$ or $r=s$, respectively (see problem \ref{pro:32}). Then on $V$,
-\[ (f^\ast \alpha)(X) = \sum a_i(b_j\circ f)\pdv{(y_i\circ f)}{x_i} \]
+Let $\alpha$ be a $\CInfty$ 1-form on $U'$, let $X$ be any $\CInfty$ vector field on $U$, and we show that $(f^\ast\alpha)(X)$ is a $\CInfty$ function on $U$. Take $m\in U$, let $x_1,\dots,x_n$ be a coordinate system about $m$ with domain $V\subset U$, and let $y_1,\dots,y_{n'}$ be a coordinate system about $f(m)$ with domain $V'\subset U'$. Shrinking $V$ if necessary, assume $f(V)\subset V'$. Define $\CInfty$ functions $a_i$ on $V$ and $b_j$ on $V'$ by \[X = \sum_1^n a_i\Big(\pdv{}{x_i}\Big)\text{ and }\alpha = \sum_{1}^{n'} b_j(\dd y_j),\text{ where }\dd y_r\Big(\pdv{}{y_s}\Big) = \delta_{rs} = 0\text{ or }1,\] according as $r\ne s$ or $r=s$, respectively (see problem \ref{pro:32}). Then on $V$,
+\[ (f^\ast \alpha)(X) = \sum_{i,j} a_i(b_j\circ f)\pdv{(y_j\circ f)}{x_i} \]
 for $i=1,\dots, n$ and $j=1,\dots,n'$, and since the right side is a $\CInfty$ function on $V$, $(f^\ast \alpha)(X)$ is $\CInfty$ on $V$, and hence $f^*\alpha$ is $\CInfty$ on $U$.
 
 Finally, one checks that

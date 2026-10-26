@@ -87,8 +87,8 @@
 \fancyhf{}
 \renewcommand{\chaptermark}[1]{\markboth{#1}{}}
 \fancyhead[LE]{\scshape Chapter \thechapter: \leftmark }
-\renewcommand{\sectionmark}[1]{ \markright{#1}{} }
-\fancyhead[RO]{\scshape Section \thesection: \rightmark }
+\renewcommand{\sectionmark}[1]{\markright{Section \thesection: #1}}
+\fancyhead[RO]{\scshape\rightmark}
 \renewcommand{\headrulewidth}{0.3pt}
 \renewcommand{\footrulewidth}{\iffootnote{0pt}{0.3pt}}
 

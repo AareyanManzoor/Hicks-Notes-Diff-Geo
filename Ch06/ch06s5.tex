@@ -99,7 +99,7 @@ where $\covariant$ is a natural covariant differentiation on $\bR^n$. This follo
 \[\covariant_XW = \covariant_XW_t+\covariant_X(aN) = \D_XW_t - \ip{LX}{W_t}N + (Xa)N + aLX\]
 and
 \begin{align*}
-    F_\ast (\covariant_XW) &= \D'_{F_\ast X}F_\ast Wt - \ip{F_\ast LX}{F_\ast W_t}N' + F_\ast X(a\circ F\inv)N' + (a\circ F\inv)L'F_\ast X \\
+    F_\ast (\covariant_XW) &= \D'_{F_\ast X}F_\ast W_t - \ip{F_\ast LX}{F_\ast W_t}N' + F_\ast X(a\circ F\inv)N' + (a\circ F\inv)L'F_\ast X \\
     &= \covariant_{F_\ast X}F_\ast W_t + \covariant_{F_\ast X}((a\circ F\inv)N') \\
     &= \covariant_{F_\ast X}F_\ast W
 \end{align*}
@@ -110,7 +110,7 @@ The functions $b_{rs}$ are $\CInfty$ since $F,M,M'$ are $\CInfty$, and the $n$ b
 \[0 = F_\ast (\covariant_Xe_s) = \covariant_{F_\ast X}(F_\ast e_s) = \sum_{r=1}^n\sbr{(Xb_{rs})e_r+b_{rs}\covariant_{F_\ast X}e_r} = \sum_r(Xb_{rs})e_r\]
 so $Xb_{rs}=0$ for all $r,s$. Since $X$ and $p$ are arbitrary and $M$ is connected, the functions $b_{rs}$ are constant on $M$ and thus the Jacobian of $F$ is a constant orthogonal transformation relative to the natural base $e_1,\ldots,e_n$ of $\bR^n$.
 
-Next define a map $G:\bR^n\functionMaps\bR^n$ which is a translation followed by an orthogonal map by letting for one $p\in M$ and requiring $(G_\ast )_p=(F_\ast )_p$. This completely determines $G$ and the Jacobian of $G$ is constant and hence equal to the Jacobian of $F$ at all points. Since $M$ is connected, $F=G|_M$.
+Next define a rigid motion $G:\bR^n\functionMaps\bR^n$ by choosing one $p\in M$ and requiring $G(p)=p'=F(p)$ and $(G_\ast)_p=(F_\ast)_p$. This completely determines $G$ and the Jacobian of $G$ is constant and hence equal to the Jacobian of $F$ at all points. Since $M$ is connected, $F=G|_M$.
 \end{proof}
 
 \end{document}

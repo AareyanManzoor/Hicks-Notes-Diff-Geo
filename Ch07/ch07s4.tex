@@ -37,7 +37,7 @@ which is valid if $\connection$ is symmetric, and it is proved by noting the exp
 \label{eqn:ch07.8}
 \connection_W(R(Y, Z)X) - R(Z, [Y, W])X - R(Y, Z)(\connection_W X),
 \end{equation}
-when written on three lines, permuting $W, X, Z$ cylically from line to line, and then adding the three lines, yields zero.
+when written on three lines, permuting $W, Y, Z$ cyclically from line to line, and then adding the three lines, yields zero.
 
 The \defemph{Ricci tensor}\index{Ricci tensor map} is the $2$-covariant tensor 
 
@@ -53,7 +53,7 @@ The \defemph{Ricci tensor}\index{Ricci tensor map} is the $2$-covariant tensor
 \Ric(X, Y) = \Ric(Y, X) + \tr R(X, Y).
 \end{equation}
 
-If $\connection$ is Riemannian, then $R(X, Y)$ is skew-symmetric by \ref{enu:ch6.2.3}, so Ric is symmetric. Hence there exists a self-adjoint linear map $R^\ast$, called the Ricci map, defined on each $\tangentspace M m$ with $\operatorname{Ric}(X, Y)= \ip {R^\ast(X)} Y$; indeed
+If $\connection$ is Riemannian, then $R(X,Y)$ is skew-adjoint by \ref{enu:ch6.2.2}, so $\Ric$ is symmetric. \emph{Editor's note:} The original cites the other skew symmetry, \ref{enu:ch6.2.3}. Hence there exists a self-adjoint linear map $R^\ast$ on each $T_mM$, called the Ricci map, with $\Ric(X,Y)=\ip{R^\ast(X)}Y$; indeed
 \begin{equation}\tag{11}
 \label{eqn:ch07.11}
 R^\ast(X) = \sum_{j = 1}^n R(X, Z_j)Z_j
@@ -88,16 +88,21 @@ As an example of the use of these operations we prove that
 \end{equation}
 which is used in general relativity. Let $Z_1, \ldots, Z_n$ be an orthonormal base of $\tangentspace M m$ and $w_1, \ldots, w_n$ be the dual base. The second Bianchi identity implies
 \[
-    \sum_{i, j} [\Delta K(w_j, Z_i, Z_j, X) + \Delta K(w_i, Z_i, X, Z_j, Z_i) + K(w_j, Z_i, Z_i, X,Z_j)]=0
+    \sum_{i, j} [\Delta K(w_j, Z_i, Z_j, Z_i, X) + \Delta K(w_j, Z_i, X, Z_j, Z_i) + \Delta K(w_j, Z_i, Z_i, X,Z_j)]=0
 \]
+\emph{Editor's note:} The second covector index and the missing $\Delta$ in the third term are corrected from the original.
 The first term of the sum gives $(\Delta S)(X)$, while the other two each give $(-\Div \xoverline R)(X)$. For
 
 \begin{align*}
 (\Delta S)(X) & = (\Delta \tr^{1, 1} G_\ast^{1, 1} \tr^{1, 2} K)(X) \\ & = (\tr^{1, 1}G_\ast^{1, 1} \tr^{1, 2} \Delta K)(X) \\ & = \sum_{i, j} \Delta K(w_j, Z_i, Z_j, Z_i, X),
 \\
-(\Div \xoverline R)(X) & = (\tr^{1, 2} \Delta G_\ast^{1, 1} \tr^{1, 2}K)(X) \\ & = \sum_{i, j} \Delta K(w_j, Z_i, X, Z_j, Z_i), \text { and}
+(\Div \xoverline R)(X) & = (\tr^{1, 2} \Delta G_\ast^{1, 1} \tr^{1, 2}K)(X) \\ & = -\sum_{i, j} \Delta K(w_j, Z_i, X, Z_j, Z_i), \text { and}
 \\
-(\Delta K)(w_j, Z_i, Z_i, X, Z_j) & = (\Delta G^{1, 1} K)(Z_j, Z_i, Z_i, X, Z_j) \\ & = (\Delta G^{1, 1} K)(Z_i, X, Z_j, Z_i, Z_j) \\ & = -(\Delta G^{1, 1} K)(Z_i, Z_i, X, Z_j, Z_j) - (\Delta G^{1, 1} K)(Z_i, Z_j, Z_i, X, Z_j) \\ & = -(\Div \xoverline R)(X)
+\sum_{i,j}(\Delta K)(w_j,Z_i,Z_i,X,Z_j)
+&=\sum_{i,j}(\Delta G^{1,1}K)(Z_i,X,Z_j,Z_i,Z_j)\\
+&=-\sum_{i,j}(\Delta G^{1,1}K)(Z_i,Z_j,Z_i,X,Z_j)\\
+&=\sum_{i,j}(\Delta K)(w_j,Z_i,X,Z_j,Z_i)
+=-(\Div\xoverline R)(X)
 \end{align*}
-by \ref{enu:ch6.2.3} and (\ref{enu:ch6.2.5}) in section~\ref{ch06:s2}.
+by the curvature symmetries in section~\ref{ch06:s2}. \emph{Editor's note:} The contractions in the original's last calculation are made explicit by summing over $i,j$.
 \end{document}

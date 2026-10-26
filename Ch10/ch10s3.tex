@@ -20,7 +20,7 @@ We study the relationship between the Riemannian curvature\index{Riemannian curv
 
 
 \begin{lemma} \label{lem:ch10.3.1}
-If $tA_t\ne0$, then
+For $t>0$ with $A_t\ne0$, the first two formulas below hold; the third holds on a neighborhood of zero:
 \begin{enumerate}[label=(\arabic*)]
     
     \item \label{enu:ch10s3.1}
@@ -52,13 +52,13 @@ where
 \[H(t) = \frac{1}{\norm{tA}^3}\big[\norm{\D_TtA}^2\norm{tA}^2 - \ip{\D_TtA}{tA}^2\big]\]
 The Schwartz inequality implies $H(t)\ge0$. A straightforward computation shows, as $t\to0$,
 $H(t)\to0, H'(t)\to0$
-since $(\D_TA)_0=0$ (use normal coord.), hence as $t\to0$,
+since $(\D_TA)_0=0$ (use normal coord.), hence as $t\downarrow0$,
 \[\norm{tA}\to0,
 \quad T\norm{tA}\to\norm{A_0}=1,
 \quad T^2\norm{tA}\to0,
 \quad T^3\norm{tA}\to-K(0)\]
 
-Since $A_t$ does not vanish near $t=0$, the function $\norm{A_t}$ is $\CInfty$ at 0, and hence $F(t)=\norm{tA_t}$ admits a representation
+Since $A_t$ does not vanish near $t=0$, the function $\norm{A_t}$ is $\CInfty$ at 0. Use the smooth signed function $F(t)=t\norm{A_t}$, which equals $\norm{tA_t}$ for $t\ge0$; then $F$ admits a representation\footnote{Editor's correction: the original applies a two-sided Taylor expansion to $\norm{tA_t}$, which is not differentiable at zero. The signed extension has the right-hand derivatives computed above.}
 \[F(t) = F(0) + F'(0)t + F''(0)\frac{t^2}{2} + F'''(0)\frac{t^3}{6} + G(t)t^4\]
 for $t$ in a neighborhood of 0 where $G$ is a $\CInfty$ function on this neighborhood. Substituting the values for the derivatives of $F$ and cancelling a factor of $t$ then gives \ref{enu:ch10s3.3}.
 \end{proof}

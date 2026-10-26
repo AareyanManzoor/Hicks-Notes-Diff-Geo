@@ -106,7 +106,7 @@ A curve $\sigma$ between points $p$ and $q$ in $M$ is called an \defemph{extrema
     \]%
     Evaluating on $w = 0$, we use $\ip{T}{T} = 1$, $\connection_T T = 0$, and $\connection_T W = \connection_W T$, to obtain 
     \begin{align*}
-        \frac{\partial^2}{\partial w^2} \sqrt{\ip{T}{T}} &= \ip{\connection_W \connection_T}{T} + \ip{\connection_T W}{\connection_T W} - \ip{\connection_T W}{T}^2 \\
+        \frac{\partial^2}{\partial w^2} \sqrt{\ip{T}{T}} &= \ip{\connection_W \connection_T W}{T} + \ip{\connection_T W}{\connection_T W} - \ip{\connection_T W}{T}^2 \\
         &= \ip{R(W, T)W+\connection_T\connection_WW}{T} + \ip{\connection_T W}{\connection_T W} - (T\ip{W}{T})^2 \\
         &= T\ip{\connection_W W}{T} + \ip{R(W, T)W}{T} + \ip{\connection_T W}{\connection_T W} - (T\ip{W}{T})^2\text{,}
     \end{align*}%
@@ -116,7 +116,7 @@ A curve $\sigma$ between points $p$ and $q$ in $M$ is called an \defemph{extrema
 
     If $W$ is Jacobi, then
     \begin{align*}
-        \ip{R(W, T)W}{T} &= \ip{R(T, W)W}{W} = \ip{\connection_T^2 W}{W} \\
+        \ip{R(W, T)W}{T} &= \ip{R(T, W)T}{W} = \ip{\connection_T^2 W}{W} \\
         &= T\ip{\connection_T W}{W} - \ip{\connection_T W}{\connection_T W}\text{.}
     \end{align*}%
     Hence, $L''(0) = \Big[\ip{\connection_W W}{T} + \ip{\connection_W T }{W}\Big]_{(0,0)}^{(b,0)} = W\ip{W}{T}\Big|_{(0,0)}^{(b,0)}$.
@@ -130,7 +130,7 @@ Notice that the first term is the only term in the above formulae that depends o
 
 \begin{corollary} \label{cor:ch10.2.7}
     If $W$ vanishes at the end-points of $g$, then the second variation of $L$ depends only on the field $W$ along $g$. For any vector field $W$ along $g$, let $f_W(t, w) = \exp_{g(t)}wW$ be the \defemph{natural} one-parameter family associated with $W$, and then $\connection_W W = 0$, since the $w$-varying curves are geodesics. Letting $L''_W(0)$ denote the second variation of $L$ in the direction $f_W$, then
-    \[ L''_W(0) = \int_0^b \big[\ip{R(W, T)W}{T} + \ip{\connection_T W}{\connection_T W} - (T\ip{W}{T}^2)\big] \dd{t}\text{.} \]
+    \[ L''_W(0) = \int_0^b \big[\ip{R(W, T)W}{T} + \ip{\connection_T W}{\connection_T W} - (T\ip{W}{T})^2\big] \dd{t}\text{.} \]
 \end{corollary}
 
 
@@ -147,7 +147,7 @@ We next prove two lemmas which are used to prove that geodesics are not minimizi
     We compute
     \begin{align*}
         T(\ip{\connection_T X}{Y} - \ip{X}{\connection_T Y}) &= \ip{\connection_T^2 X}{Y} - \ip{X}{\connection_T^2 Y} \\
-        &= \ip{R(T, X)W}{Y} - \ip{R(T, Y)}{X} = 0
+        &= \ip{R(T, X)T}{Y} - \ip{R(T, Y)T}{X} = 0
     \end{align*}%
     by the symmetry of the Riemann-Christoffel curvature tensor.
 \end{proof}

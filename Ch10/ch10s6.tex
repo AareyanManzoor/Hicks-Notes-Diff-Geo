@@ -41,7 +41,7 @@ and $\exp_m$ is an isometry from $\ts Mm$ onto $M$. Apply the previous theorem t
 
 When $K<0$, let $M'$ be hyperbolic space for $K<0$ (section \ref{ch06:s7}). We know $\exp_0:\ts{M'}{0}\functionMaps M'$ is a diffeo so let
 \[E=(\exp_0)\inv\]
-Choose an orthonormal base $e_1,\ldots,e_n$ of $\ts{M'}{0}$ and an orthonormal base $e_1,\ldots,e_n$ of $\ts Mm$, where $m\in M$ is arbitrary. Define $F:\ts{M'}{0}\functionMaps\ts Mm$ by
+Choose an orthonormal base $e_1',\ldots,e_n'$ of $\ts{M'}{0}$ and an orthonormal base $e_1,\ldots,e_n$ of $\ts Mm$, where $m\in M$ is arbitrary. Define $F:\ts{M'}{0}\functionMaps\ts Mm$ by
 \[F(e_i')=e_i\]
 Define $f:M'\functionMaps M$ by
 \[f=\exp_m\circ F\circ E\]
@@ -71,8 +71,8 @@ The map $F$ induces a correspondence between geodesics emanating from $m$ and $m
 
 \begin{proof} 
 Choose an $r>0$ such that $\exp_m$ is a diffeo from $B(0,r)$ in $\ts Mm$ onto $B=B(m,r)$ in $M$ and $\exp_{m'}$ is also a diffeo from $B'(0,r)$ in $\ts{M'}{m'}$ onto $B'=B'(m',r)$ in $M'$. Let
-\[f=\exp_m\circ F\circ(\exp_{m'})\inv\]
-on $B'$, so $f$ is a diffeo. By the method of proof in the preceding theorem, $f$ is an isometry.
+\[f=\exp_{m'}\circ F\circ(\exp_m)\inv\]
+on $B$, so $f:B\functionMaps B'$ is a diffeo. By the method of proof in the preceding theorem, $f$ is an isometry.\footnote{Editor's correction: the exponential maps in the original composition were interchanged, contrary to the domain of $F$.}
 \end{proof}
 
 

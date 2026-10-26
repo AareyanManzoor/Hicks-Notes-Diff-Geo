@@ -32,28 +32,30 @@ F(a_1, \dots, a_n)=&F(a_1, \dots, a_n)-F(a_1, \dots, a_{n-1}, 0)\\
 &+F(a_1, \dots, a_{n-1}, 0)-F(a_1, \dots, a_{n-2}, 0,0)+\dots \\
 &+F(a_1, 0, \dots, 0)-F(0, \dots, 0)+F(0, \dots, 0)\\
 =&\sum_i F(a_1, \dots, a_{i-1}, ta_i, 0, \dots, 0)\bigg|_0^1+F(0, \dots 0) \\
-=&F(0, \dots, 0)+\sum_i\int_0^1 \pdv{F}{t_i}(a_1, \dots, a_{n-1}, t a_i, 0, \dots, 0) a_i\dd t \\
+=&F(0, \dots, 0)+\sum_i\int_0^1 \pdv{F}{u_i}(a_1, \dots, a_{i-1}, t a_i, 0, \dots, 0) a_i\dd t \\
 =&F(0, \dots, 0)+\sum_i a_i F_i(a_1, \dots, a_n),
 \end{align*}
 where \[F_i(a_1, \dots, a_n)=\int_0^1\pdv{F}{u_i}(a_1, \dots, a_{i-1}, t a_i, 0, \dots, 0)\dd t\]
-is $\CInfty$ in $B$ since $\Big(\pdv{}{u_i}\Big)$ is $\CInfty$. Let $f_i=F_i\circ\phi$ and the lemma is proved.
+is $\CInfty$ in $B$ since $\pdv{F}{u_i}$ is $\CInfty$. Let $f_i=F_i\circ\phi$ and the lemma is proved.
 \end{proof}
+\noindent\emph{Editor's note:} In the original integral, $a_{n-1}$ is a misprint for $a_{i-1}$, as the preceding telescoping sum and the definition of $F_i$ show.
+
 
 \begin{theorem} \label{thm:ch1.3.2}
 Let $M$ be a $\CInfty$ $n$-manifold and let $x_1, \dots, x_n$ be a coordinate system about $m$ in $M$. Then if $X \in \tangentspace{M}{m}$, $X=\sum_i(Xx_i)\Big(\pdv{}{x_i}\Big)_m$, and the coordinate vectors form a base for $\tangentspace{M}{m}$ which thus has dimension $n$.
 \end{theorem}
 
 \begin{proof}
-We first prove the stated representation. Take $X \in \tangentspace{M}{m}$ and $f \in \CInfty(m)$. If $x_i(m)\neq0$ for all $i$, let $y_i=x_i-x_i(m)$. Then apply the lemma to $f$ with respect to the coordinate system $y_i, \dots, y_n$ and notice $\Big(\pdv{f}{y_i}\Big)(m)=\Big(\pdv{f}{x_i}\Big)(m)$. Next we see if $c$ a constant map then \[X(c)=cX(1)=c(1X(1)+1X(1))=2cX(1)\] which implies $cX(1)=0$ and $X(c)=0$. Thus \begin{align*}
+We first prove the stated representation. Take $X \in \tangentspace{M}{m}$ and $f \in \CInfty(m)$. Let $y_i=x_i-x_i(m)$ for every $i$, so $y_i(m)=0$.\footnote{Editor's note: The original makes this translation only if all $x_i(m)\ne0$; translating every coordinate also covers the case when just some vanish.} Then apply the lemma to $f$ with respect to the coordinate system $y_1, \dots, y_n$ and notice $\Big(\pdv{f}{y_i}\Big)(m)=\Big(\pdv{f}{x_i}\Big)(m)$. Next we see if $c$ a constant map then \[X(c)=cX(1)=c(1X(1)+1X(1))=2cX(1)\] which implies $cX(1)=0$ and $X(c)=0$. Thus \begin{align*}
     Xf&=X\bigg(f(m)+\sum_i y_i f_i\bigg)\\
     &=\sum_i((Xy_i)f_i(m)+y_i(m)(Xf_i))\\
     &=\sum_iX(x_i-x_i(m))f_i(m)\\
     &=\sum_i(Xx_i)\Big(\pdv{f}{x_i}\Big)(m)
 \end{align*}
-which proves the required representation. If $Y=\sum_i a_i\Big(\pdv{}{x_i}\Big)=0$ then $0=Y_{x_j}=a_j$, thus the coordinate vectors are independent and span $\tangentspace{M}{m}$.
+which proves the required representation. If $Y=\sum_i a_i\Big(\pdv{}{x_i}\Big)_m=0$ then $0=Yx_j=a_j$, thus the coordinate vectors are independent and span $\tangentspace{M}{m}$.
 \end{proof}
 
-A \defemph{vector field}\index{vector fields} $X$ on a set $A$ is a mapping that assigns to each point $p$ in $A$ a vector $X_p$ in $M_p$. A field $X$ is $\CInfty$ on $A$ if $A$ is open and for each real valued function $f$ that is $\CInfty$ on $B$, the function $(Xf)(p)=X_pf$ is $\CInfty$ on $A \cap B$. If $X$ and $Y$ are $\CInfty$ vector fields on $A$ their \defemph{Lie bracket}\index{Lie bracket} is a $\CInfty$ vector field $[X, Y]$ on $A$ defined by $[X, Y]_pf=X_p(Yf)-Y_p(Xf)$.
+A \defemph{vector field}\index{vector fields} $X$ on a set $A$ is a mapping that assigns to each point $p$ in $A$ a vector $X_p$ in $\tangentspace{M}{p}$. A field $X$ is $\CInfty$ on $A$ if $A$ is open and for each real valued function $f$ that is $\CInfty$ on $B$, the function $(Xf)(p)=X_pf$ is $\CInfty$ on $A \cap B$. If $X$ and $Y$ are $\CInfty$ vector fields on $A$ their \defemph{Lie bracket}\index{Lie bracket} is a $\CInfty$ vector field $[X, Y]$ on $A$ defined by $[X, Y]_pf=X_p(Yf)-Y_p(Xf)$.
 
 If $f$ and $g$ are $\CInfty$ functions, it is trivial that $[X,Y](f+g)=[X, Y] f+[X, Y]g$, and $[X, Y](a f)=a[X, Y]f$ for $a$ in $\bR$. To check the product property, consider
 \begin{align*}
@@ -65,7 +67,7 @@ If $f$ and $g$ are $\CInfty$ functions, it is trivial that $[X,Y](f+g)=[X, Y] f+
 \end{align*}
 Thus $[X, Y]$ is a vector field and the proof of its $\CInfty$ nature we leave as a problem.
 
-For later use, notice that $[X, Y]=-[Y, X]$, $[X, X]\neq0$, and the bracket is linear in each slot with respect to addition, i.e., $[X_1+X_2,Y]=[X_1, Y]+[X_2, Y]$. However, \[[fX, g Y]=f(X g) Y-g(Y f) X+f g[X, Y]\] and it is this property that prevents the bracket mapping from being a tensor (problem \ref{pro:10}). Problem \ref{pro:13} gives a geometric interpretation of the bracket, and in section \ref{ch09:s1} there are applications involving integrability conditions. For example, if $x_1, \dots, x_n$ is a coordinate system then $\Big[\pdv{}{x_i},\pdv{}{x_j}\Big]=0$ for all $i$ and $j$ (since cross partial derivatives of $\CInfty$ functions are equal), and actually this condition on $n$ independent vector fields is sufficient to imply the fields are coordinate vector fields (section \ref{ch09:s1}).
+For later use, notice that $[X, Y]=-[Y, X]$, $[X, X]=0$, and the bracket is linear in each slot with respect to addition, i.e., $[X_1+X_2,Y]=[X_1, Y]+[X_2, Y]$. However, \[[fX, g Y]=f(X g) Y-g(Y f) X+f g[X, Y]\] and it is this property that prevents the bracket mapping from being a tensor (problem \ref{pro:10}). Problem \ref{pro:13} gives a geometric interpretation of the bracket, and in section \ref{ch09:s1} there are applications involving integrability conditions. For example, if $x_1, \dots, x_n$ is a coordinate system then $\Big[\pdv{}{x_i},\pdv{}{x_j}\Big]=0$ for all $i$ and $j$ (since cross partial derivatives of $\CInfty$ functions are equal), and actually this condition on $n$ independent vector fields is sufficient to imply the fields are coordinate vector fields (section \ref{ch09:s1}).
 
 The bracket operation also satisfies the following expression which is called the \defemph{Jacobi identity}\index{Jacobi identity}, \renewcommand{\theequation}{Jacobi Identity}\begin{equation}\label{jacobi identity}
     [X,[Y, Z]]+[Z,[X, Y]]+[Y,[Z, X]]=0

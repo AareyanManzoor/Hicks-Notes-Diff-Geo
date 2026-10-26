@@ -34,7 +34,7 @@ Let:
     \item $W=(W_1,W_2)$ and $U=(U_1,U_2)$ be vectors tangent to $C$ at $(p_1,p_2)$, where $W_i,U_i\in\ts{M}{p_i}$ for $i=1,2$, and let $U$ also denote the unique Jacobi field along $g$ determined by $U_1,U_2$.
 \end{itemize}
 Then $p=(p_1,p_2)$ is a critical point\index{critical point} of $d$ on $C$ and
-\[\secondForm_p(U,W) = U_p(Wd) = \sbr{\ip{W}{\D_TU} - \secondForm_T(U,W)}_{p_1}^{p_2}\]
+\[H_p(U,W) = U_p(Wd) = \sbr{\ip{W}{\D_TU} - \secondForm_T(U,W)}_{p_1}^{p_2}\]
 where $\secondForm_T$ at $p_i$ is the second fundamental form of $C_i$ with respect to the normal in the direction of $T$.
 \end{lemma}
 
@@ -90,7 +90,7 @@ hence
 But letting $\D'$ be the induced Riemannian connexion on $C_i$, by the Gauss equation we get
 \[\D_{U_i}W_i = \D'_{U_i}W_i - \secondForm_T(U_i,W_i)T\]
 hence
-\[\secondForm_p(U,W) = \sbr{\ip{W}{\D_TU} - \secondForm_T(U,W)}_{p_1}^{p_2}\]
+\[H_p(U,W) = \sbr{\ip{W}{\D_TU} - \secondForm_T(U,W)}_{p_1}^{p_2}\]
 \end{proof}
 
 
@@ -102,10 +102,10 @@ hence
 \end{equation}
 for $0\le i\le k$ where $m_0=g(0)$ and $m_{k+1}=g(b)$. Let $C_i$ be a local geodesic submanifold which is orthogonal to $g$ at $m_i$ and contained in $B(m_i,r)$ for \newline $1\le i\le k$, and let $C=C_1\times\ldots\times C_k$. Define $L:C\functionMaps\bR$ by
 \[L(\bar p) = \sum_{i=0}^k d(p_i,p_{i+1})\]
-where $\bar p=(p_1,\ldots,p_k)\in C,~p_p=g(0)$, and $p_{k+1}=g(b)$ (see Fig. \ref{fig:ch10fig5}).
+where $\bar p=(p_1,\ldots,p_k)\in C,~p_0=g(0)$, and $p_{k+1}=g(b)$ (see Fig. \ref{fig:ch10fig5}).
 
 Then $L$ is $\CInfty$ on $C$, $\xoverline m$ is a critical point of $L$, the nullity of $L$ at $\xoverline m$ equals the conjugate degree of $g(b)$ (with respect to $g(0)$), and
-\[I(L_{\xoverline m}) = \sum_{0\le t\le b}\deg g(t)\]
+\[I(L_{\xoverline m}) = \sum_{0<t<b}\deg g(t)\]
 \end{theorem}
 
 \subfile{./figures/ch10fig5} %fig 10.5
@@ -123,10 +123,11 @@ To compute the nullity of $L$ at $\xoverline m$, let $U,W\in\ts{C}{\xoverline m}
 Let $U_0=W_0$ and $U_{k+1}=W_{k+1}$ be the zero vectors at $g(0)$ and $g(b)$, respectively. By the lemma,
 \begin{align*}
     U_{\xoverline m}(WL) &= \sum_{i=0}^k U_{\xoverline m}(WL_i) \\
-    &= \sum_{i=1}^k\sbr{\ip{W_{i+1}}{\D_TU_{i+1}^-} - \secondForm_T(U_{i+1},W_{i+1}) - \ip{W_i}{\D_TU_i^+} + \secondForm_T(U_i,W_i)} \\
+    &= \sum_{i=0}^k\sbr{\ip{W_{i+1}}{\D_TU_{i+1}^-} - \secondForm_T(U_{i+1},W_{i+1}) - \ip{W_i}{\D_TU_i^+} + \secondForm_T(U_i,W_i)} \\
     &=\sum_{i=1}^k\ip{W_i}{\D_TU_i^- - \D_TU_i^+}
 \end{align*}
 where $U_i^-$ is the Jacobi field on $[t_{i-1},t_i]$ agreeing with $U$ at the end points, and $U_i^+=U_{i+1}^-$. If $U$ is in the null space of $H_L$ at $\xoverline m$, then $U_{\xoverline m}(WL)=0$ for all $W$; hence $\D_TU_i^-=\D_TU_i^+$ for all $i$, which implies $U$ is a Jacobi field along $g$ that vanishes at 0 and $b$. This proves the nullity theorem.
+\noindent\emph{Editor's note.} The preceding endpoint sum starts at $i=0$; the original omitted the first interval.
 
 We now work on the index of $L$ at $\xoverline m$. Let us refer to a point $(\xoverline m,b)\in M^k\times\bR$ which satisfies the conditions stated in the third sentence of the theorem as an admissible partition. Let $N=k(n-1)$, and for each admissible partition $(y,t)$ let $C_y$ be the product of $k$ local geodesic submanifolds crossing $g$ at the points of $y$, let $L_{(y,t)}:C_y\functionMaps\bR$ be the function corresponding to $L$ in the theorem, and let $F_y$ map $\bR^N$ into the tangent space to $C_y$ at $y$ by
 \[F_y(a_1,\ldots,a_N) = \bigg(\sum_{i=1}^{n-1}a_ie_i(y_1),\sum_{j=1}^{n-1}a_{n-1+j}e_j(y_2),\ldots\bigg)\]
@@ -176,7 +177,7 @@ The situation then remains unchanged for $a_1<t<a_2$ by (\ref{eqn:ch10.4.4}). Fo
 \quad I_{(y,a_2)} = \deg g(a_1),
 \quad P_{(y,a_2)} = N - \sum_{0\le t\le a_2}\deg g(t)\]
 Continuing the argument, we obtain
-\[I(L_y) = I_{(y,b)} = \sum_{0\le t\le b}\deg g(t)\]
+\[I(L_y) = I_{(y,b)} = \sum_{0<t<b}\deg g(t)\]
 \end{proof}
 
 \end{document}

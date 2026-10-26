@@ -24,7 +24,7 @@ There exists a unique Riemannian manifold connexion on a (semi-) Riemannian mani
 \begin{proof}
 We show a Riemannian connexion $\D$ exists and is unique on every coordinate domain $U$. The uniqueness implies $\D$ must agree on overlapping domains; hence $\D$ exists and is unique on all of $M$.
 
-Let $X_1,\ldots,X_n$ be the coordinate fields on $U$, let $g_{ij}=\ip{X_i}{X_i}$ on $U$, and let $(g\inv)_{ij}$ be the $\nth{ij}$ entry of the inverse matrix of $g=(g_{ij})$ (which is non-singular). If (\ref{eqn:ch6.2.1}) and (\ref{eqn:ch6.2.2}) hold, then
+Let $X_1,\ldots,X_n$ be the coordinate fields on $U$, let $g_{ij}=\ip{X_i}{X_j}$ on $U$, and let $(g\inv)_{ij}$ be the $\nth{ij}$ entry of the inverse matrix of $g=(g_{ij})$ (which is non-singular). If (\ref{eqn:ch6.2.1}) and (\ref{eqn:ch6.2.2}) hold, then
 \begin{equation}\tag{5}\label{eqn:ch6.2.3}
     X_i\ip{X_r}{X_j}+X_j\ip{X_r}{X_i}-X_r\ip{X_i}{X_j} = 2\ip{\D_{X_i}X_j}{X_r}
 \end{equation}
@@ -87,7 +87,7 @@ If $A(X,Y)\ne0$, let
 \end{equation}
 and by direct computations, using the above properties of $K$, one can show
 \[\xoverline K(X,Y) = \xoverline K(Y,X) = \xoverline K(rX,sY) = \xoverline K(X+tY,Y)\]
-for some $r,s,t\ne0$. Thus if $A(X,Y)\ne0$ and $ad-bc\ne0$, then
+for every $r,s\ne0$ and every real $t$. Thus if $A(X,Y)\ne0$ and $ad-bc\ne0$, then
 \[\xoverline K(X,Y) = \xoverline K(aX+bY,cX+dY)\]
 and we define $K(P)$, the \defemph{Riemannian curvature of the 2-dimensional subspace $P$ of $\tangentspace{M}{m}$ spanned by $X$ and $Y$}\index{Riemannian curvature}, by
 \[K(P) = \frac{\ip{X}{R(X,Y)Y}}{A(X,Y)}\]

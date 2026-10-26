@@ -4,7 +4,7 @@
 \section{Surfaces of Constant Curvature}\label{ch03:s2}
 Let $M$ be a closed connected surface in $\bbR^3$ with constant Gauss curvature $K$. Then $M$ is a sphere, a developable surface, or doesn't exist, according as $K > 0$, $K = 0$, or $K < 0$, respectively. The cases when $K > 0$ (due to Liebmann) and $K < 0$ (due to Hilbert) were solved around 1900. It is amazing that the case $K = 0$ (due to Massey) was not completely solved until 1962.
 
-Consider the case $K > 0$. The result of Liebmann follows from a lemma due to Hilbert.
+Consider the case $K > 0$. Choose the sign of $N$ so that $h\ge k>0$ on the connected surface $M$.\footnote{Editor's note: This positive-normal convention is implicit in the original use of $h\ge\sqrt K$. Since $K>0$, both principal curvatures have the same non-zero sign, which is constant on $M$.} The result of Liebmann follows from a lemma due to Hilbert.
 
 
 
@@ -43,21 +43,27 @@ On a compact surface in $\bbR^3$ there is a point $m$ with $K(m) > 0$.
 \end{theorem}
 
 \begin{proof}
-Let $r(p) = |p|$ give the distance from a point $p \in \bbR^3$ to the origin. Then $r \circ i$ is a continuous function on the compact surface $M$ so it takes on a maximum at a point $m \in M$. By a rotation (orthogonal transformation) of $\bbR^3$, we may assume $m$ lies on the $z$-axis (or $u_3$-axis). Let $N$ be a $\CInfty$ unit normal to $M$ on a neighborhood of $m$ with $N_m = (0, 0, 1)$. Let $X$ be any unit principal vector at $m$ with $L(X) = \covariant_X N = k X$.
+Let $r(p) = |p|$ give the distance from a point $p \in \bbR^3$ to the origin. Then $r \circ i$ is a continuous function on the compact surface $M$ so it takes on a maximum $R>0$ at a point $m \in M$. By a rotation (orthogonal transformation) of $\bbR^3$, we may assume $m=(0,0,R)$. Since the derivative of $r^2|_M$ vanishes at $m$, its tangent plane is perpendicular to $m$. Let $N$ be a $\CInfty$ unit normal to $M$ on a neighborhood of $m$ with $N_m = (0, 0, 1)$. Let $X$ be any unit principal vector at $m$ with $L(X) = \covariant_X N = k X$.
 
-Let $\sigma(t) = (f(t), g(t), h(t))$ be a $\CInfty$ curve on $M$ with unit tangent vector $X$ at $t = 0$; thus $X = (f'(0), g'(0), h'(0))$. Since $m$ is an absolute maximum of $u_3 \circ i = z \circ i$ on $M$, $h''(0) < 0$. Letting $X$ be the tangent to $\sigma$, we have at $m$, $\covariant_X X = (f''(0), g''(0), h''(0))$. Decomposing this vector into tangent and normal components, we get, by the Gauss equation, \[-\ip {L X} X N = (0,0, -k) = (0,0,h''(0)),\] so $k = -h''(0) > 0$.
+Let $\sigma(t) = (f(t), g(t), h(t))$ be a $\CInfty$ curve on $M$ with $\sigma(0)=m$ and unit tangent vector $X$ at $t = 0$. Since $|\sigma(t)|^2$ has a maximum at $0$,
+\[
+0\ge \left.\frac{\mathrm{d}^2}{\mathrm{d}t^2}|\sigma(t)|^2\right|_{t=0}
+=2\bigl(|\sigma'(0)|^2+\ip{\sigma(0)}{\sigma''(0)}\bigr)
+=2(1+Rh''(0)).
+\]
+The Gauss equation gives $h''(0)=-\ip{LX}{X}=-k$, so $k\ge 1/R>0$.\footnote{Editor's note: A height maximum alone gives only $h''(0)\le0$, not the strict inequality asserted in the original. The supporting sphere supplies the strict positive curvature bound.}
 
 Since all principal curvatures are greater than zero at $m$, $K(m) > 0$.
 \end{proof}
 
 
 
-Notice the theorem is true for any compact hypersurface in $\bbR^n$ with a trivial modification of the proof.
+The same proof shows that any compact hypersurface in $\bbR^n$ has a point where its second fundamental form is definite. At a farthest point, choose the normal pointing away from the origin; all principal curvatures there are at least $1/R$.
 
 
 
 \begin{corollary} \label{cor:ch3.2.4}
-There is no compact hypersurface in $\bbR^n$ with non-positive Gauss curvature at all points.
+There is no compact even-dimensional hypersurface in $\bbR^n$ with non-positive Gauss curvature at all points. For a compact odd-dimensional hypersurface, the same conclusion holds when its normal is chosen outward.\footnote{Editor's note: The original omits the dimension or orientation qualification. Reversing the normal changes the sign of Gauss curvature in odd dimension; an inward-oriented odd-dimensional sphere is a counterexample to the unqualified assertion.}
 \end{corollary}
 
 
@@ -81,7 +87,7 @@ Let $M$ be a closed connected surface in $\bbR^3$ with $K = 0$ on $M$. Then eith
 \end{theorem}
 
 \begin{proof}
-Supposing $M$ is not a plane; then the set $V$ is non-empty. Let $A$ be a connected neighbourhood in $V$ as described in theorems~\ref{thm:ch3.1.1} and \ref{thm:ch3.1.2}. Since $H$ does not vanish on $V$ and $A$ is connected, we may assume $H = h > 0$ while $k = 0$ on $A$. Theorem~\ref{thm:ch3.1.1} gives an orthonormal pair of $\CInfty$ fields $X$ and $Y$ on $A$, with $LX = 0$ and $LY = HY$ on $A$. Since $Yk = 0$ on $M$, referring to theorem~\ref{thm:ch3.1.2} we have $a = 0$ on $A$, so $\connection_X Y = 0$ and $\connection_X X = 0$ on $A$. By the Gauss equation, $\covariant_X X = \connection_X X - \ip {L X} X N = 0$ on $A$. Thus the integral curves of $X$ in $A$ are straight line segments in $\bbR^3$. Since $M$ is closed, the continuation of these line segments must lie in $M$. Hence for $p$ in $V$ there is a unique line $G_p$ through $p$ with $G_p \subset M$. We next show $G_p \subset V$.
+Supposing $M$ is not a plane; then the set $V$ is non-empty. Let $A$ be a connected neighbourhood in $V$ as described in theorems~\ref{thm:ch3.1.1} and \ref{thm:ch3.1.2}. Since $H$ does not vanish on $V$ and $A$ is connected, we may assume $H = h > 0$ while $k = 0$ on $A$. Theorem~\ref{thm:ch3.1.1} gives an orthonormal pair of $\CInfty$ fields $X$ and $Y$ on $A$, with $LX = 0$ and $LY = HY$ on $A$. Since $Yk = 0$ on $A$, referring to theorem~\ref{thm:ch3.1.2} we have $a = 0$ on $A$, so $\connection_X Y = 0$ and $\connection_X X = 0$ on $A$. By the Gauss equation, $\covariant_X X = \connection_X X - \ip {L X} X N = 0$ on $A$. Thus the integral curves of $X$ in $A$ are straight line segments in $\bbR^3$. For $p\in V$, continue the segment through $p$ maximally in $V$ and call it $G_p$. We next show that this segment is a whole line.
 
 On the neighborhood $A$ of $p$, by theorem~\ref{thm:ch3.1.2},
 
@@ -89,7 +95,7 @@ On the neighborhood $A$ of $p$, by theorem~\ref{thm:ch3.1.2},
 K = 0 = \frac {X^2 H} H - \frac {2(XH)^2} {H^2} = -HX^2 \biggl(\frac 1 H\biggr).
 \]
 
-Hence if $s$ is the arc length on $G_p$ in the direction $X$ with $s = 0$ at $p$, then \[\dfrac{1}{H} = cs +d \implies H = \dfrac{1}{cs + d}\text{ for points in }G_p \cap A.\]If there was an umbilic point at $s'$ on $G_p$ then $H(s') = 0$. At \newline $s'' = \inf \{s' : s' \text { is umbilic}\}$, $H(s'') = 1/(cs'' + d) \ne 0$, since $H$ is continuous. Hence there are no umbilics on $G_p$, $G_p \subset V$, and to avoid an impossible singularity in $H$ at $s = -c/d$, it follows $H$ is constant on $G_p$. 
+Hence if $s$ is arc length on $G_p$ in the direction $X$ with $s = 0$ at $p$, then \[\dfrac{1}{H} = cs +d \implies H = \dfrac{1}{cs + d}.\]Overlapping neighborhoods extend this formula along $G_p$. If $G_p$ had a finite endpoint, its limit would belong to $M$ because $M$ is closed. If the denominator vanished there, $H$ would be unbounded, contrary to smoothness; otherwise its limiting value would be non-zero, so the endpoint would lie in $V$ and the segment could be continued. Thus $G_p$ is a whole line contained in $V$. To avoid a singularity at $s=-d/c$ when $c\ne0$, we must have $c=0$, and $H$ is constant on $G_p$.\footnote{Editor's note: The original prints the pole as $-c/d$. The endpoint argument also makes explicit why the straight segment extends through all real parameters.}
 
 After extending $X$ and $Y$ along $G_p$ by letting $X$ be the unit tangent to $G_p$, an overlapping neighborhood argument will show $X$ and $Y$ remain principal vectors; hence $L(X) = 0$ and $L(Y) = HY$ on $G_p$. Then $\covariant_X N = L(X) = 0$ implies $N$ is constant on $G_p$, so $G_p$ is a generator.
 

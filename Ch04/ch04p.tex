@@ -18,7 +18,7 @@ In these problems, $W$ is an $n$-dim real vector space and $M$ is a $\CInfty$ $n
     \item\label{pro:34} 
     \begin{enumerate}[label=(\roman*)]
         \item Show $\tensorbundle{W}{1}{0}$ is isomorphic to $W$.
-        \item Show $\tensorbundle{W}{p}{1}$ has dimension $(p+q)n$.
+        \item Show $\tensorbundle{W}{p}{q}$ has dimension $n^{p+q}$. \emph{[Editor's note: the original dimension $(p+q)n$ is incorrect.]}
         \item Show $\formbundle{W}{p}$ has dimension $\displaystyle\binom{n}{p} = \dfrac{n!}{p!(n-p)!}$.
     \end{enumerate}
       
@@ -38,10 +38,10 @@ In these problems, $W$ is an $n$-dim real vector space and $M$ is a $\CInfty$ $n
     \item\label{pro:38} Let $f$ be in $\CInfty(M,\bR)$. For $p\InText M$ and $X \InText M_p$, let $(\dd f)_p X = Xf$.\footnote{This defines a map $d : \formbundle{A}{p} \functionMaps \formbundle{A}{p+1}$ called the \emph{exterior derivative}. See sections \ref{ch05:s2} and \ref{ch07:s1}.}
     \begin{enumerate}[label = (\roman*)]
         \item Show $(\dd f)_p$ is a 1-form at $p$.
-        \item If $x_1,\dots,x_n$ is a coordinate system with domain $U$, show $\dd x_1,\dots, \dd x_n$ is the dual base to $\pdv{}{x_1}\dots \pdv{}{x_n}$ and \[\dd f = \sum_{i=1}^n \pdv{f}{x_n}\dd x_i\text{ on }U.\]
+        \item If $x_1,\dots,x_n$ is a coordinate system with domain $U$, show $\dd x_1,\dots, \dd x_n$ is the dual base to $\pdv{}{x_1}\dots \pdv{}{x_n}$ and \[\dd f = \sum_{i=1}^n \pdv{f}{x_i}\dd x_i\text{ on }U.\]
         \item Show $\dd f$ is $\CInfty$ on $M$.
         \item Show $\dd(f+g) = \dd f + \dd g$ and $\dd (fg) = f\dd g + g\dd f$ for $g \InText \CInfty(M,\bR)$.
-        \item If $y_1,\dots,y_n$ is also a coordinate system on $U$ and \[w = \sum_1^n a_i\dd x_i = \sum_1^n b_j \dd y_j,\] show \[b_j = \sum_{i=1}^n \pdv{x_i}{y_j}.\]
+        \item If $y_1,\dots,y_n$ is also a coordinate system on $U$ and \[w = \sum_1^n a_i\dd x_i = \sum_1^n b_j \dd y_j,\] show \[b_j = \sum_{i=1}^n a_i\pdv{x_i}{y_j}.\]
         \item If $\alpha = \sum a_{ij} \dd x_i \wedge\dd x_j = \sum b_{ij} \dd y_i\wedge \dd y_j$, find expressions for $a_{ij}$ in terms of $b_{ij}$
         \item If $g \InText \CInfty(M, M')$, show $g^*\circ \dd = \dd \circ g^*$ on $\formbundle{M'}{0}$.
     \end{enumerate}
@@ -49,14 +49,14 @@ In these problems, $W$ is an $n$-dim real vector space and $M$ is a $\CInfty$ $n
     
     \item\label{pro:39} If $w_1,\dots,w_n$ is a base of $\cotangentspace{M}{p}$, show there is a coordinate system $x_1,\dots,x_n$ about $p$ with $(\dd x_i)_p = w_i$ for all $i$. 
     
-    \item\label{pro:40} Let $\cotangentbundle{M}$ be the set of all ordered pairs $(m,w)$ for $m \in M$ and $w \in \cotangentspace{M}{m}$\index{cotangent bundle}. Let $\pi\colon \cotangentbundle{M}\functionMaps M$ by $\pi(m, w) = m$. Let $x_1,\dots,x_n$ be a coordinate system on $M$ with domain $U$, and define functions $q_1,\dots,q_n$, $p_1,\dots,p_n$ on $\pi^{-1}(U)$ by $q_j = x_j \circ \pi$ and $w = \sum p_j(m, w)\dd x_j$. With these coordinate functions $\cotangentbundle{M}$ becomes a $\CInfty$ $2n$-manifold called the \emph{cotangent bundle of $M$}. The \emph{fundamental 1-form}\index{fundamental 1-form} $W$ on $M$ is defined by $W_{(m,w)} = \pi^*w$. 
+    \item\label{pro:40} Let $\cotangentbundle{M}$ be the set of all ordered pairs $(m,w)$ for $m \in M$ and $w \in \cotangentspace{M}{m}$\index{cotangent bundle}. Let $\pi\colon \cotangentbundle{M}\functionMaps M$ by $\pi(m, w) = m$. Let $x_1,\dots,x_n$ be a coordinate system on $M$ with domain $U$, and define functions $q_1,\dots,q_n$, $p_1,\dots,p_n$ on $\pi^{-1}(U)$ by $q_j = x_j \circ \pi$ and $w = \sum p_j(m, w)\dd x_j$. With these coordinate functions $\cotangentbundle{M}$ becomes a $\CInfty$ $2n$-manifold called the \emph{cotangent bundle of $M$}. The \emph{fundamental 1-form}\index{fundamental 1-form} $W$ on $\cotangentbundle{M}$ is defined by $W_{(m,w)} = \pi^*w$. \emph{[Editor's note: the original incorrectly places $W$ on $M$.]}
     \begin{enumerate}
         \item Show $W = \sum p_i\dd q_i$ on $\pi^{-1}(U)$.
-        \item Show $\dd $ is a non-degenerate 2-form; i.e., $\dd W(X,Y) = 0$ for all $Y$ implies $X = 0$. The forms $W$ and $\dd W$ are fundamental in classical mechanics (see \cite{mackey2004mathematical}). 
+        \item Show $\dd W$ is a non-degenerate 2-form; i.e., $\dd W(X,Y) = 0$ for all $Y$ implies $X = 0$. The forms $W$ and $\dd W$ are fundamental in classical mechanics (see \cite{mackey2004mathematical}).
     \end{enumerate}
      
     
-    \item\label{pro:41} Let $X$ be tangent to $B(M)$ at $b = (m\colon e_1,\dots,e_n)$. Let $\xoverline w_i(X)$ be real numbers such that $X = \sum \xoverline w_i(X) e_i$. Show $w_i$ are $\CInfty$ 1-forms on $B(M)$ (see \ref{pro:22}).
+    \item\label{pro:41} Let $X$ be tangent to $B(M)$ at $b = (m\colon e_1,\dots,e_n)$. Let $\xoverline w_i(X)$ be real numbers such that $\pi_*X = \sum \xoverline w_i(X)e_i$. Show $\xoverline w_i$ are $\CInfty$ 1-forms on $B(M)$ (see \ref{pro:22}). \emph{[Editor's note: the original omits the projection $\pi_*$ in the defining equality.]}
 \end{enumerate}
 
 

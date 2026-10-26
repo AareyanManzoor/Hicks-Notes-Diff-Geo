@@ -5,12 +5,12 @@
 
 Let $M$ be a Riemannian $n$-manifold, let $\phi$ be a coordinate map on $M$ with domain $U$ and $x_i = u_i \circ \phi$, and let $X_i = \pdv{}{x_i}$. The coordinate system $x_1, \dots,x_n$ is \defemph{orthogonal}\index{orthogonal coordinates} if $\ip{X_i}{X_j} = 0$ for $i \ne j$. If the map $\phi$ is a conformal map of $U$ into $\bR^n$ (with respect to the canonical Riemannian metric on $\bR^n$), then the coordinate system is \defemph{isothermal}\index{isothermal coordinates} or \defemph{conformal}\index{conformal coordinates} (and hence also orthogonal). When $M^n$ is a hypersurface in some $\xoverline{M}^{n+1}$, the coordinate system is \defemph{principal}\index{principal coordinates} if each $X_i$ is a principal vector, and it is \defemph{asymptotic}\index{asymptotic coordinate} if each $X_i$ is an asymptotic vector.
 
-In this section we study the existence of such special coordinate systems when $n = 2$. Orthogonal systems and conformal systems exist about any point, and the latter may be used to define a Riemann surface structure on $M$. Principal coordinates exist of necessity about any non-umbilical point on a surface, while they may or may not exist about an umbilic. We show asymptotic coordinates exist in some special cases, e.g., about a point of a surface which has a neighborhood on which the curvature is a negative constant, and about a non-umbilical point on a negative constant, and about a non-umbilical point on a minimal surface (problem~\ref{pro:88}).
+In this section we study the existence of such special coordinate systems when $n=2$. Orthogonal and conformal systems exist about any point, and on an oriented surface the latter define a Riemann surface structure. Principal coordinates exist about any non-umbilical point, while they may or may not exist about an umbilic. We show that asymptotic coordinates exist near points with a neighborhood of constant negative curvature, and near non-umbilical points on a minimal surface (problem~\ref{pro:88}).
 
 
 
 \begin{theorem}[Gauss 1827] \label{thm:ch9.5.1}
-    Let $\gamma$ be an arbitrary univalent curve in $M^2$ parameterized by arc length on $(a, b)$, let $X$ be the (unit) tangent to $\gamma$, and let $Y$ be a unit $\CInfty$ field along $\gamma$ such that $\ip{X}{Y} = 0$. Then the Fermi coordinate system induced by $Y$ on a neighborhood of $\gamma$ is an orthogonal coordinate system about $\gamma$ which is called a set of ``geodesic parallel coordinates.'' This proves the existence of orthogonal coordinates about any point on a two-dimensional Riemannian manifold.
+    Let $\gamma$ be a regular curve in $M^2$ parameterized by arc length, with unit tangent $X$, and let $Y$ be a smooth unit normal field to $\gamma$ within $M$. Near each point of $\gamma$, the Fermi coordinates induced by $Y$ form an orthogonal coordinate system, called \emph{geodesic parallel coordinates}. Thus orthogonal coordinates exist about every point of a Riemannian $2$-manifold.
 \end{theorem}
 
 \subfile{./figures/ch9fig1} %fig 9.1
@@ -18,7 +18,7 @@ In this section we study the existence of such special coordinate systems when $
 \begin{proof}
     Let $\phi$ be the Fermi coordinate map from the neighborhood $U$ of $\gamma$ onto the set $V$ in $\bR^2$.
 
-    Then for $(t, s) \InText V$, $\phi\inv(t, s) = \exp_{\gamma(t)}sY$. We let $X$ and $Y$ be the coordinate fields on $U$ which extend $X$ and $Y$ along $\gamma$. Since the $\gamma$-curves are geodesics parameterized by arc length, $\connection_Y Y = 0$ and $\ip{Y}{Y} = 1$, where $\connection$ is the Riemannian connexion. We compute \[Y\ip{X}{X} = \ip{D_Y X}{Y} + \ip{X}{\connection_Y Y} = \ip{\connection_Y X}{Y} = \frac{1}{2}X\ip{Y}{Y} = 0,\] since the torsion is zero, so $\connection_Y X - \connection_X Y = [Y, X] = 0$. Thus $\ip{X}{Y}$ is constant along the $y$-curves and since $\ip{X}{Y} = 0$ on $\gamma$ we have $\ip{X}{Y} = 0$ on $U$.
+    Then for $(t,s)\in V$, $\phi^{-1}(t,s)=\exp_{\gamma(t)}sY$. Let $X,Y$ be the coordinate fields extending those along $\gamma$. Since the $y$-curves are unit-speed geodesics, $\connection_YY=0$ and $\ip YY=1$. Thus \[Y\ip XY=\ip{\connection_YX}Y+\ip X{\connection_YY}=\ip{\connection_XY}Y=\frac12X\ip YY=0,\] using zero torsion and $[Y,X]=0$. Therefore $\ip XY$ is constant along the $y$-curves, and its initial value on $\gamma$ is zero, proving orthogonality.
 \end{proof}
 
 
@@ -32,7 +32,7 @@ One way to paraphrase the above situation is to say ``if segments of equal lengt
 \end{theorem}
 
 \begin{proof}
-    Since $m$ is non-umbilic, there is a neighborhood $V$ of $m$ which contains no umbilics. Assume $V$ is oriented via a unit field $N$, and let $L(X) = \covariant_X N$ as usual, where $\covariant$ is the Riemannian connexion on $\bR^3$. Let $X$ and $Y$ be $\CInfty$ orthonormal principal vector fields on $V$ with $L(X) = kX$, $L(Y) = hY$, and $k < h$, which corresponds to the notation of Chapter~\ref{ch03}. We seek non-vanishing $\CInfty$ functions $f$ and $g$ defined on a neighborhood of $m$ such that the fields $Z = fX$ and $W = gY$ satisfy the condition $[Z, W] = 0$. Finding $f$ and $g$, we can apply theorem \ref{thm:ch09.1.1} to obtain the desired principal coordinates.
+    Since $m$ is non-umbilic, choose a neighborhood $V$ without umbilics, oriented by a unit normal $N$. Let $L(X)=\covariant_XN$, where $\covariant$ is the ambient Riemannian connexion. Choose $\CInfty$ orthonormal principal fields $X,Y$ with $LX=kX$, $LY=hY$, and $k<h$, as in Chapter~\ref{ch03}. We seek nonvanishing functions $f,g$ such that $Z=fX$, $W=gY$ commute. The commuting-frame coordinate theorem \ref{thm:ch09.1.4} then gives the desired principal coordinates.
 
     We compute \[[fX, gY] = f(Xg)Y - g(Yf)X + fg(aX - bY),\] where \[a = (Yk)/(h - k)\text{ and }b = -(Xh)/(h - k)\]by theorem~\ref{thm:ch3.1.2}. Hence $[Z, W] = 0$ if $(Xg) - bg = 0$ and $(Yf) - af = 0$. Thus we may prescribe $g = 1$ on the integral curve of $Y$ through $m$, and then on each integral curve $\gamma(t)$ of $X$ we have the differential equation
     \[ \dv{g \circ \gamma(t)}{t} - (b \circ \gamma)(t)(g \circ \gamma)(t) = 0\text{.} \]
@@ -57,9 +57,9 @@ defines $\CInfty$ functions $a_i$ and $b_i$, and then one must solve,
 \begin{proof}
     Let $X$ and $Y$ be orthonormal principal fields on $U$ with $LX = kX$ and $LY = hY$, $k < 0 < h$. Let
     \begin{itemize}
-        \item $b=\sqrt{a^2+k^2}$,
+        \item $b=(a^2+k^2)^{-1/2}$,
         \item $Z=b(aX-kY)$,
-        \item $W=(-aX-kY)$.
+        \item $W=b(-aX-kY)$.
     \end{itemize}
     Then $\ip{LZ}{Z} = \ip{LW}{W} = 0$, and $Z$ and $W$ are clearly independent. Using theorem~\ref{thm:ch3.1.2}, one computes $[Z,W] = 0$. Hence, the desired coordinates exist.
 \end{proof}

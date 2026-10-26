@@ -20,13 +20,14 @@ Then $\D$ is the Riemannian connexion on $M$ and $V$ is a symmetric vector-value
 \begin{proof}
 We will establish the $\CInfty$ nature of the decomposition. The rest of the proof will only be outlined, for it is a simple exercise. Use the properties of $\covariant$ (since it is a connexion) to establish the properties of $\D$ (making it a connexion) and the tensor character of $V$ (its multilinearity). Zero torsion for $\covariant$ implies zero torsion for $\D$, and $V$ is symmetric (use the proposition in section \ref{ch02:s2}, which generalizes trivially). Since $\covariant$ satisfies condition (\ref{eqn:ch6.2.2}) (section \ref{ch06:s2}), $\D$ does too. Hence $\D$ is Riemannian, and by the uniqueness theorem, $\D$ is the Riemannian connexion on $M$.
 
-To show $\D$ and $V$ are $\CInfty$ on $A$, choose $p\in A$. Let $\xoverline U$ and $U$ be special coordinate domains about $p$ in $\xoverline M$ and $M$, respectively, with $U\subset A$, and let $\xoverline Z_1,\ldots,\xoverline Z_n$ and $Z_1=\xoverline Z_1|_U,\ldots,Z_k=\xoverline Z_k|_U$ be the coordinate vector fields on $\xoverline U$ and $U$, respectively. Apply the Gram-Schmidt process to $\xoverline Z_1,\ldots,\xoverline Z_n$ on $\xoverline U$ to obtain $\CInfty$ (the Gram-Schmidt process is algebraic) orthonormal fields $W_1,\ldots,W_n$ on $\xoverline U$ such that $W_1|_U,\ldots,W_k|_U$ give a $\CInfty$ orthonormal base of $\tangentspace{M}{m}$ for $m$ in $U$, while $W_{k+1}|_U,\ldots,W_n|_U$ give $\xoverline M$-vector fields that are $\CInfty$ on $U$ and form a base of the orthogonal complement to $\tangentspace{M}{m}$, for $m$ in $U$. Let
+To show $\D$ and $V$ are $\CInfty$ on $A$, choose $p\in A$. Let $\xoverline U$ and $U$ be special coordinate domains about $p$ in $\xoverline M$ and $M$, respectively, with $U\subset A$, and let $\xoverline Z_1,\ldots,\xoverline Z_n$ and $Z_1=\xoverline Z_1|_U,\ldots,Z_k=\xoverline Z_k|_U$ be the coordinate vector fields on $\xoverline U$ and $U$, respectively. In the semi-Riemannian case choose these coordinates so the ambient coordinate vectors are mutually orthogonal and non-null at $p$, with the first $k$ tangent to $M$. After shrinking the neighborhoods, apply the Gram-Schmidt process to obtain $\CInfty$ orthonormal fields $W_1,\ldots,W_n$ on $\xoverline U$ such that $W_1|_U,\ldots,W_k|_U$ give a $\CInfty$ orthonormal base of $\tangentspace{M}{m}$ for $m\in U$, while $W_{k+1}|_U,\ldots,W_n|_U$ form a base of its orthogonal complement. \emph{[Editor's note: in indefinite signature, the original unrestricted Gram-Schmidt step can encounter null vectors; the adapted initial choice avoids this.]} Let
 \[X = \sum_{i=1}^k x_iW_i,
-\quad Y = \sum_{i=1}^k y_jW_j\]
+\quad Y = \sum_{j=1}^k y_jW_j\]
 define $\CInfty$ functions $x_i$ and $y_i$ on $U$ for $1\le i\le k$, and let
 \[\covariant_{W_i}W_j = \sum_{r=1}^n B_{ji}^rW_r\]
 define $\CInfty$ functions $B_{ij}^r$ on $\xoverline U$. Then
-\[\covariant_XY = \sum(XY_j)W_j + \sum y_jB_{ji}^rW_r\]
+\[\covariant_XY = \sum_{j=1}^k(Xy_j)W_j + \sum_{i,j=1}^k\sum_{r=1}^n x_i y_j B_{ji}^rW_r\]
+\emph{[Editor's note: the original omits $x_i$ from the second sum.]}
 where $1\le i,j\le k$ and $1\le r\le n$; thus
 \[\D_XY = \sum_{r=1}^k\bigg[(Xy_r) + \sum_{i,j=1}^k y_jx_iB_{ji}^r\bigg]W_r\]
 and
@@ -54,9 +55,10 @@ If $\sigma$ is a curve in $M$ with $\CInfty$ unit tangent $T$, then $V(T,T)$ is 
 
 
 \begin{theorem} \label{thm:ch6.4.2}
-(Meusnier). All curves on $M$ with the same unit tangent $T$ at a point have the same normal curvature at that point. If $\sigma$ is a curve on $M$ with $\CInfty$ unit tangent $T$, then $(\xoverline k_1)^2 = (k_1)^2+(k_T)^2$
+(Meusnier). Suppose here that $\xoverline M$ is Riemannian. All curves on $M$ with the same unit tangent $T$ at a point have the same normal curvature at that point. If $\sigma$ is a curve on $M$ with $\CInfty$ unit tangent $T$, then $(\xoverline k_1)^2 = (k_1)^2+(k_T)^2$
 relates the geodesic curvatures $\xoverline k_1$ and $k_1$ of $\sigma$ in $\xoverline M$ and $M$ with its normal curvature $k_T$. Moreover, \newline$k_T = \xoverline k_1\cos\phi$
 determines the angle $\phi$ between the normal $\xoverline N_1$ of $\sigma$ in $\xoverline M$ and the normal curvature vector $V(T,T)$ if $\phi$ is defined.
+\emph{[Editor's note: the original does not qualify the preceding semi-Riemannian setting here; the stated lengths and angle formula require positive-definite metrics.]}
 \end{theorem}
 
 \begin{proof}

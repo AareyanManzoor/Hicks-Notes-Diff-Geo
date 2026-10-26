@@ -9,18 +9,18 @@ Let $Q$ and $M$ be $C^\infty$ manifolds, and let $f$ be a $C^\infty$ map of $Q$ 
 
 For the remainder of this section, let $Q$, $M$ and $f$ be as just described, and let $\connection$ denote a connexion on $M$.
 
-If $A$ and $Z$ are $\tangentbundle{M}_f$ fields on $Q$ and $A=f_\ast A'$ is tangent, then we can define $\connection_A Z$ to be a $\tangentbundle{M}_f$ field on $Q$. This is possible, since for a particular $p$ in $Q$ the field $Z$ gives a well-defined $C^\infty$ field along a curve through $f(p)$ with tangent $A_p$. More explicitly, let $y_1,\, \hdots,\, y_n$ be a coordinate system on $M$ about $f(p)$ and let $Y_i=\pdv{}{y_i}$. Let $U$ be an open set about $p$ such that $f(U)$ is contained in the domain of the $y_i$. Then $Z=\displaystyle\sum_1^n z_i Y_i$ defines real valued $C^\infty$ functions $z_i$ on $U$ and
+For a specified vector field $A'$ on $Q$, put $A=f_*A'$. The pullback connexion differentiates a $\tangentbundle{M}_f$ field $Z$ in the direction $A'$; we write this as $\connection^f_{A'}Z$. Let $y_1,\,\hdots,\,y_n$ be coordinates about $f(p)$ and $Y_i=\pdv{}{y_i}$. On an open set $U$ about $p$ with $f(U)$ in this chart, write $Z=\sum_{i=1}^n z_i(Y_i\circ f)$. Then
     \begin{equation}\tag{1} \label{eqn:ch10.1.1}
-    \connection_A Z = \sum_{i=1}^n [(A'z_i)Y_i + z_i(\connection_A Y_i)]
+    \connection^f_{A'} Z = \sum_{i=1}^n [(A'z_i)(Y_i\circ f) + z_i(\connection_{f_*A'}Y_i)]
     \end{equation}
-on $U$. Letting equation \eqref{eqn:ch10.1.1} define $\connection_A Z$ on $U$, we leave it to the reader to show this definition is independent of the coordinate system. Notice that $\connection_A Z$ is \emph{not} necessarily a tangent $\tangentbundle{M}_f$ field even when both $A$ and $Z$ are tangent.
+on $U$. Here the last connexion is evaluated at $f(p)$ pointwise. This definition is independent of the coordinates. In the formulas below we abbreviate $\connection^f_{A'}$ by $\connection_A$, but the direction $A'$ is always specified and retained; in particular $\connection_{gA}$ and $\connection_{A+B}$ mean directions $gA'$ and $A'+B'$. The derivative need not be tangent even if $A$ and $Z$ are tangent.\footnote{Editor's correction: for a nonimmersive $f$, the image field $A$ alone does not determine a derivative of a section along $f$. For example, a constant map can have $f_*A'=0$ while $A'$ differentiates nonconstant coefficients. This is the pullback-connexion interpretation of the original notation.}
 
-If $A$ and $B$ are tangent $\tangentbundle{M}_f$ fields on $Q$, then we define the tangent $\tangentbundle{M}_f$ field $[A,B]$ by $[A,B](p)=f_\ast([A',B']_p)$ where $A=f_\ast A'$, $B=f_\ast B'$ and $p$ in $Q$.
+For specified fields $A',B'$ on $Q$ with $A=f_*A'$ and $B=f_*B'$, write $[A,B]=f_*[A',B']$. This notation likewise retains the chosen pair of directions; $\connection_{[A,B]}$ means $\connection^f_{[A',B']}$.
 
 
 
 \begin{proposition} \label{prop:ch10.1.1}
-Let $A$, $B$, $X$, $Z$ be $\tangentbundle{M}_f$ fields on $Q$, let $A$ and $B$ be tangent, and let $g$ be a real-valued $C^\infty$ function on $Q$. Then the following equations are valid:
+Let $A',B'$ be specified vector fields on $Q$, put $A=f_*A'$ and $B=f_*B'$, let $X,Z$ be $\tangentbundle{M}_f$ fields, and let $g$ be a real-valued $C^\infty$ function on $Q$. With the preceding direction convention, the following equations are valid:
     \begin{gather}
     \connection_{(gA)} X = g(\connection_A X),
     \label{eqn:ch10.1.2}\tag{2} \\
@@ -112,12 +112,12 @@ while
     + \sum_j x_j(A'z_j)
     + \sum_{i,j} x_iz_j \ip{Y_i}{\connection_A Y_j}.
 \]
-But $\ip{\connection_A Y_i}{Y_j}+\ip{Y_i}{\connection_A Y_j}=A\ip{Y_i}{Y_j}=0$; hence \eqref{eqn:ch10.1.8} follows.
+But $\ip{\connection_A Y_i}{Y_j}+\ip{Y_i}{\connection_A Y_j}=A'\ip{Y_i\circ f}{Y_j\circ f}=0$; hence \eqref{eqn:ch10.1.8} follows.
 \end{proof}
 
 
 
-We specialize and let $Q$ be an open set in $\bR^2$. For convenience, let $t$ and $w$ be the first and second coordinate functions, respectively, on $\bR^2$; then \[T=f_\ast\Big(\pdv{}{t}\Big)\text{ and } W=f_\ast\Big(\pdv{}{t}\Big)\] are tangent $\tangentbundle{M}_f$ fields on $Q$. Moreover, assume the $t$-varying curves obtained from $f$ by holding $w$ constant are geodesics with respect to a connexion $\connection$ on $M$; thus $\connection_T T \equiv 0$ on $Q$. When $f$ and $Q$ satisfy the conditions of the above three sentences, we call $f$ a \defemph{one-parameter family of geodesics}. When we only assume $Q$ is an open subset of $\bR^2$, we call $f$ a \defemph{one-parameter family of curves}\index{one parameter family of curves}.
+We specialize and let $Q$ be an open set in $\bR^2$. For convenience, let $t$ and $w$ be the first and second coordinate functions, respectively, on $\bR^2$; then \[T=f_\ast\Big(\pdv{}{t}\Big)\text{ and } W=f_\ast\Big(\pdv{}{w}\Big)\] are tangent $\tangentbundle{M}_f$ fields on $Q$, with specified directions $\pdv{}{t}$ and $\pdv{}{w}$. Thus $\connection_T=\connection^f_{\partial/\partial t}$ and $\connection_W=\connection^f_{\partial/\partial w}$ even where $f$ is not immersive. Moreover, assume the $t$-varying curves obtained from $f$ by holding $w$ constant are geodesics with respect to a connexion $\connection$ on $M$; thus $\connection_T T \equiv 0$ on $Q$. When $f$ and $Q$ satisfy these conditions, we call $f$ a \defemph{one-parameter family of geodesics}. When we only assume $Q$ is an open subset of $\bR^2$, we call $f$ a \defemph{one-parameter family of curves}\index{one parameter family of curves}.
 
 
 

@@ -34,12 +34,17 @@ For a proof see \cite{chern1951topics}. Other pertinent references are \cite{hop
 
 
 
-Let $M$ be as in the theorem and assume further that $M$ is a hypersurface in $\bR^{n+1}$ with unit normal field $N$. Using the notation from section~\ref{ch04}, \[R_{ij} = -w_{i, n+1} \wedge w_{n+1, j} = w_{i, n+1} \wedge w_{j, n+1}\] and \[L(X)= \sum_{i = 1}^{n} w_{i, n+1}(X) e_i = \eta_\ast(X)\] where $\eta$ is the sphere map induced by the normal $N$ (section~\ref{ch02:s2}). Thus $\eta^\ast W_i = W_{i, n+1}$ and
+Let $M$ be as in the theorem and assume further that $M$ is a hypersurface in $\bR^{n+1}$ with unit normal field $N$. Using the hypersurface structural equations from section~\ref{ch06:s6} (\emph{Editor's note:} replacing the original's misleading reference to ``section 4''),
+\[R_{ij}=-w_{i,n+1}\wedge w_{n+1,j}=w_{i,n+1}\wedge w_{j,n+1},\qquad L(X)=\sum_{i=1}^nw_{i,n+1}(X)e_i=\eta_\ast(X),\]
+where $\eta$ is the sphere map induced by $N$ (section~\ref{ch02:s2}). Writing $w_i$ for the corresponding local coframe on the sphere, $\eta^\ast w_i=w_{i,n+1}$, and
 \begin{align*}
     Q &= \sum (-1)^\pi w_{\pi(1), n+1} \wedge \dots \wedge w_{\pi(n-1), n+1} \wedge w_{\pi(n), n+1} \\
     &= n!\, w_{1, n+1} \wedge w_{2, n+1} \wedge \dots \wedge w_{n, n+1} = n!\, \eta^\ast(v_S)\text{,}
 \end{align*}%
-where $v_S$ is the volume element of the unit sphere $S^n$ oriented by its outer normal, and we assume $N_m$ is parallel to the outer normal at $\eta(m)$. Integrating,\[\int_M Q = (n!) \int_{M} \eta^\ast (V_S).\] If $n=2$, then \[\int_M Q = 2\int_M Kv = 4\pi\EulerChar(M) = 2\int_M \eta^\ast (v_S),\] thus \[\int_M \eta^\ast (V_S) = \dfrac{(V_2) \EulerChar(M)}{2}\] where $V_2$ is the ``volume'' of the unit $2$-sphere. This is the \defemph{Hopf index theorem} for dimension $2$.
+where $v_S$ is the volume element of $S^n$ oriented by its outer normal, and $N_m=\eta(m)$ is that normal at $\eta(m)$. Integrating, $\int_MQ=n!\int_M\eta^\ast v_S$. If $n=2$, then
+\[\int_MQ=2\int_MKv=4\pi\EulerChar(M)=2\int_M\eta^\ast v_S,\qquad
+\int_M\eta^\ast v_S=\frac{V_2\EulerChar(M)}2,\]
+where $V_2$ is the volume of the unit $2$-sphere. This is the \defemph{Hopf index theorem} for dimension $2$.
 
 In the general case ($M^{n}$ imbedded in $\bR^{n+1}$ as above), we let $X$ be any unit vector field of $\bR^{n+1}$ that is $\CInfty$ on $M$, and we define the \defemph{index of $X$ on $M$}\index{index (vector field)}, $\mathcal{I}(X)$, by
 \begin{equation}\tag{8}\label{eq:ch8.3.3}
@@ -54,7 +59,7 @@ where $V_n$ is the ``volume'' of the unit $n$-sphere in $\bR^{n+1}$, and $\eta_X
 \end{theorem}
 
 \begin{proof}
-    Assuming the \hyperref[thm:ch8.1.5]{Gauss-Bonnet theorem} and letting $n = 2k$, we see
+    Assuming the \hyperref[thm:ch8.3.1]{generalized Gauss-Bonnet theorem} and letting $n=2k$, we see
     \[ 2\mathcal{I}(N) = 2\int_M \frac{Q}{V_n n!} = 2^{n+1} \pi^k k! \frac{\EulerChar(M)}{V_n n!} = \EulerChar(M)\text{,} \]
     since $V_n = \dfrac{2^{n+1} \pi^k k!}{n!}$ (see problem~\ref{pro:75}).
 \end{proof}

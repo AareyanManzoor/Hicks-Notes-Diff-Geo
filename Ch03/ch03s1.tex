@@ -20,7 +20,7 @@ The first theorem establishes the smoothness of the invariants of $M$ and the lo
 
 For $p$ in $V$, let $B, Z$, and $W$ be as in the first paragraph, with $B \subset V .$ We distinguish two cases: 
 \begin{enumerate}
-    \item If $b(p) \neq 0$: choose the neighborhood $A \subset B$ such that $b \neq 0$ on $A$ and let $Y'=b Z+(h-a) W$ and $X'=(a-h) Z+b W$. Then $X', Y'$ are $\CInfty$ orthogonal non-vanishing fields on $A$ with $L Y'=h Y'$ and $L X'=k'$. Let $X$ and $Y$ be unit fields in directions $X'$ and $Y'$, respectively.
+    \item If $b(p) \neq 0$: choose the neighborhood $A \subset B$ such that $b \neq 0$ on $A$ and let $Y'=b Z+(h-a) W$ and $X'=(a-h) Z+b W$. Then $X', Y'$ are $\CInfty$ orthogonal non-vanishing fields on $A$ with $L Y'=h Y'$ and $L X'=kX'$. Let $X$ and $Y$ be unit fields in directions $X'$ and $Y'$, respectively.
     \item If $b(p)=0$: suppose $a(p)>c(p)$, choose $A \subset B$ so $a>c$ on $A$, and let $Y'=(h-c) Z+b W$ and $X'=b Z+(c-h) W$, etc.
 \end{enumerate}
 
@@ -38,7 +38,7 @@ Let $m$ be a non-umbilic point on $M$ and let $X$ and $Y$ be an orthonormal $\CI
 \[
 a=\dfrac{Y k}{h-k} \text { and }  b=-\dfrac{X h}{h-k}
 \]
-then $\connection_{X} Y=a X, \connection_{Y} X=b Y, \connection_{X} X=-z Y, \connection_{Y} Y=-b X$
+then $\connection_{X} Y=a X, \connection_{Y} X=b Y, \connection_{X} X=-a Y, \connection_{Y} Y=-b X$
 
     
 
@@ -50,19 +50,21 @@ then $\connection_{X} Y=a X, \connection_{Y} X=b Y, \connection_{X} X=-z Y, \con
 
 \begin{proof}
 
-Since $\ip{ X}{ X}=1,\ip{ Y}{ Y}=1$, and $\ip{ X}{ Y}=0$ on $A$, \newline $0= X\ip{Y}{Y}=2\ip{\connection_{X} Y}{Y}$ so $\connection_{X} Y=a X$ for some $\CInfty$ function $a$, whìch we compute below. Similarly, $\connection_{X} Y=b Y$ for some $b$. Also \newline $0=$ $X\ip{ X}{ X}=2\ip{ \connection_{X} X}{ X}$ and $0=X\ip{ X}{ Y}=\ip{ \connection_{X} X}{ Y}+\ip{ X}{ \connection_{X} Y}$, so $\connection_{X} X=-a Y$, and similarly, $\connection_{Y} Y=-b X$. Then $[X, Y]=\connection_{X} Y-\connection_{Y} X= a X-b Y$.
+Since $\ip{ X}{ X}=1,\ip{ Y}{ Y}=1$, and $\ip{ X}{ Y}=0$ on $A$, \newline $0= X\ip{Y}{Y}=2\ip{\connection_{X} Y}{Y}$ so $\connection_{X} Y=a X$ for some $\CInfty$ function $a$, whìch we compute below. Similarly, $\connection_{Y} X=b Y$ for some $b$. Also \newline $0=$ $X\ip{ X}{ X}=2\ip{ \connection_{X} X}{ X}$ and $0=X\ip{ X}{ Y}=\ip{ \connection_{X} X}{ Y}+\ip{ X}{ \connection_{X} Y}$, so $\connection_{X} X=-a Y$, and similarly, $\connection_{Y} Y=-b X$. Then $[X, Y]=\connection_{X} Y-\connection_{Y} X= a X-b Y$.
 
 To compute the expressions for $a$ and $b$ in terms of $X, Y, h$ and $k$, we apply the Codazzi-Mainardi equation \ref{eqn:ch02.10}. Thus \[\connection_{X} L Y-\connection_{Y} L X=(X h) Y+h a X-(Y k) X-k b Y=L([X, Y])=a k X-b h Y.\] Equating coefficients of $X$ and $Y$ leads to the expressions for $a$ and $b$.
 
 To compute $K$, first notice \[R(X, Y) Y=\connection_{X}(-b X)-\connection_{Y}(a X)-\connection_{a X-b Y} Y=-(X b) X-(Y a) X-a^{2} X-b^{2} X .\] By the Gauss curvature equations, $K=\ip{R(X, Y) Y}{X}=-(X b)-(Y a)-a^{2}-b^{2}$, and the final expression for $K$ follows by inserting the formulas for $a$ and $b$ and computing.
 
 \end{proof}
+\noindent\emph{Editor's note:} The original prints $-zY$ in the statement and $\connection_XY=bY$ in the proof; these are corrected to $-aY$ and $\connection_YX=bY$.
+
 
 
 
 \begin{corollary} \label{cor:ch3.1.3}
 
-If $m$ is a non-umbilic critical point of both principal curvatures, then $K(m)=\dfrac{X^{2} h-Y^{2} k}{ h-k}$. If $H$ has no umbilics and $K$ and $H$ are constant (or the principal curvatures are constant) then $K=0$
+If $m$ is a non-umbilic critical point of both principal curvatures, then $K(m)=\dfrac{X^{2} h-Y^{2} k}{ h-k}$. If $M$ has no umbilics and $K$ and $H$ are constant (or the principal curvatures are constant) then $K=0$.
 \end{corollary} 
 
 \end{document}

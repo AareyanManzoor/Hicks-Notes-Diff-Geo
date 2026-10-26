@@ -2,7 +2,7 @@
 \begin{document}
 
 \section{Invariant Viewpoint}\label{ch05:s1}
-The approach to connexions that follows is due to Koszul and is found in \cite{kobayashi1963foundations} %reference 
+The approach to connexions that follows is due to Koszul and is found in \cite{nomizu1954invariant}
 and the first chapter of \cite{helgason2012differential}. The definition was motivated in \ref{ch02:s1}.
 
 Let $M$ be a $\CInfty$ $n$-manifold. A \emph{connexion}\index{connexion}, \emph{infinitesimal connexion} or \emph{covariant differentiation}\index{covariant derivative} on $M$ is an operator $D$ that assigns to each pair of $\CInfty$ fields $X$ and $Y$, with domain $A$, a $\CInfty$ field $\connection_X Y$ with domain $A$; and if $Z$ is a $\CInfty$ field on $A$ while $f$ is a $\CInfty$ real valued function on $A$, then $D$ satisfies the following four properties:
@@ -49,7 +49,7 @@ for $k=1,\dots,n$ and for $t \in [a,b_1]$. The condition $Y(a) = Y$ defines $n$ 
 
 For $t \in [a,b_1]$, the map $P_{a,t}$ is linear because of the linearity of the equations \ref{eq:ch05.5}.
 
-If $t$ is any number in $[a,b_1]$, we obtain $P_{a,t}$ by covering the compact set $\sigma([a,t])$ by a finite number of coordinate neighbourhoods and parallel translating through each neighbourhood via solutions of the systems \ref{eq:ch05.5}.
+If $t$ is any number in $[a,b]$, we obtain $P_{a,t}$ by covering the compact set $\sigma([a,t])$ by a finite number of coordinate neighbourhoods and parallel translating through each neighbourhood via solutions of the systems \ref{eq:ch05.5}.
 \end{proof}
 
 
@@ -81,7 +81,7 @@ One easily checks that for $Z \in \vectorFields_A$ and $f \in \mathcal{F}_A$
     \item $ \Tor(X+Y,Z) = \Tor(X,Z) + \Tor(Y,Z)$,
     \item $\Tor(fX,Y) = f\Tor(X,Y)$ . 
 \end{itemize}
-Thus the value of $\Tor(X,Y)$ at a point $m$ depends only on $\tangentspace{X}{m}$ and $\tangentspace{Y}{m}$, and not on the fields $X$ and $Y$, by the theorem at the end of Chapter \ref{ch04}. If more than one connexion enters the discussion, we write $\Tor_\connection$ for the torsion of the connexion $D$. If $\Tor_\connection \equiv 0$, then we say that $\connection$ is \defemph{symmetric}, or \defemph{torsion free}.
+Thus the value of $\Tor(X,Y)$ at a point $m$ depends only on $X_m$ and $Y_m$, and not on the fields $X$ and $Y$, by the theorem at the end of Chapter \ref{ch04}. If more than one connexion enters the discussion, we write $\Tor_\connection$ for the torsion of the connexion $D$. If $\Tor_\connection \equiv 0$, then we say that $\connection$ is \defemph{symmetric}, or \defemph{torsion free}.
 
 As far as we know, there is no nice motivation for the word ``torsion'' to descibe the above tensor. In particular, it has nothing to do with the ``torsion of a space curve''.
 
@@ -107,7 +107,12 @@ The linearity of $R(X,Y)Z$ with respect to addition (in each of its variables) i
 
 The tensor nature of the torsion and curvature will again be verified in section \ref{ch05:s3} with exhibition of the classical coordinate representations of these tensors.
 
-The concept of a ``connexion-preserving'' map follows naturally. Let $M$ and $M'$ be $\CInfty$ manifolds with connexions $D$ and $D'$, respectively. A $\CInfty$ map \newline $f\colon M \longrightarrow M'$ is \defemph{connexion preserving}\index{connexion preserving map} if $f_*(\connection_X Y) = \connection'_{f_* X}(f_* Y)$ for all vectors $X$ and fields $Y$. Note the right side is well-defined since $f_* Y$ is a well-defined field on some curve that fits $f_* X$. A $\CInfty$ map $f \colon M \longrightarrow M'$ is \defemph{geodesic preserving}\index{geodesic preserving map} if $f \circ g$ is a geodesic in $M'$ for each geodesic $g$ in $M$. Trivially, a connexion-preserving map is geodesic preserving.
+The concept of a ``connexion-preserving'' map follows naturally. Let $M$ and $M'$ be $\CInfty$ manifolds with connexions $D$ and $D'$, respectively. A $\CInfty$ map $f\colon M\longrightarrow M'$ is \defemph{connexion preserving}\index{connexion preserving map} if, for every smooth curve $\gamma$ in $M$ and every field $Y(t)$ along $\gamma$,
+\[
+    f_*\left(\frac{D Y}{dt}\right)
+    = \frac{D'}{dt}\bigl(f_*Y(t)\bigr),
+\]
+where the derivative on the right is along $f\circ\gamma$. This is customarily written $f_*(\connection_XY)=\connection'_{f_*X}(f_*Y)$, with the derivative on the right understood along the specified parametrized image curve, or equivalently as a pullback covariant derivative. \emph{[Editor's note: the original notation hides the parametrized direction, which is essential even when $f_*X=0$ at a critical point.]} A $\CInfty$ map $f\colon M\longrightarrow M'$ is \defemph{geodesic preserving}\index{geodesic preserving map} if $f\circ g$ is a geodesic in $M'$ for each geodesic $g$ in $M$. Trivially, a connexion-preserving map is geodesic preserving.
 
 
 

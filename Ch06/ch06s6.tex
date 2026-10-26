@@ -20,7 +20,7 @@ Let $w_{ij}=\xoverline w_{ij}|_U$ and $w_i=\xoverline w_i|_U$ for $1\le i,j\le n
 \begin{equation}\tag{20} \label{eqn:ch6.6.3}
     V(X,e_j) = \xoverline w_{nj}(X)e_n
 \end{equation}
-for $1\le j\le n-1$. Thus $w_{ij}$ for $i,j\le n$ are the connexion forms for the induced Riemannian connexion $\D$ on $M$. Moreover,
+for $1\le j\le n-1$. Thus $w_{ij}$ for $1\le i,j\le n-1$ are the connexion forms for the induced Riemannian connexion $\D$ on $M$. \emph{[Editor's note: the original includes the normal index among the induced connexion indices; induced curvature forms below likewise have only tangent indices.]} Moreover,
 \begin{equation}\tag{21} \label{eqn:ch6.6.4}
     L(X) = \covariant_Xe_n = \sum_{i=1}^{n-1} w_{in}(X)e_i
 \end{equation}
@@ -33,8 +33,8 @@ Let $\firstForm,\secondForm,\thirdForm$ be the first, second, and third fundamen
     \thirdForm(X,Y) &= \ip{LX}{LY} = \sum_{i=1}^{n-1} w_{in}(X)w_{in}(Y)
 \end{align*}
 Notice
-\[0 = X\ip{e_i}{e_j} = \ip{\D_Xe_i}{e_j} + \ip{e_i}{\D_Xe_j} = w_{ji}(X) + w_{ij}(X)\]
-for all $X$ tangent to $M$, i.e. $w_{ji}=-w_{ij}$ for connexion forms belonging to an orthonormal base (and this again shows $w_{nn}=0$). Thus we can write $\secondForm$ and $\thirdForm$ in terms of $w_{ni}$ if we wish.
+\[0 = X\ip{e_i}{e_j} = \ip{\covariant_Xe_i}{e_j} + \ip{e_i}{\covariant_Xe_j} = w_{ji}(X) + w_{ij}(X)\]
+for all $X$ tangent to $M$ and $1\le i,j\le n$, i.e. $w_{ji}=-w_{ij}$ for the restricted ambient connexion forms belonging to an orthonormal base (and this again shows $w_{nn}=0$). Thus we can write $\secondForm$ and $\thirdForm$ in terms of $w_{ni}$ if we wish. \emph{[Editor's note: the original uses the induced derivative on the normal field; the ambient derivative is required here.]}
 
 Certain relations are implied by the Cartan structural equations. The equation
 \[\dd\xoverline w_n = -\sum_{j=1}^n\xoverline w_{nj}\wedge\xoverline w_j = 0\]
@@ -42,17 +42,17 @@ Certain relations are implied by the Cartan structural equations. The equation
 \[\dd\xoverline w_{nn} = -\sum_{j=1}^n\xoverline w_{nj}\wedge\xoverline w_{jn} = 0\]
 (on $\ts Mm$) implies $\thirdForm$ is symmetric. For $i,j\le n$,
 \[\dd\xoverline w_{ij} = -\sum_{s=1}^n\xoverline w_{is}\wedge\xoverline w_{sj} + \xoverline R_{ij}\]
-when restricted to vectors on $\ts Mm$, gives
+when restricted to vectors on $\ts Mm$ and with $1\le i,j\le n-1$, gives
 \[f^*\dd\xoverline w_{ij} = \dd w_{ij}
 = -\sum_{s=1}^{n-1} w_{is}\wedge w_{sj} + R_{ij}
-= -\sum_{s=1}^n w_{is}\wedge w_{sj} + \xoverline R_{ij}\]
+= -\sum_{s=1}^n w_{is}\wedge w_{sj} + f^*\xoverline R_{ij}\]
 Thus
 \begin{equation}\tag{22} \label{eqn:ch6.6.5}
-    R_{ij} = -w_{in}\wedge w_{nj} + \xoverline R_{ij}
+    R_{ij} = -w_{in}\wedge w_{nj} + f^*\xoverline R_{ij}
 \end{equation}
-which is the Gauss curvature equation\index{Gauss curvature equation} from this point of view. For $i\le n$,
+which is the Gauss curvature equation\index{Gauss curvature equation} from this point of view. For $1\le i\le n-1$,
 \begin{equation}\tag{23} \label{eqn:6.23}
-    f^*\dd\xoverline w_{in} = \dd w_{in} = -\sum_{s=1}^{n-1} w_{is}\wedge w_{sn} + \xoverline R_{in}
+    f^*\dd\xoverline w_{in} = \dd w_{in} = -\sum_{s=1}^{n-1} w_{is}\wedge w_{sn} + f^*\xoverline R_{in}
 \end{equation}
 is the Codazzi-Mainardi equation\index{Codazzi-Mainardi equations}.
 
